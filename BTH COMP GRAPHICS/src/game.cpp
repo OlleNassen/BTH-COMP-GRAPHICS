@@ -38,6 +38,7 @@ void game::run()
 	float delta_time = 0.0f;	// Time between current frame and last frame
 	float last_frame = 0.0f; // Time of last frame
 
+	shaders[0]->use();
 	game_camera.bind(*shaders[0]);
 	light.bind(*shaders[0]);
 
