@@ -2601,7 +2601,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1530542394 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1530544302 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"../include/game.hpp"
 	<iostream>
 	"shader.hpp"
@@ -2848,7 +2848,7 @@
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 
-1530532728 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\window.cpp
+1530544322 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\window.cpp
 	"window.hpp"
 	<iostream>
 

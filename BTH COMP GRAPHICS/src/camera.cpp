@@ -69,8 +69,6 @@ void camera::update(float delta_time)
 
     std::cout << current_position.y << std::endl;
 
-    glfwSetCursorPos(window_copy, 250.0, 250.0);
-
     glfwGetCursorPos(window_copy,
         &mouse_position.x, &mouse_position.y);
 

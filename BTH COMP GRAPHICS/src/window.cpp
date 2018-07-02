@@ -22,6 +22,7 @@ window::window(
     }
 
     glfwMakeContextCurrent(glfw_window);
+    glfwSetInputMode(glfw_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     glViewport(0, 0, width, height);
 }
 
