@@ -2,6 +2,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <iostream>
 
 model::model(const mesh_type& type, shader * shader_ptr)
 	:mesh(type)
@@ -16,17 +17,6 @@ model::~model()
 
 void model::render(const glm::mat4& view, const glm::mat4& projection)
 {
-	shader_ptr->use();
-	if (mesh.has_textures())
-	{
-		mesh.use_textures(shader_ptr);
-	}
-
-	//model_matrix = glm::translate(model_matrix, glm::vec3(0.f, 0.f, 0.f));
-
-	glm::mat4 mvp = projection * view * model_matrix;
-
-	shader_ptr->uniform("mvp", mvp);
-
-	mesh.draw();
+	model_matrix = glm::mat4(1.);
+	mesh.draw(projection * view * model_matrix, shader_ptr);
 }

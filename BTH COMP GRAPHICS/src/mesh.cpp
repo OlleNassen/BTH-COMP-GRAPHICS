@@ -34,15 +34,28 @@ mesh::~mesh()
 {
 }
 
-void mesh::draw()
+void mesh::draw(const glm::mat4& mvp, shader* shader_ptr)
 {
 	switch (type)
 	{
 	case mesh_type::QUAD:
 		break;
 	case mesh_type::BOX:
+		shader_ptr->use();
+		shader_ptr->uniform("mvp", mvp);
+		if(texture_ptrs.size() > 0)
+			use_textures(shader_ptr);
 		glBindVertexArray(vao);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glBindVertexArray(0);
+		break;
+	case mesh_type::TERRAIN:
+		shader_ptr->use();
+		shader_ptr->uniform("mvp", mvp);
+		if (texture_ptrs.size() > 0)
+			use_textures(shader_ptr);
+		glBindVertexArray(vao);
+		glDrawElements(GL_TRIANGLES, draw_count, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 		break;
 	default:
@@ -52,11 +65,6 @@ void mesh::draw()
 		break;
 	}
 
-}
-
-bool mesh::has_textures()
-{
-	return texture_ptrs.size() > 0;
 }
 
 void mesh::use_textures(shader * shader_ptr)

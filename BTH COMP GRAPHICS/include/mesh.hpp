@@ -28,9 +28,7 @@ public:
 	mesh(const mesh_type& type);
 	~mesh();
 
-	void draw();
-
-	bool has_textures();
+	void draw(const glm::mat4& mvp, shader* shader_ptr);
 	void use_textures(shader* shader_ptr);
 
 private:
