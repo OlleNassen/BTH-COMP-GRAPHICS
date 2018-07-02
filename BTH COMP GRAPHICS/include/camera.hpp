@@ -14,7 +14,8 @@ public:
 
     void update(float delta_time);
     glm::mat4 model_view_projection(const glm::mat4& model) const;
-	glm::mat4 get_view_projection()const;
+	glm::mat4 get_view()const;
+	glm::mat4 get_projection()const;
     void bind(const shader& shader);
 	void set_window_copy(GLFWwindow* window_copy);
 private:

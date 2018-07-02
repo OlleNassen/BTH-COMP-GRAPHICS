@@ -14,7 +14,7 @@ model::~model()
 {
 }
 
-void model::render(const glm::mat4& view_projection)
+void model::render(const glm::mat4& view, const glm::mat4& projection)
 {
 	shader_ptr->use();
 	if (mesh.has_textures())
@@ -24,7 +24,7 @@ void model::render(const glm::mat4& view_projection)
 
 	//model_matrix = glm::translate(model_matrix, glm::vec3(0.f, 0.f, 0.f));
 
-	glm::mat4 mvp = view_projection * model_matrix;
+	glm::mat4 mvp = projection * view * model_matrix;
 
 	shader_ptr->uniform("mvp", mvp);
 

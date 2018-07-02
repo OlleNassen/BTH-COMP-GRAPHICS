@@ -9,7 +9,7 @@ public:
 	model(const mesh_type& type, shader* shader_ptr);
 	~model();
 
-	void render(const glm::mat4& view_projection);
+	void render(const glm::mat4& view, const glm::mat4& projection);
 private:
 	shader* shader_ptr;
 	mesh mesh;

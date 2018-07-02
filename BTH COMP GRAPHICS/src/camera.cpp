@@ -29,6 +29,9 @@ camera::camera(float fovy, float width, float height, float near, float far)
 
 void camera::update(float delta_time)
 {
+	if (glfwGetKey(window_copy, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		glfwSetWindowShouldClose(window_copy, true);
+
     float velocity = 10.0f * delta_time;
     if (glfwGetKey(window_copy, GLFW_KEY_W) == GLFW_PRESS)
         position += forward * velocity;
@@ -76,8 +79,6 @@ void camera::update(float delta_time)
     front.z = cos(glm::radians(pitch)) * sin(glm::radians(yaw));
 
     forward = glm::normalize(front);
-
-    view = glm::lookAt(position, position + forward, up);
 }
 
 glm::mat4 camera::model_view_projection(const glm::mat4& model) const
@@ -85,10 +86,17 @@ glm::mat4 camera::model_view_projection(const glm::mat4& model) const
     return projection * view * model;
 }
 
-glm::mat4 camera::get_view_projection() const
+glm::mat4 camera::get_view() const
 {
-	return projection * view;
+	return glm::lookAt(position, position + forward, up);
 }
+
+glm::mat4 camera::get_projection() const
+{
+	return projection;
+}
+
+
 
 void camera::bind(const shader& shader)
 {

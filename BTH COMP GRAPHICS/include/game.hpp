@@ -18,7 +18,6 @@ private:
 
 	window game_window;
 	camera game_camera;
-	shader noob;
 	std::vector<model*> models;
 	std::vector<shader> shaders;
 
