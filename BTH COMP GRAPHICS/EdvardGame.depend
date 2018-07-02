@@ -2610,9 +2610,10 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1530532107 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
+	"window.hpp"
 	"camera.hpp"
 
 1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glfw\glfw3.h
@@ -2839,4 +2840,9 @@
 1530531259 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\vertex_array.cpp
 	"vertex_array.hpp"
 	<GL/glew.h>
+
+1530532438 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\window.hpp
+	<string>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
 
