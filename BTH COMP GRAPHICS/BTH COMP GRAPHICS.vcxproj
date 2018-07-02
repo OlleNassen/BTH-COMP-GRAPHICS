@@ -145,6 +145,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\mesh.cpp" />
+    <ClCompile Include="src\model.cpp" />
+    <ClCompile Include="src\terrain.cpp" />
     <ClCompile Include="src\buffer.cpp" />
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\directional_light.cpp" />
@@ -162,10 +165,17 @@
     <ClInclude Include="include\directional_light.hpp" />
     <ClInclude Include="include\frame_buffer.hpp" />
     <ClInclude Include="include\game.hpp" />
+    <ClInclude Include="include\mesh.hpp" />
+    <ClInclude Include="include\model.hpp" />
     <ClInclude Include="include\shader.hpp" />
+    <ClInclude Include="include\terrain.hpp" />
     <ClInclude Include="include\texture.hpp" />
     <ClInclude Include="include\vertex_array.hpp" />
     <ClInclude Include="include\window.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\terrain.fs" />
+    <None Include="shaders\terrain.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
