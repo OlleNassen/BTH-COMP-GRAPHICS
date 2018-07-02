@@ -1,6 +1,7 @@
 #include "window.hpp"
 #include <iostream>
 
+
 window::window(
     unsigned int width,
     unsigned int height,

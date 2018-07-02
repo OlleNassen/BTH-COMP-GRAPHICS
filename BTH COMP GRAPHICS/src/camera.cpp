@@ -39,16 +39,6 @@ void camera::update(float delta_time)
 	if (glfwGetKey(window_copy, GLFW_KEY_D) == GLFW_PRESS)
         position += glm::normalize(glm::cross(forward, up)) * velocity;
 
-  /*sf::Vector2i new_position = sf::Mouse::getPosition();
-	sf::Vector2f current_position = sf::Vector2f(new_position - mouse_position);
-	sf::Mouse::setPosition(sf::Vector2i(250, 250));
-    mouse_position = sf::Mouse::getPosition();
-
-    float sensitivity = 0.1f;
-    current_position *= sensitivity;
-    yaw   += current_position.x;
-    pitch -= current_position.y;*/
-
     if(first)
     {
         glfwSetCursorPos(window_copy, 250.0, 250.0);
@@ -66,8 +56,6 @@ void camera::update(float delta_time)
         current_position.y = 0;
         first = false;
     }
-
-    std::cout << current_position.y << std::endl;
 
     glfwGetCursorPos(window_copy,
         &mouse_position.x, &mouse_position.y);
