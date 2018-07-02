@@ -79,8 +79,7 @@ void mesh::use_textures(const shader& shader_ptr)
 	//Expand this to use more textures
 	for(int i = 0; i < texture_ptrs.size(); i++)
     {
-        shader_ptr.uniform("image", 0);
-        texture_ptrs[0]->uniform(shader_ptr, 0);
+        texture_ptrs[i]->uniform(shader_ptr, "image", i);
     }
 }
 
