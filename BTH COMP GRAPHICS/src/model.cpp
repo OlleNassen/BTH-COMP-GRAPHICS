@@ -26,7 +26,7 @@ void model::render(const glm::mat4& view_projection)
 
 	glm::mat4 mvp = view_projection * model_matrix;
 
-	shader_ptr->uniform("mvp", mvp);
+	shader_ptr->uniform("model_view_projection", mvp);
 
 	mesh.draw();
 }

@@ -18,6 +18,8 @@ game::game()
 	glEnable(GL_BLEND);
 
 	load_shaders();
+
+	models.push_back(new model(mesh_type::BOX, &shaders[0]));
 }
 
 game::~game()
