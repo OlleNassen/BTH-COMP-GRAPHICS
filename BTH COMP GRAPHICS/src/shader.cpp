@@ -102,7 +102,7 @@ std::string shader::load(const std::string& path) const
     return code;
 }
 
-unsigned int shader::create(GLenum shader_type, const GLchar* shader_code) const
+unsigned int shader::create(unsigned int shader_type, const char* shader_code) const
 {
     unsigned int shader_id;
     int success;
