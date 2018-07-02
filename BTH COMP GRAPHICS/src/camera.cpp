@@ -12,6 +12,8 @@ camera::camera(float left, float right, float bottom, float top)
     position = glm::vec3(0.0f, 0.0f,  3.0f);
     forward = glm::vec3(0.0f, 0.0f, -1.0f);
     up = glm::vec3(0.0f, 1.0f,  0.0f);
+
+    first = true;
 }
 
 camera::camera(float fovy, float width, float height, float near, float far)
@@ -46,13 +48,26 @@ void camera::update(float delta_time)
     current_position *= sensitivity;
     yaw   += current_position.x;
     pitch -= current_position.y;*/
+
+    if(first)
+    {
+        glfwSetCursorPos(window_copy, 250.0, 250.0);
+    }
+
     glm::vec<2, double, glm::highp> new_position;
     glfwGetCursorPos(window_copy,
         &new_position.x, &new_position.y);
 
-    std::cout << new_position.x << std::endl;
-
     glm::vec<2, double, glm::highp> current_position = new_position - mouse_position;
+
+    if(first)
+    {
+        current_position.x = 0;
+        current_position.y = 0;
+        first = false;
+    }
+
+    std::cout << current_position.y << std::endl;
 
     glfwSetCursorPos(window_copy, 250.0, 250.0);
 

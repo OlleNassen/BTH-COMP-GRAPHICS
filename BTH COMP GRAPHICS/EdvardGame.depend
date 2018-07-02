@@ -2044,13 +2044,14 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1530539179 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
+1530540127 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
 	"camera.hpp"
 	<GL/glew.h>
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
+	<iostream>
 
-1530539123 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\camera.hpp
+1530540316 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\camera.hpp
 	<glm/glm.hpp>
 	"shader.hpp"
 	<gl/glew.h>

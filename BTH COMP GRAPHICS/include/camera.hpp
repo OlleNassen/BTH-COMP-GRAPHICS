@@ -17,6 +17,7 @@ public:
     void bind(const shader& shader);
 	void set_window_copy(GLFWwindow* window_copy);
 private:
+    bool first;
     float yaw;
     float pitch;
 
