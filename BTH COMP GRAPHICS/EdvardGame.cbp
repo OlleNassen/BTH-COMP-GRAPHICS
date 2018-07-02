@@ -49,6 +49,7 @@
 		<Unit filename="include/directional_light.hpp" />
 		<Unit filename="include/frame_buffer.hpp" />
 		<Unit filename="include/game.hpp" />
+		<Unit filename="include/input.hpp" />
 		<Unit filename="include/mesh.hpp" />
 		<Unit filename="include/model.hpp" />
 		<Unit filename="include/shader.hpp" />
@@ -68,6 +69,7 @@
 		<Unit filename="src/directional_light.cpp" />
 		<Unit filename="src/frame_buffer.cpp" />
 		<Unit filename="src/game.cpp" />
+		<Unit filename="src/input.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/mesh.cpp" />
 		<Unit filename="src/model.cpp" />

@@ -1,5 +1,6 @@
 #include "game.hpp"
 #include <iostream>
+#include "input.hpp"
 
 game::game()
 	: game_window(WIDTH, HEIGHT, "VOILA")
@@ -20,12 +21,19 @@ game::game()
 
 	load_shaders();
 
-	game_window.assign_mouse_callback(
+	input::assign_window(game_window);
+
+	input::assign_mouse_callback(
         std::bind(
         &camera::on_mouse_moved,
         &game_camera,
         std::placeholders::_1,
         std::placeholders::_2));
+
+    input::bind_key("up", input::key::W);
+    input::bind_key("up", input::key::S);
+    input::bind_key("left", input::key::A);
+    input::bind_key("right", input::key::D);
 
 	models.push_back(new model(mesh_type::BOX, shaders[0]));
 	models.push_back(new model(mesh_type::TERRAIN, shaders[2]));
