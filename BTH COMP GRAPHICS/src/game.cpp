@@ -137,7 +137,7 @@ void game::run()
 
     shadow_shader.use();
 
-    texture buffer_texture(1024, 1024, wrap::REPEAT,
+    texture buffer_texture(1024, 1024, wrap::CLAMP_TO_EDGE,
         filter::NEAREST, format::DEPTH_COMPONENT, type::FLOAT);
     frame_buffer frame_buffer;
     frame_buffer.bind_texture(buffer_texture);
@@ -171,6 +171,31 @@ void game::run()
             shadow_shader.uniform("model", model);
             glDrawArrays(GL_TRIANGLES, 0, 36);
         }
+
+        glm::mat4 model(1);
+        model = glm::translate(model, glm::vec3(0.0f, 20.0f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.2f));
+        shader.uniform("model", model);
+
+        glm::mat4 mvp = camera.model_view_projection(model);
+        shader.uniform("model_view_projection", mvp);
+
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        texture_ground.uniform(shader, "object_material.diffuse", 0);
+        texture_ground.uniform(shader, "object_material.specular", 1);
+
+        model = glm::mat4(1);
+        glm::vec3 floor_position(0.0f, -53.0f, 0.0f);
+        model = glm::translate(model, floor_position);
+        model = glm::scale(model, glm::vec3(100.0f));
+        shader.uniform("model", model);
+
+        mvp = camera.model_view_projection(model);
+        shader.uniform("model_view_projection", mvp);
+
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
         glBindVertexArray(0);
 
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -216,12 +241,12 @@ void game::run()
             glDrawArrays(GL_TRIANGLES, 0, 36);
         }
 
-        glm::mat4 model(1);
+        model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(0.0f, 20.0f, 0.0f));
         model = glm::scale(model, glm::vec3(0.2f));
         shader.uniform("model", model);
 
-        glm::mat4 mvp = camera.model_view_projection(model);
+        mvp = camera.model_view_projection(model);
         shader.uniform("model_view_projection", mvp);
 
         glDrawArrays(GL_TRIANGLES, 0, 36);
@@ -230,7 +255,6 @@ void game::run()
         texture_ground.uniform(shader, "object_material.specular", 1);
 
         model = glm::mat4(1);
-        glm::vec3 floor_position(0.0f, -53.0f, 0.0f);
         model = glm::translate(model, floor_position);
         model = glm::scale(model, glm::vec3(100.0f));
         shader.uniform("model", model);
