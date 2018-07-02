@@ -49,7 +49,7 @@ void mesh::draw(const glm::mat4& mvp, const shader& shader_ptr)
 		break;
 	case mesh_type::BOX:
 		shader_ptr.use();
-		shader_ptr.uniform("mvp", mvp);
+		shader_ptr.uniform("model_view_projection", mvp);
 		if(texture_ptrs.size() > 0)
 			use_textures(shader_ptr);
 		glBindVertexArray(vao);
@@ -77,10 +77,13 @@ void mesh::draw(const glm::mat4& mvp, const shader& shader_ptr)
 void mesh::use_textures(const shader& shader_ptr)
 {
 	//Expand this to use more textures
-	for(int i = 0; i < texture_ptrs.size(); i++)
+	/*for(int i = 0; i < texture_ptrs.size(); i++)
     {
         texture_ptrs[i]->uniform(shader_ptr, "image", i);
-    }
+    }*/
+    texture_ptrs[0]->uniform(shader_ptr, "object_material.diffuse", 0);
+    texture_ptrs[1]->uniform(shader_ptr, "object_material.specular", 1);
+    texture_ptrs[1]->uniform(shader_ptr, "object_material.shininess", 32.0f);
 }
 
 void mesh::load_quad()

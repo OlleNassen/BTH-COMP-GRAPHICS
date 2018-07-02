@@ -17,6 +17,7 @@ model::~model()
 
 void model::render(const glm::mat4& view, const glm::mat4& projection)
 {
+	shader_ptr->uniform("model", model_matrix);
 	mesh.draw(projection * view * model_matrix, *shader_ptr);
 }
 
