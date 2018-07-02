@@ -20,7 +20,7 @@ game::game()
 
 	load_shaders();
 
-	models.push_back(new model(mesh_type::BOX, shaders[3]));
+	models.push_back(new model(mesh_type::BOX, shaders[0]));
 	models.push_back(new model(mesh_type::TERRAIN, shaders[2]));
 	models.push_back(new model(mesh_type::QUAD, shaders[4]));
 
@@ -35,6 +35,8 @@ void game::run()
 {
 	float delta_time = 0.0f;	// Time between current frame and last frame
 	float last_frame = 0.0f; // Time of last frame
+
+	game_camera.bind(*shaders[0]);
 
 	while (game_window.is_open())
 	{

@@ -4,6 +4,7 @@
 #include "window.hpp"
 #include "camera.hpp"
 #include "shader.hpp"
+#include "directional_light.hpp"
 
 class game
 {
@@ -18,6 +19,7 @@ private:
 
 	window game_window;
 	camera game_camera;
+	//directional_light light;
 	std::vector<model*> models;
 	std::vector<shader*> shaders;
 
