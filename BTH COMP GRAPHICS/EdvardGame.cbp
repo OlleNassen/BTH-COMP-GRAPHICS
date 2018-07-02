@@ -50,6 +50,7 @@
 		<Unit filename="include/frame_buffer.hpp" />
 		<Unit filename="include/game.hpp" />
 		<Unit filename="include/mesh.hpp" />
+		<Unit filename="include/model.hpp" />
 		<Unit filename="include/shader.hpp" />
 		<Unit filename="include/texture.hpp" />
 		<Unit filename="include/vertex_array.hpp" />
@@ -58,6 +59,8 @@
 		<Unit filename="shaders/basic.vs" />
 		<Unit filename="shaders/shadow.fs" />
 		<Unit filename="shaders/shadow.vs" />
+		<Unit filename="shaders/terrain.fs" />
+		<Unit filename="shaders/terrain.vs" />
 		<Unit filename="src/buffer.cpp" />
 		<Unit filename="src/camera.cpp" />
 		<Unit filename="src/directional_light.cpp" />
@@ -65,6 +68,7 @@
 		<Unit filename="src/game.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/mesh.cpp" />
+		<Unit filename="src/model.cpp" />
 		<Unit filename="src/shader.cpp" />
 		<Unit filename="src/texture.cpp" />
 		<Unit filename="src/vertex_array.cpp" />
