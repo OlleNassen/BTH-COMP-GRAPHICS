@@ -10,6 +10,8 @@ public:
 	~model();
 
 	void render(const glm::mat4& view, const glm::mat4& projection);
+	void move(const glm::vec3& offset);
+	void set_position(const glm::vec3& position);
 private:
 	shader* shader_ptr;
 	mesh mesh;

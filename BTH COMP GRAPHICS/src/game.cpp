@@ -69,6 +69,12 @@ void game::render()
 
 void game::update(float delta_time)
 {
+	float temp_speed = 5.f;
+	models[1]->move(glm::vec3(0, -(temp_speed * delta_time), 0));
+
+	if (glfwGetKey(game_window.glfw_window, GLFW_KEY_ENTER) == GLFW_PRESS)
+		models[1]->set_position(glm::vec3(0, 0, 0));
+
 	game_camera.update(delta_time);
 }
 

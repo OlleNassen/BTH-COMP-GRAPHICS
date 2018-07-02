@@ -17,6 +17,16 @@ model::~model()
 
 void model::render(const glm::mat4& view, const glm::mat4& projection)
 {
-	model_matrix = glm::mat4(1.);
 	mesh.draw(projection * view * model_matrix, *shader_ptr);
+}
+
+void model::move(const glm::vec3 & offset)
+{
+	model_matrix = glm::translate(model_matrix, offset);
+}
+
+void model::set_position(const glm::vec3 & position)
+{
+	model_matrix = glm::mat4(1);
+	model_matrix = glm::translate(model_matrix, position);
 }
