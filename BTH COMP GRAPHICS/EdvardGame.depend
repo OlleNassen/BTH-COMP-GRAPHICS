@@ -2044,7 +2044,7 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1530540305 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
+1530547879 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
 	"camera.hpp"
 	<GL/glew.h>
 	<glm/gtc/matrix_transform.hpp>
@@ -2601,8 +2601,8 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1530544302 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
-	"../include/game.hpp"
+1530546176 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+	"game.hpp"
 	<iostream>
 	"shader.hpp"
 	"buffer.hpp"
@@ -2644,23 +2644,17 @@
 1530531259 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\main.cpp
 	"game.hpp"
 
-1530534300 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
+1530547953 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
 	"mesh.hpp"
-
-1530534139 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh.hpp
-	<string>
-	<vector>
-	<map>
-	<GL/glew.h>
 	<glm/glm.hpp>
-	<glm/gtc/matrix_transform.hpp>
-	<glm/gtc/type_ptr.hpp>
-	<assimp/Importer.hpp>
-	<assimp/Scene.h>
-	<assimp/postprocess.h>
-	"buffer.hpp"
-	"vertex_array.hpp"
+	<vector>
+	<iostream>
+
+1530547953 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh.hpp
+	<gl\glew.h>
 	"texture.hpp"
+	<stb_image.h>
+	<vector>
 
 1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\importer.hpp
 	"types.h"
@@ -2848,7 +2842,18 @@
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 
-1530544322 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\window.cpp
+1530545775 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\window.cpp
 	"window.hpp"
 	<iostream>
+
+1530548010 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+	"model.hpp"
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+
+1530547953 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
+	"shader.hpp"
+	"mesh.hpp"
+	"texture.hpp"
 
