@@ -4,6 +4,7 @@
 game::game()
 	: game_window(WIDTH, HEIGHT, "VOILA")
 	, game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 100.0f)
+	, noob("shaders/noob.vs", "shaders/noob.vs")
 {
 	game_camera.set_window_copy(game_window.glfw_window);
 	glewExperimental = GL_TRUE;
@@ -19,7 +20,7 @@ game::game()
 
 	load_shaders();
 
-	models.push_back(new model(mesh_type::BOX, &shaders[0]));
+	models.push_back(new model(mesh_type::BOX, &noob));
 }
 
 game::~game()
@@ -40,7 +41,7 @@ void game::run()
 		handle_events();
 
 		handle_input();
-		
+
 		update(delta_time);
 
 		render();

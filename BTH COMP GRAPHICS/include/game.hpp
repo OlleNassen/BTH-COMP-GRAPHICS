@@ -3,6 +3,7 @@
 #include "model.hpp"
 #include "window.hpp"
 #include "camera.hpp"
+#include "shader.hpp"
 
 class game
 {
@@ -15,8 +16,9 @@ private:
 	static const unsigned int WIDTH = 1280;
 	static const unsigned int HEIGHT = 720;
 
-	camera game_camera;
 	window game_window;
+	camera game_camera;
+	shader noob;
 	std::vector<model*> models;
 	std::vector<shader> shaders;
 

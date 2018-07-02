@@ -2044,14 +2044,14 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1530547879 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
+1530549303 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
 	"camera.hpp"
 	<GL/glew.h>
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 	<iostream>
 
-1530540316 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\camera.hpp
+1530549303 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\camera.hpp
 	<glm/glm.hpp>
 	"shader.hpp"
 	<gl/glew.h>
@@ -2601,22 +2601,15 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1530546176 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1530550976 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
-	"shader.hpp"
-	"buffer.hpp"
-	"vertex_array.hpp"
-	"directional_light.hpp"
-	"texture.hpp"
-	"frame_buffer.hpp"
-	<glm/gtc/matrix_transform.hpp>
-	<glm/gtc/type_ptr.hpp>
 
-1530542239 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
-	<GL/glew.h>
+1530551070 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+	"model.hpp"
 	"window.hpp"
 	"camera.hpp"
+	"shader.hpp"
 
 1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glfw\glfw3.h
 	<stddef.h>
@@ -2644,7 +2637,7 @@
 1530531259 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\main.cpp
 	"game.hpp"
 
-1530547953 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
+1530551007 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
 	"mesh.hpp"
 	<glm/glm.hpp>
 	<vector>
@@ -2812,7 +2805,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1530535728 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\texture.cpp
+1530548444 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\texture.cpp
 	"texture.hpp"
 	<iostream>
 	<stb_image.h>
@@ -2846,13 +2839,13 @@
 	"window.hpp"
 	<iostream>
 
-1530548010 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1530551007 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1530547953 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
+1530549303 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
 	"shader.hpp"
 	"mesh.hpp"
 	"texture.hpp"
