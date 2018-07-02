@@ -16,6 +16,8 @@ mesh::mesh(const mesh_type& type)
 	case mesh_type::BOX:
 		this->type = type;
 		load_box();
+		texture_ptrs.push_back(new texture("images/container2.png"));
+		texture_ptrs.push_back(new texture("images/container2_specular.png"));
 		break;
 	case mesh_type::TERRAIN:
 		this->type = type;
@@ -83,7 +85,7 @@ void mesh::use_textures(const shader& shader_ptr)
     }*/
     texture_ptrs[0]->uniform(shader_ptr, "object_material.diffuse", 0);
     texture_ptrs[1]->uniform(shader_ptr, "object_material.specular", 1);
-    texture_ptrs[1]->uniform(shader_ptr, "object_material.shininess", 32.0f);
+    shader_ptr.uniform("object_material.shininess", 32.0f);
 }
 
 void mesh::load_quad()
