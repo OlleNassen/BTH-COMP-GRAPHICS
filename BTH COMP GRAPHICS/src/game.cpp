@@ -142,9 +142,14 @@ void game::run()
     frame_buffer frame_buffer;
     frame_buffer.bind_texture(buffer_texture);
 
+    float delta_time = 0.0f;	// Time between current frame and last frame
+    float last_frame = 0.0f; // Time of last frame
+
     while (game_window.is_open())
     {
-        float delta_time = 0.016f;
+        float current_frame = glfwGetTime();
+        delta_time = current_frame - last_frame;
+        last_frame = current_frame;
 
         camera.update(delta_time);
 
