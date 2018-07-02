@@ -9,7 +9,7 @@ mesh::mesh(const mesh_type& type)
 {
 	switch (type)
 	{
-	case mesh_type::terrain:
+	case mesh_type::TERRAIN:
 		this->type = type;
 		load_terrain();
 		break;
@@ -29,7 +29,7 @@ void mesh::draw()
 {
 	switch (type)
 	{
-	case mesh_type::quad:
+	case mesh_type::QUAD:
 		break;
 
 	default:
@@ -39,6 +39,18 @@ void mesh::draw()
 		break;
 	}
 
+}
+
+bool mesh::has_textures()
+{
+	return texture_ptrs.size() > 0;
+}
+
+void mesh::use_textures(shader * shader_ptr)
+{
+	//Expand this to use more textures
+	shader_ptr->uniform("image", 0);
+	texture_ptrs[0]->uniform(*shader_ptr, 0);
 }
 
 void mesh::load_terrain()

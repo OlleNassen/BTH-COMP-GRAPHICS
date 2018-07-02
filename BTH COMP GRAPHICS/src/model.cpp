@@ -8,25 +8,23 @@ model::model(const mesh_type& type, shader * shader_ptr, texture* texture_ptr)
 {
 	model_matrix = glm::mat4(1.);
 	this->shader_ptr = shader_ptr;
-	this->texture_ptr = texture_ptr;
 }
 
 model::~model()
 {
 }
 
-void model::render(const glm::mat4& viewProjection)
+void model::render(const glm::mat4& view_projection)
 {
 	shader_ptr->use();
-	if (texture_ptr)
+	if (mesh.has_textures())
 	{
-		shader_ptr->uniform("image", 0);
-		texture_ptr->uniform(*shader_ptr,0);
+		mesh.use_textures(shader_ptr)
 	}
 
 	model_matrix = glm::translate(model_matrix, glm::vec3(0.f, 0.f, 0.f));
 
-	glm::mat4 mvp = viewProjection * model_matrix;
+	glm::mat4 mvp = view_projection * model_matrix;
 
 	shader_ptr->uniform("mvp", mvp);
 
