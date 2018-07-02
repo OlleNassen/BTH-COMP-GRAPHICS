@@ -19,7 +19,7 @@ void model::render(const glm::mat4& view_projection)
 	shader_ptr->use();
 	if (mesh.has_textures())
 	{
-		mesh.use_textures(shader_ptr)
+		mesh.use_textures(shader_ptr);
 	}
 
 	model_matrix = glm::translate(model_matrix, glm::vec3(0.f, 0.f, 0.f));

@@ -2044,7 +2044,7 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1530544382 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
+1530547879 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
 	"camera.hpp"
 	<GL/glew.h>
 	<glm/gtc/matrix_transform.hpp>
@@ -2644,16 +2644,17 @@
 1530531259 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\main.cpp
 	"game.hpp"
 
-1530546580 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
+1530547953 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
 	"mesh.hpp"
 	<glm/glm.hpp>
 	<vector>
 	<iostream>
 
-1530546580 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh.hpp
+1530547953 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh.hpp
 	<gl\glew.h>
 	"texture.hpp"
 	<stb_image.h>
+	<vector>
 
 1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\importer.hpp
 	"types.h"
@@ -2845,13 +2846,13 @@
 	"window.hpp"
 	<iostream>
 
-1530546580 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1530548010 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1530546580 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
+1530547953 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
 	"shader.hpp"
 	"mesh.hpp"
 	"texture.hpp"

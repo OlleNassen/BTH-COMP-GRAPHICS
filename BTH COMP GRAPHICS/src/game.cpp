@@ -125,7 +125,6 @@ void game::run()
     texture texture_ground("images/ground.png");
 
     shader shader("shaders/basic.vs", "shaders/basic.fs");
-    shader.use();
 
     buffer vertex_buffer(target::ARRAY_BUFFER);
     vertex_buffer.data(sizeof(vertices), vertices, GL_STATIC_DRAW);
