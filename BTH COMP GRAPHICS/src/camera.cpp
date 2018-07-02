@@ -9,6 +9,8 @@ camera::camera(float left, float right, float bottom, float top)
 {
     yaw = -80.0f;
     pitch = 0.0f;
+    last_x = 0.0f;
+    last_y = 0.0f;
     position = glm::vec3(0.0f, 0.0f,  3.0f);
     forward = glm::vec3(0.0f, 0.0f, -1.0f);
     up = glm::vec3(0.0f, 1.0f,  0.0f);
@@ -26,13 +28,43 @@ camera::camera(float fovy, float width, float height, float near, float far)
     up = glm::vec3(0.0f, 1.0f,  0.0f);
 }
 
+void camera::on_mouse_moved(float x, float y)
+{
+    if(first)
+    {
+        last_x = x;
+        last_y = y;
+        first = false;
+    }
+
+    float xoffset = x - last_x;
+    float yoffset = last_y - y;
+    last_x = x;
+    last_y = y;
+
+    float sensitivity = 0.05;
+    xoffset *= sensitivity;
+    yoffset *= sensitivity;
+
+    yaw   += xoffset;
+    pitch += yoffset;
+
+    if(pitch > 89.0f)
+        pitch = 89.0f;
+    if(pitch < -89.0f)
+        pitch = -89.0f;
+
+    glm::vec3 front;
+    front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+    front.y = sin(glm::radians(pitch));
+    front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+    forward = glm::normalize(front);
+}
 
 void camera::update(float delta_time)
 {
 	if (glfwGetKey(window_copy, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(window_copy, true);
-
-
 
 	float velocity = 10.0f;
 	//TURBO SPEED
@@ -50,44 +82,6 @@ void camera::update(float delta_time)
         position -= forward * velocity;
 	if (glfwGetKey(window_copy, GLFW_KEY_D) == GLFW_PRESS)
         position += glm::normalize(glm::cross(forward, up)) * velocity;
-
-    if(first)
-    {
-        glfwSetCursorPos(window_copy, 250.0, 250.0);
-    }
-
-    glm::vec<2, double, glm::highp> new_position;
-    glfwGetCursorPos(window_copy,
-        &new_position.x, &new_position.y);
-
-    glm::vec<2, double, glm::highp> current_position = new_position - mouse_position;
-
-    if(first)
-    {
-        current_position.x = 0;
-        current_position.y = 0;
-        first = false;
-    }
-
-    glfwGetCursorPos(window_copy,
-        &mouse_position.x, &mouse_position.y);
-
-    float sensitivity = 0.1f;
-    current_position *= sensitivity;
-    yaw   += current_position.x;
-    pitch -= current_position.y;
-
-    if(pitch > 89.0f)
-        pitch =  89.0f;
-    if(pitch < -89.0f)
-        pitch = -89.0f;
-
-    glm::vec3 front;
-    front.x = cos(glm::radians(pitch)) * cos(glm::radians(yaw));
-    front.y = sin(glm::radians(pitch));
-    front.z = cos(glm::radians(pitch)) * sin(glm::radians(yaw));
-
-    forward = glm::normalize(front);
 }
 
 glm::mat4 camera::model_view_projection(const glm::mat4& model) const

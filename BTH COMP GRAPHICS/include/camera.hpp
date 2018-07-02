@@ -12,6 +12,8 @@ public:
     camera(float left, float right, float bottom, float top);
     camera(float fovy, float width, float height, float near, float far);
 
+    void on_mouse_moved(float x, float y);
+
     void update(float delta_time);
     glm::mat4 model_view_projection(const glm::mat4& model) const;
 	glm::mat4 get_view()const;
@@ -22,6 +24,8 @@ private:
     bool first;
     float yaw;
 	float pitch;
+	float last_x;
+	float last_y;
 
     glm::mat4 view;
     glm::mat4 projection;

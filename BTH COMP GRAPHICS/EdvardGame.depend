@@ -2044,14 +2044,14 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
+1530575320 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
 	"camera.hpp"
 	<GL/glew.h>
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 	<iostream>
 
-1530555853 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\camera.hpp
+1530575840 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\camera.hpp
 	<glm/glm.hpp>
 	"shader.hpp"
 	<gl/glew.h>
@@ -2601,7 +2601,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1530561234 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1530575606 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 
@@ -2638,7 +2638,7 @@
 1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\main.cpp
 	"game.hpp"
 
-1530561124 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
+1530561356 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
 	"mesh.hpp"
 	<glm/glm.hpp>
 	<vector>
@@ -2831,14 +2831,16 @@
 	"vertex_array.hpp"
 	<GL/glew.h>
 
-1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\window.hpp
+1530574476 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\window.hpp
 	<string>
+	<functional>
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 
-1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\window.cpp
+1530575494 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\window.cpp
 	"window.hpp"
 	<iostream>
+	<map>
 
 1530560954 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"

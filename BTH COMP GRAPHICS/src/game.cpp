@@ -20,6 +20,13 @@ game::game()
 
 	load_shaders();
 
+	game_window.assign_mouse_callback(
+        std::bind(
+        &camera::on_mouse_moved,
+        &game_camera,
+        std::placeholders::_1,
+        std::placeholders::_2));
+
 	models.push_back(new model(mesh_type::BOX, shaders[0]));
 	models.push_back(new model(mesh_type::TERRAIN, shaders[2]));
 	models.push_back(new model(mesh_type::QUAD, shaders[4]));
@@ -55,8 +62,6 @@ void game::run()
 		update(delta_time);
 
 		render();
-
-
 	}
 }
 
