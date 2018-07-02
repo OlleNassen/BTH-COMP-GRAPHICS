@@ -8,7 +8,7 @@ window::window(
 {
     if(!glfwInit())
     {
-        std::cout << "failed to init glfw";
+        std::cout << "Failed to init glfw";
     }
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -27,7 +27,8 @@ window::window(
 
 window::~window()
 {
-    //dtor
+    glfwDestroyWindow(glfw_window);
+    glfwTerminate();
 }
 
 bool window::is_open() const

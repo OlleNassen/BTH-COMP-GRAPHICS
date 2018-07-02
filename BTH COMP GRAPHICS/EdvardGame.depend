@@ -2598,7 +2598,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1530531259 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1530532488 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"../include/game.hpp"
 	<iostream>
 	"shader.hpp"
@@ -2610,9 +2610,8 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1530532107 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1530532643 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	<GL/glew.h>
-	<GLFW/glfw3.h>
 	"window.hpp"
 	"camera.hpp"
 
