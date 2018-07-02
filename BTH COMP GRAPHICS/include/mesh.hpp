@@ -81,7 +81,7 @@ private:
 
     std::vector<bone_info> bone_infos;
     std::vector<mesh_entry> entries;
-    //std::vector<texture> textures;
+    std::vector<texture> textures;
     std::map<std::string, unsigned int> bone_mapping;
     unsigned int num_bones;
 
