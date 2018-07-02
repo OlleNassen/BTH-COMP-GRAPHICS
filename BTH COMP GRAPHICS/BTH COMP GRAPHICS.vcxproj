@@ -74,6 +74,7 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
     <SourcePath>$(ProjectDir)src;$(SourcePath)</SourcePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -144,7 +145,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\buffer.cpp" />
+    <ClCompile Include="src\camera.cpp" />
+    <ClCompile Include="src\directional_light.cpp" />
+    <ClCompile Include="src\frame_buffer.cpp" />
+    <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\shader.cpp" />
+    <ClCompile Include="src\texture.cpp" />
+    <ClCompile Include="src\vertex_array.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\buffer.hpp" />
+    <ClInclude Include="include\camera.hpp" />
+    <ClInclude Include="include\directional_light.hpp" />
+    <ClInclude Include="include\frame_buffer.hpp" />
+    <ClInclude Include="include\game.hpp" />
+    <ClInclude Include="include\shader.hpp" />
+    <ClInclude Include="include\texture.hpp" />
+    <ClInclude Include="include\vertex_array.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

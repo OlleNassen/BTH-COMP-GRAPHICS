@@ -2,6 +2,7 @@
 #define MESH_HPP
 
 #include <string>
+#include <vector>
 #include <map>
 #include <GL/glew.h>
 #include <glm/glm.hpp>

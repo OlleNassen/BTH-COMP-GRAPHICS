@@ -1,4 +1,4 @@
-#include "game.hpp"
+#include "../include/game.hpp"
 #include <iostream>
 #include "shader.hpp"
 #include "buffer.hpp"
@@ -6,7 +6,9 @@
 #include "directional_light.hpp"
 #include "texture.hpp"
 #include "frame_buffer.hpp"
-#include "mesh.hpp"
+//#include "mesh.hpp"
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 game::game()
     : camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 100.0f)
