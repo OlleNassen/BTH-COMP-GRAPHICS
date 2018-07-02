@@ -18,7 +18,7 @@ public:
     void poll_events();
 
 
-private:
+public:
     GLFWwindow* glfw_window;
 };
 

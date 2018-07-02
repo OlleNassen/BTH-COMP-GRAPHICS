@@ -14,6 +14,7 @@ game::game()
     : game_window(WIDTH, HEIGHT, "EdvardGame")
     , camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 100.0f)
 {
+	camera.set_window_copy(game_window.glfw_window);
     glewExperimental = GL_TRUE;
 
     if (glewInit() != GLEW_OK)

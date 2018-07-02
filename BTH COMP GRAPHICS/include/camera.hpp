@@ -3,6 +3,8 @@
 
 #include <glm/glm.hpp>
 #include "shader.hpp"
+#include <gl/glew.h>
+#include <GLFW/glfw3.h>
 
 class camera
 {
@@ -13,7 +15,7 @@ public:
     void update(float delta_time);
     glm::mat4 model_view_projection(const glm::mat4& model) const;
     void bind(const shader& shader);
-
+	void set_window_copy(GLFWwindow* window_copy);
 private:
     float yaw;
     float pitch;
@@ -27,6 +29,11 @@ private:
 
     glm::vec2 mouse;
     glm::vec2 mouse_last;
+
+	double lastX;
+	double lastY;
+
+	GLFWwindow* window_copy;
 };
 
 #endif // CAMERA_HPP
