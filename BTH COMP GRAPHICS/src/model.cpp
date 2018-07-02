@@ -18,5 +18,5 @@ model::~model()
 void model::render(const glm::mat4& view, const glm::mat4& projection)
 {
 	model_matrix = glm::mat4(1.);
-	mesh.draw(projection * view * model_matrix, shader_ptr);
+	mesh.draw(projection * view * model_matrix, *shader_ptr);
 }

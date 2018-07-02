@@ -34,13 +34,13 @@ mesh::~mesh()
 {
 }
 
-void mesh::draw(const glm::mat4& mvp, shader* shader_ptr)
+void mesh::draw(const glm::mat4& mvp, const shader& shader_ptr)
 {
 	switch (type)
 	{
 	case mesh_type::QUAD:
-		shader_ptr->use();
-		shader_ptr->uniform("mvp", mvp);
+		shader_ptr.use();
+		shader_ptr.uniform("mvp", mvp);
 		if (texture_ptrs.size() > 0)
 			use_textures(shader_ptr);
 		glBindVertexArray(vao);
@@ -48,8 +48,8 @@ void mesh::draw(const glm::mat4& mvp, shader* shader_ptr)
 		glBindVertexArray(0);
 		break;
 	case mesh_type::BOX:
-		shader_ptr->use();
-		shader_ptr->uniform("mvp", mvp);
+		shader_ptr.use();
+		shader_ptr.uniform("mvp", mvp);
 		if(texture_ptrs.size() > 0)
 			use_textures(shader_ptr);
 		glBindVertexArray(vao);
@@ -57,8 +57,8 @@ void mesh::draw(const glm::mat4& mvp, shader* shader_ptr)
 		glBindVertexArray(0);
 		break;
 	case mesh_type::TERRAIN:
-		shader_ptr->use();
-		shader_ptr->uniform("mvp", mvp);
+		shader_ptr.use();
+		shader_ptr.uniform("mvp", mvp);
 		if (texture_ptrs.size() > 0)
 			use_textures(shader_ptr);
 		glBindVertexArray(vao);
@@ -74,11 +74,11 @@ void mesh::draw(const glm::mat4& mvp, shader* shader_ptr)
 
 }
 
-void mesh::use_textures(shader * shader_ptr)
+void mesh::use_textures(const shader& shader_ptr)
 {
 	//Expand this to use more textures
-	shader_ptr->uniform("image", 0);
-	texture_ptrs[0]->uniform(*shader_ptr, 0);
+	shader_ptr.uniform("image", 0);
+	//texture_ptrs[0].uniform(shader_ptr, 0);
 }
 
 void mesh::load_quad()

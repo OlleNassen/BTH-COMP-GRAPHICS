@@ -28,8 +28,8 @@ public:
 	mesh(const mesh_type& type);
 	~mesh();
 
-	void draw(const glm::mat4& mvp, shader* shader_ptr);
-	void use_textures(shader* shader_ptr);
+	void draw(const glm::mat4& mvp, const shader& shader_ptr);
+	void use_textures(const shader& shader_ptr);
 
 private:
 	unsigned int vao;
