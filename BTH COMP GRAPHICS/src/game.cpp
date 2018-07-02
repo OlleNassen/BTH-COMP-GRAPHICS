@@ -25,6 +25,8 @@ game::game()
     glEnable(GL_DEPTH_TEST);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
+
+    camera.set_window_copy(game_window.glfw_window);
 }
 
 game::~game()

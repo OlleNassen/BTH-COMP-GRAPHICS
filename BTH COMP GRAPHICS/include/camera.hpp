@@ -27,11 +27,7 @@ private:
     glm::vec3 forward;
     glm::vec3 up;
 
-    glm::vec2 mouse;
-    glm::vec2 mouse_last;
-
-	double lastX;
-	double lastY;
+    glm::vec<2, double, glm::highp> mouse_position;
 
 	GLFWwindow* window_copy;
 };

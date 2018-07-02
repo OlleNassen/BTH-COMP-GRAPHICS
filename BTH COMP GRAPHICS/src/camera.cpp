@@ -2,12 +2,11 @@
 #include <GL/glew.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <iostream>
 
 camera::camera(float left, float right, float bottom, float top)
     : projection(glm::ortho(left, right, bottom, top))
 {
-	lastX = 1280 / 2;
-	lastY = 720 / 2;
     yaw = -80.0f;
     pitch = 0.0f;
     position = glm::vec3(0.0f, 0.0f,  3.0f);
@@ -32,28 +31,38 @@ void camera::update(float delta_time)
     if (glfwGetKey(window_copy, GLFW_KEY_W) == GLFW_PRESS)
         position += forward * velocity;
 	if (glfwGetKey(window_copy, GLFW_KEY_A) == GLFW_PRESS)
-        position -= forward * velocity;
-	if (glfwGetKey(window_copy, GLFW_KEY_S) == GLFW_PRESS)
         position -= glm::normalize(glm::cross(forward, up)) * velocity;
+	if (glfwGetKey(window_copy, GLFW_KEY_S) == GLFW_PRESS)
+        position -= forward * velocity;
 	if (glfwGetKey(window_copy, GLFW_KEY_D) == GLFW_PRESS)
         position += glm::normalize(glm::cross(forward, up)) * velocity;
 
-	static double xpos = lastX;
-	static double ypos = lastY;
+  /*sf::Vector2i new_position = sf::Mouse::getPosition();
+	sf::Vector2f current_position = sf::Vector2f(new_position - mouse_position);
+	sf::Mouse::setPosition(sf::Vector2i(250, 250));
+    mouse_position = sf::Mouse::getPosition();
 
-	glfwGetCursorPos(window_copy, &xpos, &ypos);
+    float sensitivity = 0.1f;
+    current_position *= sensitivity;
+    yaw   += current_position.x;
+    pitch -= current_position.y;*/
+    glm::vec<2, double, glm::highp> new_position;
+    glfwGetCursorPos(window_copy,
+        &new_position.x, &new_position.y);
 
-	float xoffset = xpos - lastX;
-	float yoffset = lastY - ypos;
-	lastX = xpos;
-	lastY = ypos;
+    std::cout << new_position.x << std::endl;
 
-	float sensitivity = 0.1;
-	xoffset *= sensitivity;
-	yoffset *= sensitivity;
+    glm::vec<2, double, glm::highp> current_position = new_position - mouse_position;
 
-	yaw += xoffset;
-	pitch += yoffset;
+    glfwSetCursorPos(window_copy, 250.0, 250.0);
+
+    glfwGetCursorPos(window_copy,
+        &mouse_position.x, &mouse_position.y);
+
+    float sensitivity = 0.1f;
+    current_position *= sensitivity;
+    yaw   += current_position.x;
+    pitch -= current_position.y;
 
     if(pitch > 89.0f)
         pitch =  89.0f;
