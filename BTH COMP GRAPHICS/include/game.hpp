@@ -1,28 +1,31 @@
 #ifndef GAME_HPP
 #define GAME_HPP
-
-#include <GL/glew.h>
+#include "model.hpp"
 #include "window.hpp"
 #include "camera.hpp"
-
 
 class game
 {
 public:
-    game();
-    ~game();
+	game();
+	~game();
 
-    void run();
-
+	void run();
 private:
-    void draw(shader& s);
+	static const unsigned int WIDTH = 1280;
+	static const unsigned int HEIGHT = 720;
 
-    static const unsigned int WIDTH = 1280;
-    static const unsigned int HEIGHT = 720;
+	camera game_camera;
+	window game_window;
+	std::vector<model*> models;
+	std::vector<shader> shaders;
 
-    window game_window;
+	void render();
+	void update(float delta_time);
+	void handle_events();
+	void handle_input();
 
-    camera camera;
+	void load_shaders();
 };
 
-#endif // GAME_HPP
+#endif

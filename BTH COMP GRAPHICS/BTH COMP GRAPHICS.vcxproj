@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\mesh.cpp" />
     <ClCompile Include="src\model.cpp" />
     <ClCompile Include="src\terrain.cpp" />
@@ -152,7 +153,6 @@
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\directional_light.cpp" />
     <ClCompile Include="src\frame_buffer.cpp" />
-    <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\shader.cpp" />
     <ClCompile Include="src\texture.cpp" />

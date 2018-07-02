@@ -6,7 +6,7 @@
 class model
 {
 public:
-	model(const mesh_type& type, shader* shader_ptr, texture* texture_ptr = nullptr);
+	model(const mesh_type& type, shader* shader_ptr);
 	~model();
 
 	void render(const glm::mat4& view_projection);

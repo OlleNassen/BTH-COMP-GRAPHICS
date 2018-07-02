@@ -97,6 +97,11 @@ glm::mat4 camera::model_view_projection(const glm::mat4& model) const
     return projection * view * model;
 }
 
+glm::mat4 camera::get_view_projection() const
+{
+	return projection * view;
+}
+
 void camera::bind(const shader& shader)
 {
     shader.uniform("view_position", position);
