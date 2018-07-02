@@ -3,10 +3,12 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-model::model(shader * shader, texture* texture)
+model::model(const mesh_type& type, shader * shader_ptr, texture* texture_ptr)
+	:mesh(type)
 {
-	this->shader = shader;
-	this->texture = texture;
+	model_matrix = glm::mat4(1.);
+	this->shader_ptr = shader_ptr;
+	this->texture_ptr = texture_ptr;
 }
 
 model::~model()
@@ -15,18 +17,18 @@ model::~model()
 
 void model::render(const glm::mat4& viewProjection)
 {
-	shader->use();
+	shader_ptr->use();
+	if (texture_ptr)
+	{
+		shader_ptr->uniform("image", 0);
+		texture_ptr->uniform(*shader_ptr,0);
+	}
 
-	shader->uniform("image", 0);
-	texture->uniform(*shader,0);
+	model_matrix = glm::translate(model_matrix, glm::vec3(0.f, 0.f, 0.f));
 
-	glm::mat4 model(1.f);
+	glm::mat4 mvp = viewProjection * model_matrix;
 
-	model = glm::translate(model, glm::vec3(0.f, 0.f, 0.f));
-
-	glm::mat4 mvp = viewProjection * model;
-
-	shader->uniform("MVP", mvp);
+	shader_ptr->uniform("mvp", mvp);
 
 	mesh.draw();
 }

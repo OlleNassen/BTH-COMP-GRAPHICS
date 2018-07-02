@@ -5,16 +5,14 @@
 
 class model
 {
-private:
-	shader* shader;
-	texture* texture;
-	mesh mesh;
-
-	glm::mat4* model;
-
 public:
-	model(shader* shader, texture* texture);
+	model(const mesh_type& type, shader* shader_ptr, texture* texture_ptr = nullptr);
 	~model();
 
 	void render(const glm::mat4& viewProjection);
+private:
+	shader * shader_ptr;
+	texture* texture_ptr;
+	mesh mesh;
+	glm::mat4 model_matrix;
 };
