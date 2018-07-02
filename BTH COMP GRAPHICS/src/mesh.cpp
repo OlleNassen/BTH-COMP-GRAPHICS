@@ -77,8 +77,11 @@ void mesh::draw(const glm::mat4& mvp, const shader& shader_ptr)
 void mesh::use_textures(const shader& shader_ptr)
 {
 	//Expand this to use more textures
-	shader_ptr.uniform("image", 0);
-	//texture_ptrs[0].uniform(shader_ptr, 0);
+	for(int i = 0; i < texture_ptrs.size(); i++)
+    {
+        shader_ptr.uniform("image", 0);
+        texture_ptrs[0]->uniform(shader_ptr, 0);
+    }
 }
 
 void mesh::load_quad()

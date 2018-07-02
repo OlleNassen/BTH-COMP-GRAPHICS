@@ -2029,13 +2029,13 @@
 1530530002 source:c:\users\deadvard\documents\codeblocks\bth-comp-graphics\bth comp graphics\src\main.cpp
 	"game.hpp"
 
-1530531259 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\buffer.cpp
+1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\buffer.cpp
 	"buffer.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\buffer.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\buffer.hpp
 	<GL/glew.h>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\gl\glew.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\gl\glew.h
 	<stddef.h>
 	<inttypes.h>
 	<stdint.h>
@@ -2044,20 +2044,20 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1530549303 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
+1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
 	"camera.hpp"
 	<GL/glew.h>
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 	<iostream>
 
-1530549303 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\camera.hpp
+1530555853 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\camera.hpp
 	<glm/glm.hpp>
 	"shader.hpp"
 	<gl/glew.h>
 	<GLFW/glfw3.h>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\glm.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\glm.hpp
 	"detail/_fixes.hpp"
 	"detail/setup.hpp"
 	<cmath>
@@ -2087,15 +2087,15 @@
 	"vector_relational.hpp"
 	"integer.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\_fixes.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\_fixes.hpp
 	<cmath>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\setup.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\setup.hpp
 	<cassert>
 	<cstddef>
 	"../simd/platform.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\simd\platform.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\simd\platform.h
 	<cuda.h>
 	<intrin.h>
 	<immintrin.h>
@@ -2107,88 +2107,88 @@
 	<pmmintrin.h>
 	<emmintrin.h>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\fwd.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\fwd.hpp
 	"detail/setup.hpp"
 	"detail/type_int.hpp"
 	"detail/type_float.hpp"
 	"detail/type_vec.hpp"
 	"detail/type_mat.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_int.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_int.hpp
 	"setup.hpp"
 	<type_traits>
 	<cstdint>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_float.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_float.hpp
 	"setup.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_vec.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_vec.hpp
 	"qualifier.hpp"
 	"type_int.hpp"
 	"compute_vector_relational.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\qualifier.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\qualifier.hpp
 	"setup.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\compute_vector_relational.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\compute_vector_relational.hpp
 	"setup.hpp"
 	<cstring>
 	<limits>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat.hpp
 	"qualifier.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\vec2.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\vec2.hpp
 	"detail/setup.hpp"
 	"detail/type_vec2.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_vec2.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_vec2.hpp
 	"type_vec.hpp"
 	"_swizzle.hpp"
 	"_swizzle_func.hpp"
 	<cstddef>
 	"type_vec2.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\_swizzle.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\_swizzle.hpp
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\_swizzle_func.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\_swizzle_func.hpp
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_vec2.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_vec2.inl
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\vec3.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\vec3.hpp
 	"detail/setup.hpp"
 	"detail/type_vec3.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_vec3.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_vec3.hpp
 	"type_vec.hpp"
 	"_swizzle.hpp"
 	"_swizzle_func.hpp"
 	<cstddef>
 	"type_vec3.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_vec3.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_vec3.inl
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\vec4.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\vec4.hpp
 	"detail/setup.hpp"
 	"detail/type_vec4.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_vec4.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_vec4.hpp
 	"type_vec.hpp"
 	"_swizzle.hpp"
 	"_swizzle_func.hpp"
 	<cstddef>
 	"type_vec4.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_vec4.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_vec4.inl
 	"type_vec4_simd.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_vec4_simd.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_vec4_simd.inl
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\mat2x2.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\mat2x2.hpp
 	"detail/setup.hpp"
 	"detail/type_mat2x2.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat2x2.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat2x2.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_mat.hpp"
@@ -2196,10 +2196,10 @@
 	<cstddef>
 	"type_mat2x2.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat2x2.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat2x2.inl
 	"../matrix.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\matrix.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\matrix.hpp
 	"detail/qualifier.hpp"
 	"detail/setup.hpp"
 	"detail/type_mat.hpp"
@@ -2217,11 +2217,11 @@
 	"mat4x4.hpp"
 	"detail/func_matrix.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\mat2x3.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\mat2x3.hpp
 	"detail/setup.hpp"
 	"detail/type_mat2x3.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat2x3.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat2x3.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -2230,13 +2230,13 @@
 	<cstddef>
 	"type_mat2x3.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat2x3.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat2x3.inl
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\mat2x4.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\mat2x4.hpp
 	"detail/setup.hpp"
 	"detail/type_mat2x4.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat2x4.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat2x4.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec4.hpp"
@@ -2245,13 +2245,13 @@
 	<cstddef>
 	"type_mat2x4.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat2x4.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat2x4.inl
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\mat3x2.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\mat3x2.hpp
 	"detail/setup.hpp"
 	"detail/type_mat3x2.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat3x2.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat3x2.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -2260,13 +2260,13 @@
 	<cstddef>
 	"type_mat3x2.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat3x2.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat3x2.inl
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\mat3x3.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\mat3x3.hpp
 	"detail/setup.hpp"
 	"detail/type_mat3x3.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat3x3.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat3x3.hpp
 	"../fwd.hpp"
 	"type_vec3.hpp"
 	"type_mat.hpp"
@@ -2274,14 +2274,14 @@
 	<cstddef>
 	"type_mat3x3.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat3x3.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat3x3.inl
 	"../matrix.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\mat3x4.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\mat3x4.hpp
 	"detail/setup.hpp"
 	"detail/type_mat3x4.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat3x4.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat3x4.hpp
 	"../fwd.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
@@ -2290,13 +2290,13 @@
 	<cstddef>
 	"type_mat3x4.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat3x4.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat3x4.inl
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\mat4x2.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\mat4x2.hpp
 	"detail/setup.hpp"
 	"detail/type_mat4x2.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat4x2.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat4x2.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec4.hpp"
@@ -2305,13 +2305,13 @@
 	<cstddef>
 	"type_mat4x2.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat4x2.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat4x2.inl
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\mat4x3.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\mat4x3.hpp
 	"detail/setup.hpp"
 	"detail/type_mat4x3.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat4x3.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat4x3.hpp
 	"../fwd.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
@@ -2320,13 +2320,13 @@
 	<cstddef>
 	"type_mat4x3.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat4x3.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat4x3.inl
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\mat4x4.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\mat4x4.hpp
 	"detail/setup.hpp"
 	"detail/type_mat4x4.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat4x4.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat4x4.hpp
 	"../fwd.hpp"
 	"type_vec4.hpp"
 	"type_mat.hpp"
@@ -2334,22 +2334,22 @@
 	<cstddef>
 	"type_mat4x4.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat4x4.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat4x4.inl
 	"../matrix.hpp"
 	"type_mat4x4_simd.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat4x4_simd.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_mat4x4_simd.inl
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_matrix.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_matrix.inl
 	"../geometric.hpp"
 	<limits>
 	"func_matrix_simd.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\geometric.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\geometric.hpp
 	"detail/type_vec3.hpp"
 	"detail/func_geometric.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_geometric.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_geometric.inl
 	"../exponential.hpp"
 	"../common.hpp"
 	"type_vec2.hpp"
@@ -2357,7 +2357,7 @@
 	"type_float.hpp"
 	"func_geometric_simd.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\exponential.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\exponential.hpp
 	"detail/type_vec1.hpp"
 	"detail/type_vec2.hpp"
 	"detail/type_vec3.hpp"
@@ -2365,9 +2365,9 @@
 	<cmath>
 	"detail/func_exponential.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_vec1.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_vec1.hpp
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_exponential.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_exponential.inl
 	"../vector_relational.hpp"
 	"_vectorize.hpp"
 	<limits>
@@ -2375,37 +2375,37 @@
 	<cassert>
 	"func_exponential_simd.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\vector_relational.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\vector_relational.hpp
 	"detail/qualifier.hpp"
 	"detail/setup.hpp"
 	"detail/func_vector_relational.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_vector_relational.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_vector_relational.inl
 	"compute_vector_relational.hpp"
 	"func_vector_relational_simd.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_vector_relational_simd.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_vector_relational_simd.inl
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\_vectorize.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\_vectorize.hpp
 	"type_vec1.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_exponential_simd.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_exponential_simd.inl
 	"../simd/exponential.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\simd\exponential.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\simd\exponential.h
 	"platform.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\common.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\common.hpp
 	"detail/setup.hpp"
 	"detail/qualifier.hpp"
 	"detail/type_int.hpp"
 	"detail/_fixes.hpp"
 	"detail/func_common.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_common.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_common.inl
 	"../vector_relational.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -2414,68 +2414,68 @@
 	<limits>
 	"func_common_simd.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_common_simd.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_common_simd.inl
 	"../simd/common.h"
 	<immintrin.h>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\simd\common.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\simd\common.h
 	"platform.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_geometric_simd.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_geometric_simd.inl
 	"../simd/geometric.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\simd\geometric.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\simd\geometric.h
 	"common.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_matrix_simd.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_matrix_simd.inl
 	"type_mat4x4.hpp"
 	"../geometric.hpp"
 	"../simd/matrix.h"
 	<cstring>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\simd\matrix.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\simd\matrix.h
 	"geometric.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\trigonometric.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\trigonometric.hpp
 	"detail/setup.hpp"
 	"detail/qualifier.hpp"
 	"detail/func_trigonometric.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_trigonometric.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_trigonometric.inl
 	"_vectorize.hpp"
 	<cmath>
 	<limits>
 	"func_trigonometric_simd.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_trigonometric_simd.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_trigonometric_simd.inl
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\packing.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\packing.hpp
 	"detail/type_vec2.hpp"
 	"detail/type_vec4.hpp"
 	"detail/func_packing.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_packing.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_packing.inl
 	"../common.hpp"
 	"type_half.hpp"
 	"../fwd.hpp"
 	"func_packing_simd.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_half.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_half.hpp
 	"setup.hpp"
 	"type_half.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_half.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_half.inl
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_packing_simd.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_packing_simd.inl
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\integer.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\integer.hpp
 	"detail/setup.hpp"
 	"detail/qualifier.hpp"
 	"common.hpp"
 	"vector_relational.hpp"
 	"detail/func_integer.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_integer.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_integer.inl
 	"../ext/vec1.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -2486,7 +2486,7 @@
 	<limits>
 	"func_integer_simd.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\ext\vec1.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\ext\vec1.hpp
 	"../fwd.hpp"
 	"../detail/type_vec.hpp"
 	"../detail/_swizzle.hpp"
@@ -2494,18 +2494,18 @@
 	<cstddef>
 	"../detail/type_vec1.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_vec1.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\type_vec1.inl
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_integer_simd.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\detail\func_integer_simd.inl
 	"../simd/integer.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\simd\integer.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\simd\integer.h
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\shader.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\shader.hpp
 	<string>
 	<glm/glm.hpp>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\matrix_transform.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\matrix_transform.hpp
 	"../mat4x4.hpp"
 	"../vec2.hpp"
 	"../vec3.hpp"
@@ -2513,19 +2513,19 @@
 	"../gtc/constants.hpp"
 	"matrix_transform.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\constants.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\constants.hpp
 	"../detail/setup.hpp"
 	"constants.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\constants.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\constants.inl
 	<limits>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\matrix_transform.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\matrix_transform.inl
 	"../geometric.hpp"
 	"../trigonometric.hpp"
 	"../matrix.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\type_ptr.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\type_ptr.hpp
 	"../gtc/quaternion.hpp"
 	"../gtc/vec1.hpp"
 	"../vec2.hpp"
@@ -2543,7 +2543,7 @@
 	<cstring>
 	"type_ptr.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\quaternion.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\quaternion.hpp
 	"../mat3x3.hpp"
 	"../mat4x4.hpp"
 	"../vec3.hpp"
@@ -2551,7 +2551,7 @@
 	"../gtc/constants.hpp"
 	"quaternion.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\quaternion.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\quaternion.inl
 	"../trigonometric.hpp"
 	"../geometric.hpp"
 	"../exponential.hpp"
@@ -2560,58 +2560,58 @@
 	<limits>
 	"quaternion_simd.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\epsilon.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\epsilon.hpp
 	"../detail/setup.hpp"
 	"../detail/qualifier.hpp"
 	"epsilon.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\epsilon.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\epsilon.inl
 	"quaternion.hpp"
 	"../vector_relational.hpp"
 	"../common.hpp"
 	"../detail/type_vec.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\quaternion_simd.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\quaternion_simd.inl
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\vec1.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\vec1.hpp
 	"../ext/vec1.hpp"
 	"vec1.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\vec1.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\vec1.inl
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\type_ptr.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\type_ptr.inl
 	<cstring>
 
-1530531259 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\directional_light.cpp
+1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\directional_light.cpp
 	"directional_light.hpp"
 	<GL/glew.h>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\directional_light.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\directional_light.hpp
 	"shader.hpp"
 
-1530531259 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\frame_buffer.cpp
+1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\frame_buffer.cpp
 	"frame_buffer.hpp"
 	<GL/glew.h>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\frame_buffer.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\frame_buffer.hpp
 	"texture.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\texture.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\texture.hpp
 	<string>
 	<GL/glew.h>
 	"shader.hpp"
 
-1530550976 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1530555853 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 
-1530551070 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1530555853 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	"model.hpp"
 	"window.hpp"
 	"camera.hpp"
 	"shader.hpp"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glfw\glfw3.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glfw\glfw3.h
 	<stddef.h>
 	<stdint.h>
 	<OpenGL/gl3.h>
@@ -2632,9 +2632,9 @@
 	<GL/glext.h>
 	<GL/glu.h>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\vertex_array.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\vertex_array.hpp
 
-1530531259 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\main.cpp
+1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\main.cpp
 	"game.hpp"
 
 1530551007 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
@@ -2643,7 +2643,7 @@
 	<vector>
 	<iostream>
 
-1530547953 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh.hpp
+1530556960 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh.hpp
 	<gl\glew.h>
 	"texture.hpp"
 	<stb_image.h>
@@ -2796,7 +2796,7 @@
 1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\postprocess.h
 	"types.h"
 
-1530534333 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\shader.cpp
+1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\shader.cpp
 	"shader.hpp"
 	<iostream>
 	<fstream>
@@ -2805,12 +2805,12 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1530548444 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\texture.cpp
+1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\texture.cpp
 	"texture.hpp"
 	<iostream>
 	<stb_image.h>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\stb_image.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\stb_image.h
 	"stb_image.h"
 	<stdio.h>
 	<stdarg.h>
@@ -2826,26 +2826,27 @@
 	<intrin.h>
 	<arm_neon.h>
 
-1530531259 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\vertex_array.cpp
+1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\vertex_array.cpp
 	"vertex_array.hpp"
 	<GL/glew.h>
 
-1530538110 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\window.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\window.hpp
 	<string>
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 
-1530545775 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\window.cpp
+1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\window.cpp
 	"window.hpp"
 	<iostream>
 
-1530551007 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1530556960 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
+	<iostream>
 
-1530549303 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
 	"shader.hpp"
 	"mesh.hpp"
 	"texture.hpp"
