@@ -49,7 +49,7 @@ mesh::~mesh()
 void mesh::init_from_scene(const aiScene* scene, const std::string& filename)
 {
     entries.resize(scene->mNumMeshes);
-    textures.resize(scene->mNumMaterials);
+    //textures.resize(scene->mNumMaterials);
 
     unsigned int num_vertices = 0;
     unsigned int num_indices = 0;
@@ -233,7 +233,7 @@ void mesh::init_materials(const aiScene* scene, const std::string& filename)
                 }
 
                 std::string full_path = dir + "/" + p;
-                textures[i].loadFromFile(full_path.c_str());
+                //textures[i](full_path.c_str());
             }
         }
     }

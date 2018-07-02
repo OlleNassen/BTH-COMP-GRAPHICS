@@ -9,21 +9,37 @@
 #include "mesh.hpp"
 
 game::game()
-    : settings(24,8,4,4,4)
-    , window(sf::VideoMode(WIDTH, HEIGHT),
-        "EdvardGame", sf::Style::Default, settings)
-    , camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 100.0f)
+    : camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 100.0f)
 {
-    //glewExperimental = GL_TRUE;
-    glewInit();
-    glEnable(GL_DEPTH_TEST);
-    window.setVerticalSyncEnabled(true);
-    window.setActive(true);
+    if(!glfwInit())
+    {
+        std::cout << "failed to init glfw";
+    }
 
-    window.setMouseCursorVisible(false);
-    sf::Image mouse;
-    mouse.loadFromFile("edvard.png");
-    window.setIcon(64, 64, mouse.getPixelsPtr());
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+    glfw_window = glfwCreateWindow(WIDTH, HEIGHT, "EdvardGame", nullptr, nullptr);
+
+    if (!glfw_window)
+    {
+        std::cout << "Failed to create GLFW window" << std::endl;
+    }
+
+    glfwMakeContextCurrent(glfw_window);
+    glViewport(0, 0, WIDTH, HEIGHT);
+
+    glewExperimental = GL_TRUE;
+
+    if (glewInit() != GLEW_OK)
+    {
+        std::cout << "Error glew init failed" << std::endl;
+    }
+
+    glEnable(GL_DEPTH_TEST);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_BLEND);
 }
 
 game::~game()
@@ -35,7 +51,7 @@ void game::run()
 {
     shader shadow_shader("shaders/shadow.vs", "shaders/shadow.fs");
 
-    mesh mesh("models/boblampclean.md5");
+    //mesh mesh("models/boblampclean.md5");
 
     glm::vec3 light_direction(0.0f, -1.0f, 0.0f);
     glm::vec3 ambient_light(0.2f, 0.2f, 0.2f);
@@ -142,25 +158,9 @@ void game::run()
     frame_buffer frame_buffer;
     frame_buffer.bind_texture(buffer_texture);
 
-    sf::Clock clock;
-    bool running = true;
-
-    while (running)
+    while (!glfwWindowShouldClose(glfw_window))
     {
-        float delta_time = clock.restart().asSeconds();
-
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed || event.key.code == sf::Keyboard::Escape)
-            {
-                running = false;
-            }
-            else if (event.type == sf::Event::Resized)
-            {
-                glViewport(0, 0, event.size.width, event.size.height);
-            }
-        }
+        float delta_time = 0.016f;
 
         camera.update(delta_time);
 
@@ -256,10 +256,10 @@ void game::run()
 
         glDrawArrays(GL_TRIANGLES, 0, 36);
 
-
-
         glBindVertexArray(0);
 
-        window.display();
+        glfwSwapBuffers(glfw_window);
+
+        glfwPollEvents();
     }
 }

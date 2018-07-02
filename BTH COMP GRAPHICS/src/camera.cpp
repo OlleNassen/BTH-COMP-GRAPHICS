@@ -27,7 +27,7 @@ camera::camera(float fovy, float width, float height, float near, float far)
 void camera::update(float delta_time)
 {
     float velocity = 10.0f * delta_time;
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+    /*if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
         position += forward * velocity;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
         position -= forward * velocity;
@@ -44,7 +44,7 @@ void camera::update(float delta_time)
     float sensitivity = 0.1f;
     current_position *= sensitivity;
     yaw   += current_position.x;
-    pitch -= current_position.y;
+    pitch -= current_position.y;*/
 
     if(pitch > 89.0f)
         pitch =  89.0f;
