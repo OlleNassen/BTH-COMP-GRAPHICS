@@ -3,7 +3,7 @@
 
 game::game()
 	: game_window(WIDTH, HEIGHT, "VOILA")
-	, game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 100.0f)
+	, game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 200.0f)
 {
 	glewExperimental = GL_TRUE;
 

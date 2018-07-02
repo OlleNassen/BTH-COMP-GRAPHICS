@@ -32,7 +32,16 @@ void camera::update(float delta_time)
 	if (glfwGetKey(window_copy, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(window_copy, true);
 
-    float velocity = 10.0f * delta_time;
+
+
+	float velocity = 10.0f;
+	//TURBO SPEED
+	if (glfwGetKey(window_copy, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
+	{
+		velocity *= 10;
+	}
+	velocity *= delta_time;
+
     if (glfwGetKey(window_copy, GLFW_KEY_W) == GLFW_PRESS)
         position += forward * velocity;
 	if (glfwGetKey(window_copy, GLFW_KEY_A) == GLFW_PRESS)
