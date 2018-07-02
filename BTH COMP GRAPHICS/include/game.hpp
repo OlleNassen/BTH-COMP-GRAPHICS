@@ -15,6 +15,8 @@ public:
     void run();
 
 private:
+    void draw(shader& s);
+
     static const unsigned int WIDTH = 1280;
     static const unsigned int HEIGHT = 720;
 
