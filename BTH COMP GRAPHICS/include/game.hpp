@@ -1,7 +1,8 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
-#include <SFML/Graphics.hpp>
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 #include "camera.hpp"
 
 class game
@@ -16,8 +17,7 @@ private:
     static const unsigned int WIDTH = 1280;
     static const unsigned int HEIGHT = 720;
 
-    sf::ContextSettings settings;
-    sf::Window window;
+    GLFWwindow* glfw_window;
 
     camera camera;
 };

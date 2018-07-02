@@ -4,7 +4,6 @@
 #include <string>
 #include <map>
 #include <GL/glew.h>
-#include <SFML/Graphics.hpp>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -14,6 +13,7 @@
 
 #include "buffer.hpp"
 #include "vertex_array.hpp"
+#include "texture.hpp"
 
 struct bone_info
 {
@@ -80,7 +80,7 @@ private:
 
     std::vector<bone_info> bone_infos;
     std::vector<mesh_entry> entries;
-    std::vector<sf::Texture> textures;
+    //std::vector<texture> textures;
     std::map<std::string, unsigned int> bone_mapping;
     unsigned int num_bones;
 

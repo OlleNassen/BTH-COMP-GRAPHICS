@@ -1,7 +1,6 @@
 #ifndef CAMERA_HPP
 #define CAMERA_HPP
 
-#include <SFML/Window.hpp>
 #include <glm/glm.hpp>
 #include "shader.hpp"
 
@@ -28,8 +27,6 @@ private:
 
     glm::vec2 mouse;
     glm::vec2 mouse_last;
-
-    sf::Vector2i mouse_position;
 };
 
 #endif // CAMERA_HPP
