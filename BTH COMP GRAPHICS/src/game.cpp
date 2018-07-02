@@ -47,9 +47,9 @@ void game::run()
     glm::mat4 projection;
     projection = glm::perspective(glm::radians(45.0f), (float)WIDTH /(float)HEIGHT, 0.1f, 100.0f);
 
-    texture texture_diffuse("container2.png");
-    texture texture_specular("container2_specular.png");
-    texture texture_ground("ground.png");
+    texture texture_diffuse("images/container2.png");
+    texture texture_specular("images/container2_specular.png");
+    texture texture_ground("images/ground.png");
 
     shader shader("shaders/basic.vs", "shaders/basic.fs");
     shader.use();
