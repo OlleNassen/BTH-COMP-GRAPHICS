@@ -19,7 +19,7 @@ private:
 	window game_window;
 	camera game_camera;
 	std::vector<model*> models;
-	std::vector<shader> shaders;
+	std::vector<shader*> shaders;
 
 	void render();
 	void update(float delta_time);

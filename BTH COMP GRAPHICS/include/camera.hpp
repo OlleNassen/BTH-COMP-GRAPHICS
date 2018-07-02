@@ -21,7 +21,7 @@ public:
 private:
     bool first;
     float yaw;
-    float pitch;
+	float pitch;
 
     glm::mat4 view;
     glm::mat4 projection;
