@@ -3,6 +3,7 @@
 #include <gl\glew.h>
 #include "texture.hpp"
 #include <stb_image.h>
+#include <vector>
 
 struct Vertex
 {
@@ -18,7 +19,7 @@ struct Vertex
 
 enum class mesh_type
 {
-	quad, box, terrain, custom
+	QUAD, BOX, TERRAIN, CUSTOM
 };
 
 class mesh
@@ -29,6 +30,9 @@ public:
 
 	void draw();
 
+	bool has_textures();
+	void use_textures(shader* shader_ptr);
+
 private:
 	unsigned int vao;
 	unsigned int vbo;
@@ -36,6 +40,7 @@ private:
 	unsigned int id;
 	unsigned int draw_count = 0;
 	mesh_type type;
+	std::vector<texture*> texture_ptrs;
 
 	void load_quad();
 	void load_box();
