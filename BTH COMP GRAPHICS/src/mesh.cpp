@@ -9,10 +9,19 @@ mesh::mesh(const mesh_type& type)
 {
 	switch (type)
 	{
+	case mesh_type::QUAD:
+		this->type = type;
+		load_quad();
+		break;
+	case mesh_type::BOX:
+		this->type = type;
+		load_box();
+		break;
 	case mesh_type::TERRAIN:
 		this->type = type;
 		load_terrain();
 		break;
+
 
 	default:
 
@@ -55,6 +64,10 @@ void mesh::use_textures(shader * shader_ptr)
 	//Expand this to use more textures
 	shader_ptr->uniform("image", 0);
 	texture_ptrs[0]->uniform(*shader_ptr, 0);
+}
+
+void mesh::load_quad()
+{
 }
 
 void mesh::load_box()

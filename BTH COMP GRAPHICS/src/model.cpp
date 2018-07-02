@@ -22,11 +22,11 @@ void model::render(const glm::mat4& view_projection)
 		mesh.use_textures(shader_ptr);
 	}
 
-	model_matrix = glm::translate(model_matrix, glm::vec3(0.f, 0.f, 0.f));
+	//model_matrix = glm::translate(model_matrix, glm::vec3(0.f, 0.f, 0.f));
 
 	glm::mat4 mvp = view_projection * model_matrix;
 
-	shader_ptr->uniform("model_view_projection", mvp);
+	shader_ptr->uniform("mvp", mvp);
 
 	mesh.draw();
 }
