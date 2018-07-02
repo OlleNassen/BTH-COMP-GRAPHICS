@@ -19,7 +19,6 @@ private:
 
 	window game_window;
 	camera game_camera;
-	//directional_light light;
 	std::vector<model*> models;
 	std::vector<shader*> shaders;
 

@@ -4,10 +4,6 @@
 game::game()
 	: game_window(WIDTH, HEIGHT, "VOILA")
 	, game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 100.0f)
-	/*, light(glm::vec3(0.0f, -1.0f, 0.0f),
-    glm::vec3(0.2f, 0.2f, 0.2f),
-    glm::vec3(0.5f, 0.5f, 0.5f),
-    glm::vec3(1.0f, 1.0f, 1.0f))*/
 {
 	glewExperimental = GL_TRUE;
 
@@ -27,8 +23,6 @@ game::game()
 	models.push_back(new model(mesh_type::BOX, shaders[0]));
 	models.push_back(new model(mesh_type::TERRAIN, shaders[2]));
 	models.push_back(new model(mesh_type::QUAD, shaders[4]));
-
-
 }
 
 game::~game()
@@ -37,10 +31,15 @@ game::~game()
 
 void game::run()
 {
+	directional_light light(glm::vec3(0.0f, -1.0f, 0.0f),
+        glm::vec3(0.2f, 0.2f, 0.2f),
+        glm::vec3(0.5f, 0.5f, 0.5f),
+        glm::vec3(1.0f, 1.0f, 1.0f));
 	float delta_time = 0.0f;	// Time between current frame and last frame
 	float last_frame = 0.0f; // Time of last frame
 
 	game_camera.bind(*shaders[0]);
+	light.bind(*shaders[0]);
 
 	while (game_window.is_open())
 	{
