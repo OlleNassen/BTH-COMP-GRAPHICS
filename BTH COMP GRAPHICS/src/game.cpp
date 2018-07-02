@@ -11,26 +11,9 @@
 #include <glm/gtc/type_ptr.hpp>
 
 game::game()
-    : camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 100.0f)
+    : game_window(WIDTH, HEIGHT, "EdvardGame")
+    , camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 100.0f)
 {
-    if(!glfwInit())
-    {
-        std::cout << "failed to init glfw";
-    }
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-    glfw_window = glfwCreateWindow(WIDTH, HEIGHT, "EdvardGame", nullptr, nullptr);
-
-    if (!glfw_window)
-    {
-        std::cout << "Failed to create GLFW window" << std::endl;
-    }
-
-    glfwMakeContextCurrent(glfw_window);
-    glViewport(0, 0, WIDTH, HEIGHT);
-
     glewExperimental = GL_TRUE;
 
     if (glewInit() != GLEW_OK)
@@ -159,7 +142,7 @@ void game::run()
     frame_buffer frame_buffer;
     frame_buffer.bind_texture(buffer_texture);
 
-    while (!glfwWindowShouldClose(glfw_window))
+    while (game_window.is_open())
     {
         float delta_time = 0.016f;
 
@@ -259,8 +242,8 @@ void game::run()
 
         glBindVertexArray(0);
 
-        glfwSwapBuffers(glfw_window);
+        game_window.swap_buffers();
 
-        glfwPollEvents();
+        game_window.poll_events();
     }
 }

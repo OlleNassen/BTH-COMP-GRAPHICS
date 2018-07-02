@@ -2,14 +2,9 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="include\buffer.hpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="shaders\shadow.fs" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="62" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\vertex_array.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="711" topLine="0" />
+			<Cursor1 position="37" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="include\camera.hpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -17,9 +12,14 @@
 			<Cursor1 position="614" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\buffer.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\frame_buffer.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="288" topLine="0" />
+			<Cursor1 position="52" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="shaders\shadow.vs" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="117" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="include\directional_light.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -27,19 +27,24 @@
 			<Cursor1 position="62" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\directional_light.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\buffer.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="54" topLine="0" />
+			<Cursor1 position="288" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="shaders\basic.vs" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\shader.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="205" topLine="0" />
+			<Cursor1 position="61" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src\game.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="9525" topLine="232" />
+			<Cursor1 position="500" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\texture.hpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="761" topLine="34" />
 		</Cursor>
 	</File>
 	<File name="src\texture.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -52,29 +57,9 @@
 			<Cursor1 position="27" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\shader.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\game.hpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="106" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="shaders\shadow.fs" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="37" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="shaders\shadow.vs" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="117" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\mesh.hpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1945" topLine="60" />
+			<Cursor1 position="320" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src\mesh.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -82,14 +67,14 @@
 			<Cursor1 position="1251" topLine="35" />
 		</Cursor>
 	</File>
-	<File name="include\shader.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="61" topLine="0" />
-		</Cursor>
-	</File>
 	<File name="include\vertex_array.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="105" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\camera.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1512" topLine="19" />
 		</Cursor>
 	</File>
 	<File name="shaders\basic.fs" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
@@ -97,24 +82,34 @@
 			<Cursor1 position="4146" topLine="103" />
 		</Cursor>
 	</File>
-	<File name="include\game.hpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\directional_light.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="320" topLine="0" />
+			<Cursor1 position="54" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="include\frame_buffer.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\shader.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="52" topLine="0" />
+			<Cursor1 position="106" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="include\texture.hpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\buffer.hpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="761" topLine="34" />
+			<Cursor1 position="62" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\camera.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\vertex_array.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1512" topLine="19" />
+			<Cursor1 position="711" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\mesh.hpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1945" topLine="60" />
+		</Cursor>
+	</File>
+	<File name="shaders\basic.vs" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="205" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
