@@ -20,6 +20,10 @@ game::game()
 	load_shaders();
 }
 
+game::~game()
+{
+}
+
 void game::run()
 {
 	float delta_time = 0.0f;	// Time between current frame and last frame
