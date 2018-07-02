@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="EdvardGame" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/EdvardGame" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add library="sfml-graphics-d" />
+					<Add library="sfml-window-d" />
+					<Add library="sfml-system-d" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/EdvardGame" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="sfml-graphics" />
+					<Add library="sfml-window" />
+					<Add library="sfml-system" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-std=c++14" />
+			<Add option="-fexceptions" />
+			<Add directory="external/include" />
+		</Compiler>
+		<Linker>
+			<Add library="opengl32" />
+			<Add library="glew32" />
+			<Add library="libassimp" />
+			<Add directory="external/lib" />
+		</Linker>
+		<Unit filename="include/buffer.hpp" />
+		<Unit filename="include/camera.hpp" />
+		<Unit filename="include/directional_light.hpp" />
+		<Unit filename="include/frame_buffer.hpp" />
+		<Unit filename="include/game.hpp" />
+		<Unit filename="include/mesh.hpp" />
+		<Unit filename="include/shader.hpp" />
+		<Unit filename="include/texture.hpp" />
+		<Unit filename="include/vertex_array.hpp" />
+		<Unit filename="main.cpp" />
+		<Unit filename="shaders/basic.fs" />
+		<Unit filename="shaders/basic.vs" />
+		<Unit filename="shaders/shadow.fs" />
+		<Unit filename="shaders/shadow.vs" />
+		<Unit filename="src/buffer.cpp" />
+		<Unit filename="src/camera.cpp" />
+		<Unit filename="src/directional_light.cpp" />
+		<Unit filename="src/frame_buffer.cpp" />
+		<Unit filename="src/game.cpp" />
+		<Unit filename="src/mesh.cpp" />
+		<Unit filename="src/shader.cpp" />
+		<Unit filename="src/texture.cpp" />
+		<Unit filename="src/vertex_array.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
