@@ -21,6 +21,8 @@ game::game()
 
 	models.push_back(new model(mesh_type::BOX, &shaders[3]));
 	models.push_back(new model(mesh_type::TERRAIN, &shaders[2]));
+	models.push_back(new model(mesh_type::QUAD, &shaders[4]));
+
 
 }
 
@@ -78,4 +80,6 @@ void game::load_shaders()
 	shaders.push_back(shader("shaders/shadow.vs", "shaders/shadow.fs"));
 	shaders.push_back(shader("shaders/terrain.vs", "shaders/terrain.fs"));
 	shaders.push_back(shader("shaders/noob.vs", "shaders/noob.fs"));
+	shaders.push_back(shader("shaders/quad.vs", "shaders/quad.fs"));
+
 }

@@ -96,5 +96,7 @@
   <ItemGroup>
     <None Include="shaders\terrain.vs" />
     <None Include="shaders\terrain.fs" />
+    <None Include="shaders\quad.vs" />
+    <None Include="shaders\quad.fs" />
   </ItemGroup>
 </Project>

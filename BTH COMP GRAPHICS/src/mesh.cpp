@@ -39,6 +39,13 @@ void mesh::draw(const glm::mat4& mvp, shader* shader_ptr)
 	switch (type)
 	{
 	case mesh_type::QUAD:
+		shader_ptr->use();
+		shader_ptr->uniform("mvp", mvp);
+		if (texture_ptrs.size() > 0)
+			use_textures(shader_ptr);
+		glBindVertexArray(vao);
+		glDrawArrays(GL_TRIANGLES, 0, 6);
+		glBindVertexArray(0);
 		break;
 	case mesh_type::BOX:
 		shader_ptr->use();
@@ -76,6 +83,37 @@ void mesh::use_textures(shader * shader_ptr)
 
 void mesh::load_quad()
 {
+	float quadVertices[] =
+	{
+		// positions     // colors
+		0.0f, 256.f, 0.f, 0.0f, 1.0f,  1.f, 1.f, 1.f,
+		256.f, 0.0f, 0.f, 1.0f, 0.0f,    1.f, 1.f, 1.f,
+		0.0f, 0.0f, 0.f, 0.0f, 0.0f,   1.f, 1.f, 1.f,
+
+		0.0f, 256.f, 0.f, 0.0f, 1.0f,  1.f, 1.f, 1.f,
+		256.f, 256.f, 0.f, 1.0f, 1.0f,   1.f, 1.f, 1.f,
+		256.f, 0.0f, 0.f, 1.0f, 0.0f,  1.f, 1.f, 1.f
+	};
+
+	glGenVertexArrays(1, &vao);
+	glBindVertexArray(vao);
+	glGenBuffers(1, &vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(quadVertices), quadVertices, GL_STATIC_DRAW);
+
+	int offset = 0;
+
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), BUFFER_OFFSET(offset));
+	offset += sizeof(float) * 3;
+
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), BUFFER_OFFSET(offset));
+	offset += sizeof(float) * 2;
+
+	glEnableVertexAttribArray(2);
+	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), BUFFER_OFFSET(offset));
+	offset += sizeof(float) * 3;
 }
 
 void mesh::load_box()
