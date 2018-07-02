@@ -98,5 +98,7 @@
     <None Include="shaders\terrain.fs" />
     <None Include="shaders\quad.vs" />
     <None Include="shaders\quad.fs" />
+    <None Include="shaders\normal_shader.vs" />
+    <None Include="shaders\normal_shader.fs" />
   </ItemGroup>
 </Project>
