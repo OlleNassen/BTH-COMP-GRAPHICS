@@ -33,6 +33,7 @@ public:
 	mesh(const mesh_type& type);
 	~mesh();
 
+    void draw(const shader& shader);
 	void draw(const glm::mat4& mvp, const shader& shader_ptr);
 	void draw(const glm::mat4& model, const glm::mat4& view,
 		const glm::mat4& projection, const shader& shader_ptr);

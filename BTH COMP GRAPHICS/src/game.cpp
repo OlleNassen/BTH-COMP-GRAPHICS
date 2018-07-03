@@ -105,7 +105,7 @@ void game::render()
 
 	for (const auto& model : models)
 	{
-		//model->render(game_camera.get_view(), game_camera.get_projection());
+		model->render(shadow);
 	}
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);

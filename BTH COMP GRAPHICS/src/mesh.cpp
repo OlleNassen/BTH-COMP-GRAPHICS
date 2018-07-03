@@ -39,6 +39,21 @@ mesh::~mesh()
 {
 }
 
+void mesh::draw(const shader& shader)
+{
+    if(type == mesh_type::BOX)
+    {
+        if(texture_ptrs.size() > 0)
+        {
+            use_textures(shader);
+        }
+
+		glBindVertexArray(vao);
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glBindVertexArray(0);
+    }
+}
+
 void mesh::draw(const glm::mat4& mvp, const shader& shader_ptr)
 {
 	switch (type)

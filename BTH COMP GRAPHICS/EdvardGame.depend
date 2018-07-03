@@ -2640,13 +2640,13 @@
 1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\main.cpp
 	"game.hpp"
 
-1530621052 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
+1530622946 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
 	"mesh.hpp"
 	<glm/glm.hpp>
 	<vector>
 	<iostream>
 
-1530617240 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh.hpp
+1530622972 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh.hpp
 	<gl\glew.h>
 	"texture.hpp"
 	<stb_image.h>
@@ -2843,7 +2843,7 @@
 	"window.hpp"
 	<iostream>
 
-1530617240 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1530622986 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>

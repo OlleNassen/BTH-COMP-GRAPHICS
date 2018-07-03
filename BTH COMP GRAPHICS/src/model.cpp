@@ -27,7 +27,7 @@ void model::render(const shader& shader, const camera& camera)
 
 void model::render(const shader& shader)
 {
-
+    mesh.draw(shader);
 }
 
 void model::render(const glm::mat4& view, const glm::mat4& projection)
