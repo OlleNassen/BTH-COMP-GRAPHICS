@@ -78,8 +78,8 @@ game::~game()
 
 void game::run()
 {
-	float delta_time = 0.0f;	// Time between current frame and last frame
-	float last_frame = 0.0f; // Time of last frame
+	float delta_time = 0.0f;
+	float last_frame = 0.0f;
 
 	while (game_window.is_open())
 	{
@@ -105,7 +105,7 @@ void game::render()
 
 	for (const auto& model : models)
 	{
-		model->render(game_camera.get_view(), game_camera.get_projection());
+		//model->render(game_camera.get_view(), game_camera.get_projection());
 	}
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);

@@ -2579,7 +2579,7 @@
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\type_ptr.inl
 	<cstring>
 
-1530614249 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\directional_light.cpp
+1530618547 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\directional_light.cpp
 	"directional_light.hpp"
 	<GL/glew.h>
 
@@ -2602,7 +2602,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1530616183 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1530618657 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	"input.hpp"
