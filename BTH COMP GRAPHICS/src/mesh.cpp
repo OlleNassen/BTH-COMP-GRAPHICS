@@ -101,7 +101,7 @@ void mesh::draw(const glm::mat4 & model, const glm::mat4 & view, const glm::mat4
 	{
 	case mesh_type::SKYBOX:
 		shader_ptr.use();
-		shader_ptr.uniform("view", view);
+		shader_ptr.uniform("view", glm::mat4(glm::mat3(view)));
 		shader_ptr.uniform("projection", projection);
 
 		if (texture_ptrs.size() > 0)

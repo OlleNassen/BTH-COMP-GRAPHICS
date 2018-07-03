@@ -59,6 +59,8 @@ texture::texture(std::vector<std::string> paths,
     glGenTextures(1, &id);
     glBindTexture(GL_TEXTURE_CUBE_MAP, id);
 
+    stbi_set_flip_vertically_on_load(false);
+
     int width, height, nrChannels;
     for (unsigned int i = 0; i < paths.size(); i++)
     {
