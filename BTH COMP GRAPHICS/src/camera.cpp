@@ -76,7 +76,6 @@ void camera::on_mouse_moved(float x, float y)
 
 void camera::up_pressed()
 {
-    std::cout << "here!" << std::endl;
     pressed_up = true;
 }
 void camera::up_released()

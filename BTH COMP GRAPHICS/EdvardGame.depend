@@ -2598,7 +2598,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1530610873 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1530612525 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	"input.hpp"
@@ -2636,13 +2636,13 @@
 1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\main.cpp
 	"game.hpp"
 
-1530561356 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
+1530612525 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
 	"mesh.hpp"
 	<glm/glm.hpp>
 	<vector>
 	<iostream>
 
-1530610873 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh.hpp
+1530612525 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh.hpp
 	<gl\glew.h>
 	"texture.hpp"
 	<stb_image.h>
@@ -2839,14 +2839,14 @@
 	"window.hpp"
 	<iostream>
 
-1530560954 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1530612525 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 	<iostream>
 
-1530558772 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
+1530612525 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
 	"shader.hpp"
 	"mesh.hpp"
 	"texture.hpp"
