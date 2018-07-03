@@ -9,6 +9,7 @@ game::game()
 	, terrain("shaders/terrain.vs", "shaders/terrain.fs")
 	, noob("shaders/noob.vs", "shaders/noob.fs")
 	, quad("shaders/quad.vs", "shaders/quad.fs")
+	, skybox("shaders/skybox.vs", "shaders/skybox.fs")
 	, game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 200.0f)
 	, light(glm::vec3(0.0f, -1.0f, 0.0f),
         glm::vec3(0.2f, 0.2f, 0.2f),
@@ -65,6 +66,9 @@ game::game()
 	//Phong test
 	models.push_back(new model(mesh_type::BOX, &noob));
 	models.back()->set_position(glm::vec3(0, 50, 10));
+	//Skybox
+	models.push_back(new model(mesh_type::SKYBOX, &skybox));
+	models.back()->set_texture(texture_type::JUNGLE_SKYBOX);
 
 }
 

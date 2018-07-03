@@ -19,12 +19,12 @@ struct Vertex
 
 enum class mesh_type
 {
-	QUAD, BOX, TERRAIN, CUSTOM
+	QUAD, BOX, TERRAIN, SKYBOX, CUSTOM
 };
 
 enum class texture_type
 {
-	CONTAINER_BOX, EDVARD_QUAD
+	CONTAINER_BOX, EDVARD_QUAD, JUNGLE_SKYBOX
 };
 
 class mesh
@@ -52,6 +52,7 @@ private:
 	void load_quad();
 	void load_box();
 	void load_terrain();
+	void load_skybox();
 	void load_custom();
 };
 

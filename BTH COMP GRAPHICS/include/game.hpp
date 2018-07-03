@@ -23,6 +23,7 @@ private:
 	shader terrain;
 	shader noob;
 	shader quad;
+	shader skybox;
 	camera game_camera;
 	directional_light light;
 	std::vector<model*> models;

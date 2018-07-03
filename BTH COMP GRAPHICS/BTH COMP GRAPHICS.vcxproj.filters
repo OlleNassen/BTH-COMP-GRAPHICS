@@ -106,5 +106,7 @@
     <None Include="shaders\quad.fs" />
     <None Include="shaders\normal_shader.vs" />
     <None Include="shaders\normal_shader.fs" />
+    <None Include="shaders\skybox.vs" />
+    <None Include="shaders\skybox.fs" />
   </ItemGroup>
 </Project>

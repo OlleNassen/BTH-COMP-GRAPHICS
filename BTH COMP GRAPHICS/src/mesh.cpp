@@ -23,6 +23,10 @@ mesh::mesh(const mesh_type& type)
 		load_terrain();
 		break;
 
+	case mesh_type::SKYBOX:
+		this->type = type;
+		load_skybox();
+		break;
 
 	default:
 
@@ -66,6 +70,9 @@ void mesh::draw(const glm::mat4& mvp, const shader& shader_ptr)
 		glDrawElements(GL_TRIANGLES, draw_count, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 		break;
+	case mesh_type::SKYBOX:
+
+		break;
 	default:
 		glBindVertexArray(vao);
 		glDrawElements(GL_TRIANGLES, draw_count, GL_UNSIGNED_INT, 0);
@@ -108,6 +115,19 @@ void mesh::set_texture(const texture_type& tex)
 		type_texture = texture_type::CONTAINER_BOX;
 		texture_ptrs.push_back(new texture("images/container2.png"));
 		texture_ptrs.push_back(new texture("images/container2_specular.png"));
+		break;
+	case texture_type::JUNGLE_SKYBOX:
+		type_texture = texture_type::JUNGLE_SKYBOX;
+		std::vector<std::string> faces
+		{
+			"images/skybox/highly-overrated_bk.tga",
+			"images/skybox/highly-overrated_bk.tga",
+			"images/skybox/highly-overrated_bk.tga",
+			"images/skybox/highly-overrated_bk.tga",
+			"images/skybox/highly-overrated_bk.tga",
+			"images/skybox/highly-overrated_bk.tga"
+		};
+		texture_ptrs.push_back(new texture(faces, wrap::CLAMP_TO_EDGE));
 		break;
 	}
 }
@@ -294,4 +314,64 @@ void mesh::load_terrain()
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), BUFFER_OFFSET(offset));
 	glEnableVertexAttribArray(1);
 	offset += sizeof(glm::vec2);
+}
+
+void mesh::load_skybox()
+{
+	std::vector<GLfloat> skybox_vertices =
+	{
+		-1.0f,  1.0f, -1.0f,
+		-1.0f, -1.0f, -1.0f,
+		1.0f, -1.0f, -1.0f,
+		1.0f, -1.0f, -1.0f,
+		1.0f,  1.0f, -1.0f,
+		-1.0f,  1.0f, -1.0f,
+
+		-1.0f, -1.0f,  1.0f,
+		-1.0f, -1.0f, -1.0f,
+		-1.0f,  1.0f, -1.0f,
+		-1.0f,  1.0f, -1.0f,
+		-1.0f,  1.0f,  1.0f,
+		-1.0f, -1.0f,  1.0f,
+
+		1.0f, -1.0f, -1.0f,
+		1.0f, -1.0f,  1.0f,
+		1.0f,  1.0f,  1.0f,
+		1.0f,  1.0f,  1.0f,
+		1.0f,  1.0f, -1.0f,
+		1.0f, -1.0f, -1.0f,
+
+		-1.0f, -1.0f,  1.0f,
+		-1.0f,  1.0f,  1.0f,
+		1.0f,  1.0f,  1.0f,
+		1.0f,  1.0f,  1.0f,
+		1.0f, -1.0f,  1.0f,
+		-1.0f, -1.0f,  1.0f,
+
+		-1.0f,  1.0f, -1.0f,
+		1.0f,  1.0f, -1.0f,
+		1.0f,  1.0f,  1.0f,
+		1.0f,  1.0f,  1.0f,
+		-1.0f,  1.0f,  1.0f,
+		-1.0f,  1.0f, -1.0f,
+
+		-1.0f, -1.0f, -1.0f,
+		-1.0f, -1.0f,  1.0f,
+		1.0f, -1.0f, -1.0f,
+		1.0f, -1.0f, -1.0f,
+		-1.0f, -1.0f,  1.0f,
+		1.0f, -1.0f,  1.0f
+	};
+
+	glGenVertexArrays(1, &vao);
+	glBindVertexArray(vao);
+
+	glGenBuffers(1, &vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(skybox_vertices), &skybox_vertices[0], GL_STATIC_DRAW);
+
+	GLint offset = 0;
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(0);
+	offset += sizeof(glm::vec3);
 }

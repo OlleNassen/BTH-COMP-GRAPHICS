@@ -180,6 +180,8 @@
     <None Include="shaders\normal_shader.vs" />
     <None Include="shaders\quad.fs" />
     <None Include="shaders\quad.vs" />
+    <None Include="shaders\skybox.fs" />
+    <None Include="shaders\skybox.vs" />
     <None Include="shaders\terrain.fs" />
     <None Include="shaders\terrain.vs" />
   </ItemGroup>
