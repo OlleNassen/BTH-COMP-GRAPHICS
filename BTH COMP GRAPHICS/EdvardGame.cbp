@@ -62,6 +62,8 @@
 		<Unit filename="shaders/noob.vs" />
 		<Unit filename="shaders/shadow.fs" />
 		<Unit filename="shaders/shadow.vs" />
+		<Unit filename="shaders/skybox.fs" />
+		<Unit filename="shaders/skybox.vs" />
 		<Unit filename="shaders/terrain.fs" />
 		<Unit filename="shaders/terrain.vs" />
 		<Unit filename="src/buffer.cpp" />
