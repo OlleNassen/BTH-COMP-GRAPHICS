@@ -60,7 +60,7 @@ void mesh::draw(const glm::mat4& mvp, const shader& shader_ptr)
 	{
 	case mesh_type::QUAD:
 		shader_ptr.use();
-		shader_ptr.uniform("mvp", mvp);
+		shader_ptr.uniform("model_view_projection", mvp);
 		if (texture_ptrs.size() > 0)
 			use_textures(shader_ptr);
 		glBindVertexArray(vao);
@@ -78,7 +78,7 @@ void mesh::draw(const glm::mat4& mvp, const shader& shader_ptr)
 		break;
 	case mesh_type::TERRAIN:
 		shader_ptr.use();
-		shader_ptr.uniform("mvp", mvp);
+		shader_ptr.uniform("model_view_projection", mvp);
 		if (texture_ptrs.size() > 0)
 			use_textures(shader_ptr);
 		glBindVertexArray(vao);

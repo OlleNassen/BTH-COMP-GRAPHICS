@@ -60,6 +60,8 @@
 		<Unit filename="shaders/basic.vs" />
 		<Unit filename="shaders/noob.fs" />
 		<Unit filename="shaders/noob.vs" />
+		<Unit filename="shaders/quad.fs" />
+		<Unit filename="shaders/quad.vs" />
 		<Unit filename="shaders/shadow.fs" />
 		<Unit filename="shaders/shadow.vs" />
 		<Unit filename="shaders/skybox.fs" />

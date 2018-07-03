@@ -8,14 +8,14 @@ layout(location = 2) in vec3 aColor;
 out vec2 texture;
 out vec3 color;
 
-uniform mat4 mvp;
+uniform mat4 model_view_projection;
 
 void main()
 {
 	texture = aTexture;
 	color = aColor;
 
-	gl_Position = mvp * vec4(aPos, 1);
+	gl_Position = model_view_projection * vec4(aPos, 1);
 
 
 }
