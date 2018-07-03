@@ -2602,7 +2602,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1530618657 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1530619301 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	"input.hpp"
@@ -2640,7 +2640,7 @@
 1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\main.cpp
 	"game.hpp"
 
-1530617493 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
+1530621052 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
 	"mesh.hpp"
 	<glm/glm.hpp>
 	<vector>
@@ -2850,8 +2850,9 @@
 	<glm/gtc/type_ptr.hpp>
 	<iostream>
 
-1530614669 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
+1530622480 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
 	"shader.hpp"
+	"camera.hpp"
 	"mesh.hpp"
 	"texture.hpp"
 

@@ -15,6 +15,21 @@ model::~model()
 {
 }
 
+void model::render(const shader& shader, const camera& camera)
+{
+    shader.use();
+    shader.uniform("model", model_matrix);
+    shader.uniform("model_view_projection",
+        camera.model_view_projection(model_matrix));
+
+    render(shader);
+}
+
+void model::render(const shader& shader)
+{
+
+}
+
 void model::render(const glm::mat4& view, const glm::mat4& projection)
 {
 	switch (mesh.get_type())
