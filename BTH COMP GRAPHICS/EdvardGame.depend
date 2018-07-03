@@ -2867,3 +2867,11 @@
 	<GLFW/glfw3.h>
 	"window.hpp"
 
+1530638090 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\scene_node.cpp
+	"scene_node.hpp"
+
+1530637989 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\scene_node.hpp
+	<vector>
+	<glm/glm.hpp>
+	"shader.hpp"
+
