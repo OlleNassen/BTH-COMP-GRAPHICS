@@ -127,7 +127,7 @@ void mesh::set_texture(const texture_type& tex)
 			"images/skybox/highly-overrated_bk.tga",
 			"images/skybox/highly-overrated_bk.tga"
 		};
-		texture_ptrs.push_back(new texture(faces, wrap::CLAMP_TO_EDGE));
+		texture_ptrs.push_back(new texture(faces, wrap::CLAMP_TO_EDGE, filter::LINEAR, format::RGB));
 		break;
 	}
 }
