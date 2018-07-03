@@ -17,9 +17,18 @@ model::~model()
 
 void model::render(const glm::mat4& view, const glm::mat4& projection)
 {
-	shader_ptr->use();
-	shader_ptr->uniform("model", model_matrix);
-	mesh.draw(projection * view * model_matrix, *shader_ptr);
+	switch (mesh.get_type())
+	{
+	case mesh_type::SKYBOX:
+		mesh.draw(model_matrix, view, projection, *shader_ptr);
+		break;
+	default:
+		shader_ptr->use();
+		shader_ptr->uniform("model", model_matrix);
+		mesh.draw(projection * view * model_matrix, *shader_ptr);
+		break;
+	}
+
 }
 
 void model::move(const glm::vec3 & offset)

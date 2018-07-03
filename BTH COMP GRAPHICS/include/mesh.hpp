@@ -34,10 +34,14 @@ public:
 	~mesh();
 
 	void draw(const glm::mat4& mvp, const shader& shader_ptr);
+	void draw(const glm::mat4& model, const glm::mat4& view,
+		const glm::mat4& projection, const shader& shader_ptr);
+
 	void use_textures(const shader& shader_ptr);
 
 	void set_texture(const texture_type& tex);
 
+	mesh_type get_type()const;
 private:
 	unsigned int vao;
 	unsigned int vbo;

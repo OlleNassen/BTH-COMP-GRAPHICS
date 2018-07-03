@@ -70,9 +70,7 @@ void mesh::draw(const glm::mat4& mvp, const shader& shader_ptr)
 		glDrawElements(GL_TRIANGLES, draw_count, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 		break;
-	case mesh_type::SKYBOX:
 
-		break;
 	default:
 		glBindVertexArray(vao);
 		glDrawElements(GL_TRIANGLES, draw_count, GL_UNSIGNED_INT, 0);
@@ -80,6 +78,26 @@ void mesh::draw(const glm::mat4& mvp, const shader& shader_ptr)
 		break;
 	}
 
+}
+
+void mesh::draw(const glm::mat4 & model, const glm::mat4 & view, const glm::mat4 & projection, const shader & shader_ptr)
+{
+	switch (type)
+	{
+	case mesh_type::SKYBOX:
+		shader_ptr.use();
+		shader_ptr.uniform("view", view);
+		shader_ptr.uniform("projection", projection);
+
+		glDepthFunc(GL_LEQUAL);
+
+		glBindVertexArray(vao);
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glBindVertexArray(0);
+
+		glDepthFunc(GL_LESS);
+		break;
+	}
 }
 
 void mesh::use_textures(const shader& shader_ptr)
@@ -96,6 +114,9 @@ void mesh::use_textures(const shader& shader_ptr)
 			texture_ptrs[0]->uniform(shader_ptr, "object_material.diffuse", 0);
 			texture_ptrs[1]->uniform(shader_ptr, "object_material.specular", 1);
 			shader_ptr.uniform("object_material.shininess", 32.0f);
+			break;
+		case texture_type::JUNGLE_SKYBOX:
+			texture_ptrs[0]->uniform(shader_ptr, "skybox", 0);
 			break;
 		}
 
@@ -130,6 +151,11 @@ void mesh::set_texture(const texture_type& tex)
 		texture_ptrs.push_back(new texture(faces, wrap::CLAMP_TO_EDGE, filter::LINEAR, format::RGB));
 		break;
 	}
+}
+
+mesh_type mesh::get_type() const
+{
+	return type;
 }
 
 void mesh::load_quad()
