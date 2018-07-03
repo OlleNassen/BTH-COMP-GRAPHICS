@@ -24,6 +24,7 @@ private:
 	shader noob;
 	shader quad;
 	camera game_camera;
+	directional_light light;
 	std::vector<model*> models;
 
 	void render();

@@ -2044,7 +2044,7 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1530610130 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
+1530610565 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
 	"camera.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
@@ -2603,7 +2603,7 @@
 	<iostream>
 	"input.hpp"
 
-1530608896 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1530610812 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	"model.hpp"
 	"window.hpp"
 	"camera.hpp"
