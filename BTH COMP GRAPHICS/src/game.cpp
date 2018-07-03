@@ -60,9 +60,7 @@ game::game()
 	models.push_back(new model(mesh_type::TERRAIN, &terrain));
 	models.push_back(new model(mesh_type::QUAD, &quad));
 	//Phong test
-	models.push_back(new model(mesh_type::BOX, &basic));
-	models.back()->set_box_texture(box_texture_type::CONTAINER);
-
+	models.push_back(new model(mesh_type::BOX, &noob));
 	models.back()->set_position(glm::vec3(0, 50, 10));
 
 }
