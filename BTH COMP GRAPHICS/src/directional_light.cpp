@@ -28,3 +28,8 @@ void directional_light::bind(const shader& shader)
         * shadow_camera.get_view();
     shader.uniform("light_space_matrix", light_space_matrix);
 }
+
+void directional_light::shadows_bind()
+{
+    shadow_buffer.bind();
+}

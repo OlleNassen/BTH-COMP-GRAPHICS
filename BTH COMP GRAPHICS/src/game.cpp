@@ -78,12 +78,8 @@ game::~game()
 
 void game::run()
 {
-	float delta_time = 0.0f;	// Time between current frame and last frame
-	float last_frame = 0.0f; // Time of last frame
-
-	basic.use();
-	game_camera.bind(basic);
-	light.bind(basic);
+	float delta_time = 0.0f;
+	float last_frame = 0.0f;
 
 	while (game_window.is_open())
 	{
@@ -101,9 +97,26 @@ void game::run()
 
 void game::render()
 {
+	glClear(GL_DEPTH_BUFFER_BIT);
+	glViewport(0, 0, 1024, 1024);
+	shadow.use();
+	light.bind(shadow);
+	light.shadows_bind();
+
+	for (const auto& model : models)
+	{
+		//model->render(game_camera.get_view(), game_camera.get_projection());
+	}
+
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
 	glClearColor(0.6f, 0.9f, 0.6f, 0.f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glViewport(0, 0, WIDTH, HEIGHT);
+
+	basic.use();
+	game_camera.bind(basic);
+	light.bind(basic);
 
 	for (const auto& model : models)
 	{

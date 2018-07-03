@@ -17,6 +17,8 @@ public:
 
     void bind(const shader& shader);
 
+    void shadows_bind();
+
 private:
     glm::mat4 light_space_matrix;
     glm::vec3 direction;

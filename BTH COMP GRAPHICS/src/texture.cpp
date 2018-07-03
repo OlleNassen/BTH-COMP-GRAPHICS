@@ -99,7 +99,7 @@ void texture::uniform(const shader& shader, const std::string& name, int texture
 
 void texture::skybox(const shader& shader) const
 {
-    shader.uniform("GL_TEXTURE_CUBE_MAP", 5);
+    shader.uniform("skybox", 5);
     glActiveTexture(GL_TEXTURE0 + 5);
     glBindTexture(GL_TEXTURE_CUBE_MAP, id);
 }
