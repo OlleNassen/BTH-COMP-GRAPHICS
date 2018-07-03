@@ -51,6 +51,10 @@ game::game()
 	models.push_back(new model(mesh_type::BOX, &basic));
 	models.push_back(new model(mesh_type::TERRAIN, &terrain));
 	models.push_back(new model(mesh_type::QUAD, &quad));
+	//Phong test
+	models.push_back(new model(mesh_type::BOX, &basic));
+	models.back()->set_position(glm::vec3(0, 50, 10));
+
 }
 
 game::~game()
@@ -86,6 +90,7 @@ void game::run()
 
 void game::render()
 {
+	glClearColor(0.6f, 0.9f, 0.6f, 0.7f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glViewport(0, 0, WIDTH, HEIGHT);
 

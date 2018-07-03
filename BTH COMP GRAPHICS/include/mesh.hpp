@@ -31,6 +31,8 @@ public:
 	void draw(const glm::mat4& mvp, const shader& shader_ptr);
 	void use_textures(const shader& shader_ptr);
 
+	void set_box_textures();
+
 private:
 	unsigned int vao;
 	unsigned int vbo;
