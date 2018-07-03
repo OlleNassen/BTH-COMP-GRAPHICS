@@ -80,39 +80,32 @@ void mesh::use_textures(const shader& shader_ptr)
 	//Expand this to use more textures
 	if (texture_ptrs.size() > 0)
 	{
-		switch (type)
+		switch (type_texture)
 		{
-		case mesh_type::QUAD:
+		case texture_type::EDVARD_QUAD:
+			texture_ptrs[0]->uniform(shader_ptr, "image", 0);
 			break;
-		case mesh_type::BOX:
-
-			switch (box_type)
-			{
-			case box_texture_type::CONTAINER:
-				texture_ptrs[0]->uniform(shader_ptr, "object_material.diffuse", 0);
-				texture_ptrs[1]->uniform(shader_ptr, "object_material.specular", 1);
-				shader_ptr.uniform("object_material.shininess", 32.0f);
-				break;
-
-			default:
-
-				break;
-			}
-
-			break;
-		case mesh_type::TERRAIN:
-
+		case texture_type::CONTAINER_BOX:
+			texture_ptrs[0]->uniform(shader_ptr, "object_material.diffuse", 0);
+			texture_ptrs[1]->uniform(shader_ptr, "object_material.specular", 1);
+			shader_ptr.uniform("object_material.shininess", 32.0f);
 			break;
 		}
+
 	}
 }
 
-void mesh::set_box_texture(const box_texture_type& box_texture)
+void mesh::set_texture(const texture_type& tex)
 {
-	switch (box_texture)
+	switch (tex)
 	{
-	case box_texture_type::CONTAINER:
-		box_type = box_texture_type::CONTAINER;
+	case texture_type::EDVARD_QUAD:
+		type_texture = texture_type::EDVARD_QUAD;
+		texture_ptrs.push_back(new texture("images/edvard.png"));
+		break;
+
+	case texture_type::CONTAINER_BOX:
+		type_texture = texture_type::CONTAINER_BOX;
 		texture_ptrs.push_back(new texture("images/container2.png"));
 		texture_ptrs.push_back(new texture("images/container2_specular.png"));
 		break;

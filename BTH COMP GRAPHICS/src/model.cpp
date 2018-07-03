@@ -33,7 +33,7 @@ void model::set_position(const glm::vec3 & position)
 	model_matrix = glm::translate(model_matrix, position);
 }
 
-void model::set_box_texture(const box_texture_type & box_texture)
+void model::set_texture(const texture_type & type_texture)
 {
-	mesh.set_box_texture(box_texture);
+	mesh.set_texture(type_texture);
 }

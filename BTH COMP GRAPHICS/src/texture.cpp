@@ -32,6 +32,8 @@ texture::texture(const std::string& path,
     unsigned char* data = stbi_load(path.c_str(),
         &width, &height, &nr_of_channels, 0);
 
+	stbi_set_flip_vertically_on_load(true);
+
     if (data)
     {
         glTexImage2D(GL_TEXTURE_2D, 0,

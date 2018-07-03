@@ -12,7 +12,7 @@ public:
 	void render(const glm::mat4& view, const glm::mat4& projection);
 	void move(const glm::vec3& offset);
 	void set_position(const glm::vec3& position);
-	void set_box_texture(const box_texture_type& box_texture);
+	void set_texture(const texture_type& type_texture);
 private:
 	shader* shader_ptr;
 	mesh mesh;
