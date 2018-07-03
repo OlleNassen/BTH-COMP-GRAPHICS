@@ -2640,7 +2640,7 @@
 1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\main.cpp
 	"game.hpp"
 
-1530617240 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
+1530617493 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
 	"mesh.hpp"
 	<glm/glm.hpp>
 	<vector>
