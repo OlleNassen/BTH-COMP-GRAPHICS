@@ -16,15 +16,15 @@ public:
     void on_escape();
 
     void callback(
-        std::function<void()> cursor_position_callback,
-        std::function<void()> key_callback);
+        GLFWcursorposfun cursor_position_callback,
+        GLFWkeyfun key_callback);
 
     bool is_open() const;
 
     void swap_buffers();
     void poll_events();
 
-public:
+private:
     GLFWwindow* glfw_window;
 };
 

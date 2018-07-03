@@ -88,7 +88,7 @@ enum class key
     F12 = GLFW_KEY_F12
 };
 
-void assign_window(const window& callback_window);
+void assign_window(window& callback_window);
 
 void bind_key(const std::string& name, key keybind);
 

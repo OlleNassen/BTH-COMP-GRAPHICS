@@ -49,11 +49,11 @@ void window::on_escape()
 }
 
 void window::callback(
-        std::function<void()> cursor_position_callback,
-        std::function<void()> key_callback)
+        GLFWcursorposfun cursor_position_callback,
+        GLFWkeyfun key_callback)
 {
-    //glfwSetCursorPosCallback(glfw_window, cursor_position_callback);
-    //glfwSetKeyCallback(glfw_window, key_callback);
+    glfwSetCursorPosCallback(glfw_window, cursor_position_callback);
+    glfwSetKeyCallback(glfw_window, key_callback);
 }
 
 bool window::is_open() const

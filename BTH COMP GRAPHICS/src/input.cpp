@@ -18,7 +18,6 @@ void bind_key(const std::string& name, key keybind)
 void key_callback(GLFWwindow* window, int key_id, int scancode, int action, int mods)
 {
     std::string name = keybinds[static_cast<key>(key_id)];
-    std::cout << name << std::endl;
 
     if(action == GLFW_PRESS)
     {
@@ -49,11 +48,11 @@ void cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
 
 
 
-void assign_window(const window& callback_window)
+void assign_window(window& callback_window)
 {
-    //callback_window.callback(key_callback, cursor_position_callback);
-    glfwSetCursorPosCallback(callback_window.glfw_window, cursor_position_callback);
-    glfwSetKeyCallback(callback_window.glfw_window, key_callback);
+    callback_window.callback(
+        cursor_position_callback,
+        key_callback);
 }
 
 void assign_mouse_callback(std::function<void(float, float)> callback)
