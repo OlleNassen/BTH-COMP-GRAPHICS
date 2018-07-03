@@ -44,6 +44,7 @@
 			<Add library="libassimp" />
 			<Add directory="external/lib" />
 		</Linker>
+		<Unit filename="include/box.hpp" />
 		<Unit filename="include/buffer.hpp" />
 		<Unit filename="include/camera.hpp" />
 		<Unit filename="include/directional_light.hpp" />
@@ -69,6 +70,7 @@
 		<Unit filename="shaders/skybox.vs" />
 		<Unit filename="shaders/terrain.fs" />
 		<Unit filename="shaders/terrain.vs" />
+		<Unit filename="src/box.cpp" />
 		<Unit filename="src/buffer.cpp" />
 		<Unit filename="src/camera.cpp" />
 		<Unit filename="src/directional_light.cpp" />

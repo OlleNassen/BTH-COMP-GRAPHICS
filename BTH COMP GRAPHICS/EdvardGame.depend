@@ -2602,17 +2602,19 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1530623042 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1530644107 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	"input.hpp"
 
-1530616183 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1530644085 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	"model.hpp"
 	"window.hpp"
 	"camera.hpp"
 	"shader.hpp"
 	"directional_light.hpp"
+	"scene_node.hpp"
+	"box.hpp"
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glfw\glfw3.h
 	<stddef.h>
@@ -2874,4 +2876,12 @@
 	<vector>
 	<glm/glm.hpp>
 	"shader.hpp"
+
+1530646384 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
+	"box.hpp"
+
+1530644269 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\box.hpp
+	"scene_node.hpp"
+	"buffer.hpp"
+	"vertex_array.hpp"
 

@@ -5,6 +5,8 @@
 #include "camera.hpp"
 #include "shader.hpp"
 #include "directional_light.hpp"
+#include "scene_node.hpp"
+#include "box.hpp"
 
 class game
 {
@@ -26,6 +28,7 @@ private:
 	shader skybox;
 	camera game_camera;
 	directional_light light;
+	scene_node scene;
 	std::vector<model*> models;
 
 	void render();

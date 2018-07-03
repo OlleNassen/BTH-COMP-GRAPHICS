@@ -69,6 +69,7 @@ game::game()
 	//Skybox
 	models.push_back(new model(mesh_type::SKYBOX, &skybox));
 	models.back()->set_texture(texture_type::JUNGLE_SKYBOX);
+	scene.attach_child(new box());
 
 }
 
@@ -123,16 +124,17 @@ void game::render()
 		model->render(game_camera.get_view(), game_camera.get_projection());
 	}
 
+    noob.use();
+    glm::mat4 model(1.0f);
+    glm::mat4 mvp = game_camera.model_view_projection(model);
+    noob.uniform("model_view_projection", mvp);
+	scene.render(noob);
+
 	game_window.swap_buffers();
 }
 
 void game::update(float delta_time)
 {
 	float temp_speed = 5.f;
-	//models[1]->move(glm::vec3(0, -(temp_speed * delta_time), 0));
-
-	/*if (glfwGetKey(game_window.glfw_window, GLFW_KEY_ENTER) == GLFW_PRESS)
-		models[1]->set_position(glm::vec3(0, 0, 0));*/
-
 	game_camera.update(delta_time);
 }
