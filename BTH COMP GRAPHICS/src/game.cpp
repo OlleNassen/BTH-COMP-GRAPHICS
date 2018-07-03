@@ -94,7 +94,7 @@ void game::run()
 
 void game::render()
 {
-	glClearColor(0.6f, 0.9f, 0.6f, 0.7f);
+	glClearColor(0.6f, 0.9f, 0.6f, 0.f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glViewport(0, 0, WIDTH, HEIGHT);
 
