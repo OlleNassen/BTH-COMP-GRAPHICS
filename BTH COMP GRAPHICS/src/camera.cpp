@@ -31,6 +31,14 @@ camera::camera(float fovy, float width, float height, float near, float far)
     position = glm::vec3(0.0f, 0.0f,  3.0f);
     forward = glm::vec3(0.0f, 0.0f, -1.0f);
     up = glm::vec3(0.0f, 1.0f,  0.0f);
+
+    pressed_up = false;
+    pressed_down = false;
+    pressed_left = false;
+    pressed_right = false;
+    pressed_shift = false;
+
+    first = true;
 }
 
 void camera::on_mouse_moved(float x, float y)
@@ -68,6 +76,7 @@ void camera::on_mouse_moved(float x, float y)
 
 void camera::up_pressed()
 {
+    std::cout << "here!" << std::endl;
     pressed_up = true;
 }
 void camera::up_released()
