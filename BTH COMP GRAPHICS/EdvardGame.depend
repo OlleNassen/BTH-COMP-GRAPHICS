@@ -2044,7 +2044,7 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1530612768 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
+1530652172 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
 	"camera.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
@@ -2876,7 +2876,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1530637989 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\scene_node.hpp
+1530652406 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\scene_node.hpp
 	<vector>
 	<glm/glm.hpp>
 	"shader.hpp"

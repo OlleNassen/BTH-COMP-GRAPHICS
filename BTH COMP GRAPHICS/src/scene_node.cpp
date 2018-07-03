@@ -2,9 +2,11 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-scene_node::scene_node()
+scene_node::scene_node(float x, float y, float z)
     : children()
-    , transform(1.0f)
+    , transform(
+        translate(glm::mat4(1.0f),
+        glm::vec3(x, y, z)))
 {
 
 }

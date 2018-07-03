@@ -8,7 +8,7 @@
 class scene_node
 {
 public:
-    scene_node();
+    scene_node(float x = 0, float y = 0, float z = 0);
     virtual ~scene_node();
     void attach_child(scene_node* child);
 
