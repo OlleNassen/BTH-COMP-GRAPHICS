@@ -1,8 +1,6 @@
 #ifndef CAMERA_HPP
 #define CAMERA_HPP
 
-#include <gl/glew.h>
-#include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include "shader.hpp"
 
@@ -29,7 +27,7 @@ public:
 	glm::mat4 get_view()const;
 	glm::mat4 get_projection()const;
     void bind(const shader& shader);
-	void set_window_copy(GLFWwindow* window_copy);
+
 private:
     bool pressed_up;
     bool pressed_down;
@@ -51,8 +49,6 @@ private:
     glm::vec3 up;
 
     glm::vec<2, double, glm::highp> mouse_position;
-
-	GLFWwindow* window_copy;
 };
 
 #endif // CAMERA_HPP

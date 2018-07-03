@@ -13,6 +13,8 @@ public:
            const std::string& title);
     ~window();
 
+    void on_escape();
+
     void callback(
         std::function<void()> cursor_position_callback,
         std::function<void()> key_callback);

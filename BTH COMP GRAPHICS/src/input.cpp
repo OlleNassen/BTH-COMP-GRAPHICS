@@ -18,6 +18,7 @@ void bind_key(const std::string& name, key keybind)
 void key_callback(GLFWwindow* window, int key_id, int scancode, int action, int mods)
 {
     std::string name = keybinds[static_cast<key>(key_id)];
+    std::cout << name << std::endl;
 
     if(action == GLFW_PRESS)
     {
