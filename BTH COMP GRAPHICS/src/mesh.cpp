@@ -163,12 +163,12 @@ void mesh::set_texture(const texture_type& tex)
 		type_texture = texture_type::JUNGLE_SKYBOX;
 		std::vector<std::string> faces
 		{
-			"images/skybox2/right.jpg",
-			"images/skybox2/left.jpg",
-			"images/skybox2/top.jpg",
-			"images/skybox2/bottom.jpg",
-			"images/skybox2/back.jpg",
-			"images/skybox2/front.jpg"
+			"images/skybox/highly-overrated_rt.tga", // RIGHT
+			"images/skybox/highly-overrated_lf.tga", // LEFT
+			"images/skybox/highly-overrated_up.tga", // TOP
+			"images/skybox/highly-overrated_dn.tga", // BOTTOM
+			"images/skybox/highly-overrated_bk.tga", // BACK
+			"images/skybox/highly-overrated_ft.tga" // FRONT
 		};
 		texture_ptrs.push_back(new texture(faces, wrap::CLAMP_TO_EDGE, filter::LINEAR, format::RGB));
 		break;
