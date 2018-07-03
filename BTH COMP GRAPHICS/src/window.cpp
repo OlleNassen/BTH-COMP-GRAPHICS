@@ -24,6 +24,17 @@ window::window(
     glfwMakeContextCurrent(glfw_window);
     glfwSetInputMode(glfw_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     glViewport(0, 0, width, height);
+
+    glewExperimental = GL_TRUE;
+
+	if (glewInit() != GLEW_OK)
+	{
+		std::cout << "Error glew init failed" << std::endl;
+	}
+
+	glEnable(GL_DEPTH_TEST);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glEnable(GL_BLEND);
 }
 
 window::~window()

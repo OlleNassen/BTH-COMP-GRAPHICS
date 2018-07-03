@@ -1,10 +1,10 @@
 #ifndef CAMERA_HPP
 #define CAMERA_HPP
 
-#include <glm/glm.hpp>
-#include "shader.hpp"
 #include <gl/glew.h>
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
+#include "shader.hpp"
 
 class camera
 {
@@ -13,6 +13,16 @@ public:
     camera(float fovy, float width, float height, float near, float far);
 
     void on_mouse_moved(float x, float y);
+    void up_pressed();
+    void up_released();
+    void down_pressed();
+    void down_released();
+    void left_pressed();
+    void left_released();
+    void right_pressed();
+    void right_released();
+    void fast_pressed();
+    void fast_released();
 
     void update(float delta_time);
     glm::mat4 model_view_projection(const glm::mat4& model) const;
@@ -21,6 +31,12 @@ public:
     void bind(const shader& shader);
 	void set_window_copy(GLFWwindow* window_copy);
 private:
+    bool pressed_up;
+    bool pressed_down;
+    bool pressed_left;
+    bool pressed_right;
+    bool pressed_shift;
+
     bool first;
     float yaw;
 	float pitch;

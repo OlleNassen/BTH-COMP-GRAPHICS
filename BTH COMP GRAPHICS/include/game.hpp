@@ -18,16 +18,16 @@ private:
 	static const unsigned int HEIGHT = 720;
 
 	window game_window;
+	shader basic;
+	shader shadow;
+	shader terrain;
+	shader noob;
+	shader quad;
 	camera game_camera;
 	std::vector<model*> models;
-	std::vector<shader*> shaders;
 
 	void render();
 	void update(float delta_time);
-	void handle_events();
-	void handle_input();
-
-	void load_shaders();
 };
 
 #endif

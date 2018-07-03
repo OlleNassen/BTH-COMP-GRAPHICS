@@ -15,6 +15,12 @@ camera::camera(float left, float right, float bottom, float top)
     forward = glm::vec3(0.0f, 0.0f, -1.0f);
     up = glm::vec3(0.0f, 1.0f,  0.0f);
 
+    pressed_up = false;
+    pressed_down = false;
+    pressed_left = false;
+    pressed_right = false;
+    pressed_shift = false;
+
     first = true;
 }
 
@@ -61,6 +67,49 @@ void camera::on_mouse_moved(float x, float y)
     forward = glm::normalize(front);
 }
 
+void camera::up_pressed()
+{
+    pressed_up = true;
+}
+void camera::up_released()
+{
+    pressed_up = false;
+}
+void camera::down_pressed()
+{
+    pressed_down = true;
+}
+void camera::down_released()
+{
+    pressed_down = false;
+}
+void camera::left_pressed()
+{
+    pressed_left = true;
+}
+void camera::left_released()
+{
+    pressed_left = false;
+}
+void camera::right_pressed()
+{
+    pressed_right = true;
+}
+void camera::right_released()
+{
+    pressed_right = false;
+}
+
+void camera::fast_pressed()
+{
+    pressed_shift = true;
+}
+
+void camera::fast_released()
+{
+    pressed_shift = false;
+}
+
 void camera::update(float delta_time)
 {
 	if (glfwGetKey(window_copy, GLFW_KEY_ESCAPE) == GLFW_PRESS)
@@ -68,19 +117,19 @@ void camera::update(float delta_time)
 
 	float velocity = 10.0f;
 	//TURBO SPEED
-	if (glfwGetKey(window_copy, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
+	if (pressed_shift)
 	{
 		velocity *= 10;
 	}
 	velocity *= delta_time;
 
-    if (glfwGetKey(window_copy, GLFW_KEY_W) == GLFW_PRESS)
+    if (pressed_up)
         position += forward * velocity;
-	if (glfwGetKey(window_copy, GLFW_KEY_A) == GLFW_PRESS)
+	if (pressed_left)
         position -= glm::normalize(glm::cross(forward, up)) * velocity;
-	if (glfwGetKey(window_copy, GLFW_KEY_S) == GLFW_PRESS)
+	if (pressed_down)
         position -= forward * velocity;
-	if (glfwGetKey(window_copy, GLFW_KEY_D) == GLFW_PRESS)
+	if (pressed_right)
         position += glm::normalize(glm::cross(forward, up)) * velocity;
 }
 
