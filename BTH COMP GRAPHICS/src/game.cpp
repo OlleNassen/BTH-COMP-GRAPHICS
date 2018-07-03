@@ -56,10 +56,13 @@ game::game()
         std::bind(&camera::fast_released, &game_camera));
 
 	models.push_back(new model(mesh_type::BOX, &basic));
+	models.back()->set_box_texture(box_texture_type::CONTAINER);
 	models.push_back(new model(mesh_type::TERRAIN, &terrain));
 	models.push_back(new model(mesh_type::QUAD, &quad));
 	//Phong test
 	models.push_back(new model(mesh_type::BOX, &basic));
+	models.back()->set_box_texture(box_texture_type::CONTAINER);
+
 	models.back()->set_position(glm::vec3(0, 50, 10));
 
 }

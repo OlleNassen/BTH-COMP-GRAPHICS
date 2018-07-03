@@ -16,8 +16,7 @@ mesh::mesh(const mesh_type& type)
 	case mesh_type::BOX:
 		this->type = type;
 		load_box();
-		texture_ptrs.push_back(new texture("images/container2.png"));
-		texture_ptrs.push_back(new texture("images/container2_specular.png"));
+
 		break;
 	case mesh_type::TERRAIN:
 		this->type = type;
@@ -79,13 +78,45 @@ void mesh::draw(const glm::mat4& mvp, const shader& shader_ptr)
 void mesh::use_textures(const shader& shader_ptr)
 {
 	//Expand this to use more textures
-	/*for(int i = 0; i < texture_ptrs.size(); i++)
-    {
-        texture_ptrs[i]->uniform(shader_ptr, "image", i);
-    }*/
-    texture_ptrs[0]->uniform(shader_ptr, "object_material.diffuse", 0);
-    texture_ptrs[1]->uniform(shader_ptr, "object_material.specular", 1);
-    shader_ptr.uniform("object_material.shininess", 32.0f);
+	if (texture_ptrs.size() > 0)
+	{
+		switch (type)
+		{
+		case mesh_type::QUAD:
+			break;
+		case mesh_type::BOX:
+
+			switch (box_type)
+			{
+			case box_texture_type::CONTAINER:
+				texture_ptrs[0]->uniform(shader_ptr, "object_material.diffuse", 0);
+				texture_ptrs[1]->uniform(shader_ptr, "object_material.specular", 1);
+				shader_ptr.uniform("object_material.shininess", 32.0f);
+				break;
+
+			default:
+
+				break;
+			}
+
+			break;
+		case mesh_type::TERRAIN:
+
+			break;
+		}
+	}
+}
+
+void mesh::set_box_texture(const box_texture_type& box_texture)
+{
+	switch (box_texture)
+	{
+	case box_texture_type::CONTAINER:
+		box_type = box_texture_type::CONTAINER;
+		texture_ptrs.push_back(new texture("images/container2.png"));
+		texture_ptrs.push_back(new texture("images/container2_specular.png"));
+		break;
+	}
 }
 
 void mesh::load_quad()

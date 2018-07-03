@@ -32,3 +32,8 @@ void model::set_position(const glm::vec3 & position)
 	model_matrix = glm::mat4(1);
 	model_matrix = glm::translate(model_matrix, position);
 }
+
+void model::set_box_texture(const box_texture_type & box_texture)
+{
+	mesh.set_box_texture(box_texture);
+}

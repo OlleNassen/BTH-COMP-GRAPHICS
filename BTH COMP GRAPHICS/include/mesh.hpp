@@ -22,6 +22,11 @@ enum class mesh_type
 	QUAD, BOX, TERRAIN, CUSTOM
 };
 
+enum class box_texture_type
+{
+	CONTAINER
+};
+
 class mesh
 {
 public:
@@ -31,7 +36,7 @@ public:
 	void draw(const glm::mat4& mvp, const shader& shader_ptr);
 	void use_textures(const shader& shader_ptr);
 
-	void set_box_textures();
+	void set_box_texture(const box_texture_type& box_texture);
 
 private:
 	unsigned int vao;
@@ -40,6 +45,7 @@ private:
 	unsigned int id;
 	unsigned int draw_count = 0;
 	mesh_type type;
+	box_texture_type box_type; // Inheritance doesn't work with enums.. find another fix?
 	std::vector<texture*> texture_ptrs;
 
 	void load_quad();
