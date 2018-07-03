@@ -1,6 +1,8 @@
 #include "game.hpp"
 #include <iostream>
 #include "input.hpp"
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 game::game()
 	: game_window(WIDTH, HEIGHT, "VOILA")
@@ -56,16 +58,16 @@ game::game()
         std::bind(&camera::fast_pressed, &game_camera),
         std::bind(&camera::fast_released, &game_camera));
 
-	models.push_back(new model(mesh_type::BOX, &basic));
-	models.back()->set_texture(texture_type::CONTAINER_BOX);
+	//models.push_back(new model(mesh_type::BOX, &basic));
+	//models.back()->set_texture(texture_type::CONTAINER_BOX);
 
 	models.push_back(new model(mesh_type::TERRAIN, &terrain));
 
 	models.push_back(new model(mesh_type::QUAD, &quad));
 	models.back()->set_texture(texture_type::EDVARD_QUAD);
 	//Phong test
-	models.push_back(new model(mesh_type::BOX, &noob));
-	models.back()->set_position(glm::vec3(0, 50, 10));
+	//models.push_back(new model(mesh_type::BOX, &noob));
+	//models.back()->set_position(glm::vec3(0, 50, 10));
 	//Skybox
 	models.push_back(new model(mesh_type::SKYBOX, &skybox));
 	models.back()->set_texture(texture_type::JUNGLE_SKYBOX);

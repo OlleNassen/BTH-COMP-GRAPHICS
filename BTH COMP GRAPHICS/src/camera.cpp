@@ -135,6 +135,8 @@ void camera::update(float delta_time)
         position -= forward * velocity;
 	if (pressed_right)
         position += glm::normalize(glm::cross(forward, up)) * velocity;
+
+    view = glm::lookAt(position, position + forward, up);
 }
 
 glm::mat4 camera::model_view_projection(const glm::mat4& model) const
