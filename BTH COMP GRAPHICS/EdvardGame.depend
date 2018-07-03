@@ -2829,13 +2829,13 @@
 	"vertex_array.hpp"
 	<GL/glew.h>
 
-1530609504 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\window.hpp
+1530611779 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\window.hpp
 	<string>
 	<functional>
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 
-1530609628 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\window.cpp
+1530611710 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\window.cpp
 	"window.hpp"
 	<iostream>
 
@@ -2851,12 +2851,12 @@
 	"mesh.hpp"
 	"texture.hpp"
 
-1530609691 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\input.cpp
+1530611757 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\input.cpp
 	"input.hpp"
 	<iostream>
 	<map>
 
-1530579129 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\input.hpp
+1530611763 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\input.hpp
 	<functional>
 	<GL/glew.h>
 	<GLFW/glfw3.h>
