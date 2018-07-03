@@ -89,6 +89,11 @@ void mesh::draw(const glm::mat4 & model, const glm::mat4 & view, const glm::mat4
 		shader_ptr.uniform("view", view);
 		shader_ptr.uniform("projection", projection);
 
+		if (texture_ptrs.size() > 0)
+		{
+			use_textures(shader_ptr);
+		}
+
 		glDepthFunc(GL_LEQUAL);
 
 		glBindVertexArray(vao);
@@ -116,7 +121,9 @@ void mesh::use_textures(const shader& shader_ptr)
 			shader_ptr.uniform("object_material.shininess", 32.0f);
 			break;
 		case texture_type::JUNGLE_SKYBOX:
+			//texture_ptrs[0]->uniform(shader_ptr, "skybox", 0);
 			texture_ptrs[0]->skybox(shader_ptr);
+			//shader_ptr.uniform("skybox", 0);
 			break;
 		}
 
@@ -141,12 +148,12 @@ void mesh::set_texture(const texture_type& tex)
 		type_texture = texture_type::JUNGLE_SKYBOX;
 		std::vector<std::string> faces
 		{
-			"images/skybox/highly-overrated_bk.tga",
-			"images/skybox/highly-overrated_bk.tga",
-			"images/skybox/highly-overrated_bk.tga",
-			"images/skybox/highly-overrated_bk.tga",
-			"images/skybox/highly-overrated_bk.tga",
-			"images/skybox/highly-overrated_bk.tga"
+			"images/skybox2/right.jpg",
+			"images/skybox2/left.jpg",
+			"images/skybox2/top.jpg",
+			"images/skybox2/bottom.jpg",
+			"images/skybox2/back.jpg",
+			"images/skybox2/front.jpg"
 		};
 		texture_ptrs.push_back(new texture(faces, wrap::CLAMP_TO_EDGE, filter::LINEAR, format::RGB));
 		break;
@@ -394,7 +401,7 @@ void mesh::load_skybox()
 
 	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(skybox_vertices), &skybox_vertices[0], GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, 432, &skybox_vertices[0], GL_STATIC_DRAW);
 
 	GLint offset = 0;
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
