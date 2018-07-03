@@ -23,10 +23,30 @@ game::game()
         std::placeholders::_2));
 
     input::bind_key("up", input::key::W);
-    input::bind_key("up", input::key::S);
+    input::bind_key("down", input::key::S);
     input::bind_key("left", input::key::A);
     input::bind_key("right", input::key::D);
     input::bind_key("shift", input::key::Q);
+
+    input::assign_key_callback("up",
+        std::bind(&camera::up_pressed, &game_camera),
+        std::bind(&camera::up_released, &game_camera));
+
+    input::assign_key_callback("down",
+        std::bind(&camera::down_pressed, &game_camera),
+        std::bind(&camera::down_released, &game_camera));
+
+    input::assign_key_callback("left",
+        std::bind(&camera::left_pressed, &game_camera),
+        std::bind(&camera::left_released, &game_camera));
+
+    input::assign_key_callback("right",
+        std::bind(&camera::right_pressed, &game_camera),
+        std::bind(&camera::right_released, &game_camera));
+
+    input::assign_key_callback("shift",
+        std::bind(&camera::fast_pressed, &game_camera),
+        std::bind(&camera::fast_released, &game_camera));
 
 	models.push_back(new model(mesh_type::BOX, &basic));
 	models.push_back(new model(mesh_type::TERRAIN, &terrain));
