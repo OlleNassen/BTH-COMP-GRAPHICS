@@ -43,6 +43,11 @@ window::~window()
     glfwTerminate();
 }
 
+void window::on_escape()
+{
+    glfwSetWindowShouldClose(glfw_window, true);
+}
+
 void window::callback(
         std::function<void()> cursor_position_callback,
         std::function<void()> key_callback)

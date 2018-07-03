@@ -1,5 +1,4 @@
 #include "camera.hpp"
-#include <GL/glew.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <iostream>
@@ -112,9 +111,6 @@ void camera::fast_released()
 
 void camera::update(float delta_time)
 {
-	if (glfwGetKey(window_copy, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-		glfwSetWindowShouldClose(window_copy, true);
-
 	float velocity = 10.0f;
 	//TURBO SPEED
 	if (pressed_shift)
@@ -148,14 +144,8 @@ glm::mat4 camera::get_projection() const
 	return projection;
 }
 
-
-
 void camera::bind(const shader& shader)
 {
     shader.uniform("view_position", position);
 }
 
-void camera::set_window_copy(GLFWwindow * window_copy)
-{
-	this->window_copy = window_copy;
-}

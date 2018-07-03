@@ -11,8 +11,6 @@ game::game()
 	, quad("shaders/quad.vs", "shaders/quad.fs")
 	, game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 200.0f)
 {
-	game_camera.set_window_copy(game_window.glfw_window);
-
 	input::assign_window(game_window);
 
 	input::assign_mouse_callback(
@@ -27,6 +25,11 @@ game::game()
     input::bind_key("left", input::key::A);
     input::bind_key("right", input::key::D);
     input::bind_key("shift", input::key::Q);
+    input::bind_key("escape", input::key::ESCAPE);
+
+    input::assign_key_callback("escape",
+        std::bind(&window::on_escape, &game_window),
+        nullptr);
 
     input::assign_key_callback("up",
         std::bind(&camera::up_pressed, &game_camera),
