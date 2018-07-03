@@ -2,6 +2,7 @@
 #define TEXTURE_HPP
 
 #include <string>
+#include <vector>
 #include <GL/glew.h>
 #include "shader.hpp"
 
@@ -49,6 +50,12 @@ public:
         type type_parameter = type::UNSIGNED_BYTE);
 
     texture(const std::string& path,
+        wrap wrap_parameter = wrap::REPEAT,
+        filter filter_parameter = filter::LINEAR,
+        format format_parameter = format::RGBA,
+        type type_parameter = type::UNSIGNED_BYTE);
+
+    texture(std::vector<std::string> paths,
         wrap wrap_parameter = wrap::REPEAT,
         filter filter_parameter = filter::LINEAR,
         format format_parameter = format::RGBA,

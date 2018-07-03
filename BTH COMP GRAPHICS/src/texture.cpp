@@ -50,6 +50,41 @@ texture::texture(const std::string& path,
     stbi_image_free(data);
 }
 
+texture::texture(std::vector<std::string> paths,
+    wrap wrap_parameter,
+    filter filter_parameter,
+    format format_parameter,
+    type type_parameter)
+{
+    glGenTextures(1, &id);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, id);
+
+    int width, height, nrChannels;
+    for (unsigned int i = 0; i < paths.size(); i++)
+    {
+        unsigned char *data = stbi_load(paths[i].c_str(), &width, &height, &nrChannels, 0);
+        if (data)
+        {
+            glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i,
+                0, static_cast<unsigned int>(format_parameter), width, height,
+                0, static_cast<unsigned int>(format_parameter),
+                static_cast<unsigned int>(type_parameter), data);
+        }
+        else
+        {
+            std::cout << "Cubemap texture failed to load at path: " << paths[i] << std::endl;
+
+        }
+        stbi_image_free(data);
+    }
+
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, static_cast<int>(wrap_parameter));
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, static_cast<int>(wrap_parameter));
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, static_cast<int>(filter_parameter));
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, static_cast<int>(filter_parameter));
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, static_cast<int>(filter_parameter));
+}
+
 texture::~texture()
 {
     glDeleteTextures(1, &id);
