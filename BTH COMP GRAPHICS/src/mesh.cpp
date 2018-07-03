@@ -116,7 +116,7 @@ void mesh::use_textures(const shader& shader_ptr)
 			shader_ptr.uniform("object_material.shininess", 32.0f);
 			break;
 		case texture_type::JUNGLE_SKYBOX:
-			texture_ptrs[0]->uniform(shader_ptr, "skybox", 0);
+			texture_ptrs[0]->skybox(shader_ptr);
 			break;
 		}
 

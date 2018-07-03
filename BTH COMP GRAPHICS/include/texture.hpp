@@ -64,6 +64,7 @@ public:
     ~texture();
 
     void uniform(const shader& shader, const std::string& name, int texture_index = 0) const;
+    void skybox(const shader& shader) const;
     void bind_to_buffer() const;
 
 private:
