@@ -2889,7 +2889,7 @@
 	<glm/glm.hpp>
 	"shader.hpp"
 
-1530719353 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
+1530719786 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
 	"box.hpp"
 	<iostream>
 
@@ -2922,11 +2922,12 @@
 	<glm/glm.hpp>
 	<stb_image.h>
 
-1530712352 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\quad.hpp
+1530719847 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\quad.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
+	"texture.hpp"
 
-1530719301 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad.cpp
+1530719847 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad.cpp
 	"quad.hpp"
 
