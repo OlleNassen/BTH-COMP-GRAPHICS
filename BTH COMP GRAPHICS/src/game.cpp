@@ -115,6 +115,9 @@ void game::render()
 
 	skybox_shader.use();
 	game_camera.bind(skybox_shader);
+	skybox_shader.uniform("view",
+        glm::mat4(
+        glm::mat3(game_camera.get_view())));
 	scene.render(skybox_shader);
 
 	game_window.swap_buffers();
