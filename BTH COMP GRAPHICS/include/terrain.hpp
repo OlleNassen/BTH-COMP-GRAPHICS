@@ -4,6 +4,7 @@
 #include "scene_node.hpp"
 #include "buffer.hpp"
 #include "vertex_array.hpp"
+#include "texture.hpp"
 
 class terrain : public scene_node
 {
@@ -18,6 +19,7 @@ private:
 	vertex_array terrain_array;
 	buffer terrain_vbo;
 	buffer terrain_ebo;
+	texture terrain_texture;
 
 	virtual void update_current(float delta_time,
 		const glm::mat4& world_transform, glm::mat4& transform) override;

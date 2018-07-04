@@ -20,8 +20,10 @@ struct Vertex
 };
 
 terrain::terrain(float x, float y, float z)
-	:draw_count(0), terrain_vbo(target::ARRAY_BUFFER), terrain_ebo(target::ELEMENT_ARRAY_BUFFER),
-	scene_node(x, y, z)
+	: draw_count(0)
+	, terrain_vbo(target::ARRAY_BUFFER), terrain_ebo(target::ELEMENT_ARRAY_BUFFER)
+	, terrain_texture("images/ground.png")
+	, scene_node(x, y, z)
 {
 	int textureWidth, textureHeight, nrChannels;
 	unsigned char* data = stbi_load("images/heightmap.jpg", &textureWidth, &textureHeight, &nrChannels, 1);
@@ -101,6 +103,9 @@ void terrain::update_current(float delta_time, const glm::mat4 & world_transform
 
 void terrain::render_current(const shader & shader, const glm::mat4 & world_transform) const
 {
+	terrain_texture.uniform(shader, "object_material.diffuse", 0);
+    terrain_texture.uniform(shader, "object_material.specular", 1);
+    shader.uniform("object_material.shininess", 32.0f);
 	shader.uniform("model", world_transform);
 	terrain_array.bind();
 	glDrawElements(GL_TRIANGLES, draw_count, GL_UNSIGNED_INT, 0);

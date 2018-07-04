@@ -2602,7 +2602,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1530716384 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1530717628 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	"input.hpp"
@@ -2907,12 +2907,13 @@
 1530712352 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skybox.cpp
 	"skybox.hpp"
 
-1530704386 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\terrain.hpp
+1530717538 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\terrain.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
+	"texture.hpp"
 
-1530704395 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
+1530717795 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
 	"terrain.hpp"
 	<vector>
 	<iostream>

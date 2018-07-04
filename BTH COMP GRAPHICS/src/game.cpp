@@ -103,10 +103,11 @@ void game::render()
 	basic_shader.use();
 	game_camera.bind(basic_shader);
 	light.bind(basic_shader);
+	scene.render(basic_shader);
 
-    noob_shader.use();
+    /*noob_shader.use();
     game_camera.bind(noob_shader);
-	scene.render(noob_shader);
+	scene.render(noob_shader);*/
 
 	skybox_shader.use();
 	game_camera.bind(skybox_shader);
