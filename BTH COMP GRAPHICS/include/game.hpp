@@ -31,6 +31,7 @@ private:
 	camera game_camera;
 	directional_light light;
 	scene_node scene;
+	skybox sky;
 
 	void render();
 	void update(float delta_time);

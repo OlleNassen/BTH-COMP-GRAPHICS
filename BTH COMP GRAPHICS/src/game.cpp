@@ -58,7 +58,6 @@ game::game()
         std::bind(&camera::fast_pressed, &game_camera),
         std::bind(&camera::fast_released, &game_camera));
 
-	scene.attach_child(new skybox());
 	scene.attach_child(new box());
 	scene.attach_child(new terrain());
 	scene.attach_child(new quad());
@@ -105,14 +104,6 @@ void game::render()
 	game_camera.bind(basic_shader);
 	light.bind(basic_shader);
 
-	//terrain_shader.use();
-	//game_camera.bind(terrain_shader);
-	//scene.render(terrain_shader);
-
-    //quad_shader.use();
-    //game_camera.bind(quad_shader);
-	//scene.render(quad_shader);
-
     noob_shader.use();
     game_camera.bind(noob_shader);
 	scene.render(noob_shader);
@@ -122,7 +113,8 @@ void game::render()
 	skybox_shader.uniform("view",
         glm::mat4(
         glm::mat3(game_camera.get_view())));
-	scene.render(skybox_shader);
+
+	sky.render(skybox_shader);
 
 	game_window.swap_buffers();
 }
