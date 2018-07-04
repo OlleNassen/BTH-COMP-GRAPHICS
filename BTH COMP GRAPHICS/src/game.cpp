@@ -6,11 +6,11 @@
 
 game::game()
 	: game_window(WIDTH, HEIGHT, "VOILA")
-	, basic("shaders/basic.vs", "shaders/basic.fs")
-	, shadow("shaders/shadow.vs", "shaders/shadow.fs")
-	, terrain("shaders/terrain.vs", "shaders/terrain.fs")
-	, noob("shaders/noob.vs", "shaders/noob.fs")
-	, quad("shaders/quad.vs", "shaders/quad.fs")
+	, basic_shader("shaders/basic.vs", "shaders/basic.fs")
+	, shadow_shader("shaders/shadow.vs", "shaders/shadow.fs")
+	, terrain_shader("shaders/terrain.vs", "shaders/terrain.fs")
+	, noob_shader("shaders/noob.vs", "shaders/noob.fs")
+	, quad_shader("shaders/quad.vs", "shaders/quad.fs")
 	, skybox_shader("shaders/skybox.vs", "shaders/skybox.fs")
 	, game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 200.0f)
 	, light(glm::vec3(0.0f, -1.0f, 0.0f),
@@ -89,8 +89,8 @@ void game::render()
 {
 	glClear(GL_DEPTH_BUFFER_BIT);
 	glViewport(0, 0, 1024, 1024);
-	shadow.use();
-	light.bind(shadow);
+	shadow_shader.use();
+	light.bind(shadow_shader);
 	light.shadows_bind();
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -99,19 +99,19 @@ void game::render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glViewport(0, 0, WIDTH, HEIGHT);
 
-	basic.use();
-	game_camera.bind(basic);
-	light.bind(basic);
+	basic_shader.use();
+	game_camera.bind(basic_shader);
+	light.bind(basic_shader);
 
-	terrain.use();
-	game_camera.bind(terrain);
+	terrain_shader.use();
+	game_camera.bind(terrain_shader);
 
-    quad.use();
-    game_camera.bind(quad);
+    quad_shader.use();
+    game_camera.bind(quad_shader);
 
-    noob.use();
-    game_camera.bind(noob);
-	scene.render(noob);
+    noob_shader.use();
+    game_camera.bind(noob_shader);
+	scene.render(noob_shader);
 
 	skybox_shader.use();
 	game_camera.bind(skybox_shader);
