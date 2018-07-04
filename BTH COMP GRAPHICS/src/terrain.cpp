@@ -84,13 +84,13 @@ terrain::terrain()
 	box_array.attribute_pointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
 	box_array.attribute_pointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 	*/
-
-	terrain_vbo.data(sizeof(vertices), &vertices[0], GL_STATIC_DRAW);
+	terrain_vbo.data(sizeof(GLfloat) * 5 * vertices.size(), &vertices[0], GL_STATIC_DRAW);
 	terrain_ebo.data(sizeof(int) * indices.size(), &indices[0], GL_STATIC_DRAW);
 	int offset = 0;
 	terrain_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), BUFFER_OFFSET(offset));
+	offset += sizeof(glm::vec3);
 	terrain_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), BUFFER_OFFSET(offset));
-
+	offset += sizeof(glm::vec2);
 	/*
 	glGenVertexArrays(1, &terrain_array);
 	glBindVertexArray(terrain_array);
