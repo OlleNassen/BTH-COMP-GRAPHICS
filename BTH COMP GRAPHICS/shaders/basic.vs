@@ -1,8 +1,8 @@
 #version 440 core
 
 layout (location = 0) in vec3 position;
-layout (location = 1) in vec3 normal_in;
-layout (location = 2) in vec2 texture_coordinate_in;
+layout (location = 1) in vec2 texture_coordinate_in;
+layout (location = 2) in vec3 normal_in;
 
 out vec3 fragment_position;
 out vec3 normal;
