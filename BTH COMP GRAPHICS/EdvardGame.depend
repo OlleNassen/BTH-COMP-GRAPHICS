@@ -2871,7 +2871,7 @@
 	<GLFW/glfw3.h>
 	"window.hpp"
 
-1530651809 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\scene_node.cpp
+1530652412 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\scene_node.cpp
 	"scene_node.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
@@ -2885,7 +2885,7 @@
 	"box.hpp"
 	<iostream>
 
-1530644269 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\box.hpp
+1530695874 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\box.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
