@@ -2602,14 +2602,14 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1530651797 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1530697162 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	"input.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1530644085 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1530697074 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	"model.hpp"
 	"window.hpp"
 	"camera.hpp"
@@ -2885,7 +2885,7 @@
 	"box.hpp"
 	<iostream>
 
-1530695874 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\box.hpp
+1530698112 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\box.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"

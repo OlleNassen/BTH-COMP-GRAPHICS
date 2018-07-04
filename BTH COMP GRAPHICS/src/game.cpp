@@ -105,16 +105,11 @@ void game::render()
 	terrain.use();
 	game_camera.bind(terrain);
 
-    noob.use();
-    game_camera.bind(noob);
-
     quad.use();
     game_camera.bind(quad);
 
     noob.use();
-    glm::mat4 model(1.0f);
-    glm::mat4 mvp = game_camera.model_view_projection(model);
-    noob.uniform("model_view_projection", mvp);
+    game_camera.bind(noob);
 	scene.render(noob);
 
 	game_window.swap_buffers();
