@@ -121,6 +121,15 @@ void game::render()
 	game_camera.bind(basic);
 	light.bind(basic);
 
+	terrain.use();
+	game_camera.bind(terrain);
+
+    noob.use();
+    game_camera.bind(noob);
+
+    quad.use();
+    game_camera.bind(quad);
+
 	for (const auto& model : models)
 	{
 		model->render(game_camera.get_view(), game_camera.get_projection());

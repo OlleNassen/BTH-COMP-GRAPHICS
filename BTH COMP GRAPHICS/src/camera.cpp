@@ -157,5 +157,7 @@ glm::mat4 camera::get_projection() const
 void camera::bind(const shader& shader)
 {
     shader.uniform("view_position", position);
+    shader.uniform("view", view);
+    shader.uniform("projection", projection);
 }
 

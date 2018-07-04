@@ -11,7 +11,8 @@ out vec4 fragment_position_in_light_space;
 
 
 uniform mat4 model;
-uniform mat4 model_view_projection;
+uniform mat4 view;
+uniform mat4 projection;
 uniform mat4 light_space_matrix;
 
 void main()
@@ -21,5 +22,5 @@ void main()
     texture_coordinate = texture_coordinate_in;
     fragment_position_in_light_space = light_space_matrix * vec4(fragment_position, 1.0);
 
-    gl_Position =  model_view_projection * vec4(position, 1.0);
+    gl_Position =  projection * view * model * vec4(position, 1.0);
 }
