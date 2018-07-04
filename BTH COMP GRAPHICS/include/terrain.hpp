@@ -11,7 +11,6 @@ public:
 	terrain(float x = 0.f, float y = 0.f, float z = 0.f);
 
 	virtual ~terrain();
-	void draw();
 
 private:
 	unsigned int draw_count;

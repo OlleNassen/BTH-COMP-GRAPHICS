@@ -96,18 +96,12 @@ terrain::~terrain()
 
 void terrain::update_current(float delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
 {
+
 }
 
 void terrain::render_current(const shader & shader, const glm::mat4 & world_transform) const
 {
 	shader.uniform("model", world_transform);
-	terrain_array.bind();
-	glDrawElements(GL_TRIANGLES, draw_count, GL_UNSIGNED_INT, 0);
-	glBindVertexArray(0);
-}
-
-void terrain::draw()
-{
 	terrain_array.bind();
 	glDrawElements(GL_TRIANGLES, draw_count, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
