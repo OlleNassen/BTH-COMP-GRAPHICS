@@ -69,7 +69,8 @@ void scene_node::update_children(float delta_time, glm::mat4& world_transform)
 {
     for(auto* child : children)
     {
-        child->update(delta_time, world_transform);
+        glm::mat4 temp_transform = world_transform;
+        child->update(delta_time, temp_transform);
     }
 }
 
@@ -77,6 +78,7 @@ void scene_node::render_children(const shader& shader, glm::mat4& world_transfor
 {
     for(const auto& child : children)
     {
-        child->render(shader, world_transform);
+        glm::mat4 temp_transform = world_transform;
+        child->render(shader, temp_transform);
     }
 }
