@@ -2,9 +2,6 @@
 #define POINT_LIGHT_HPP
 
 #include "scene_node.hpp"
-#include "buffer.hpp"
-#include "vertex_array.hpp"
-#include "texture.hpp"
 
 class point_light: public scene_node
 {
