@@ -109,9 +109,9 @@ void game::render()
 	//game_camera.bind(terrain_shader);
 	//scene.render(terrain_shader);
 
-    quad_shader.use();
-    game_camera.bind(quad_shader);
-	scene.render(quad_shader);
+    //quad_shader.use();
+    //game_camera.bind(quad_shader);
+	//scene.render(quad_shader);
 
     noob_shader.use();
     game_camera.bind(noob_shader);
