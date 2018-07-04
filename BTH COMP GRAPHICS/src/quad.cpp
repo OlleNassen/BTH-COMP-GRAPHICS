@@ -7,25 +7,23 @@ quad::quad()
 {
 	float vertices[] =
 	{
-		// positions     // colors
-		0.0f, 256.f, 0.f, 0.0f, 1.0f,  1.f, 1.f, 1.f,
-		256.f, 0.0f, 0.f, 1.0f, 0.0f,    1.f, 1.f, 1.f,
-		0.0f, 0.0f, 0.f, 0.0f, 0.0f,   1.f, 1.f, 1.f,
+		// positions     // uv
+		0.0f, 256.f, 0.f, 0.0f, 1.0f,
+		256.f, 0.0f, 0.f, 1.0f, 0.0f,
+		0.0f, 0.0f, 0.f, 0.0f, 0.0f,
 
-		0.0f, 256.f, 0.f, 0.0f, 1.0f,  1.f, 1.f, 1.f,
-		256.f, 256.f, 0.f, 1.0f, 1.0f,   1.f, 1.f, 1.f,
-		256.f, 0.0f, 0.f, 1.0f, 0.0f,  1.f, 1.f, 1.f
+		0.0f, 256.f, 0.f, 0.0f, 1.0f,
+		256.f, 256.f, 0.f, 1.0f, 1.0f,
+		256.f, 0.0f, 0.f, 1.0f, 0.0f
 	};
 
 	quad_array.bind();
 	quad_vbo.data(sizeof(vertices), &vertices[0], GL_STATIC_DRAW);
 	int offset = 0;
-	quad_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), BUFFER_OFFSET(offset));
+	quad_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), BUFFER_OFFSET(offset));
 	offset += sizeof(float) * 3;
-	quad_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), BUFFER_OFFSET(offset));
+	quad_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), BUFFER_OFFSET(offset));
 	offset += sizeof(float) * 2;
-	quad_array.attribute_pointer(2, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), BUFFER_OFFSET(offset));
-	offset += sizeof(float) * 3;
 }
 
 quad::~quad()
