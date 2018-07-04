@@ -1,6 +1,6 @@
 #ifndef TERRAIN_HPP
 #define TERRAIN_HPP
-#include <stb_image.h>
+
 #include "scene_node.hpp"
 #include "buffer.hpp"
 #include "vertex_array.hpp"
@@ -8,7 +8,8 @@
 class terrain : public scene_node
 {
 public:
-	terrain();
+	terrain(float x = 0.f, float y = 0.f, float z = 0.f);
+
 	virtual ~terrain();
 	void draw();
 

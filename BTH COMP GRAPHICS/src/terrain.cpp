@@ -3,6 +3,7 @@
 #include <iostream>
 #include <gl/glew.h>
 #include <glm/glm.hpp>
+#include <stb_image.h>
 
 #define BUFFER_OFFSET(i) ((char *)nullptr + (i))
 
@@ -18,8 +19,9 @@ struct Vertex
 	}
 };
 
-terrain::terrain()
-	:draw_count(0), terrain_vbo(target::ARRAY_BUFFER), terrain_ebo(target::ELEMENT_ARRAY_BUFFER)
+terrain::terrain(float x, float y, float z)
+	:draw_count(0), terrain_vbo(target::ARRAY_BUFFER), terrain_ebo(target::ELEMENT_ARRAY_BUFFER),
+	scene_node(x, y, z)
 {
 	int textureWidth, textureHeight, nrChannels;
 	unsigned char* data = stbi_load("images/heightmap.jpg", &textureWidth, &textureHeight, &nrChannels, 1);
