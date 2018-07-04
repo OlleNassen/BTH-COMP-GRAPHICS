@@ -32,6 +32,8 @@ private:
 	directional_light light;
 	scene_node scene;
 
+	terrain test;
+
 	void render();
 	void update(float delta_time);
 };

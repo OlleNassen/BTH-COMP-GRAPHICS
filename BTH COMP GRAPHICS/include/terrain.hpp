@@ -10,6 +10,8 @@ class terrain : public scene_node
 public:
 	terrain();
 	virtual ~terrain();
+	void draw();
+
 private:
 	unsigned int draw_count;
 
@@ -22,6 +24,7 @@ private:
 
 	virtual void render_current(const shader& shader,
 		const glm::mat4& world_transform) const override;
+
 };
 
 #endif
