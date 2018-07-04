@@ -57,7 +57,6 @@ terrain::terrain(float x, float y, float z)
 			vertices.push_back(Vertex(glm::vec3(x, heights[heightIndex] * 0.1f, z), glm::vec2(0, 0)));
 			heightIndex++;
 		}
-		//heightIndex++;
 	}
 
 	for (int i = 0; i < depth - 1; i++)
@@ -79,43 +78,15 @@ terrain::terrain(float x, float y, float z)
 		}
 	}
 
-	/*
-	box_vbo.data(sizeof(vertices), &vertices[0], GL_STATIC_DRAW);
-	box_array.bind();
-	box_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-	box_array.attribute_pointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-	box_array.attribute_pointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-	*/
+	terrain_array.bind();
 	terrain_vbo.data(sizeof(float) * 5 * vertices.size(), &vertices[0], GL_STATIC_DRAW);
 	terrain_ebo.data(sizeof(unsigned int) * indices.size(), &indices[0], GL_STATIC_DRAW);
-	terrain_array.bind();
+
 	int offset = 0;
 	terrain_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), BUFFER_OFFSET(offset));
 	offset += sizeof(glm::vec3);
 	terrain_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), BUFFER_OFFSET(offset));
 	offset += sizeof(glm::vec2);
-	/*
-	glGenVertexArrays(1, &terrain_array);
-	glBindVertexArray(terrain_array);
-
-	glGenBuffers(1, &terrain_vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, buffer_object);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 5 * vertices.size(), &vertices[0], GL_STATIC_DRAW); // 5 is number of elements in vertex
-
-	glGenBuffers(1, &terrain_ebo);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, terrain_ebo);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * indices.size(), &indices[0], GL_STATIC_DRAW);
-
-	GLuint offset = 0;
-
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), BUFFER_OFFSET(offset));
-	glEnableVertexAttribArray(0);
-	offset += sizeof(glm::vec3);
-
-	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), BUFFER_OFFSET(offset));
-	glEnableVertexAttribArray(1);
-	offset += sizeof(glm::vec2);
-	*/
 }
 
 

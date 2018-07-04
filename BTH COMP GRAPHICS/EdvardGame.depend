@@ -2602,14 +2602,14 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1530697162 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1530704281 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	"input.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1530700853 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1530704346 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	"model.hpp"
 	"window.hpp"
 	"camera.hpp"
@@ -2873,12 +2873,12 @@
 	<GLFW/glfw3.h>
 	"window.hpp"
 
-1530652412 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\scene_node.cpp
+1530703703 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\scene_node.cpp
 	"scene_node.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1530652406 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\scene_node.hpp
+1530703696 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\scene_node.hpp
 	<vector>
 	<glm/glm.hpp>
 	"shader.hpp"
@@ -2901,9 +2901,16 @@
 1530698458 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skybox.cpp
 	"skybox.hpp"
 
-1530700853 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\terrain.hpp
-	<stb_image.h>
+1530703703 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\terrain.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
+
+1530704275 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
+	"terrain.hpp"
+	<vector>
+	<iostream>
+	<gl/glew.h>
+	<glm/glm.hpp>
+	<stb_image.h>
 

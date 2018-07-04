@@ -60,9 +60,7 @@ game::game()
 
 	//scene.attach_child(new skybox());
 	//scene.attach_child(new box());
-	//test = new terrain();
-	test2 = new terrain(0,10,0);
-	//scene.attach_child(new terrain());
+	scene.attach_child(new terrain());
 }
 
 game::~game()
@@ -107,13 +105,8 @@ void game::render()
 	light.bind(basic_shader);
 	*/
 	terrain_shader.use();
-	terrain_shader.uniform("model", glm::mat4(1));
 	game_camera.bind(terrain_shader);
-	//test->render(terrain_shader);
-	test2->render(terrain_shader);
-	//test.render(terrain_shader);
-
-	//scene->render(terrain_shader);
+	scene.render(terrain_shader);
 	/*
     quad_shader.use();
     game_camera.bind(quad_shader);
