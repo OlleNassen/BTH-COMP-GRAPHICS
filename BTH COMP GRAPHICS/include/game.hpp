@@ -7,6 +7,7 @@
 #include "directional_light.hpp"
 #include "scene_node.hpp"
 #include "box.hpp"
+#include "skybox.hpp"
 
 class game
 {
@@ -25,7 +26,7 @@ private:
 	shader terrain;
 	shader noob;
 	shader quad;
-	shader skybox;
+	shader skybox_shader;
 	camera game_camera;
 	directional_light light;
 	scene_node scene;

@@ -2602,14 +2602,14 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1530651797 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1530697162 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	"input.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1530644085 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1530698593 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	"model.hpp"
 	"window.hpp"
 	"camera.hpp"
@@ -2617,6 +2617,7 @@
 	"directional_light.hpp"
 	"scene_node.hpp"
 	"box.hpp"
+	"skybox.hpp"
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glfw\glfw3.h
 	<stddef.h>
@@ -2881,12 +2882,21 @@
 	<glm/glm.hpp>
 	"shader.hpp"
 
-1530652075 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
+1530698112 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
 	"box.hpp"
 	<iostream>
 
-1530695874 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\box.hpp
+1530698112 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\box.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
+
+1530698317 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skybox.hpp
+	"scene_node.hpp"
+	"buffer.hpp"
+	"vertex_array.hpp"
+	"texture.hpp"
+
+1530698458 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skybox.cpp
+	"skybox.hpp"
 
