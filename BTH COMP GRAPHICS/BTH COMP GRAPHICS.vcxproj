@@ -145,10 +145,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\box.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\input.cpp" />
     <ClCompile Include="src\mesh.cpp" />
     <ClCompile Include="src\model.cpp" />
+    <ClCompile Include="src\scene_node.cpp" />
     <ClCompile Include="src\terrain.cpp" />
     <ClCompile Include="src\buffer.cpp" />
     <ClCompile Include="src\camera.cpp" />
@@ -161,6 +163,7 @@
     <ClCompile Include="src\window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\box.hpp" />
     <ClInclude Include="include\buffer.hpp" />
     <ClInclude Include="include\camera.hpp" />
     <ClInclude Include="include\directional_light.hpp" />
@@ -169,6 +172,7 @@
     <ClInclude Include="include\input.hpp" />
     <ClInclude Include="include\mesh.hpp" />
     <ClInclude Include="include\model.hpp" />
+    <ClInclude Include="include\scene_node.hpp" />
     <ClInclude Include="include\shader.hpp" />
     <ClInclude Include="include\terrain.hpp" />
     <ClInclude Include="include\texture.hpp" />

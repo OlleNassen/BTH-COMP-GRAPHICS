@@ -29,7 +29,6 @@ private:
 	camera game_camera;
 	directional_light light;
 	scene_node scene;
-	std::vector<model*> models;
 
 	void render();
 	void update(float delta_time);

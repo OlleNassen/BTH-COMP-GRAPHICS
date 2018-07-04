@@ -58,21 +58,7 @@ game::game()
         std::bind(&camera::fast_pressed, &game_camera),
         std::bind(&camera::fast_released, &game_camera));
 
-	//models.push_back(new model(mesh_type::BOX, &basic));
-	//models.back()->set_texture(texture_type::CONTAINER_BOX);
-
-	models.push_back(new model(mesh_type::TERRAIN, &terrain));
-
-	models.push_back(new model(mesh_type::QUAD, &quad));
-	models.back()->set_texture(texture_type::EDVARD_QUAD);
-	//Phong test
-	//models.push_back(new model(mesh_type::BOX, &noob));
-	//models.back()->set_position(glm::vec3(0, 50, 10));
-	//Skybox
-	models.push_back(new model(mesh_type::SKYBOX, &skybox));
-	models.back()->set_texture(texture_type::JUNGLE_SKYBOX);
 	scene.attach_child(new box());
-
 }
 
 game::~game()
@@ -106,11 +92,6 @@ void game::render()
 	light.bind(shadow);
 	light.shadows_bind();
 
-	for (const auto& model : models)
-	{
-		model->render(shadow);
-	}
-
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 	glClearColor(0.6f, 0.9f, 0.6f, 0.f);
@@ -129,11 +110,6 @@ void game::render()
 
     quad.use();
     game_camera.bind(quad);
-
-	for (const auto& model : models)
-	{
-		model->render(game_camera.get_view(), game_camera.get_projection());
-	}
 
     noob.use();
     glm::mat4 model(1.0f);
