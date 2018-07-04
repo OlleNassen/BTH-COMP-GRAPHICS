@@ -24,9 +24,6 @@ private:
 	window game_window;
 	shader basic_shader;
 	shader shadow_shader;
-	shader terrain_shader;
-	shader noob_shader;
-	shader quad_shader;
 	shader skybox_shader;
 	camera game_camera;
 	directional_light light;
