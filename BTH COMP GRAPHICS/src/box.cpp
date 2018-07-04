@@ -70,8 +70,8 @@ void box::update_current(float delta_time,
 void box::render_current(const shader& shader,
     const glm::mat4& world_transform) const
 {
-    box_array.bind();
     shader.uniform("model", world_transform);
+    box_array.bind();
     glDrawArrays(GL_TRIANGLES, 0, 36);
     glBindVertexArray(0);
 }
