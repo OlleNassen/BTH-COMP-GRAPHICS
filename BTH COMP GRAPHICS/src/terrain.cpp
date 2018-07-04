@@ -19,7 +19,7 @@ struct Vertex
 };
 
 terrain::terrain()
-	:draw_count(0)
+	:draw_count(0), terrain_vbo(target::ARRAY_BUFFER), terrain_ebo(target::ELEMENT_ARRAY_BUFFER)
 {
 	int textureWidth, textureHeight, nrChannels;
 	unsigned char* data = stbi_load("images/heightmap.jpg", &textureWidth, &textureHeight, &nrChannels, 1);
@@ -77,6 +77,21 @@ terrain::terrain()
 		}
 	}
 
+	/*
+	box_vbo.data(sizeof(vertices), &vertices[0], GL_STATIC_DRAW);
+	box_array.bind();
+	box_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+	box_array.attribute_pointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+	box_array.attribute_pointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+	*/
+
+	terrain_vbo.data(sizeof(vertices), &vertices[0], GL_STATIC_DRAW);
+	terrain_ebo.data(sizeof(int) * indices.size(), &indices[0], GL_STATIC_DRAW);
+	int offset = 0;
+	terrain_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), BUFFER_OFFSET(offset));
+	terrain_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), BUFFER_OFFSET(offset));
+
+	/*
 	glGenVertexArrays(1, &terrain_array);
 	glBindVertexArray(terrain_array);
 
@@ -97,6 +112,7 @@ terrain::terrain()
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), BUFFER_OFFSET(offset));
 	glEnableVertexAttribArray(1);
 	offset += sizeof(glm::vec2);
+	*/
 }
 
 
@@ -104,9 +120,22 @@ terrain::~terrain()
 {
 }
 
+void terrain::update_current(float delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
+{
+}
+
+void terrain::render_current(const shader & shader, const glm::mat4 & world_transform) const
+{
+	shader.uniform("model", world_transform);
+	terrain_array.bind();
+	glDrawElements(GL_TRIANGLES, draw_count, GL_UNSIGNED_INT, 0);
+	glBindVertexArray(0);
+}
+/*
 void terrain::draw()
 {
 	glBindVertexArray(terrain_array);
 	glDrawElements(GL_TRIANGLES, draw_count, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
 }
+*/

@@ -60,6 +60,9 @@
     <ClCompile Include="src\scene_node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\terrain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\buffer.hpp">
@@ -102,6 +105,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\scene_node.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\terrain.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
