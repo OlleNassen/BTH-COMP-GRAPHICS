@@ -61,6 +61,7 @@ game::game()
 	scene.attach_child(new skybox());
 	scene.attach_child(new box());
 	scene.attach_child(new terrain());
+	scene.attach_child(new quad());
 }
 
 game::~game()
@@ -110,6 +111,7 @@ void game::render()
 
     quad_shader.use();
     game_camera.bind(quad_shader);
+	scene.render(quad_shader);
 
     noob_shader.use();
     game_camera.bind(noob_shader);

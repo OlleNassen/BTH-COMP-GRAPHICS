@@ -150,6 +150,7 @@
     <ClCompile Include="src\input.cpp" />
     <ClCompile Include="src\mesh.cpp" />
     <ClCompile Include="src\model.cpp" />
+    <ClCompile Include="src\quad.cpp" />
     <ClCompile Include="src\scene_node.cpp" />
     <ClCompile Include="src\buffer.cpp" />
     <ClCompile Include="src\camera.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="include\input.hpp" />
     <ClInclude Include="include\mesh.hpp" />
     <ClInclude Include="include\model.hpp" />
+    <ClInclude Include="include\quad.hpp" />
     <ClInclude Include="include\scene_node.hpp" />
     <ClInclude Include="include\shader.hpp" />
     <ClInclude Include="include\skybox.hpp" />

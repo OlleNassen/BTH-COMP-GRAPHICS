@@ -9,6 +9,7 @@
 #include "box.hpp"
 #include "skybox.hpp"
 #include "terrain.hpp"
+#include "quad.hpp"
 
 class game
 {

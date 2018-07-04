@@ -60,8 +60,8 @@ skybox::skybox()
     , sky(faces, wrap::CLAMP_TO_EDGE,
         filter::LINEAR, format::RGB)
 {
-    vbo.data(sizeof(skybox_vertices), &skybox_vertices[0], GL_STATIC_DRAW);
     vao.bind();
+    vbo.data(sizeof(skybox_vertices), &skybox_vertices[0], GL_STATIC_DRAW);
     vao.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 }
 
