@@ -3,6 +3,8 @@
 
 box::box()
     : box_vbo(target::ARRAY_BUFFER)
+    , diffuse("images/container2.png")
+	, specular("images/container2_specular.png")
 {
 	float vertices[] =
 	{
@@ -71,6 +73,9 @@ void box::update_current(float delta_time,
 void box::render_current(const shader& shader,
     const glm::mat4& world_transform) const
 {
+    diffuse.uniform(shader, "object_material.diffuse", 0);
+    specular.uniform(shader, "object_material.specular", 1);
+    shader.uniform("object_material.shininess", 32.0f);
     shader.uniform("model", world_transform);
     box_array.bind();
     glDrawArrays(GL_TRIANGLES, 0, 36);

@@ -2879,7 +2879,7 @@
 	<GLFW/glfw3.h>
 	"window.hpp"
 
-1530703703 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\scene_node.cpp
+1530717993 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\scene_node.cpp
 	"scene_node.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
@@ -2889,14 +2889,15 @@
 	<glm/glm.hpp>
 	"shader.hpp"
 
-1530712473 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
+1530719353 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
 	"box.hpp"
 	<iostream>
 
-1530698112 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\box.hpp
+1530719672 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\box.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
+	"texture.hpp"
 
 1530698317 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skybox.hpp
 	"scene_node.hpp"
@@ -2926,6 +2927,6 @@
 	"buffer.hpp"
 	"vertex_array.hpp"
 
-1530712473 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad.cpp
+1530719301 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad.cpp
 	"quad.hpp"
 
