@@ -53,6 +53,7 @@
 		<Unit filename="include/input.hpp" />
 		<Unit filename="include/mesh.hpp" />
 		<Unit filename="include/model.hpp" />
+		<Unit filename="include/quad.hpp" />
 		<Unit filename="include/scene_node.hpp" />
 		<Unit filename="include/shader.hpp" />
 		<Unit filename="include/skybox.hpp" />
@@ -82,6 +83,7 @@
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/mesh.cpp" />
 		<Unit filename="src/model.cpp" />
+		<Unit filename="src/quad.cpp" />
 		<Unit filename="src/scene_node.cpp" />
 		<Unit filename="src/shader.cpp" />
 		<Unit filename="src/skybox.cpp" />
