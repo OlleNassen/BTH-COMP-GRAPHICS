@@ -4,6 +4,7 @@
 #include "scene_node.hpp"
 #include "buffer.hpp"
 #include "vertex_array.hpp"
+#include "texture.hpp"
 
 class box : public scene_node
 {
@@ -14,6 +15,8 @@ public:
 private:
 	vertex_array box_array;
 	buffer box_vbo;
+	texture diffuse;
+	texture specular;
 
      virtual void update_current(float delta_time,
         const glm::mat4& world_transform, glm::mat4& transform) override;
