@@ -77,15 +77,15 @@ terrain::terrain()
 		}
 	}
 
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
+	glGenVertexArrays(1, &terrain_array);
+	glBindVertexArray(terrain_array);
 
-	glGenBuffers(1, &buffer_object);
+	glGenBuffers(1, &terrain_vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, buffer_object);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 5 * vertices.size(), &vertices[0], GL_STATIC_DRAW); // 5 is number of elements in vertex
 
-	glGenBuffers(1, &ebo);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+	glGenBuffers(1, &terrain_ebo);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, terrain_ebo);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * indices.size(), &indices[0], GL_STATIC_DRAW);
 
 	GLuint offset = 0;
@@ -106,7 +106,7 @@ terrain::~terrain()
 
 void terrain::draw()
 {
-	glBindVertexArray(vao);
+	glBindVertexArray(terrain_array);
 	glDrawElements(GL_TRIANGLES, draw_count, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
 }
