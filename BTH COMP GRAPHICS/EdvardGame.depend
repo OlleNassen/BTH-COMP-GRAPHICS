@@ -2609,8 +2609,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1530712352 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
-	"model.hpp"
+1530716321 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	"window.hpp"
 	"camera.hpp"
 	"shader.hpp"

@@ -1,6 +1,5 @@
 #ifndef GAME_HPP
 #define GAME_HPP
-#include "model.hpp"
 #include "window.hpp"
 #include "camera.hpp"
 #include "shader.hpp"
