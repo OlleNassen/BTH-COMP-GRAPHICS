@@ -58,8 +58,8 @@ game::game()
         std::bind(&camera::fast_pressed, &game_camera),
         std::bind(&camera::fast_released, &game_camera));
 
-	//scene.attach_child(new skybox());
-	//scene.attach_child(new box());
+	scene.attach_child(new skybox());
+	scene.attach_child(new box());
 	scene.attach_child(new terrain());
 }
 
@@ -99,15 +99,15 @@ void game::render()
 	glClearColor(0.6f, 0.9f, 0.6f, 0.f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glViewport(0, 0, WIDTH, HEIGHT);
-	/*
+
 	basic_shader.use();
 	game_camera.bind(basic_shader);
 	light.bind(basic_shader);
-	*/
+
 	terrain_shader.use();
 	game_camera.bind(terrain_shader);
 	scene.render(terrain_shader);
-	/*
+
     quad_shader.use();
     game_camera.bind(quad_shader);
 
@@ -121,7 +121,7 @@ void game::render()
         glm::mat4(
         glm::mat3(game_camera.get_view())));
 	scene.render(skybox_shader);
-	*/
+
 	game_window.swap_buffers();
 }
 
