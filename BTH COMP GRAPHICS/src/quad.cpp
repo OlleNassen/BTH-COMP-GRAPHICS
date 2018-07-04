@@ -2,21 +2,20 @@
 
 #define BUFFER_OFFSET(i) ((char *)nullptr + (i))
 
-float vertices[] =
-{
-	// positions     // colors
-	0.0f, 256.f, 0.f, 0.0f, 1.0f,  1.f, 1.f, 1.f,
-	256.f, 0.0f, 0.f, 1.0f, 0.0f,    1.f, 1.f, 1.f,
-	0.0f, 0.0f, 0.f, 0.0f, 0.0f,   1.f, 1.f, 1.f,
-
-	0.0f, 256.f, 0.f, 0.0f, 1.0f,  1.f, 1.f, 1.f,
-	256.f, 256.f, 0.f, 1.0f, 1.0f,   1.f, 1.f, 1.f,
-	256.f, 0.0f, 0.f, 1.0f, 0.0f,  1.f, 1.f, 1.f
-};
-
 quad::quad()
 	:quad_vbo(target::ARRAY_BUFFER)
 {
+	float vertices[] =
+	{
+		// positions     // colors
+		0.0f, 256.f, 0.f, 0.0f, 1.0f,  1.f, 1.f, 1.f,
+		256.f, 0.0f, 0.f, 1.0f, 0.0f,    1.f, 1.f, 1.f,
+		0.0f, 0.0f, 0.f, 0.0f, 0.0f,   1.f, 1.f, 1.f,
+
+		0.0f, 256.f, 0.f, 0.0f, 1.0f,  1.f, 1.f, 1.f,
+		256.f, 256.f, 0.f, 1.0f, 1.0f,   1.f, 1.f, 1.f,
+		256.f, 0.0f, 0.f, 1.0f, 0.0f,  1.f, 1.f, 1.f
+	};
 
 	quad_array.bind();
 	quad_vbo.data(sizeof(vertices), &vertices[0], GL_STATIC_DRAW);
