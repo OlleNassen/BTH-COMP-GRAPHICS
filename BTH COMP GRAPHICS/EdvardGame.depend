@@ -2647,23 +2647,29 @@
 1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\main.cpp
 	"game.hpp"
 
-1530626737 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
+1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
 	"mesh.hpp"
+
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh.hpp
+	<string>
+	<vector>
+	<map>
+	<GL/glew.h>
 	<glm/glm.hpp>
-	<vector>
-	<iostream>
-
-1530622972 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh.hpp
-	<gl\glew.h>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<assimp/Importer.hpp>
+	<assimp/Scene.h>
+	<assimp/postprocess.h>
+	"buffer.hpp"
+	"vertex_array.hpp"
 	"texture.hpp"
-	<stb_image.h>
-	<vector>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\importer.hpp
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\importer.hpp
 	"types.h"
 	"config.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\types.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\types.h
 	<sys/types.h>
 	<memory.h>
 	<math.h>
@@ -2689,61 +2695,61 @@
 	"matrix3x3.inl"
 	"matrix4x4.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\defs.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\defs.h
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\vector3.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\vector3.h
 	<cmath>
 	<math.h>
 	"./Compiler/pushpack1.h"
 	"./Compiler/poppack1.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\compiler\pushpack1.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\compiler\pushpack1.h
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\compiler\poppack1.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\compiler\poppack1.h
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\vector2.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\vector2.h
 	<cmath>
 	<math.h>
 	"./Compiler/pushpack1.h"
 	"./Compiler/poppack1.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\color4.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\color4.h
 	"./Compiler/pushpack1.h"
 	"./Compiler/poppack1.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\matrix3x3.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\matrix3x3.h
 	"./Compiler/pushpack1.h"
 	"./Compiler/poppack1.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\matrix4x4.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\matrix4x4.h
 	"./Compiler/pushpack1.h"
 	"./Compiler/poppack1.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\quaternion.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\quaternion.h
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\vector2.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\vector2.inl
 	"vector2.h"
 	<cmath>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\vector3.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\vector3.inl
 	"vector3.h"
 	<cmath>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\color4.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\color4.inl
 	"color4.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\quaternion.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\quaternion.inl
 	"quaternion.h"
 	<cmath>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\matrix3x3.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\matrix3x3.inl
 	"matrix3x3.h"
 	"matrix4x4.h"
 	<algorithm>
 	<cmath>
 	<limits>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\matrix4x4.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\matrix4x4.inl
 	"matrix4x4.h"
 	"matrix3x3.h"
 	"quaternion.h"
@@ -2752,9 +2758,9 @@
 	<cmath>
 	<math.h>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\config.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\config.h
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\scene.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\scene.h
 	"types.h"
 	"texture.h"
 	"mesh.h"
@@ -2764,46 +2770,46 @@
 	"anim.h"
 	"metadata.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\texture.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\texture.h
 	"types.h"
 	"./Compiler/pushpack1.h"
 	"./Compiler/poppack1.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\mesh.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\mesh.h
 	"types.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\light.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\light.h
 	"types.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\camera.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\camera.h
 	"types.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\material.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\material.h
 	"types.h"
 	"./Compiler/pushpack1.h"
 	"./Compiler/poppack1.h"
 	"material.inl"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\material.inl
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\material.inl
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\anim.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\anim.h
 	"types.h"
 	"quaternion.h"
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\metadata.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\metadata.h
 	<assert.h>
 	"Compiler/pstdint.h"
 	<stdint.h>
 	<string>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\compiler\pstdint.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\compiler\pstdint.h
 	<stddef.h>
 	<limits.h>
 	<signal.h>
 	<stdint.h>
 	<wchar.h>
 
-1530531257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\postprocess.h
+1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\postprocess.h
 	"types.h"
 
 1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\shader.cpp
