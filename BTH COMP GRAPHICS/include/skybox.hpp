@@ -4,6 +4,7 @@
 #include "scene_node.hpp"
 #include "buffer.hpp"
 #include "vertex_array.hpp"
+#include "texture.hpp"
 
 class skybox : public scene_node
 {
@@ -14,6 +15,7 @@ public:
 private:
     buffer vbo;
     vertex_array vao;
+    texture sky;
 
     virtual void update_current(float delta_time,
         const glm::mat4& world_transform, glm::mat4& transform) override;
