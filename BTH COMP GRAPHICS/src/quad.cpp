@@ -3,7 +3,7 @@
 #define BUFFER_OFFSET(i) ((char *)nullptr + (i))
 
 quad::quad()
-	:quad_vbo(target::ARRAY_BUFFER)
+	:quad_vbo(target::ARRAY_BUFFER), quad_texture(new texture("images/edvard.png"))
 {
 	float vertices[] =
 	{
@@ -37,6 +37,7 @@ void quad::update_current(float delta_time, const glm::mat4 & world_transform, g
 void quad::render_current(const shader & shader, const glm::mat4 & world_transform) const
 {
 	shader.uniform("model", world_transform);
+	quad_texture->uniform(shader, "object_material.diffuse", 0);
 	quad_array.bind();
 	glDrawArrays(GL_TRIANGLES, 0, 6);
 	glBindVertexArray(0);
