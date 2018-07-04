@@ -60,6 +60,7 @@ game::game()
 
 	scene.attach_child(new skybox());
 	scene.attach_child(new box());
+	scene.attach_child(new terrain());
 }
 
 game::~game()
@@ -105,6 +106,7 @@ void game::render()
 
 	terrain_shader.use();
 	game_camera.bind(terrain_shader);
+	scene.render(terrain_shader);
 
     quad_shader.use();
     game_camera.bind(quad_shader);

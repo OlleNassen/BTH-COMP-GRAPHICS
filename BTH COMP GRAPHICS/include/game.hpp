@@ -8,6 +8,7 @@
 #include "scene_node.hpp"
 #include "box.hpp"
 #include "skybox.hpp"
+#include "terrain.hpp"
 
 class game
 {

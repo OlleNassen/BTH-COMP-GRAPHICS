@@ -157,6 +157,7 @@
     <ClCompile Include="src\frame_buffer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\shader.cpp" />
+    <ClCompile Include="src\skybox.cpp" />
     <ClCompile Include="src\terrain.cpp" />
     <ClCompile Include="src\texture.cpp" />
     <ClCompile Include="src\vertex_array.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="include\model.hpp" />
     <ClInclude Include="include\scene_node.hpp" />
     <ClInclude Include="include\shader.hpp" />
+    <ClInclude Include="include\skybox.hpp" />
     <ClInclude Include="include\terrain.hpp" />
     <ClInclude Include="include\texture.hpp" />
     <ClInclude Include="include\vertex_array.hpp" />
