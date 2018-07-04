@@ -8,9 +8,6 @@ game::game()
 	: game_window(WIDTH, HEIGHT, "VOILA")
 	, basic_shader("shaders/basic.vs", "shaders/basic.fs")
 	, shadow_shader("shaders/shadow.vs", "shaders/shadow.fs")
-	, terrain_shader("shaders/terrain.vs", "shaders/terrain.fs")
-	, noob_shader("shaders/noob.vs", "shaders/noob.fs")
-	, quad_shader("shaders/quad.vs", "shaders/quad.fs")
 	, skybox_shader("shaders/skybox.vs", "shaders/skybox.fs")
 	, game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 200.0f)
 	, light(glm::vec3(0.0f, -1.0f, 0.0f),
@@ -58,7 +55,6 @@ game::game()
         std::bind(&camera::fast_pressed, &game_camera),
         std::bind(&camera::fast_released, &game_camera));
 
-	scene.attach_child(new skybox());
 	scene.attach_child(new box());
 	scene.attach_child(new terrain());
 	scene.attach_child(new quad());
@@ -104,25 +100,19 @@ void game::render()
 	basic_shader.use();
 	game_camera.bind(basic_shader);
 	light.bind(basic_shader);
+	scene.render(basic_shader);
 
-	//terrain_shader.use();
-	//game_camera.bind(terrain_shader);
-	//scene.render(terrain_shader);
-
-    //quad_shader.use();
-    //game_camera.bind(quad_shader);
-	//scene.render(quad_shader);
-
-    noob_shader.use();
+    /*noob_shader.use();
     game_camera.bind(noob_shader);
-	scene.render(noob_shader);
+	scene.render(noob_shader);*/
 
 	skybox_shader.use();
 	game_camera.bind(skybox_shader);
 	skybox_shader.uniform("view",
         glm::mat4(
         glm::mat3(game_camera.get_view())));
-	scene.render(skybox_shader);
+
+	sky.render(skybox_shader);
 
 	game_window.swap_buffers();
 }
