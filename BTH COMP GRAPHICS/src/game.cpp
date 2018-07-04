@@ -9,7 +9,7 @@ game::game()
 	, basic_shader("shaders/basic.vs", "shaders/basic.fs")
 	, shadow_shader("shaders/shadow.vs", "shaders/shadow.fs")
 	, skybox_shader("shaders/skybox.vs", "shaders/skybox.fs")
-	, game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 200.0f)
+	, game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 10000.0f)
 	, light(glm::vec3(0.0f, -1.0f, 0.0f),
         glm::vec3(0.2f, 0.2f, 0.2f),
         glm::vec3(0.5f, 0.5f, 0.5f),
