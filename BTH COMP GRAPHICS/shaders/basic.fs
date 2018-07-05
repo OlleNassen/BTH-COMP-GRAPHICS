@@ -61,11 +61,11 @@ void main()
 
 
     /* point light */
-    /*for(int i = 0; i < NR_POINT_LIGHTS; i++)
+    for(int i = 0; i < NR_POINT_LIGHTS; i++)
     {
         result += calculate_point_light(point_lights[i],
             normalized_normal, fragment_position, view_direction);;
-    }*/
+    }
 
     frag_color = vec4(result, 1.0);
 }
