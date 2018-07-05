@@ -52,6 +52,7 @@
 		<Unit filename="include/game.hpp" />
 		<Unit filename="include/input.hpp" />
 		<Unit filename="include/mesh.hpp" />
+		<Unit filename="include/point_light.hpp" />
 		<Unit filename="include/quad.hpp" />
 		<Unit filename="include/scene_node.hpp" />
 		<Unit filename="include/shader.hpp" />
@@ -77,6 +78,7 @@
 		<Unit filename="src/input.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/mesh.cpp" />
+		<Unit filename="src/point_light.cpp" />
 		<Unit filename="src/quad.cpp" />
 		<Unit filename="src/scene_node.cpp" />
 		<Unit filename="src/shader.cpp" />
