@@ -44,12 +44,14 @@ void shader::use() const
 
 void shader::uniform(const std::string& name, int value) const
 {
-    glUniform1i(glGetUniformLocation(id, name.c_str()), value);
+    glUniform1iv(glGetUniformLocation(id, name.c_str()),
+        1, &value);
 }
 
 void shader::uniform(const std::string& name, float value) const
 {
-    glUniform1f(glGetUniformLocation(id, name.c_str()), value);
+    glUniform1fv(glGetUniformLocation(id, name.c_str()),
+        1, &value);
 }
 
 void shader::uniform(const std::string& name, const glm::vec2& value) const
@@ -70,22 +72,46 @@ void shader::uniform(const std::string& name, const glm::vec4& value) const
         1, glm::value_ptr(value));
 }
 
-void shader::uniform(const std::string& name, const glm::mat2& value) const
+void shader::uniform(const std::string& name, const std::vector<int>& value) const
 {
-    glUniformMatrix2fv(glGetUniformLocation(id, name.c_str()),
-        1, GL_FALSE, glm::value_ptr(value));
+    glUniform1iv(glGetUniformLocation(id, name.c_str()),
+        value.size(), &value.front());
 }
 
-void shader::uniform(const std::string& name, const glm::mat3& value) const
+void shader::uniform(const std::string& name, const std::vector<float>& value) const
 {
-    glUniformMatrix3fv(glGetUniformLocation(id, name.c_str()),
-        1, GL_FALSE, glm::value_ptr(value));
+    glUniform1fv(glGetUniformLocation(id, name.c_str()),
+        value.size(), &value.front());
 }
 
 void shader::uniform(const std::string& name, const glm::mat4& value) const
 {
     glUniformMatrix4fv(glGetUniformLocation(id, name.c_str()),
         1, GL_FALSE, glm::value_ptr(value));
+}
+
+void shader::uniform(const std::string& name, const std::vector<glm::vec2>& value) const
+{
+    glUniform2fv(glGetUniformLocation(id, name.c_str()),
+        value.size(), glm::value_ptr(value.front()));
+}
+
+void shader::uniform(const std::string& name, const std::vector<glm::vec3>& value) const
+{
+    glUniform3fv(glGetUniformLocation(id, name.c_str()),
+        value.size(), glm::value_ptr(value.front()));
+}
+
+void shader::uniform(const std::string& name, const std::vector<glm::vec4>& value) const
+{
+    glUniform4fv(glGetUniformLocation(id, name.c_str()),
+        value.size(), glm::value_ptr(value.front()));
+}
+
+void shader::uniform(const std::string& name, const std::vector<glm::mat4>& value) const
+{
+    glUniformMatrix4fv(glGetUniformLocation(id, name.c_str()),
+        value.size(), GL_FALSE, glm::value_ptr(value.front()));
 }
 
 std::string shader::load(const std::string& path) const
