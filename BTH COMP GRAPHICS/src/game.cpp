@@ -10,6 +10,7 @@ game::game()
 	, shadow_shader("shaders/shadow.vs", "shaders/shadow.fs")
 	, skybox_shader("shaders/skybox.vs", "shaders/skybox.fs")
 	, phong_shader("shaders/phong.vs", "shaders/phong.fs")
+	, normal_shader("shaders/normal.vs", "shaders/normal.fs")
 	, game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 10000.0f)
 	, light(glm::vec3(0.0f, -1.0f, 0.0f),
         glm::vec3(0.2f, 0.2f, 0.2f),
@@ -60,6 +61,13 @@ game::game()
 	scene.attach_child(new box(20, 30, 40));
 	scene.attach_child(new terrain(10, 10, 10));
 	scene.attach_child(new quad(20, 20, 20));
+
+	quad1 = new quad(0, 5, -20);
+	quad2 = new normal_quad(50, 5, -20);
+	quad1->update(0.0016);
+	quad1->set_texture("images/brickwall.jpg");
+	//quad2->update(0.0016);
+	quad2->set_texture("images/brickwall.jpg");
 }
 
 game::~game()
@@ -109,6 +117,19 @@ void game::render()
 	game_camera.bind(basic_shader);
 	light.bind(basic_shader);
 	scene.render(basic_shader);
+	quad1->render(basic_shader);
+
+	static glm::vec3 light_pos(50, 5, -15);
+
+	light_pos.x += sin(glfwGetTime() * 2.0f);
+	light_pos.y += sin(glfwGetTime() * 0.7f);
+
+	//std::cout << light_pos.x << " " << light_pos.y << '\n';
+
+	normal_shader.use();
+	game_camera.bind(normal_shader);
+	normal_shader.uniform("lightPos", light_pos);
+	quad2->render(normal_shader);
 
 	skybox_shader.use();
 	game_camera.bind(skybox_shader);
@@ -124,4 +145,5 @@ void game::render()
 void game::update(float delta_time)
 {
 	game_camera.update(delta_time);
+	
 }

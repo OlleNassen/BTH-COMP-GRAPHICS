@@ -149,6 +149,7 @@
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\input.cpp" />
     <ClCompile Include="src\mesh.cpp" />
+    <ClCompile Include="src\normal_quad.cpp" />
     <ClCompile Include="src\point_light.cpp" />
     <ClCompile Include="src\quad.cpp" />
     <ClCompile Include="src\scene_node.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="include\game.hpp" />
     <ClInclude Include="include\input.hpp" />
     <ClInclude Include="include\mesh.hpp" />
+    <ClInclude Include="include\normal_quad.hpp" />
     <ClInclude Include="include\point_light.hpp" />
     <ClInclude Include="include\quad.hpp" />
     <ClInclude Include="include\scene_node.hpp" />
@@ -186,8 +188,8 @@
     <ClInclude Include="include\window.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\normal_shader.fs" />
-    <None Include="shaders\normal_shader.vs" />
+    <None Include="shaders\normal.fs" />
+    <None Include="shaders\normal.vs" />
     <None Include="shaders\phong.fs" />
     <None Include="shaders\phong.vs" />
     <None Include="shaders\skybox.fs" />

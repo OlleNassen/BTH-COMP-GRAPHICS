@@ -11,6 +11,7 @@
 #include "quad.hpp"
 #include "point_light.hpp"
 #include "temp_box.hpp"
+#include "normal_quad.hpp"
 
 class game
 {
@@ -28,12 +29,16 @@ private:
 	shader shadow_shader;
 	shader skybox_shader;
 	shader phong_shader;
+	shader normal_shader;
 	camera game_camera;
 	directional_light light;
 	scene_node scene;
 	skybox sky;
 
-	temp_box temp;
+	temp_box temp; // PHONG cube
+
+	quad* quad1; // phong
+	normal_quad* quad2; // normal mapping
 
 	void render();
 	void update(float delta_time);

@@ -1,4 +1,6 @@
 #include "quad.hpp"
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 #define BUFFER_OFFSET(i) ((char *)nullptr + (i))
 
@@ -33,6 +35,7 @@ quad::~quad()
 
 void quad::update_current(float delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
 {
+	transform = glm::scale(transform, glm::vec3(0.1,0.1,1));
 }
 
 void quad::render_current(const shader & shader, const glm::mat4 & world_transform) const
@@ -42,4 +45,10 @@ void quad::render_current(const shader & shader, const glm::mat4 & world_transfo
 	quad_array.bind();
 	glDrawArrays(GL_TRIANGLES, 0, 6);
 	glBindVertexArray(0);
+}
+
+void quad::set_texture(const std::string & path)
+{
+	delete quad_texture;
+	quad_texture = new texture(path, wrap::REPEAT, filter::LINEAR, format::RGB);
 }

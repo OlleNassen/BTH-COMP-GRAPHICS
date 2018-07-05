@@ -1,5 +1,5 @@
-#version 430 core
-out vec4 frag_color;
+#version 430
+out vec4 FragColor;
 
 in VS_OUT {
     vec3 FragPos;
@@ -9,11 +9,11 @@ in VS_OUT {
     vec3 TangentFragPos;
 } fs_in;
 
-uniform sampler2D diffuse_map;
-uniform sampler2D normal_map;
+uniform sampler2D diffuseMap;
+uniform sampler2D normalMap;
 
-uniform vec3 light_pos;
-uniform vec3 view_pos;
+uniform vec3 lightPos;
+uniform vec3 view_position;
 
 void main()
 {           
@@ -37,5 +37,5 @@ void main()
     float spec = pow(max(dot(normal, halfwayDir), 0.0), 32.0);
 
     vec3 specular = vec3(0.2) * spec;
-    frag_color = vec4(ambient + diffuse + specular, 1.0);
+    FragColor = vec4(ambient + diffuse + specular, 1.0);
 }
