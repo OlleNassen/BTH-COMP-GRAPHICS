@@ -20,5 +20,12 @@ void point_light::update_current(float delta_time,
 
 void point_light::render_current(const shader & shader, const glm::mat4 & world_transform) const
 {
+        shader.uniform("point_lights[0].position", world_transform * glm::vec4(1.0f));
+        shader.uniform("point_lights[0].ambient", ambient);
+        shader.uniform("point_lights[0].diffuse", diffuse);
+        shader.uniform("point_lights[0].specular", specular);
+        shader.uniform("point_lights[0].constant", 1.0f);
+        shader.uniform("point_lights[0].linear", 0.09f);
+        shader.uniform("point_lights[0].quadratic", 0.032f);
 
 }
