@@ -1,6 +1,7 @@
 #include "point_light.hpp"
 
 point_light::point_light()
+    : da_box(5)
 {
 	ambient = glm::vec3(0.4, 0.4, 0.4);
 	diffuse = glm::vec3(1, 1, 0.1);
