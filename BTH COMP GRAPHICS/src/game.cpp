@@ -9,6 +9,7 @@ game::game()
 	, basic_shader("shaders/basic.vs", "shaders/basic.fs")
 	, shadow_shader("shaders/shadow.vs", "shaders/shadow.fs")
 	, skybox_shader("shaders/skybox.vs", "shaders/skybox.fs")
+	, phong_shader("shaders/phong.vs", "shaders/phong.fs")
 	, game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 10000.0f)
 	, light(glm::vec3(0.0f, -1.0f, 0.0f),
         glm::vec3(0.2f, 0.2f, 0.2f),
@@ -97,6 +98,12 @@ void game::render()
 	glClearColor(0.6f, 0.9f, 0.6f, 0.f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glViewport(0, 0, WIDTH, HEIGHT);
+
+	phong_shader.use();
+	game_camera.bind(phong_shader);
+	phong_shader.uniform("light_color", glm::vec3(1.f, 1.f, 1.f));
+	phong_shader.uniform("lightPos", glm::vec3(2, 0, 5));
+	temp.render(phong_shader);
 
 	basic_shader.use();
 	game_camera.bind(basic_shader);

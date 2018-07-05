@@ -1,13 +1,12 @@
 #include "point_light.hpp"
 
 point_light::point_light()
-    : da_box(5)
 {
 	ambient = glm::vec3(0.4, 0.4, 0.4);
 	diffuse = glm::vec3(1, 1, 0.1);
 	specular = glm::vec3(0.1, 1, 0.1);
-
-	this->attach_child(&da_box);
+	da_box = new box(5);
+	this->attach_child(da_box);
 }
 
 point_light::~point_light()

@@ -10,6 +10,7 @@
 #include "terrain.hpp"
 #include "quad.hpp"
 #include "point_light.hpp"
+#include "temp_box.hpp"
 
 class game
 {
@@ -26,10 +27,13 @@ private:
 	shader basic_shader;
 	shader shadow_shader;
 	shader skybox_shader;
+	shader phong_shader;
 	camera game_camera;
 	directional_light light;
 	scene_node scene;
 	skybox sky;
+
+	temp_box temp;
 
 	void render();
 	void update(float delta_time);

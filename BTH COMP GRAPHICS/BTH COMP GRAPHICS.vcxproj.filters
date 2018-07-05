@@ -69,6 +69,9 @@
     <ClCompile Include="src\point_light.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\temp_box.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\buffer.hpp">
@@ -122,11 +125,16 @@
     <ClInclude Include="include\point_light.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\temp_box.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\normal_shader.vs" />
     <None Include="shaders\normal_shader.fs" />
     <None Include="shaders\skybox.vs" />
     <None Include="shaders\skybox.fs" />
+    <None Include="shaders\phong.vs" />
+    <None Include="shaders\phong.fs" />
   </ItemGroup>
 </Project>

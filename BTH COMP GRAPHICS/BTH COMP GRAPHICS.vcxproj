@@ -159,6 +159,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\shader.cpp" />
     <ClCompile Include="src\skybox.cpp" />
+    <ClCompile Include="src\temp_box.cpp" />
     <ClCompile Include="src\terrain.cpp" />
     <ClCompile Include="src\texture.cpp" />
     <ClCompile Include="src\vertex_array.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="include\scene_node.hpp" />
     <ClInclude Include="include\shader.hpp" />
     <ClInclude Include="include\skybox.hpp" />
+    <ClInclude Include="include\temp_box.hpp" />
     <ClInclude Include="include\terrain.hpp" />
     <ClInclude Include="include\texture.hpp" />
     <ClInclude Include="include\vertex_array.hpp" />
@@ -186,6 +188,8 @@
   <ItemGroup>
     <None Include="shaders\normal_shader.fs" />
     <None Include="shaders\normal_shader.vs" />
+    <None Include="shaders\phong.fs" />
+    <None Include="shaders\phong.vs" />
     <None Include="shaders\skybox.fs" />
     <None Include="shaders\skybox.vs" />
   </ItemGroup>
