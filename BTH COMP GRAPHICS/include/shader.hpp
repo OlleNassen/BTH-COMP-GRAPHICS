@@ -18,6 +18,7 @@ public:
     void uniform(const std::string& name, const glm::vec2& value) const;
     void uniform(const std::string& name, const glm::vec3& value) const;
     void uniform(const std::string& name, const glm::vec4& value) const;
+    void uniform(const std::string& name, const glm::vec<4, int, glm::highp>& value) const;
     void uniform(const std::string& name, const glm::mat4& value) const;
 
     void uniform(const std::string& name, const std::vector<int>& value) const;
