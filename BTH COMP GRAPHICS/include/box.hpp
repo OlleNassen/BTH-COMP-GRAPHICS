@@ -9,7 +9,7 @@
 class box : public scene_node
 {
 public:
-    box();
+    box(float x = 0.f, float y = 0.f, float z = 0.f);
     virtual ~box();
 
 private:

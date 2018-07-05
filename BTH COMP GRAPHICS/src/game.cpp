@@ -56,9 +56,9 @@ game::game()
         std::bind(&camera::fast_released, &game_camera));
 
 	scene.attach_child(new point_light());
-	scene.attach_child(new box());
-	scene.attach_child(new terrain());
-	scene.attach_child(new quad());
+	scene.attach_child(new box(20, 30, 40));
+	scene.attach_child(new terrain(10, 10, 10));
+	scene.attach_child(new quad(20, 20, 20));
 }
 
 game::~game()
@@ -116,6 +116,5 @@ void game::render()
 
 void game::update(float delta_time)
 {
-	float temp_speed = 5.f;
 	game_camera.update(delta_time);
 }

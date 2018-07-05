@@ -2,8 +2,9 @@
 
 #define BUFFER_OFFSET(i) ((char *)nullptr + (i))
 
-quad::quad()
-	:quad_vbo(target::ARRAY_BUFFER), quad_texture(new texture("images/edvard.png"))
+quad::quad(float x, float y, float z)
+	: quad_vbo(target::ARRAY_BUFFER), quad_texture(new texture("images/edvard.png"))
+	, scene_node(x, y, z)
 {
 	float vertices[] =
 	{

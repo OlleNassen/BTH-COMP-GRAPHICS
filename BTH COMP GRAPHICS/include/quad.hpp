@@ -9,7 +9,7 @@
 class quad : public scene_node
 {
 public:
-	quad();
+	quad(float x = 0.f, float y = 0.f, float z = 0.f);
 	virtual ~quad();
 
 private:

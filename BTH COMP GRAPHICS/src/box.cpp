@@ -1,10 +1,11 @@
 #include "box.hpp"
 #include <iostream>
 
-box::box()
+box::box(float x, float y, float z)
     : box_vbo(target::ARRAY_BUFFER)
     , diffuse("images/container2.png")
 	, specular("images/container2_specular.png")
+	, scene_node(x, y, z)
 {
 	float vertices[] =
 	{

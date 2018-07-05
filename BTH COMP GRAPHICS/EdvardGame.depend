@@ -2890,11 +2890,11 @@
 	<glm/glm.hpp>
 	"shader.hpp"
 
-1530719786 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
+1530782804 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
 	"box.hpp"
 	<iostream>
 
-1530719672 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\box.hpp
+1530782783 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\box.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
@@ -2923,16 +2923,16 @@
 	<glm/glm.hpp>
 	<stb_image.h>
 
-1530719847 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\quad.hpp
+1530782682 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\quad.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1530719847 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad.cpp
+1530782697 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad.cpp
 	"quad.hpp"
 
-1530721052 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\point_light.cpp
+1530782403 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\point_light.cpp
 	"point_light.hpp"
 
 1530782143 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\point_light.hpp
