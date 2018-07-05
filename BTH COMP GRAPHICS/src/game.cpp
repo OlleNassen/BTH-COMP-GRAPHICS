@@ -55,6 +55,7 @@ game::game()
         std::bind(&camera::fast_pressed, &game_camera),
         std::bind(&camera::fast_released, &game_camera));
 
+	scene.attach_child(new point_light());
 	scene.attach_child(new box());
 	scene.attach_child(new terrain());
 	scene.attach_child(new quad());
@@ -101,10 +102,6 @@ void game::render()
 	game_camera.bind(basic_shader);
 	light.bind(basic_shader);
 	scene.render(basic_shader);
-
-    /*noob_shader.use();
-    game_camera.bind(noob_shader);
-	scene.render(noob_shader);*/
 
 	skybox_shader.use();
 	game_camera.bind(skybox_shader);
