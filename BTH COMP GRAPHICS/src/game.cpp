@@ -61,6 +61,8 @@ game::game()
 
 	scene.attach_child(new point_light());
 	scene.attach_child(new box(20, 30, 40));
+	//scene_node* terr_temp = new terrain;
+	//terr_temp->attach_child(new particle_emitter); //Add this, fix shader problems
 	scene.attach_child(new terrain(10, 10, 10));
 	scene.attach_child(new quad(20, 20, 20));
 
@@ -71,7 +73,7 @@ game::game()
 	//quad2->update(0.0016);
 	quad2->set_texture("images/brickwall.jpg");
 
-	particles = new particle_emitter(-20, 0,0);
+	particles = new particle_emitter(75, 35,75);
 }
 
 game::~game()

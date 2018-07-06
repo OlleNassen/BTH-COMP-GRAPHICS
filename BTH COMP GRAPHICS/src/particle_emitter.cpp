@@ -68,7 +68,7 @@ void particle_emitter::update_current(float delta_time, const glm::mat4 & world_
 		randomZ /= 1000;
 
 		offsets[i] = glm::vec3(offsets[i].x + randomX, offsets[i].y + randomY, offsets[i].z + randomZ);
-		if (offsets[i].y > 100)
+		if (offsets[i].y > 300)
 		{
 			offsets[i].y = 0;
 		}

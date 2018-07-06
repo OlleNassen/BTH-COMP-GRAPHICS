@@ -17,7 +17,7 @@ private:
 	buffer instance_vbo;
 	texture* quad_texture;
 
-	static const unsigned int MAX_NUM_PARTICLES = 1000000;
+	static const unsigned int MAX_NUM_PARTICLES = 10000;
 	glm::vec3 offsets[MAX_NUM_PARTICLES];
 
 	virtual void update_current(float delta_time,
