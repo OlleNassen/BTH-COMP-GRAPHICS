@@ -2,26 +2,10 @@
 #define MODEL_HPP
 
 #include <vector>
-
-namespace glm
-{
-class vec2
-{
-public:
-};
-class vec3
-{
-public:
-};
-class vec4
-{
-public:
-};
-class ivec4
-{
-public:
-};
-}
+#include <glm/glm.hpp>
+#include "shader.hpp"
+#include "buffer.hpp"
+#include "vertex_array.hpp"
 
 struct vertex
 {
@@ -40,6 +24,9 @@ public:
 
 private:
     std::vector<vertex> vertices;
+
+    buffer model_buffer;
+    vertex_array model_array;
 
 };
 

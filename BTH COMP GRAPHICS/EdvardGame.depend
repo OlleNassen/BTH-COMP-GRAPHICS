@@ -2862,8 +2862,12 @@
 1530835691 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 
-1530836962 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
+1530871722 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
 	<vector>
+	<glm/glm.hpp>
+	"shader.hpp"
+	"buffer.hpp"
+	"vertex_array.hpp"
 
 1530611757 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\input.cpp
 	"input.hpp"
