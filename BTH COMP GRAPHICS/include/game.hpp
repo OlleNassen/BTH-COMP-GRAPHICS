@@ -33,17 +33,18 @@ private:
 	shader normal_shader;
 	shader anim;
 	shader billboard_shader;
+	shader terrain_shader;
 	camera game_camera;
 	directional_light light;
 	scene_node scene;
 	skybox sky;
 
+	//TEMP VARIABLES, PUT IN SCENE GRAPH WHEN FIXED
 	temp_box temp; // PHONG cube
-
 	quad* quad1; // phong
 	normal_quad* quad2; // normal mapping
-
 	particle_emitter* particles;
+	terrain* terror;
 
 	void render();
 	void update(float delta_time);
