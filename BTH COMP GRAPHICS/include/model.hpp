@@ -22,6 +22,8 @@ public:
     model();
     ~model();
 
+    void draw(const shader& shader) const;
+
 private:
     std::vector<vertex> vertices;
 

@@ -18,3 +18,11 @@ model::~model()
 {
     //dtor
 }
+
+void model::draw(const shader& shader) const
+{
+    //diffuse.uniform(shader, "object_material.diffuse", 0);
+    model_array.bind();
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+    glBindVertexArray(0);
+}

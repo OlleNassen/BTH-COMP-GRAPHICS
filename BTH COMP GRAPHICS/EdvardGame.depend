@@ -2645,7 +2645,7 @@
 	<GL/glext.h>
 	<GL/glu.h>
 
-1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\vertex_array.hpp
+1530872665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\vertex_array.hpp
 
 1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\main.cpp
 	"game.hpp"
@@ -2859,10 +2859,10 @@
 	"window.hpp"
 	<iostream>
 
-1530872086 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1530872502 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 
-1530871833 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
+1530872414 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
 	<vector>
 	<glm/glm.hpp>
 	"shader.hpp"

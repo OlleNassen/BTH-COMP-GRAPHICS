@@ -41,3 +41,11 @@ void vertex_array::attribute_pointer(
     glEnableVertexAttribArray(index);
     glVertexAttribIPointer(index, size, type, stride, pointer);
 }
+
+void vertex_array::attribute_divisor(
+    unsigned int index,
+    unsigned int divisor) const
+{
+    bind();
+    glVertexAttribDivisor(index, divisor);
+}

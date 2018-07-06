@@ -24,6 +24,10 @@ public:
         int stride,
         const void* pointer) const;
 
+    void attribute_divisor(
+        unsigned int index,
+        unsigned int divisor) const;
+
 
 private:
     unsigned int id;
