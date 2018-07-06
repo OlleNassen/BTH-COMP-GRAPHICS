@@ -7,6 +7,7 @@
 
 struct joint_transform
 {
+    int joint;
     glm::vec3 position;
     glm::quat rotation;
 };
@@ -22,6 +23,8 @@ class animation
 public:
     animation();
     ~animation();
+
+    void update(float delta_time);
 
 private:
     float length;

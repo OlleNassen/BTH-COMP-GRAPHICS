@@ -9,3 +9,8 @@ animation::~animation()
 {
     //dtor
 }
+
+void animation::update(float delta_time)
+{
+
+}
