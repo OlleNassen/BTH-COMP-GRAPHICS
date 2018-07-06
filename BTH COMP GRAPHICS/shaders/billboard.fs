@@ -11,5 +11,5 @@ uniform vec4 color;
 
 void main()
 {
-   	fragColor = texture2D(diffuseMap, vs_texcoord) * vec3(1,0.1,0.1);
+   	fragColor = texture2D(diffuseMap, vs_texcoord) * vec4(1,0.1,0.1, 1);
 }
