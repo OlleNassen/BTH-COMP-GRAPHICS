@@ -14,6 +14,8 @@ particle_emitter::particle_emitter(float x, float y, float z)
 		offsets[i].x = 0;
 		offsets[i].y = 0;
 		offsets[i].z = 0;
+
+		going_up[i] = true;
 	}
 
 	instance_vbo.data(sizeof(glm::vec3) * MAX_NUM_PARTICLES, (void*)offsets, GL_STATIC_DRAW);
@@ -60,17 +62,58 @@ void particle_emitter::update_current(float delta_time, const glm::mat4 & world_
 	*/
 	for (int i = 0; i < MAX_NUM_PARTICLES; i++)
 	{
-		float randomX = (rand() % 100 - 50);
-		randomX /= 1000;
-		float randomY = (rand() % 100);
-		randomY /= 100;
-		float randomZ = (rand() % 100 - 50);
-		randomZ /= 1000;
-
-		offsets[i] = glm::vec3(offsets[i].x + randomX, offsets[i].y + randomY, offsets[i].z + randomZ);
-		if (offsets[i].y > 300)
+		if (offsets[i].y < 100 && going_up[i])
 		{
-			offsets[i].y = 0;
+			float randomX = (rand() % 100 - 50);
+			randomX /= 1000;
+			float randomY = (rand() % 100);
+			randomY /= 100;
+			float randomZ = (rand() % 100 - 50);
+			randomZ /= 1000;
+
+			offsets[i] = glm::vec3(offsets[i].x + randomX, offsets[i].y + randomY, offsets[i].z + randomZ);
+		}
+		else if (offsets[i].y < 200 && going_up[i])
+		{
+			float randomX = (rand() % 100 - 50);
+			randomX /= 100;
+			float randomY = (rand() % 100);
+			randomY /= 100;
+			float randomZ = (rand() % 100 - 50);
+			randomZ /= 100;
+
+			offsets[i] = glm::vec3(offsets[i].x + randomX, offsets[i].y + randomY, offsets[i].z + randomZ);
+		}
+		else if (going_up[i])
+		{
+			if (offsets[i].y > 400)
+			{
+				going_up[i] = false;
+			}
+			float randomX = (rand() % 100 - 50);
+			randomX /= 50;
+			float randomY = (rand() % 100);
+			randomY /= 100;
+			float randomZ = (rand() % 100 - 50);
+			randomZ /= 50;
+
+			offsets[i] = glm::vec3(offsets[i].x + randomX, offsets[i].y + randomY, offsets[i].z + randomZ);
+		}
+		else if (!going_up[i])
+		{
+			if (offsets[i].y < 0)
+			{
+				offsets[i] = glm::vec3(0, 0, 0);
+				going_up[i] = true;
+			}
+			float randomX = (rand() % 100 - 50);
+			randomX /= 100;
+			float randomY = (rand() % 100);
+			randomY /= 50;
+			float randomZ = (rand() % 100 - 50);
+			randomZ /= 100;
+
+			offsets[i] = glm::vec3(offsets[i].x + randomX, offsets[i].y + -randomY, offsets[i].z + randomZ);
 		}
 	}
 }
