@@ -3,26 +3,8 @@
 
 #include <string>
 #include <vector>
+#include <glm/glm.hpp>
 
-namespace glm
-{
-class mat4
-{
-public:
-    void operator*=(const mat4& other)
-    {
-
-    }
-};
-}
-class shader
-{
-public:
-    void uniform(const std::string& name, const std::vector<glm::mat4>& value) const
-    {
-
-    }
-};
 
 class skeleton
 {
@@ -30,7 +12,9 @@ public:
     skeleton();
     ~skeleton();
 
-    void fn(const shader& shader);
+    void update(float delta_time);
+    const std::vector<glm::mat4>& transforms() const;
+
 
 private:
     std::vector<unsigned int> parents;

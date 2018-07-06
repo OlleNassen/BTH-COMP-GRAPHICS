@@ -2845,7 +2845,7 @@
 	<intrin.h>
 	<arm_neon.h>
 
-1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\vertex_array.cpp
+1530872703 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\vertex_array.cpp
 	"vertex_array.hpp"
 	<GL/glew.h>
 
@@ -2965,10 +2965,11 @@
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
-1530830654 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skeleton.cpp
+1530873579 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skeleton.cpp
 	"skeleton.hpp"
 
-1530830667 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skeleton.hpp
+1530873698 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skeleton.hpp
 	<string>
 	<vector>
+	<glm/glm.hpp>
 

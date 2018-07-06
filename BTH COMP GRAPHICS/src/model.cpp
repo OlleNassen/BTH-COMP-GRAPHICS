@@ -19,9 +19,14 @@ model::~model()
     //dtor
 }
 
+void model::update(float delta_time)
+{
+    skel.update(delta_time);
+}
+
 void model::draw(const shader& shader) const
 {
-    //diffuse.uniform(shader, "object_material.diffuse", 0);
+    shader.uniform("joints", skel.transforms());
     model_array.bind();
     glDrawArrays(GL_TRIANGLES, 0, 36);
     glBindVertexArray(0);

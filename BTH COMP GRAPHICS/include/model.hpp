@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <glm/glm.hpp>
+#include "skeleton.hpp"
 #include "shader.hpp"
 #include "buffer.hpp"
 #include "vertex_array.hpp"
@@ -22,10 +23,14 @@ public:
     model();
     ~model();
 
+    void update(float delta_time);
+
     void draw(const shader& shader) const;
 
 private:
     std::vector<vertex> vertices;
+
+    skeleton skel;
 
     buffer model_buffer;
     vertex_array model_array;
