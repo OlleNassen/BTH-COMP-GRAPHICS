@@ -10,10 +10,11 @@ particle_emitter::particle_emitter(float x, float y, float z)
 	{
 		offsets[i].x = i;
 		offsets[i].y = 0;
+		offsets[i].z = 0;
 	}
 
-	instance_vbo.data(sizeof(glm::vec2) * MAX_NUM_PARTICLES, (void*)offsets, GL_STATIC_DRAW);
-	float size = 3.f;
+	instance_vbo.data(sizeof(glm::vec3) * MAX_NUM_PARTICLES, (void*)offsets, GL_STATIC_DRAW);
+	float size = 0.3f;
 	float vertices[] =
 	{
 		// positions //Texcoords     // colors
@@ -38,7 +39,7 @@ particle_emitter::particle_emitter(float x, float y, float z)
 	
 	offset = 0;
 	instance_vbo.bind();
-	quad_array.attribute_pointer(3, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), BUFFER_OFFSET(offset));
+	quad_array.attribute_pointer(3, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), BUFFER_OFFSET(offset));
 	quad_array.attribute_divisor(3, 1);
 	
 	/*

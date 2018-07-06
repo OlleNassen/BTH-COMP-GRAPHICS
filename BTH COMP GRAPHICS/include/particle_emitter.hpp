@@ -18,7 +18,7 @@ private:
 	texture* quad_texture;
 
 	static const unsigned int MAX_NUM_PARTICLES = 10000;
-	glm::vec2 offsets[MAX_NUM_PARTICLES];
+	glm::vec3 offsets[MAX_NUM_PARTICLES];
 
 	virtual void update_current(float delta_time,
 		const glm::mat4& world_transform, glm::mat4& transform) override;
