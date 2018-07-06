@@ -7,6 +7,7 @@
 
 struct joint_transform
 {
+    int joint;
     glm::vec3 position;
     glm::quat rotation;
 };

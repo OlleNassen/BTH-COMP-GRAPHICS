@@ -2976,20 +2976,20 @@
 	<vector>
 	<glm/glm.hpp>
 
-1530873769 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\particle_emitter.hpp
+1530877113 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\particle_emitter.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1530876715 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particle_emitter.cpp
+1530877113 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particle_emitter.cpp
 	"particle_emitter.hpp"
 	<glm/gtc/matrix_transform.hpp>
 
 1530875994 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 
-1530876697 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
+1530877265 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
 	<vector>
 	<glm/glm.hpp>
 	<glm/gtc/quaternion.hpp>
