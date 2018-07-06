@@ -17,23 +17,23 @@ particle_emitter::particle_emitter(float x, float y, float z)
 	float vertices[] =
 	{
 		// positions //Texcoords     // colors
-		0.f,  size, 0.0f, 1.0f,  0.0f, 1.0f, 0.0f,
-		size, 0.f, 1.0f, 0.0,  0.0f, 1.0f, 0.0f,
-		0.f, 0.f, 0.0f, 0.0f,  0.0f, 1.0f, 0.0f,
+		0.f,  size, 0.f, 0.0f, 1.0f,  0.0f, 1.0f, 0.0f,
+		size, 0.f, 0.f, 1.0f, 0.0,  0.0f, 1.0f, 0.0f,
+		0.f, 0.f, 0.f, 0.0f, 0.0f,  0.0f, 1.0f, 0.0f,
 
-		0.f,  size, 0.0f, 1.0f,  0.0f, 1.0f, 0.0f,
-		size, size, 1.0f, 1.0f,  0.0f, 1.0f, 0.0f,
-		size,  0.f, 1.0f, 0.0f,  0.0f, 1.0f, 0.0f
+		0.f,  size, 0.f, 0.0f, 1.0f,  0.0f, 1.0f, 0.0f,
+		size, size, 0.f, 1.0f, 1.0f,  0.0f, 1.0f, 0.0f,
+		size,  0.f, 0.f, 1.0f, 0.0f,  0.0f, 1.0f, 0.0f
 	};
 
 	quad_array.bind();
 	quad_vbo.data(sizeof(vertices), &vertices[0], GL_STATIC_DRAW);
 	int offset = 0;
-	quad_array.attribute_pointer(0, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(float), BUFFER_OFFSET(offset));
+	quad_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), BUFFER_OFFSET(offset));
+	offset += sizeof(float) * 3;
+	quad_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), BUFFER_OFFSET(offset));
 	offset += sizeof(float) * 2;
-	quad_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(float), BUFFER_OFFSET(offset));
-	offset += sizeof(float) * 2;
-	quad_array.attribute_pointer(2, 3, GL_FLOAT, GL_FALSE, 7 * sizeof(float), BUFFER_OFFSET(offset));
+	quad_array.attribute_pointer(2, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), BUFFER_OFFSET(offset));
 	offset += sizeof(float) * 3;
 	
 	offset = 0;
