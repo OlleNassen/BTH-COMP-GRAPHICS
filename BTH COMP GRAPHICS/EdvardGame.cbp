@@ -44,6 +44,7 @@
 			<Add library="libassimp" />
 			<Add directory="external/lib" />
 		</Linker>
+		<Unit filename="include/animation.hpp" />
 		<Unit filename="include/box.hpp" />
 		<Unit filename="include/buffer.hpp" />
 		<Unit filename="include/camera.hpp" />
@@ -54,6 +55,7 @@
 		<Unit filename="include/mesh.hpp" />
 		<Unit filename="include/model.hpp" />
 		<Unit filename="include/normal_quad.hpp" />
+		<Unit filename="include/particle_emitter.hpp" />
 		<Unit filename="include/point_light.hpp" />
 		<Unit filename="include/quad.hpp" />
 		<Unit filename="include/scene_node.hpp" />
@@ -77,6 +79,7 @@
 		<Unit filename="shaders/shadow.vs" />
 		<Unit filename="shaders/skybox.fs" />
 		<Unit filename="shaders/skybox.vs" />
+		<Unit filename="src/animation.cpp" />
 		<Unit filename="src/box.cpp" />
 		<Unit filename="src/buffer.cpp" />
 		<Unit filename="src/camera.cpp" />
@@ -88,6 +91,7 @@
 		<Unit filename="src/mesh.cpp" />
 		<Unit filename="src/model.cpp" />
 		<Unit filename="src/normal_quad.cpp" />
+		<Unit filename="src/particle_emitter.cpp" />
 		<Unit filename="src/point_light.cpp" />
 		<Unit filename="src/quad.cpp" />
 		<Unit filename="src/scene_node.cpp" />
