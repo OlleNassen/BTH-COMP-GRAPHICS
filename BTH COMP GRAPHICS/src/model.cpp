@@ -3,7 +3,7 @@
 model::model()
     : model_buffer(target::ARRAY_BUFFER)
 {
-    float vertices[] =
+    /*float vertices[] =
 	{
 		// positions     // uv
 		0.0f, 256.f, 0.f, 0.0f, 1.0f,
@@ -13,7 +13,7 @@ model::model()
 		0.0f, 256.f, 0.f, 0.0f, 1.0f,
 		256.f, 256.f, 0.f, 1.0f, 1.0f,
 		256.f, 0.0f, 0.f, 1.0f, 0.0f
-	};
+	};*/
 
     model_array.bind();
 	model_buffer.data(sizeof(vertex) * vertices.size(), &vertices.front(), GL_STATIC_DRAW);
