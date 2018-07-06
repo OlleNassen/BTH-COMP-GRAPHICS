@@ -30,6 +30,14 @@ void scene_node::update(float delta_time)
     update(delta_time, world_transform);
 }
 
+void scene_node::prepare_render(const shader& shader) const
+{
+
+    glm::mat4 world_transform(1.0f);
+    prepare_render(shader, world_transform);
+}
+
+
 void scene_node::render(const shader& shader) const
 {
 
@@ -46,6 +54,14 @@ void scene_node::update(float delta_time, glm::mat4& world_transform)
     update_children(delta_time, world_transform);
 }
 
+void scene_node::prepare_render(const shader& shader, glm::mat4& world_transform) const
+{
+    world_transform *= transform;
+
+    prepare_render_current(shader, world_transform);
+	prepare_render_children(shader, world_transform);
+}
+
 void scene_node::render(const shader& shader, glm::mat4& world_transform) const
 {
     world_transform *= transform;
@@ -60,6 +76,12 @@ void scene_node::update_current(float delta_time,
 
 }
 
+void scene_node::prepare_render_current(const shader& shader, const glm::mat4& world_transform) const
+{
+
+}
+
+
 void scene_node::render_current(const shader& shader, const glm::mat4& world_transform) const
 {
 
@@ -71,6 +93,15 @@ void scene_node::update_children(float delta_time, glm::mat4& world_transform)
     {
         glm::mat4 temp_transform = world_transform;
         child->update(delta_time, temp_transform);
+    }
+}
+
+void scene_node::prepare_render_children(const shader& shader, glm::mat4& world_transform) const
+{
+    for(const auto& child : children)
+    {
+        glm::mat4 temp_transform = world_transform;
+        child->prepare_render(shader, temp_transform);
     }
 }
 

@@ -2815,7 +2815,7 @@
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\postprocess.h
 	"types.h"
 
-1530832665 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\shader.cpp
+1530833669 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\shader.cpp
 	"shader.hpp"
 	<iostream>
 	<fstream>
@@ -2888,7 +2888,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1530703696 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\scene_node.hpp
+1530868309 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\scene_node.hpp
 	<vector>
 	<glm/glm.hpp>
 	"shader.hpp"

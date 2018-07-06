@@ -13,6 +13,7 @@ public:
     void attach_child(scene_node* child);
 
     void update(float delta_time);
+    void prepare_render(const shader& shader) const;
     void render(const shader& shader) const;
 
 private:
@@ -20,13 +21,16 @@ private:
     glm::mat4 transform;
 
     void update(float delta_time, glm::mat4& world_transform);
+    void prepare_render(const shader& shader, glm::mat4& world_transform) const;
     void render(const shader& shader, glm::mat4& world_transform) const;
 
     virtual void update_current(float delta_time,
         const glm::mat4& world_transform, glm::mat4& transform);
+    virtual void prepare_render_current(const shader& shader, const glm::mat4& world_transform) const;
     virtual void render_current(const shader& shader, const glm::mat4& world_transform) const;
 
     void update_children(float delta_time, glm::mat4& world_transform);
+    void prepare_render_children(const shader& shader, glm::mat4& world_transform) const;
     void render_children(const shader& shader, glm::mat4& world_transform) const;
 };
 
