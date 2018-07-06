@@ -12,6 +12,7 @@
 #include "point_light.hpp"
 #include "temp_box.hpp"
 #include "normal_quad.hpp"
+#include "particle_emitter.hpp"
 
 class game
 {
@@ -31,6 +32,7 @@ private:
 	shader phong_shader;
 	shader normal_shader;
 	shader anim;
+	shader billboard_shader;
 	camera game_camera;
 	directional_light light;
 	scene_node scene;
@@ -40,6 +42,8 @@ private:
 
 	quad* quad1; // phong
 	normal_quad* quad2; // normal mapping
+
+	particle_emitter* particles;
 
 	void render();
 	void update(float delta_time);
