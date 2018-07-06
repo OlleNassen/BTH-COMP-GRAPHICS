@@ -156,5 +156,7 @@
     <None Include="shaders\normal.fs" />
     <None Include="shaders\billboard.vs" />
     <None Include="shaders\billboard.fs" />
+    <None Include="shaders\terrain.vs" />
+    <None Include="shaders\terrain.fs" />
   </ItemGroup>
 </Project>
