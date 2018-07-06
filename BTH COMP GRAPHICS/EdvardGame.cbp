@@ -71,6 +71,8 @@
 		<Unit filename="shaders/anim.vs" />
 		<Unit filename="shaders/basic.fs" />
 		<Unit filename="shaders/basic.vs" />
+		<Unit filename="shaders/billboard.fs" />
+		<Unit filename="shaders/billboard.vs" />
 		<Unit filename="shaders/normal.fs" />
 		<Unit filename="shaders/normal.vs" />
 		<Unit filename="shaders/phong.fs" />

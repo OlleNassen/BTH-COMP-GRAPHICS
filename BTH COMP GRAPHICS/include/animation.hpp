@@ -24,10 +24,16 @@ public:
     animation();
     ~animation();
 
-    void update(float delta_time);
+    void update(float delta_time, std::vector<glm::mat4>& joints);
 
 private:
+    float time;
     float length;
+    int current_key_frame;
+    std::vector<key_frame> key_frames;
+
+    void update_key_frame();
+    void update_pose(std::vector<glm::mat4>& joints);
 };
 
 #endif // ANIMATION_HPP
