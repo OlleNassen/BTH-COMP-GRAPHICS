@@ -30,6 +30,7 @@ private:
 	shader skybox_shader;
 	shader phong_shader;
 	shader normal_shader;
+	shader anim;
 	camera game_camera;
 	directional_light light;
 	scene_node scene;

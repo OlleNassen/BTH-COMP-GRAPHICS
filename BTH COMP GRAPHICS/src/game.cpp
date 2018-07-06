@@ -11,6 +11,7 @@ game::game()
 	, skybox_shader("shaders/skybox.vs", "shaders/skybox.fs")
 	, phong_shader("shaders/phong.vs", "shaders/phong.fs")
 	, normal_shader("shaders/normal.vs", "shaders/normal.fs")
+	, anim("shaders/anim.vs", "shaders/anim.fs")
 	, game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 10000.0f)
 	, light(glm::vec3(0.0f, -1.0f, 0.0f),
         glm::vec3(0.2f, 0.2f, 0.2f),
@@ -145,5 +146,5 @@ void game::render()
 void game::update(float delta_time)
 {
 	game_camera.update(delta_time);
-	
+
 }

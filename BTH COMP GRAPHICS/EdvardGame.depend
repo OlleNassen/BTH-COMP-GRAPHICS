@@ -2603,14 +2603,14 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1530800353 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1530871437 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	"input.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1530800353 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1530871419 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	"window.hpp"
 	"camera.hpp"
 	"shader.hpp"
@@ -2859,18 +2859,11 @@
 	"window.hpp"
 	<iostream>
 
-1530624195 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1530835691 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
-	<glm/glm.hpp>
-	<glm/gtc/matrix_transform.hpp>
-	<glm/gtc/type_ptr.hpp>
-	<iostream>
 
-1530622480 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
-	"shader.hpp"
-	"camera.hpp"
-	"mesh.hpp"
-	"texture.hpp"
+1530836962 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
+	<vector>
 
 1530611757 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\input.cpp
 	"input.hpp"
@@ -2883,7 +2876,7 @@
 	<GLFW/glfw3.h>
 	"window.hpp"
 
-1530717993 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\scene_node.cpp
+1530868405 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\scene_node.cpp
 	"scene_node.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
@@ -2967,4 +2960,11 @@
 	"normal_quad.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
+
+1530830654 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skeleton.cpp
+	"skeleton.hpp"
+
+1530830667 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skeleton.hpp
+	<string>
+	<vector>
 
