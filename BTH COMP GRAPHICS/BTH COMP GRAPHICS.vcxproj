@@ -150,6 +150,7 @@
     <ClCompile Include="src\input.cpp" />
     <ClCompile Include="src\mesh.cpp" />
     <ClCompile Include="src\normal_quad.cpp" />
+    <ClCompile Include="src\particle_emitter.cpp" />
     <ClCompile Include="src\point_light.cpp" />
     <ClCompile Include="src\quad.cpp" />
     <ClCompile Include="src\scene_node.cpp" />
@@ -159,6 +160,7 @@
     <ClCompile Include="src\frame_buffer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\shader.cpp" />
+    <ClCompile Include="src\skeleton.cpp" />
     <ClCompile Include="src\skybox.cpp" />
     <ClCompile Include="src\temp_box.cpp" />
     <ClCompile Include="src\terrain.cpp" />
@@ -176,10 +178,12 @@
     <ClInclude Include="include\input.hpp" />
     <ClInclude Include="include\mesh.hpp" />
     <ClInclude Include="include\normal_quad.hpp" />
+    <ClInclude Include="include\particle_emitter.hpp" />
     <ClInclude Include="include\point_light.hpp" />
     <ClInclude Include="include\quad.hpp" />
     <ClInclude Include="include\scene_node.hpp" />
     <ClInclude Include="include\shader.hpp" />
+    <ClInclude Include="include\skeleton.hpp" />
     <ClInclude Include="include\skybox.hpp" />
     <ClInclude Include="include\temp_box.hpp" />
     <ClInclude Include="include\terrain.hpp" />
@@ -188,6 +192,8 @@
     <ClInclude Include="include\window.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="shaders\billboard.fs" />
+    <None Include="shaders\billboard.vs" />
     <None Include="shaders\normal.fs" />
     <None Include="shaders\normal.vs" />
     <None Include="shaders\phong.fs" />

@@ -75,6 +75,12 @@
     <ClCompile Include="src\normal_quad.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\particle_emitter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\skeleton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\buffer.hpp">
@@ -134,6 +140,12 @@
     <ClInclude Include="include\normal_quad.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\particle_emitter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\skeleton.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\skybox.vs" />
@@ -142,5 +154,7 @@
     <None Include="shaders\phong.fs" />
     <None Include="shaders\normal.vs" />
     <None Include="shaders\normal.fs" />
+    <None Include="shaders\billboard.vs" />
+    <None Include="shaders\billboard.fs" />
   </ItemGroup>
 </Project>

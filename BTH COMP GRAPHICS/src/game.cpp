@@ -12,6 +12,7 @@ game::game()
 	, phong_shader("shaders/phong.vs", "shaders/phong.fs")
 	, normal_shader("shaders/normal.vs", "shaders/normal.fs")
 	, anim("shaders/anim.vs", "shaders/anim.fs")
+	, billboard_shader("shaders/billboard.vs", "shaders/billboard.fs")
 	, game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 10000.0f)
 	, light(glm::vec3(0.0f, -1.0f, 0.0f),
         glm::vec3(0.2f, 0.2f, 0.2f),
@@ -69,6 +70,8 @@ game::game()
 	quad1->set_texture("images/brickwall.jpg");
 	//quad2->update(0.0016);
 	quad2->set_texture("images/brickwall.jpg");
+
+	particles = new particle_emitter(-20, 0,0);
 }
 
 game::~game()
@@ -119,7 +122,11 @@ void game::render()
 	light.bind(basic_shader);
 	scene.render(basic_shader);
 	quad1->render(basic_shader);
-
+	/*
+	billboard_shader.use();
+	game_camera.bind(billboard_shader);
+	particles->render(billboard_shader);
+	*/
 	static glm::vec3 light_pos(50, 5, -15);
 
 	light_pos.x += sin(glfwGetTime() * 2.0f);

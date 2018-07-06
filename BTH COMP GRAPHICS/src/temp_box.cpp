@@ -1,5 +1,7 @@
 #include "temp_box.hpp"
 #include <iostream>
+#include <glm/gtc/matrix_transform.hpp>
+
 
 temp_box::temp_box(float x, float y, float z)
 	: box_vbo(target::ARRAY_BUFFER)
@@ -66,7 +68,8 @@ temp_box::~temp_box()
 void temp_box::update_current(float delta_time,
 	const glm::mat4& world_transform, glm::mat4& transform)
 {
-
+	glm::vec3 pos = glm::vec3(world_transform[0][0], world_transform[1][0], world_transform[2][0]);
+	transform = glm::translate(transform, pos);
 }
 
 void temp_box::render_current(const shader& shader,
