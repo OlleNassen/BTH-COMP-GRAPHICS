@@ -2859,10 +2859,10 @@
 	"window.hpp"
 	<iostream>
 
-1530835691 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1530872086 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 
-1530871722 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
+1530871833 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
 	<vector>
 	<glm/glm.hpp>
 	"shader.hpp"
@@ -2890,7 +2890,7 @@
 	<glm/glm.hpp>
 	"shader.hpp"
 
-1530800351 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
+1530872100 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
 	"box.hpp"
 	<iostream>
 
