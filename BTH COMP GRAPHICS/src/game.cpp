@@ -153,5 +153,5 @@ void game::render()
 void game::update(float delta_time)
 {
 	game_camera.update(delta_time);
-
+	particles->update(delta_time);
 }
