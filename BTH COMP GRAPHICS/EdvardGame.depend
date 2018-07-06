@@ -2603,14 +2603,14 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1530871437 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1530873769 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	"input.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1530871419 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1530873769 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	"window.hpp"
 	"camera.hpp"
 	"shader.hpp"
@@ -2623,6 +2623,7 @@
 	"point_light.hpp"
 	"temp_box.hpp"
 	"normal_quad.hpp"
+	"particle_emitter.hpp"
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glfw\glfw3.h
 	<stddef.h>
@@ -2815,7 +2816,7 @@
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\postprocess.h
 	"types.h"
 
-1530833669 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\shader.cpp
+1530873769 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\shader.cpp
 	"shader.hpp"
 	<iostream>
 	<fstream>
@@ -2859,12 +2860,13 @@
 	"window.hpp"
 	<iostream>
 
-1530872502 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1530873731 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 
-1530872414 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
+1530873480 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
 	<vector>
 	<glm/glm.hpp>
+	"skeleton.hpp"
 	"shader.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
@@ -2956,9 +2958,10 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1530800353 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\temp_box.cpp
+1530873769 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\temp_box.cpp
 	"temp_box.hpp"
 	<iostream>
+	<glm/gtc/matrix_transform.hpp>
 
 1530800353 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\normal_quad.cpp
 	"normal_quad.hpp"
@@ -2972,4 +2975,14 @@
 	<string>
 	<vector>
 	<glm/glm.hpp>
+
+1530873769 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\particle_emitter.hpp
+	"scene_node.hpp"
+	"buffer.hpp"
+	"vertex_array.hpp"
+	"texture.hpp"
+
+1530873769 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particle_emitter.cpp
+	"particle_emitter.hpp"
+	<glm/gtc/matrix_transform.hpp>
 
