@@ -12,21 +12,21 @@ uniform mat4 projection;
 
 void main()
 {
-	vec4 world_pos = model * vec4(aPos, 1);
+	vec4 world_pos = model * vec4(aPos, 1.0);
 
-	mat4 new_model = view * model * translate(vec4(aPos, 1));
+	mat4 new_model = model;
 
 	if(abs(world_pos.x - view[0][3]) < 5 && abs(world_pos.z - view[2][3]) < 5)
 	{
 		new_model[1][3] = view[1][3];
 	}
 
-	gl_Position = projection * new_model;
+	gl_Position = projection * view * new_model * vec4(aPos, 1.0);
 	texture = aTexture;
 
 	// Hardcoded color values:
 
-	
+
 	color = vec3(0.7,0.7,0.7);
 
 	/*
