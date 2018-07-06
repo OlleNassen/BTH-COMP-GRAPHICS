@@ -2603,7 +2603,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1530873769 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1530874658 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	"input.hpp"
@@ -2860,7 +2860,7 @@
 	"window.hpp"
 	<iostream>
 
-1530873731 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1530876593 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 
 1530873480 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
@@ -2982,7 +2982,15 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1530873769 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particle_emitter.cpp
+1530876715 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particle_emitter.cpp
 	"particle_emitter.hpp"
 	<glm/gtc/matrix_transform.hpp>
+
+1530875994 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+	"animation.hpp"
+
+1530876697 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
+	<vector>
+	<glm/glm.hpp>
+	<glm/gtc/quaternion.hpp>
 
