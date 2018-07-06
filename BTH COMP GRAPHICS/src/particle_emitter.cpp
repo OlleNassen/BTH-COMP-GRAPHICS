@@ -39,7 +39,6 @@ particle_emitter::particle_emitter(float x, float y, float z)
 	offset = 0;
 	instance_vbo.bind();
 	quad_array.attribute_pointer(3, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), BUFFER_OFFSET(offset));
-	quad_array.bind();
 	quad_array.attribute_divisor(3, 1);
 	
 	/*

@@ -122,11 +122,11 @@ void game::render()
 	light.bind(basic_shader);
 	scene.render(basic_shader);
 	quad1->render(basic_shader);
-	/*
+	
 	billboard_shader.use();
 	game_camera.bind(billboard_shader);
 	particles->render(billboard_shader);
-	*/
+	
 	static glm::vec3 light_pos(50, 5, -15);
 
 	light_pos.x += sin(glfwGetTime() * 2.0f);
