@@ -60,7 +60,14 @@ void particle_emitter::update_current(float delta_time, const glm::mat4 & world_
 	*/
 	for (int i = 0; i < MAX_NUM_PARTICLES; i++)
 	{
-		offsets[i] = glm::vec3(offsets[i].x, offsets[i].y + ((rand() % 100 + 1) / 10), offsets[i].z);
+		float randomX = (rand() % 100 - 50);
+		randomX /= 1000;
+		float randomY = (rand() % 100);
+		randomY /= 100;
+		float randomZ = (rand() % 100 - 50);
+		randomZ /= 1000;
+
+		offsets[i] = glm::vec3(offsets[i].x + randomX, offsets[i].y + randomY, offsets[i].z + randomZ);
 		if (offsets[i].y > 100)
 		{
 			offsets[i].y = 0;
