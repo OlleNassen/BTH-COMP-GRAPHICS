@@ -10,7 +10,7 @@ skeleton::~skeleton()
     //dtor
 }
 
-void skeleton::fn(const shader& shader)
+void skeleton::update(float delta_time)
 {
     for(int i = 0; i < joints.size(); i++)
     {
@@ -20,5 +20,9 @@ void skeleton::fn(const shader& shader)
             world_joints[i] *= joints[j];
         }
     }
-    shader.uniform("joints", world_joints);
+}
+
+const std::vector<glm::mat4>& skeleton::transforms() const
+{
+    return world_joints;
 }
