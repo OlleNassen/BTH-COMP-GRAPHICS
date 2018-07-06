@@ -24,6 +24,8 @@ public:
     animation();
     ~animation();
 
+    void update(float delta_time);
+
 private:
     float length;
 };
