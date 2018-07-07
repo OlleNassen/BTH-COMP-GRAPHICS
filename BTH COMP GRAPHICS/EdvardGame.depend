@@ -2044,7 +2044,7 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1530696709 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
+1530982498 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
 	"camera.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
@@ -2603,14 +2603,14 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1530887799 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1530983481 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	"input.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1530887799 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1530981336 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	"window.hpp"
 	"camera.hpp"
 	"shader.hpp"
@@ -2624,6 +2624,7 @@
 	"temp_box.hpp"
 	"normal_quad.hpp"
 	"particle_emitter.hpp"
+	"model.hpp"
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glfw\glfw3.h
 	<stddef.h>
@@ -2860,7 +2861,7 @@
 	"window.hpp"
 	<iostream>
 
-1530876593 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1531005348 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 
 1530873480 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
@@ -2968,13 +2969,14 @@
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
-1530873579 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skeleton.cpp
+1530983729 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skeleton.cpp
 	"skeleton.hpp"
 
-1530873698 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skeleton.hpp
+1530975626 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skeleton.hpp
 	<string>
 	<vector>
 	<glm/glm.hpp>
+	"animation.hpp"
 
 1530883707 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\particle_emitter.hpp
 	"scene_node.hpp"
@@ -2988,9 +2990,10 @@
 	<ctime>
 	<iostream>
 
-1530887644 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1531004641 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 	<glm/gtc/matrix_transform.hpp>
+	<iostream>
 
 1530885248 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
 	<vector>

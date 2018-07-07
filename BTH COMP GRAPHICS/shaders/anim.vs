@@ -1,6 +1,6 @@
 #version 440 core
 
-#define MAX_JOLINTS 50
+#define MAX_JOINTS 50
 #define MAX_WEIGHTS 4
 
 layout (location = 0) in vec3 position;
@@ -11,7 +11,7 @@ layout (location = 4) in vec4 weight;
 
 out vec3 normal_out;
 
-uniform mat4 joint_transforms[MAX_JOLINTS];
+uniform mat4 joint_transforms[MAX_JOINTS];
 uniform mat4 model;
 uniform mat4 view;
 uniform mat4 projection;

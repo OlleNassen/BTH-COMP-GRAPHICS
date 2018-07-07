@@ -104,23 +104,23 @@ void game::run()
 
 void game::render()
 {
-	glClear(GL_DEPTH_BUFFER_BIT);
+	/*glClear(GL_DEPTH_BUFFER_BIT);
 	glViewport(0, 0, 1024, 1024);
 	shadow_shader.use();
 	light.bind(shadow_shader);
 	light.shadows_bind();
 
-	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);*/
 
 	glClearColor(0.6f, 0.9f, 0.6f, 0.f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glViewport(0, 0, WIDTH, HEIGHT);
 
-	phong_shader.use();
+	/*phong_shader.use();
 	game_camera.bind(phong_shader);
 	phong_shader.uniform("light_color", glm::vec3(1.f, 1.f, 1.f));
 	phong_shader.uniform("lightPos", glm::vec3(2, 0, 5));
-	temp.render(phong_shader);
+	temp.render(phong_shader);*/
 
 	basic_shader.use();
 	game_camera.bind(basic_shader);
@@ -131,12 +131,12 @@ void game::render()
 	terrain_shader.use();
 	game_camera.bind(terrain_shader);
 	terror->render(terrain_shader);
-	
+
 	//Billboard particles
 	billboard_shader.use();
 	game_camera.bind(billboard_shader);
 	particles->render(billboard_shader);
-	
+
 	//Normal mapping
 	static glm::vec3 light_pos(50, 5, -15);
 	light_pos.x += sin(glfwGetTime() * 2.0f);
@@ -155,6 +155,10 @@ void game::render()
 
 	sky.render(skybox_shader);
 
+	anim.use();
+	game_camera.bind(anim);
+	temp_model.draw(anim);
+
 	game_window.swap_buffers();
 }
 
@@ -162,4 +166,5 @@ void game::update(float delta_time)
 {
 	game_camera.update(delta_time);
 	particles->update(delta_time);
+	temp_model.update(delta_time);
 }

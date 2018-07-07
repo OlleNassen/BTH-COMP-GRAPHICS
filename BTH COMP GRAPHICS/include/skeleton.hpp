@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <glm/glm.hpp>
+#include "animation.hpp"
 
 
 class skeleton
@@ -21,6 +22,7 @@ private:
     std::vector<glm::mat4> joints;
     std::vector<glm::mat4> world_joints;
 
+    animation current;
 };
 
 #endif // SKELETON_HPP

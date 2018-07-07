@@ -13,6 +13,7 @@
 #include "temp_box.hpp"
 #include "normal_quad.hpp"
 #include "particle_emitter.hpp"
+#include "model.hpp"
 
 class game
 {
@@ -38,6 +39,9 @@ private:
 	directional_light light;
 	scene_node scene;
 	skybox sky;
+
+
+	model temp_model;
 
 	//TEMP VARIABLES, PUT IN SCENE GRAPH WHEN FIXED
 	temp_box temp; // PHONG cube
