@@ -56,16 +56,21 @@ void animation::update_pose(std::vector<glm::mat4>& joints)
 
     for(int i = 0; i < joints.size(); i++)
     {
-        glm::vec3 new_position =
-            glm::mix(previous.pose[i].position,
-            next.pose[i].position, progression);
+        glm::vec3 new_position = previous.pose[i].position;
+        glm::quat new_rotation = previous.pose[i].rotation;
 
-        glm::quat new_rotation =
-            glm::mix(previous.pose[i].rotation,
-            next.pose[i].rotation, progression);
-
-        new_position = glm::vec3(0,0,0);
-        new_rotation = glm::quat_cast(glm::mat4(1.0f));
+        if(previous.pose[i].position != next.pose[i].position)
+        {
+            new_position =
+                glm::mix(previous.pose[i].position,
+                next.pose[i].position, progression);
+        }
+        if(previous.pose[i].rotation != next.pose[i].rotation)
+        {
+            new_rotation =
+                glm::slerp(previous.pose[i].rotation,
+                next.pose[i].rotation, progression);
+        }
 
         glm::mat4 new_transform = glm::mat4_cast(new_rotation);
         new_transform = glm::translate(new_transform, new_position);
