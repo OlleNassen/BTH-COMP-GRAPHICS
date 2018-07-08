@@ -6,17 +6,27 @@ animation::animation()
 {
     current_key_frame = 0;
     std::vector<joint_transform> pose;
+    glm::mat4 rot(1.0f);
+
     for(int i = 0; i < 50; i++)
     {
-        pose.push_back({0, glm::vec3(0,0,0), glm::quat_cast(glm::mat4(1.0f))});
+        //rot = glm::rotate(rot, glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0));
+        pose.push_back({0, glm::vec3(0,0,0), glm::quat_cast(rot)});
     }
 
     key_frame f;
-    f.time = 1.0;
+    f.time = 10.0;
     f.pose = pose;
     key_frames.push_back(f);
-    key_frames.push_back(f);
-    key_frames.push_back(f);
+
+    for(int i = 0; i < 50; i++)
+    {
+        //rot = glm::rotate(rot, glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0));
+        pose.push_back({0, glm::vec3(10,0,0), glm::quat_cast(rot)});
+    }
+
+    f.time = 10.0;
+    f.pose = pose;
     key_frames.push_back(f);
     key_frames.push_back(f);
 
@@ -42,6 +52,8 @@ void animation::update_key_frame()
         current_key_frame =
             (current_key_frame + 1)
             % (key_frames.size() - 1);
+
+        time = 0;
     }
 }
 
