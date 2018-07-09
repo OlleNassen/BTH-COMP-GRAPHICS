@@ -14,6 +14,9 @@
 #include "normal_quad.hpp"
 #include "particle_emitter.hpp"
 #include "model.hpp"
+#include <iostream>
+
+std::ostream& operator<<(std::ostream& os, const glm::mat4& value);
 
 class game
 {
