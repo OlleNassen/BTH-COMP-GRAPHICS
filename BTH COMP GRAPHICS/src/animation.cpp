@@ -15,7 +15,7 @@ animation::animation()
     }
 
     key_frame f;
-    f.time = 9.0;
+    f.time = 1.0;
     f.pose = pose;
     key_frames.push_back(f);
 
@@ -24,10 +24,10 @@ animation::animation()
     for(int i = 0; i < 50; i++)
     {
         //rot = glm::rotate(rot, glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0));
-        pose2.push_back({0, glm::vec3(10,0,0), glm::quat_cast(rot)});
+        pose2.push_back({0, glm::vec3(0,1,0), glm::quat_cast(rot)});
     }
 
-    f.time = 10.0;
+    f.time = 0.0;
     f.pose = pose2;
     key_frames.push_back(f);
 
