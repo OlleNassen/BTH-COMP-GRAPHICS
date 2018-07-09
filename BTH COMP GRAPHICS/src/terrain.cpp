@@ -27,7 +27,7 @@ terrain::terrain(float x, float y, float z)
 	terrain_texture = new texture("images/ground.png", wrap::REPEAT, filter::LINEAR, format::RGBA);
 
 	int textureWidth, textureHeight, nrChannels;
-	unsigned char* data = stbi_load("images/heightmap.jpg", &textureWidth, &textureHeight, &nrChannels, 1);
+	data = stbi_load("images/heightmap.jpg", &textureWidth, &textureHeight, &nrChannels, 1);
 
 	std::vector<int> heights;
 
@@ -43,10 +43,8 @@ terrain::terrain(float x, float y, float z)
 		std::cout << "Failed to load texture\n";
 	}
 
-	stbi_image_free(data);
-
-	int width = textureWidth;
-	int depth = textureHeight;
+	width = textureWidth;
+	depth = textureHeight;
 
 	std::vector<Vertex> vertices;
 	std::vector<unsigned int> indices;
@@ -95,6 +93,12 @@ terrain::terrain(float x, float y, float z)
 
 terrain::~terrain()
 {
+	stbi_image_free(data);
+}
+
+float terrain::calculate_camera_y(float x, float z)
+{
+	return data[static_cast<int>(x) + static_cast<int>(z) * width];
 }
 
 void terrain::update_current(float delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
