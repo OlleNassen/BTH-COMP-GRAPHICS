@@ -4,6 +4,7 @@
 
 animation::animation()
 {
+    time = 0.0f;
     current_key_frame = 0;
     std::vector<joint_transform> pose;
     glm::mat4 rot(1.0f);
