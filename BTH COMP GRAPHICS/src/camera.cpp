@@ -163,6 +163,7 @@ void camera::bind(const shader& shader)
 
 void camera::set_camera_y(float y)
 {
-	position.y = y;
+	if(y != -1)
+		position.y = y;
 }
 
