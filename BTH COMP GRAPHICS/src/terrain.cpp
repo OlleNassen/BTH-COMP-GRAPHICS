@@ -100,7 +100,7 @@ float terrain::calculate_camera_y(float x, float z)
 {
 	if (x < 0 || x > 128 || z < 0 || z > 128)
 		return -1;
-	return data[static_cast<int>(x) + static_cast<int>(z) * width];
+	return data[(static_cast<int>(x) + static_cast<int>(z)) * width] * 0.1f;
 }
 
 void terrain::update_current(float delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
