@@ -27,11 +27,11 @@ animation::animation()
         pose2.push_back({0, glm::vec3(0,1,0), glm::quat_cast(rot)});
     }
 
-    f.time = 0.0;
+    f.time = 1.0;
     f.pose = pose2;
     key_frames.push_back(f);
 
-    /*std::vector<joint_transform> pose3;
+    std::vector<joint_transform> pose3;
 
     for(int i = 0; i < 50; i++)
     {
@@ -39,9 +39,9 @@ animation::animation()
         pose3.push_back({0, glm::vec3(0,0,0), glm::quat_cast(rot)});
     }
 
-    f.time = 9.0;
+    f.time = 1.0;
     f.pose = pose3;
-    key_frames.push_back(f);*/
+    key_frames.push_back(f);
 
 }
 
@@ -75,8 +75,13 @@ void animation::update_pose(std::vector<glm::mat4>& joints)
     key_frame& next = key_frames[current_key_frame + 1];
 
     float total_time = next.time - previous.time;
-    float current_time = time - previous.time;
-    float progression = current_time / total_time;
+    float current_time = time;// - previous.time;
+    float progression = current_time;
+
+    /*if(total_time > 0.0f)
+    {
+        progression /= total_time;
+    }*/
 
     for(int i = 0; i < joints.size(); i++)
     {
