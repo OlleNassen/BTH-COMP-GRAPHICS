@@ -7,10 +7,10 @@
 std::ostream& operator<<(std::ostream& os, const glm::mat4& value)
 {
     return os
-        << value[0][0] << " " << value[0][1] << " " << value[0][2] << " " << value[0][3] << std::endl
-        << value[1][0] << " " << value[1][1] << " " << value[1][2] << " " << value[1][3] << std::endl
-        << value[2][0] << " " << value[2][1] << " " << value[2][2] << " " << value[2][3] << std::endl
-        << value[3][0] << " " << value[3][1] << " " << value[3][2] << " " << value[3][3] << std::endl;
+        << value[0][0] << " " << value[1][0] << " " << value[2][0] << " " << value[3][0] << std::endl
+        << value[1][1] << " " << value[1][1] << " " << value[2][1] << " " << value[3][1] << std::endl
+        << value[2][2] << " " << value[1][2] << " " << value[2][2] << " " << value[3][2] << std::endl
+        << value[3][3] << " " << value[1][3] << " " << value[2][3] << " " << value[3][3] << std::endl;
 }
 
 game::game()
