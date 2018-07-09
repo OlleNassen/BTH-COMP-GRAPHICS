@@ -176,4 +176,6 @@ void game::update(float delta_time)
 	game_camera.update(delta_time);
 	particles->update(delta_time);
 	temp_model.update(delta_time);
+
+	game_camera.set_camera_y(terror->calculate_camera_y(game_camera.get_view()[3][0], game_camera.get_view()[3][2]));
 }

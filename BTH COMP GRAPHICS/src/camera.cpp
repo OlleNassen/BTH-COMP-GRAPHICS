@@ -161,3 +161,8 @@ void camera::bind(const shader& shader)
     shader.uniform("projection", projection);
 }
 
+void camera::set_camera_y(float y)
+{
+	position.y = y;
+}
+

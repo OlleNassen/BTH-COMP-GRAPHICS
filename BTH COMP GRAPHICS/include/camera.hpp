@@ -28,6 +28,8 @@ public:
 	glm::mat4 get_projection()const;
     void bind(const shader& shader);
 
+	void set_camera_y(float y);
+
 private:
     bool pressed_up;
     bool pressed_down;
