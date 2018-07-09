@@ -23,7 +23,6 @@ void skeleton::update(float delta_time)
     for(int i = 0; i < joints.size(); i++)
     {
         world_joints[i] = joints[i];
-        std::cout << joints[i] << std::endl << std::endl;
         for(int j = parents[i]; parents[j] != 0; j = parents[j])
         {
             world_joints[i] *= joints[j];
