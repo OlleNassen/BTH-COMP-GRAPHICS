@@ -22,8 +22,8 @@ struct vertex
 
 void import_model(const std::string& path,
     std::vector<vertex>& vertices,
-    std::vector<unsigned int> parents,
-    std::vector<glm::mat4> joints,
+    std::vector<unsigned int>& parents,
+    std::vector<glm::mat4>& joints,
     std::vector<key_frame>& key_frames);
 
 class model
