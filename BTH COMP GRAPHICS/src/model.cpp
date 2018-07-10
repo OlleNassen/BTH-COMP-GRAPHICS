@@ -6,7 +6,11 @@ void import_model(const std::string& path,
     std::vector<glm::mat4> joints,
     std::vector<key_frame>& key_frames)
 {
-
+    Assimp::Importer importer;
+    const aiScene* scene = importer.ReadFile(path.c_str(),
+        aiProcess_Triangulate |
+        aiProcess_GenSmoothNormals |
+        aiProcess_FlipUVs);
 }
 
 model::model()
