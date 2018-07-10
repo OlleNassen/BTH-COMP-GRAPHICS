@@ -167,7 +167,7 @@ void camera::move_on_terrain(const terrain& terrain)
         && position.x < terrain.z + terrain.width
         && position.z < terrain.z + terrain.width)
     {
-        position.y = terrain.calculate_camera_y(position.x, position.z) + 2;
+        position.y = terrain.calculate_camera_y(position.x, position.z) + 3;
     }
 }
 
