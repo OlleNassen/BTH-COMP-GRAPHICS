@@ -6,42 +6,21 @@ animation::animation()
 {
     time = 0.0f;
     current_key_frame = 0;
-    std::vector<joint_transform> pose;
     glm::mat4 rot(1.0f);
 
-    for(int i = 0; i < 50; i++)
-    {
-        //rot = glm::rotate(rot, glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0));
-        pose.push_back({0, glm::vec3(0,0,0), glm::quat_cast(rot)});
-    }
+    //rot = glm::rotate(rot, glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0));
 
     key_frame f;
     f.time = 1.0;
-    f.pose = pose;
+    f.pose.fill({0, glm::vec3(0,0,0), glm::quat_cast(rot)});
     key_frames.push_back(f);
 
-    std::vector<joint_transform> pose2;
-
-    for(int i = 0; i < 50; i++)
-    {
-        //rot = glm::rotate(rot, glm::radians(90.0f), glm::vec3(0.0, 1.0, 0.0));
-        pose2.push_back({0, glm::vec3(0,1,0), glm::quat_cast(rot)});
-    }
-
     f.time = 1.0;
-    f.pose = pose2;
+    f.pose.fill({0, glm::vec3(0,1,0), glm::quat_cast(rot)});
     key_frames.push_back(f);
 
-    std::vector<joint_transform> pose3;
-
-    for(int i = 0; i < 50; i++)
-    {
-        //rot = glm::rotate(rot, glm::radians(90.0f), glm::vec3(0.0, 1.0, 0.0));
-        pose3.push_back({0, glm::vec3(0,0,0), glm::quat_cast(rot)});
-    }
-
     f.time = 1.0;
-    f.pose = pose3;
+    f.pose.fill({0, glm::vec3(0,0,0), glm::quat_cast(rot)});
     key_frames.push_back(f);
 
 }
@@ -51,7 +30,7 @@ animation::~animation()
     //dtor
 }
 
-void animation::update(float delta_time, std::vector<glm::mat4>& joints)
+void animation::update(float delta_time, std::array<joint, 50>& joints)
 {
     time += delta_time;
 
@@ -70,7 +49,7 @@ void animation::update_key_frame()
     }
 }
 
-void animation::update_pose(std::vector<glm::mat4>& joints)
+void animation::update_pose(std::array<joint, 50>& joints)
 {
     key_frame& previous = key_frames[current_key_frame];
     key_frame& next = key_frames[current_key_frame + 1];
@@ -100,6 +79,6 @@ void animation::update_pose(std::vector<glm::mat4>& joints)
         glm::mat4 new_transform = glm::mat4_cast(new_rotation);
         new_transform = glm::translate(new_transform, new_position);
 
-        joints[i] = new_transform;
+        joints[i].transform = new_transform;
     }
 }

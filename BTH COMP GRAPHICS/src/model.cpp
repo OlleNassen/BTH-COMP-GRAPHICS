@@ -3,7 +3,7 @@
 
 void load_mesh(const aiScene* scene, std::vector<vertex>& vertices)
 {
-    for(int i = 0; i < scene->mMeshes[0]->mNumVertices; i++)
+    for(unsigned int i = 0; i < scene->mMeshes[0]->mNumVertices; i++)
     {
         vertices[i].position.x = scene->mMeshes[0]->mVertices[i].x;
         vertices[i].position.y = scene->mMeshes[0]->mVertices[i].y;
@@ -32,7 +32,7 @@ void load_skeleton(const aiScene* scene,
     std::vector<unsigned int>& parents,
     std::vector<glm::mat4>& joints)
 {
-    for(int i = 0; i < scene->mMeshes[0]->mNumVertices; i++)
+    for(unsigned int i = 0; i < scene->mMeshes[0]->mNumVertices; i++)
     {
         //parents[i] = 0;
 
@@ -60,7 +60,7 @@ void load_skeleton(const aiScene* scene,
 
 void load_key_frames(const aiScene* scene, std::vector<key_frame>& key_frames)
 {
-    for(int i = 0; i < scene->mMeshes[0]->mNumVertices; i++)
+    for(unsigned int i = 0; i < scene->mMeshes[0]->mNumVertices; i++)
     {
 
     }
@@ -84,14 +84,6 @@ void import_model(const std::string& path,
 model::model()
     : model_buffer(target::ARRAY_BUFFER)
 {
-    /*struct vertex
-    {
-        glm::vec3 position;
-        glm::vec2 texture_coordinate;
-        glm::vec3 normal;
-        glm::ivec4 joints;
-        glm::vec4 weights;
-    };*/
 	vertices.push_back({ glm::vec3(0,1,0), glm::vec2(0,1), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });
 	vertices.push_back({ glm::vec3(1,0,0), glm::vec2(1,0), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });
 	vertices.push_back({ glm::vec3(0,0,0), glm::vec2(0,0), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });
@@ -110,6 +102,9 @@ model::model()
 
     model_array.attribute_pointer(3, 4, GL_INT, stride, (void*)(8 * sizeof(float)));
     model_array.attribute_pointer(4, 4, GL_FLOAT, GL_FALSE, stride, (void*)(8 * sizeof(float) + 4 * sizeof(int)));
+
+    joints.fill({ 0, glm::mat4(1.0f) });
+    world_joints.fill(glm::mat4(1.0f));
 }
 
 model::~model()
@@ -119,12 +114,23 @@ model::~model()
 
 void model::update(float delta_time)
 {
-    skel.update(delta_time);
+    current.update(delta_time, joints);
+
+    for(unsigned int i = 0; i < joints.size(); i++)
+    {
+        world_joints[i] = joints[i].transform;
+        for(int j = joints[i].parent;
+            joints[j].parent != 0;
+            j = joints[j].parent)
+        {
+            world_joints[i] *= joints[j].transform;
+        }
+    }
 }
 
 void model::draw(const shader& shader) const
 {
-    shader.uniform("joint_transforms", skel.transforms());
+    shader.uniform("joint_transforms", world_joints);
     model_array.bind();
     glDrawArrays(GL_TRIANGLES, 0, 6);
     glBindVertexArray(0);

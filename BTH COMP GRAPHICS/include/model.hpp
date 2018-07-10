@@ -1,9 +1,10 @@
 #ifndef MODEL_HPP
 #define MODEL_HPP
 
+#include <array>
 #include <vector>
 #include <glm/glm.hpp>
-#include "skeleton.hpp"
+#include "animation.hpp"
 #include "shader.hpp"
 #include "buffer.hpp"
 #include "vertex_array.hpp"
@@ -39,7 +40,10 @@ public:
 private:
     std::vector<vertex> vertices;
 
-    skeleton skel;
+    std::array<joint, 50> joints;
+    std::array<glm::mat4, 50> world_joints;
+
+    animation current;
 
     buffer model_buffer;
     vertex_array model_array;

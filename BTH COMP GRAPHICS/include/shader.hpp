@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <array>
 #include <glm/glm.hpp>
 
 class shader
@@ -27,6 +28,7 @@ public:
     void uniform(const std::string& name, const std::vector<glm::vec3>& value) const;
     void uniform(const std::string& name, const std::vector<glm::vec4>& value) const;
     void uniform(const std::string& name, const std::vector<glm::mat4>& value) const;
+    void uniform(const std::string& name, const std::array<glm::mat4, 50>& value) const;
 
 private:
     unsigned int id;

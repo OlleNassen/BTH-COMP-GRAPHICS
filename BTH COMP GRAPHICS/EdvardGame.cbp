@@ -59,7 +59,6 @@
 		<Unit filename="include/quad.hpp" />
 		<Unit filename="include/scene_node.hpp" />
 		<Unit filename="include/shader.hpp" />
-		<Unit filename="include/skeleton.hpp" />
 		<Unit filename="include/skybox.hpp" />
 		<Unit filename="include/temp_box.hpp" />
 		<Unit filename="include/terrain.hpp" />
@@ -98,7 +97,6 @@
 		<Unit filename="src/quad.cpp" />
 		<Unit filename="src/scene_node.cpp" />
 		<Unit filename="src/shader.cpp" />
-		<Unit filename="src/skeleton.cpp" />
 		<Unit filename="src/skybox.cpp" />
 		<Unit filename="src/temp_box.cpp" />
 		<Unit filename="src/terrain.cpp" />

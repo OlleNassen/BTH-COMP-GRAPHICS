@@ -2499,9 +2499,10 @@
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\simd\integer.h
 
-1530833676 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\shader.hpp
+1531257862 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\shader.hpp
 	<string>
 	<vector>
+	<array>
 	<glm/glm.hpp>
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\gtc\matrix_transform.hpp
@@ -2819,7 +2820,7 @@
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\postprocess.h
 	"types.h"
 
-1530873769 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\shader.cpp
+1531257838 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\shader.cpp
 	"shader.hpp"
 	<iostream>
 	<fstream>
@@ -2863,13 +2864,15 @@
 	"window.hpp"
 	<iostream>
 
-1531230474 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1531258385 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
+	<algorithm>
 
-1531230481 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
+1531258123 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
+	<array>
 	<vector>
 	<glm/glm.hpp>
-	"skeleton.hpp"
+	"animation.hpp"
 	"shader.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
@@ -2995,12 +2998,13 @@
 	<ctime>
 	<iostream>
 
-1531150453 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1531258179 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<iostream>
 
-1530885248 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
+1531258434 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
+	<array>
 	<vector>
 	<glm/glm.hpp>
 	<glm/gtc/quaternion.hpp>

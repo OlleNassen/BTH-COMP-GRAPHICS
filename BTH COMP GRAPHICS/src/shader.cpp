@@ -139,6 +139,15 @@ void shader::uniform(const std::string& name, const std::vector<glm::mat4>& valu
     }
 }
 
+void shader::uniform(const std::string& name, const std::array<glm::mat4, 50>& value) const
+{
+    if(value.size() > 0)
+    {
+        glUniformMatrix4fv(glGetUniformLocation(id, name.c_str()),
+            value.size(), GL_FALSE, glm::value_ptr(value.front()));
+    }
+}
+
 std::string shader::load(const std::string& path) const
 {
     std::string code;
