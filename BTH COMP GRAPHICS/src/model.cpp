@@ -8,10 +8,23 @@ void load_mesh(const aiScene* scene, std::vector<vertex>& vertices)
         vertices[i].position.x = scene->mMeshes[0]->mVertices[i].x;
         vertices[i].position.y = scene->mMeshes[0]->mVertices[i].y;
         vertices[i].position.z = scene->mMeshes[0]->mVertices[i].z;
-        //vertices[i].texture_coordinate =
-        //vertices[i].normal =
-        //vertices[i].joints =
-        //vertices[i].weights =
+
+        vertices[i].texture_coordinate.x = scene->mMeshes[0]->mTextureCoords[i]->x;
+        vertices[i].texture_coordinate.y = scene->mMeshes[0]->mTextureCoords[i]->y;
+
+        vertices[i].normal.x = scene->mMeshes[0]->mNormals[i].x;
+        vertices[i].normal.y = scene->mMeshes[0]->mNormals[i].y;
+        vertices[i].normal.z = scene->mMeshes[0]->mNormals[i].z;
+
+        vertices[i].joints.x = scene->mMeshes[0]->mBones[i]->mWeights[0].mVertexId;
+        vertices[i].joints.y = scene->mMeshes[0]->mBones[i]->mWeights[1].mVertexId;
+        vertices[i].joints.z = scene->mMeshes[0]->mBones[i]->mWeights[2].mVertexId;
+        vertices[i].joints.w = scene->mMeshes[0]->mBones[i]->mWeights[3].mVertexId;
+
+        vertices[i].weights.x = scene->mMeshes[0]->mBones[i]->mWeights[0].mWeight;
+        vertices[i].weights.y = scene->mMeshes[0]->mBones[i]->mWeights[1].mWeight;
+        vertices[i].weights.z = scene->mMeshes[0]->mBones[i]->mWeights[2].mWeight;
+        vertices[i].weights.w = scene->mMeshes[0]->mBones[i]->mWeights[3].mWeight;
     }
 }
 
