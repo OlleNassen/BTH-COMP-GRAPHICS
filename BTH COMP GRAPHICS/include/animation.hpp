@@ -14,10 +14,12 @@ struct joint
     glm::quat rotation;
 };
 
+using skeleton = std::array<joint, 50>;
+
 struct key_frame
 {
     float time;
-    std::array<joint, 50> pose;
+    skeleton pose;
 };
 
 class animation
@@ -26,7 +28,7 @@ public:
     animation();
     ~animation();
 
-    void update(float delta_time, std::array<joint, 50>& joints);
+    void update(float delta_time, skeleton& joints);
 
 private:
     float time;
@@ -35,7 +37,7 @@ private:
     std::vector<key_frame> key_frames;
 
     void update_key_frame();
-    void update_pose(std::array<joint, 50>& joints);
+    void update_pose(skeleton& joints);
 };
 
 #endif // ANIMATION_HPP

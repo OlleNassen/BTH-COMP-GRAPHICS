@@ -28,7 +28,7 @@ animation::~animation()
     //dtor
 }
 
-void animation::update(float delta_time, std::array<joint, 50>& joints)
+void animation::update(float delta_time, skeleton& joints)
 {
     time += delta_time;
 
@@ -47,7 +47,7 @@ void animation::update_key_frame()
     }
 }
 
-void animation::update_pose(std::array<joint, 50>& joints)
+void animation::update_pose(skeleton& joints)
 {
     key_frame& previous = key_frames[current_key_frame];
     key_frame& next = key_frames[current_key_frame + 1];

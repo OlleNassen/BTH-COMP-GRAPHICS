@@ -1,8 +1,6 @@
 #ifndef MODEL_HPP
 #define MODEL_HPP
 
-#include <array>
-#include <vector>
 #include "animation.hpp"
 #include "shader.hpp"
 #include "buffer.hpp"
@@ -39,7 +37,7 @@ public:
 private:
     std::vector<vertex> vertices;
 
-    std::array<joint, 50> joints;
+    skeleton joints;
     std::array<glm::mat4, 50> world_joints;
 
     animation current;
