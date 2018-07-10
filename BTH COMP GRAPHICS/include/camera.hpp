@@ -3,6 +3,7 @@
 
 #include <glm/glm.hpp>
 #include "shader.hpp"
+#include "terrain.hpp"
 
 class camera
 {
@@ -28,7 +29,7 @@ public:
 	glm::mat4 get_projection()const;
     void bind(const shader& shader);
 
-	void set_camera_y(float y);
+	void move_on_terrain(const terrain& terrain);
 
 private:
     bool pressed_up;

@@ -13,18 +13,23 @@ public:
 
 	virtual ~terrain();
 
-	float calculate_camera_y(float x, float z);
+	float calculate_camera_y(float x, float z) const;
+
+	float x;
+	float y;
+	float z;
+	int width;
 
 private:
 	unsigned int draw_count;
 	unsigned char* data;
 
+
+
 	vertex_array terrain_array;
 	buffer terrain_vbo;
 	buffer terrain_ebo;
 	texture* terrain_texture;
-
-	int width;
 	int depth;
 	virtual void update_current(float delta_time,
 		const glm::mat4& world_transform, glm::mat4& transform) override;

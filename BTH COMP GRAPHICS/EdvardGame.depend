@@ -2044,15 +2044,16 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1530982498 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
+1531225646 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
 	"camera.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 	<iostream>
 
-1530610121 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\camera.hpp
+1531223460 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\camera.hpp
 	<glm/glm.hpp>
 	"shader.hpp"
+	"terrain.hpp"
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\glm.hpp
 	"detail/_fixes.hpp"
@@ -2603,7 +2604,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1531149664 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1531225720 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	"input.hpp"
@@ -2913,13 +2914,13 @@
 1530712352 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skybox.cpp
 	"skybox.hpp"
 
-1530887799 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\terrain.hpp
+1531225411 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\terrain.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1530887799 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
+1531225668 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
 	"terrain.hpp"
 	<vector>
 	<iostream>
@@ -2992,7 +2993,7 @@
 	<ctime>
 	<iostream>
 
-1531148825 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1531150453 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<iostream>

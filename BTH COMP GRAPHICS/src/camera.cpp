@@ -161,9 +161,13 @@ void camera::bind(const shader& shader)
     shader.uniform("projection", projection);
 }
 
-void camera::set_camera_y(float y)
+void camera::move_on_terrain(const terrain& terrain)
 {
-	if(y != -1)
-		position.y = y;
+	if(position.x > terrain.x && position.z > terrain.z
+        && position.x < terrain.z + terrain.width
+        && position.z < terrain.z + terrain.width)
+    {
+        position.y = terrain.calculate_camera_y(position.x, position.z) + 2;
+    }
 }
 

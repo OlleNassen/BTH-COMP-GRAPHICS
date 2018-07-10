@@ -88,6 +88,9 @@ terrain::terrain(float x, float y, float z)
 	offset += sizeof(glm::vec3);
 	terrain_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), BUFFER_OFFSET(offset));
 	offset += sizeof(glm::vec2);
+	x = 0;
+	y = 0;
+	z = 0;
 }
 
 
@@ -96,16 +99,16 @@ terrain::~terrain()
 	stbi_image_free(data);
 }
 
-float terrain::calculate_camera_y(float x, float z)
+float terrain::calculate_camera_y(float x, float z) const
 {
-	if (x < 0 || x > 128 || z < 0 || z > 128)
-		return -1;
-	return data[(static_cast<int>(x) + static_cast<int>(z)) * width] * 0.1f;
+    return data[(static_cast<int>(x) + static_cast<int>(z)) * width] * 0.1f + y;
 }
 
 void terrain::update_current(float delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
 {
-
+    x = world_transform[3][0];
+    y = world_transform[3][1];
+    z = world_transform[3][2];
 }
 
 void terrain::render_current(const shader & shader, const glm::mat4 & world_transform) const
