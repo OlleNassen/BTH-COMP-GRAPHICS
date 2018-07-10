@@ -1,5 +1,14 @@
 #include "model.hpp"
 
+void import_model(const std::string& path,
+    std::vector<vertex>& vertices,
+    std::vector<unsigned int> parents,
+    std::vector<glm::mat4> joints,
+    std::vector<key_frame>& key_frames)
+{
+
+}
+
 model::model()
     : model_buffer(target::ARRAY_BUFFER)
 {

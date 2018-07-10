@@ -7,6 +7,9 @@
 #include "shader.hpp"
 #include "buffer.hpp"
 #include "vertex_array.hpp"
+#include <assimp/Importer.hpp>
+#include <assimp/Scene.h>
+#include <assimp/postprocess.h>
 
 struct vertex
 {
@@ -16,6 +19,12 @@ struct vertex
     glm::ivec4 joints;
     glm::vec4 weights;
 };
+
+void import_model(const std::string& path,
+    std::vector<vertex>& vertices,
+    std::vector<unsigned int> parents,
+    std::vector<glm::mat4> joints,
+    std::vector<key_frame>& key_frames);
 
 class model
 {

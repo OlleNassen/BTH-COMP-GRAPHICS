@@ -2044,7 +2044,7 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1531228042 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
+1531229204 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
 	"camera.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
@@ -2866,13 +2866,16 @@
 1531051525 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 
-1530873480 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
+1531230250 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
 	<vector>
 	<glm/glm.hpp>
 	"skeleton.hpp"
 	"shader.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
+	<assimp/Importer.hpp>
+	<assimp/Scene.h>
+	<assimp/postprocess.h>
 
 1530611757 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\input.cpp
 	"input.hpp"
@@ -2920,14 +2923,13 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1531229188 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
+1531229936 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
 	"terrain.hpp"
 	<vector>
 	<iostream>
 	<gl/glew.h>
 	<glm/glm.hpp>
 	<stb_image.h>
-	"game.hpp"
 
 1530800353 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\quad.hpp
 	"scene_node.hpp"
@@ -2972,9 +2974,8 @@
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
-1531150328 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skeleton.cpp
+1531229963 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skeleton.cpp
 	"skeleton.hpp"
-	"game.hpp"
 
 1530975626 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skeleton.hpp
 	<string>

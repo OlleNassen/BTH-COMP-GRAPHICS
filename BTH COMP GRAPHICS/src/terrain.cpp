@@ -4,7 +4,6 @@
 #include <gl/glew.h>
 #include <glm/glm.hpp>
 #include <stb_image.h>
-#include "game.hpp"
 
 #define BUFFER_OFFSET(i) ((char *)nullptr + (i))
 
@@ -105,7 +104,6 @@ float terrain::calculate_camera_y(float x, float z) const
     int x_index = x - this->x - this->x * 0.25f;
     int z_index = z - this->z + this->z * 0.25f;
 
-    std::cout << x_index << std::endl;
     return data[x_index + z_index * width] * 0.1f + y;
 }
 

@@ -1,5 +1,4 @@
 #include "skeleton.hpp"
-#include "game.hpp"
 
 skeleton::skeleton()
 {

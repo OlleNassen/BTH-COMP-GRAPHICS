@@ -52,7 +52,6 @@
 		<Unit filename="include/frame_buffer.hpp" />
 		<Unit filename="include/game.hpp" />
 		<Unit filename="include/input.hpp" />
-		<Unit filename="include/mesh.hpp" />
 		<Unit filename="include/model.hpp" />
 		<Unit filename="include/normal_quad.hpp" />
 		<Unit filename="include/particle_emitter.hpp" />
@@ -92,7 +91,6 @@
 		<Unit filename="src/game.cpp" />
 		<Unit filename="src/input.cpp" />
 		<Unit filename="src/main.cpp" />
-		<Unit filename="src/mesh.cpp" />
 		<Unit filename="src/model.cpp" />
 		<Unit filename="src/normal_quad.cpp" />
 		<Unit filename="src/particle_emitter.cpp" />
