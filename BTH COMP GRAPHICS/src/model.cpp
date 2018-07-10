@@ -1,4 +1,19 @@
 #include "model.hpp"
+#include <algorithm>
+
+void load_mesh(const aiScene* scene, std::vector<vertex>& vertices)
+{
+    for(int i = 0; i < scene->mMeshes[0]->mNumVertices; i++)
+    {
+        vertices[i].position.x = scene->mMeshes[0]->mVertices[i].x;
+        vertices[i].position.y = scene->mMeshes[0]->mVertices[i].y;
+        vertices[i].position.z = scene->mMeshes[0]->mVertices[i].z;
+        //vertices[i].texture_coordinate =
+        //vertices[i].normal =
+        //vertices[i].joints =
+        //vertices[i].weights =
+    }
+}
 
 void import_model(const std::string& path,
     std::vector<vertex>& vertices,
@@ -11,6 +26,8 @@ void import_model(const std::string& path,
         aiProcess_Triangulate |
         aiProcess_GenSmoothNormals |
         aiProcess_FlipUVs);
+
+    load_mesh(scene, vertices);
 }
 
 model::model()
