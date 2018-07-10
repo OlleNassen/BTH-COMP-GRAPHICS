@@ -101,7 +101,7 @@ terrain::~terrain()
 
 float terrain::calculate_camera_y(float x, float z) const
 {
-    return data[(static_cast<int>(x) + static_cast<int>(z)) * width] * 0.1f + y;
+    return data[static_cast<int>(x) + static_cast<int>(z) * width] * 0.1f + y;
 }
 
 void terrain::update_current(float delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
