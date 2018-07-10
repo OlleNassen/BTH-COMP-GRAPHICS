@@ -74,9 +74,6 @@ void animation::update_pose(skeleton& joints)
             glm::slerp(previous.pose[i].rotation,
             next.pose[i].rotation, progression);
 
-        glm::mat4 new_transform = glm::mat4_cast(new_rotation);
-        new_transform = glm::translate(new_transform, new_position);
-
         joints[i].position = new_position;
         joints[i].rotation = new_rotation;
     }
