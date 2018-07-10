@@ -32,12 +32,38 @@ void load_skeleton(const aiScene* scene,
     std::vector<unsigned int>& parents,
     std::vector<glm::mat4>& joints)
 {
+    for(int i = 0; i < scene->mMeshes[0]->mNumVertices; i++)
+    {
+        //parents[i] = 0;
 
+        /*joints[0][0] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.a1;
+        joints[0][1] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.a1;
+        joints[0][2] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.a1;
+        joints[0][3] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.a1;
+
+        joints[1][0] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.b2;
+        joints[1][1] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.b2;
+        joints[1][2] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.b2;
+        joints[1][3] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.b2;
+
+        joints[2][0] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.c3;
+        joints[2][1] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.c3;
+        joints[2][2] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.c3;
+        joints[2][3] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.c3;
+
+        joints[3][0] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.d4;
+        joints[3][1] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.d4;
+        joints[3][2] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.d4;
+        joints[3][3] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.d4;*/
+    }
 }
 
 void load_key_frames(const aiScene* scene, std::vector<key_frame>& key_frames)
 {
+    for(int i = 0; i < scene->mMeshes[0]->mNumVertices; i++)
+    {
 
+    }
 }
 
 void import_model(const std::string& path,
