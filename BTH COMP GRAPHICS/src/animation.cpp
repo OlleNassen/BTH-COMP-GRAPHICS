@@ -52,15 +52,6 @@ void animation::update_pose(skeleton& joints)
     key_frame& previous = key_frames[current_key_frame];
     key_frame& next = key_frames[current_key_frame + 1];
 
-    float total_time = next.time - previous.time;
-    float current_time = time;// - previous.time;
-    float progression = current_time;
-
-    /*if(total_time > 0.0f)
-    {
-        progression /= total_time;
-    }*/
-
     for(int i = 0; i < joints.size(); i++)
     {
         glm::vec3 new_position = previous.pose[i].position;
@@ -68,11 +59,11 @@ void animation::update_pose(skeleton& joints)
 
         new_position =
             glm::mix(previous.pose[i].position,
-            next.pose[i].position, progression);
+            next.pose[i].position, time);
 
         new_rotation =
             glm::slerp(previous.pose[i].rotation,
-            next.pose[i].rotation, progression);
+            next.pose[i].rotation, time);
 
         joints[i].position = new_position;
         joints[i].rotation = new_rotation;
