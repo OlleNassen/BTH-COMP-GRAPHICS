@@ -4,17 +4,12 @@
 #include <array>
 #include <vector>
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/quaternion.hpp>
 
 struct joint
 {
     unsigned int parent;
-    glm::mat4 transform;
-};
-
-struct joint_transform
-{
-    int joint;
     glm::vec3 position;
     glm::quat rotation;
 };
@@ -22,7 +17,7 @@ struct joint_transform
 struct key_frame
 {
     float time;
-    std::array<joint_transform, 50> pose;
+    std::array<joint, 50> pose;
 };
 
 class animation

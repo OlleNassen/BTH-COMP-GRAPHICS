@@ -3,7 +3,6 @@
 
 #include <array>
 #include <vector>
-#include <glm/glm.hpp>
 #include "animation.hpp"
 #include "shader.hpp"
 #include "buffer.hpp"

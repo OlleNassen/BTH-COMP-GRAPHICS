@@ -2868,10 +2868,9 @@
 	"model.hpp"
 	<algorithm>
 
-1531258123 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
+1531259053 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
 	<array>
 	<vector>
-	<glm/glm.hpp>
 	"animation.hpp"
 	"shader.hpp"
 	"buffer.hpp"
@@ -2998,14 +2997,15 @@
 	<ctime>
 	<iostream>
 
-1531258179 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1531258955 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<iostream>
 
-1531258434 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
+1531259049 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
 	<array>
 	<vector>
 	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/quaternion.hpp>
 

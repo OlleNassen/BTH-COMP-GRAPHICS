@@ -1,6 +1,4 @@
 #include "animation.hpp"
-#include <glm/gtc/matrix_transform.hpp>
-#include <iostream>
 
 animation::animation()
 {
@@ -79,6 +77,7 @@ void animation::update_pose(std::array<joint, 50>& joints)
         glm::mat4 new_transform = glm::mat4_cast(new_rotation);
         new_transform = glm::translate(new_transform, new_position);
 
-        joints[i].transform = new_transform;
+        joints[i].position = new_position;
+        joints[i].rotation = new_rotation;
     }
 }

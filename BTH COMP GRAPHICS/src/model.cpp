@@ -1,6 +1,7 @@
 #include "model.hpp"
 #include <algorithm>
 
+
 void load_mesh(const aiScene* scene, std::vector<vertex>& vertices)
 {
     for(unsigned int i = 0; i < scene->mMeshes[0]->mNumVertices; i++)
@@ -103,7 +104,7 @@ model::model()
     model_array.attribute_pointer(3, 4, GL_INT, stride, (void*)(8 * sizeof(float)));
     model_array.attribute_pointer(4, 4, GL_FLOAT, GL_FALSE, stride, (void*)(8 * sizeof(float) + 4 * sizeof(int)));
 
-    joints.fill({ 0, glm::mat4(1.0f) });
+    joints.fill({ 0, glm::vec3(0.0f), glm::quat_cast(glm::mat4(1.0f)) });
     world_joints.fill(glm::mat4(1.0f));
 }
 
@@ -118,12 +119,19 @@ void model::update(float delta_time)
 
     for(unsigned int i = 0; i < joints.size(); i++)
     {
-        world_joints[i] = joints[i].transform;
+        glm::mat4 new_transform = glm::mat4_cast(joints[i].rotation);
+        new_transform = glm::translate(new_transform, joints[i].position);
+
+        world_joints[i] = new_transform;
+
         for(int j = joints[i].parent;
             joints[j].parent != 0;
             j = joints[j].parent)
         {
-            world_joints[i] *= joints[j].transform;
+            glm::mat4 parent_transform = glm::mat4_cast(joints[j].rotation);
+            parent_transform = glm::translate(new_transform, joints[j].position);
+
+            world_joints[i] *= parent_transform;
         }
     }
 }
