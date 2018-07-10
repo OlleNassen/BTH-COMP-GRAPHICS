@@ -2044,7 +2044,7 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1531225819 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
+1531227526 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
 	"camera.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
@@ -2920,13 +2920,14 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1531225668 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
+1531227437 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
 	"terrain.hpp"
 	<vector>
 	<iostream>
 	<gl/glew.h>
 	<glm/glm.hpp>
 	<stb_image.h>
+	"game.hpp"
 
 1530800353 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\quad.hpp
 	"scene_node.hpp"

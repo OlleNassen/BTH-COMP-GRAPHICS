@@ -4,6 +4,7 @@
 #include <gl/glew.h>
 #include <glm/glm.hpp>
 #include <stb_image.h>
+#include "game.hpp"
 
 #define BUFFER_OFFSET(i) ((char *)nullptr + (i))
 
@@ -101,7 +102,7 @@ terrain::~terrain()
 
 float terrain::calculate_camera_y(float x, float z) const
 {
-    return data[static_cast<int>(x) + static_cast<int>(z) * width] * 0.1f + y;
+    return data[static_cast<int>(x - this->x) + static_cast<int>(z - this->z) * width] * 0.1f + y;
 }
 
 void terrain::update_current(float delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
@@ -109,6 +110,7 @@ void terrain::update_current(float delta_time, const glm::mat4 & world_transform
     x = world_transform[3][0];
     y = world_transform[3][1];
     z = world_transform[3][2];
+    std::cout << world_transform << std::endl;
 }
 
 void terrain::render_current(const shader & shader, const glm::mat4 & world_transform) const
