@@ -28,6 +28,18 @@ void load_mesh(const aiScene* scene, std::vector<vertex>& vertices)
     }
 }
 
+void load_skeleton(const aiScene* scene,
+    std::vector<unsigned int>& parents,
+    std::vector<glm::mat4>& joints)
+{
+
+}
+
+void load_key_frames(const aiScene* scene, std::vector<key_frame>& key_frames)
+{
+
+}
+
 void import_model(const std::string& path,
     std::vector<vertex>& vertices,
     std::vector<unsigned int>& parents,
