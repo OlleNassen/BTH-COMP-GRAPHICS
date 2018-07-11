@@ -140,6 +140,6 @@ void model::draw(const shader& shader) const
 {
     shader.uniform("joint_transforms", world_joints);
     model_array.bind();
-    glDrawArrays(GL_TRIANGLES, 0, 6);
+    glDrawArrays(GL_TRIANGLES, 0, vertices.size());
     glBindVertexArray(0);
 }
