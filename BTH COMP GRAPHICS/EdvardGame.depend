@@ -2898,7 +2898,7 @@
 	<glm/glm.hpp>
 	"shader.hpp"
 
-1530872100 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
+1531320609 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
 	"box.hpp"
 	<iostream>
 
@@ -2937,7 +2937,7 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1530800353 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad.cpp
+1531319555 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad.cpp
 	"quad.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
