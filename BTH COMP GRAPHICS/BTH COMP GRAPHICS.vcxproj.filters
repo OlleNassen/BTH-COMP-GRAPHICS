@@ -164,5 +164,7 @@
     <None Include="shaders\billboard.fs" />
     <None Include="shaders\terrain.vs" />
     <None Include="shaders\terrain.fs" />
+    <None Include="shaders\environment_mapping.vs" />
+    <None Include="shaders\environment_mapping.fs" />
   </ItemGroup>
 </Project>

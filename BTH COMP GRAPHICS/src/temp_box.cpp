@@ -75,6 +75,8 @@ void temp_box::update_current(float delta_time,
 void temp_box::render_current(const shader& shader,
 	const glm::mat4& world_transform) const
 {
+
+
 	shader.uniform("obj_color", color);
 	shader.uniform("model", world_transform);
 	box_array.bind();

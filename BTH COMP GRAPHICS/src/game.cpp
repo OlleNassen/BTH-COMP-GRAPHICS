@@ -23,6 +23,7 @@ game::game()
 	, anim("shaders/anim.vs", "shaders/anim.fs")
 	, billboard_shader("shaders/billboard.vs", "shaders/billboard.fs")
 	, terrain_shader("shaders/terrain.vs", "shaders/terrain.fs")
+	, environment_shader("shaders/environment_mapping.vs", "shaders/environment_mapping.fs")
 	, game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 10000.0f)
 	, light(glm::vec3(0.0f, -1.0f, 0.0f),
         glm::vec3(0.2f, 0.2f, 0.2f),
@@ -164,6 +165,10 @@ void game::render()
         glm::mat3(game_camera.get_view())));
 
 	sky.render(skybox_shader);
+
+	environment_shader.use();
+	game_camera.bind(environment_shader);
+	environment.render(environment_shader);
 
 	anim.use();
 	game_camera.bind(anim);

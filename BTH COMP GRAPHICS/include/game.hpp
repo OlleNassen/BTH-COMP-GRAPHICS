@@ -15,7 +15,7 @@
 #include "particle_emitter.hpp"
 #include "model.hpp"
 #include <iostream>
-#include "mesh_factory.hpp"
+//#include "mesh_factory.hpp"
 
 std::ostream& operator<<(std::ostream& os, const glm::mat4& value);
 
@@ -39,18 +39,19 @@ private:
 	shader anim;
 	shader billboard_shader;
 	shader terrain_shader;
+	shader environment_shader;
 	camera game_camera;
 	directional_light light;
 	scene_node scene;
 	skybox sky;
 
-	mesh_factory factory;
-
+	//mesh_factory factory;
 
 	model temp_model;
 
 	//TEMP VARIABLES, PUT IN SCENE GRAPH WHEN FIXED
 	temp_box temp; // PHONG cube
+	temp_box environment; // ENVIRONMENT CUBE
 	quad* quad1; // phong
 	normal_quad* quad2; // normal mapping
 	particle_emitter* particles;
