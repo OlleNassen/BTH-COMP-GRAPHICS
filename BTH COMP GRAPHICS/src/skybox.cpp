@@ -47,12 +47,23 @@ float skybox_vertices[] =
 
 std::vector<std::string> faces
 {
-    "images/skybox/highly-overrated_rt.tga", // RIGHT
-    "images/skybox/highly-overrated_lf.tga", // LEFT
-    "images/skybox/highly-overrated_up.tga", // TOP
-    "images/skybox/highly-overrated_dn.tga", // BOTTOM
-    "images/skybox/highly-overrated_bk.tga", // BACK
-    "images/skybox/highly-overrated_ft.tga" // FRONT
+	/*
+    "images/skybox3/petesoasis_rt.tga", // RIGHT
+    "images/skybox3/petesoasis_lf.tga", // LEFT
+    "images/skybox3/petesoasis_up.tga", // TOP
+    "images/skybox3/petesoasis_dn.tga", // BOTTOM
+    "images/skybox3/petesoasis_bk.tga", // BACK
+    "images/skybox3/petesoasis_ft.tga" // FRONT
+	*/
+
+	"images/skybox3/negx.jpg", // RIGHT
+	"images/skybox3/posx.jpg", // LEFT
+	"images/skybox3/posy.jpg", // TOP
+	"images/skybox3/negy.jpg", // BOTTOM
+	"images/skybox3/negz.jpg", // BACK
+	"images/skybox3/posz.jpg" // FRONT
+
+
 };
 
 skybox::skybox()
