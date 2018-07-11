@@ -2586,7 +2586,7 @@
 	"directional_light.hpp"
 	<GL/glew.h>
 
-1530618551 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\directional_light.hpp
+1531321178 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\directional_light.hpp
 	"shader.hpp"
 	"camera.hpp"
 	"frame_buffer.hpp"
@@ -2964,7 +2964,7 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1531320678 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\temp_box.cpp
+1531320922 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\temp_box.cpp
 	"temp_box.hpp"
 	<iostream>
 	<glm/gtc/matrix_transform.hpp>
