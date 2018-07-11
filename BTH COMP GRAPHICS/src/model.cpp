@@ -1,12 +1,12 @@
 #include "model.hpp"
 #include <algorithm>
-
+#include <iostream>
 
 void load_mesh(const aiScene* scene, std::vector<vertex>& vertices)
 {
+    vertices.resize(scene->mMeshes[0]->mNumVertices);
     for(unsigned int i = 0; i < scene->mMeshes[0]->mNumVertices; i++)
     {
-        vertices.push_back(vertex());
         vertices[i].position.x = scene->mMeshes[0]->mVertices[i].x;
         vertices[i].position.y = scene->mMeshes[0]->mVertices[i].y;
         vertices[i].position.z = scene->mMeshes[0]->mVertices[i].z;
@@ -18,7 +18,7 @@ void load_mesh(const aiScene* scene, std::vector<vertex>& vertices)
         vertices[i].normal.y = scene->mMeshes[0]->mNormals[i].y;
         vertices[i].normal.z = scene->mMeshes[0]->mNormals[i].z;
 
-        vertices[i].joints.x = scene->mMeshes[0]->mBones[i]->mWeights[0].mVertexId;
+        /*vertices[i].joints.x = scene->mMeshes[0]->mBones[i]->mWeights[0].mVertexId;
         vertices[i].joints.y = scene->mMeshes[0]->mBones[i]->mWeights[1].mVertexId;
         vertices[i].joints.z = scene->mMeshes[0]->mBones[i]->mWeights[2].mVertexId;
         vertices[i].joints.w = scene->mMeshes[0]->mBones[i]->mWeights[3].mVertexId;
@@ -26,7 +26,7 @@ void load_mesh(const aiScene* scene, std::vector<vertex>& vertices)
         vertices[i].weights.x = scene->mMeshes[0]->mBones[i]->mWeights[0].mWeight;
         vertices[i].weights.y = scene->mMeshes[0]->mBones[i]->mWeights[1].mWeight;
         vertices[i].weights.z = scene->mMeshes[0]->mBones[i]->mWeights[2].mWeight;
-        vertices[i].weights.w = scene->mMeshes[0]->mBones[i]->mWeights[3].mWeight;
+        vertices[i].weights.w = scene->mMeshes[0]->mBones[i]->mWeights[3].mWeight;*/
     }
 }
 
@@ -112,7 +112,7 @@ void import_model(const std::string& path,
         aiProcess_GenSmoothNormals |
         aiProcess_FlipUVs);
 
-    //load_mesh(scene, vertices);
+    load_mesh(scene, vertices);
 }
 
 model::model()
@@ -126,7 +126,7 @@ model::model()
 	vertices.push_back({ glm::vec3(1,0,0), glm::vec2(1,0), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });
 	vertices.push_back({ glm::vec3(0,1,0), glm::vec2(0,1), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });
 
-	import_model("models/boblampclean.md5mesh", vertices);
+	//import_model("models/boblampclean.md5mesh", vertices);
 
     int stride = 12 * sizeof(float) + 4 * sizeof(int);
 
