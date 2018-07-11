@@ -11,13 +11,13 @@ quad::quad(float x, float y, float z)
 	float vertices[] =
 	{
 		// positions     // uv
-		0.0f, 256.f, 0.f, 0.0f, 1.0f,
 		256.f, 0.0f, 0.f, 1.0f, 0.0f,
-		0.0f, 0.0f, 0.f, 0.0f, 0.0f,
-
-		0.0f, 256.f, 0.f, 0.0f, 1.0f,
 		256.f, 256.f, 0.f, 1.0f, 1.0f,
-		256.f, 0.0f, 0.f, 1.0f, 0.0f
+		0.0f, 256.f, 0.f, 0.0f, 1.0f,
+
+		0.0f, 0.0f, 0.f, 0.0f, 0.0f,
+		256.f, 0.0f, 0.f, 1.0f, 0.0f,
+		0.0f, 256.f, 0.f, 0.0f, 1.0f
 	};
 
 	quad_array.bind();
