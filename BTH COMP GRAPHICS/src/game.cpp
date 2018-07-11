@@ -86,6 +86,7 @@ game::game()
 	particles = new particle_emitter(75, 35,75);
 	terror = new terrain(10, 10, 10);
 
+	//factory.load_mesh("models/banner.obj");
 }
 
 game::~game()

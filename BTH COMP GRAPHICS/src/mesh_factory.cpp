@@ -12,7 +12,11 @@ mesh* mesh_factory::load_mesh(const std::string & path)
 
 	std::ifstream in(path);
 
-	std::cout << "HELLO";
+	if (!in)
+	{
+		std::cout << "SHIT AIN'T WORKING";
+	}
+
 
 	while (!in.eof())
 	{
@@ -20,7 +24,13 @@ mesh* mesh_factory::load_mesh(const std::string & path)
 
 		in >> temp;
 
-		if (temp[0] == '#')
+		if (temp[0] == '\n')
+		{
+			static int index = 0;
+			std::cout << index++ << '\n';
+		}
+
+		else if (temp[0] == '#')
 		{
 
 		}
@@ -54,6 +64,24 @@ mesh* mesh_factory::load_mesh(const std::string & path)
 
 		else if (temp[0] == 'f')
 		{
+			unsigned int index = 1;
+
+			glm::ivec3 vertex_index;
+			glm::ivec3 uv_index;
+			glm::ivec3 normal_index;
+
+			/*
+			int matches = fscanf(file, "%d/%d/%d %d/%d/%d %d/%d/%d\n",
+				&vertexIndex[0], &uvIndex[0], &normalIndex[0],
+				&vertexIndex[1], &uvIndex[1], &normalIndex[1],
+				&vertexIndex[2], &uvIndex[2], &normalIndex[2]);
+			*/
+
+			in >> vertex_index.x;
+			in >> vertex_index.y;
+			in >> vertex_index.z;
+
+			std::cout << vertex_index.x << " " << vertex_index.y << " " << vertex_index.z << '\n';
 
 		}
 

@@ -24,8 +24,6 @@ private:
 	unsigned int draw_count;
 	unsigned char* data;
 
-
-
 	vertex_array terrain_array;
 	buffer terrain_vbo;
 	buffer terrain_ebo;
