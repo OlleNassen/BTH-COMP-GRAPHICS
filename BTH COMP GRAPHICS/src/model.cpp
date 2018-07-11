@@ -29,13 +29,34 @@ void load_mesh(const aiScene* scene, std::vector<vertex>& vertices)
     }
 }
 
-void load_skeleton(const aiScene* scene,
-    std::vector<unsigned int>& parents,
-    std::vector<glm::mat4>& joints)
+void load_skeleton(const aiScene* scene, skeleton& joints)
 {
-    for(unsigned int i = 0; i < scene->mMeshes[0]->mNumVertices; i++)
+    for(unsigned int i = 0; i < scene->mMeshes[0]->mNumBones; i++)
     {
-        //parents[i] = 0;
+        aiMatrix3x3 mat3;
+        aiMatrix4x4 mat4 = scene->mMeshes[0]->mBones[i]->mOffsetMatrix;
+        glm::vec3 pos;
+
+        pos.x = mat4.d1;
+        pos.y = mat4.d2;
+        pos.z = mat4.d3;
+
+        mat3.a1 = mat4.a1;
+        mat3.a2 = mat4.a2;
+        mat3.a3 = mat4.a3;
+        mat3.b1 = mat4.b1;
+        mat3.b2 = mat4.b2;
+        mat3.b3 = mat4.b3;
+        mat3.c1 = mat4.c1;
+        mat3.c2 = mat4.c2;
+        mat3.c3 = mat4.c3;
+
+        aiQuaternion quat(mat3);
+        glm::quat rot(quat.x, quat.y, quat.z, quat.w);
+
+        //joints[i].parent = scene->mMeshes[0]->mBones[i]->
+        joints[i].position = pos;
+        joints[i].rotation = rot;
 
         /*joints[0][0] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.a1;
         joints[0][1] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.a1;
@@ -69,8 +90,7 @@ void load_key_frames(const aiScene* scene, std::vector<key_frame>& key_frames)
 
 void import_model(const std::string& path,
     std::vector<vertex>& vertices,
-    std::vector<unsigned int>& parents,
-    std::vector<glm::mat4>& joints,
+    skeleton& joints,
     std::vector<key_frame>& key_frames)
 {
     Assimp::Importer importer;
