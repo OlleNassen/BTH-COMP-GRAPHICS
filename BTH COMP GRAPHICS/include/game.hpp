@@ -50,7 +50,7 @@ private:
 
 	//TEMP VARIABLES, PUT IN SCENE GRAPH WHEN FIXED
 	temp_box* temp; // PHONG cube
-	temp_box environment; // ENVIRONMENT CUBE
+	temp_box* environment; // ENVIRONMENT CUBE
 	quad* quad1; // phong
 	normal_quad* quad2; // normal mapping
 	particle_emitter* particles;

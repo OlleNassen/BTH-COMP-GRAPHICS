@@ -88,6 +88,8 @@ game::game()
 
 	temp = new temp_box(0, 10, 0);
 
+	environment = new temp_box(10, 2, 0);
+
 	//factory.load_mesh("models/banner.obj");
 }
 
@@ -163,7 +165,7 @@ void game::render()
 
 	environment_shader.use();
 	game_camera.bind(environment_shader);
-	environment.render(environment_shader);
+	environment->render(environment_shader);
 
 	anim.use();
 	game_camera.bind(anim);
