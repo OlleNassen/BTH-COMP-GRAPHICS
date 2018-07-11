@@ -32,7 +32,6 @@ private:
 
 	window game_window;
 	shader basic_shader;
-	shader shadow_shader;
 	shader skybox_shader;
 	shader phong_shader;
 	shader normal_shader;

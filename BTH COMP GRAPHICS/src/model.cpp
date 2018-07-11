@@ -6,12 +6,13 @@ void load_mesh(const aiScene* scene, std::vector<vertex>& vertices)
 {
     for(unsigned int i = 0; i < scene->mMeshes[0]->mNumVertices; i++)
     {
+        vertices.push_back(vertex());
         vertices[i].position.x = scene->mMeshes[0]->mVertices[i].x;
         vertices[i].position.y = scene->mMeshes[0]->mVertices[i].y;
         vertices[i].position.z = scene->mMeshes[0]->mVertices[i].z;
 
-        vertices[i].texture_coordinate.x = scene->mMeshes[0]->mTextureCoords[i]->x;
-        vertices[i].texture_coordinate.y = scene->mMeshes[0]->mTextureCoords[i]->y;
+        //vertices[i].texture_coordinate.x = scene->mMeshes[0]->mTextureCoords[i][0].x;
+        //vertices[i].texture_coordinate.y = scene->mMeshes[0]->mTextureCoords[i][0].y;
 
         vertices[i].normal.x = scene->mMeshes[0]->mNormals[i].x;
         vertices[i].normal.y = scene->mMeshes[0]->mNormals[i].y;
@@ -54,7 +55,7 @@ void load_skeleton(const aiScene* scene, skeleton& joints)
         aiQuaternion quat(mat3);
         glm::quat rot(quat.x, quat.y, quat.z, quat.w);
 
-        //joints[i].parent = scene->mMeshes[0]->mBones[i]->
+        //joints[i].parent = scene->mMeshes[0]->mBones[i]->mWeights->
         joints[i].position = pos;
         joints[i].rotation = rot;
 
@@ -102,16 +103,30 @@ void import_model(const std::string& path,
     load_mesh(scene, vertices);
 }
 
+void import_model(const std::string& path,
+    std::vector<vertex>& vertices)
+{
+    Assimp::Importer importer;
+    const aiScene* scene = importer.ReadFile(path.c_str(),
+        aiProcess_Triangulate |
+        aiProcess_GenSmoothNormals |
+        aiProcess_FlipUVs);
+
+    //load_mesh(scene, vertices);
+}
+
 model::model()
     : model_buffer(target::ARRAY_BUFFER)
 {
-	vertices.push_back({ glm::vec3(0,1,0), glm::vec2(0,1), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });
+	/*vertices.push_back({ glm::vec3(0,1,0), glm::vec2(0,1), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });
 	vertices.push_back({ glm::vec3(1,0,0), glm::vec2(1,0), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });
 	vertices.push_back({ glm::vec3(0,0,0), glm::vec2(0,0), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });
 
 	vertices.push_back({ glm::vec3(0,1,0), glm::vec2(0,1), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });
 	vertices.push_back({ glm::vec3(1,1,0), glm::vec2(1,1), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });
-	vertices.push_back({ glm::vec3(1,0,0), glm::vec2(1,0), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });
+	vertices.push_back({ glm::vec3(1,0,0), glm::vec2(1,0), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });*/
+
+	import_model("models/boblampclean.md5mesh", vertices);
 
     int stride = 12 * sizeof(float) + 4 * sizeof(int);
 

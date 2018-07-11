@@ -35,6 +35,7 @@ window::window(
 	glEnable(GL_DEPTH_TEST);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_BLEND);
+	glEnable(GL_CULL_FACE);
 }
 
 window::~window()

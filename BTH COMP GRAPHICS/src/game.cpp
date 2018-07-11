@@ -16,7 +16,6 @@ std::ostream& operator<<(std::ostream& os, const glm::mat4& value)
 game::game()
 	: game_window(WIDTH, HEIGHT, "VOILA")
 	, basic_shader("shaders/basic.vs", "shaders/basic.fs")
-	, shadow_shader("shaders/shadow.vs", "shaders/shadow.fs")
 	, skybox_shader("shaders/skybox.vs", "shaders/skybox.fs")
 	, phong_shader("shaders/phong.vs", "shaders/phong.fs")
 	, normal_shader("shaders/normal.vs", "shaders/normal.fs")
@@ -115,14 +114,6 @@ void game::run()
 
 void game::render()
 {
-	glClear(GL_DEPTH_BUFFER_BIT);
-	glViewport(0, 0, 1024, 1024);
-	shadow_shader.use();
-	light.bind(shadow_shader);
-	light.shadows_bind();
-
-	glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
 	glClearColor(0.6f, 0.9f, 0.6f, 0.f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glViewport(0, 0, WIDTH, HEIGHT);
