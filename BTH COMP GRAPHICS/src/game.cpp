@@ -86,6 +86,8 @@ game::game()
 	particles = new particle_emitter(75, 35,75);
 	terror = new terrain(10, 10, 10);
 
+	temp = new temp_box(0, 10, 0);
+
 	//factory.load_mesh("models/banner.obj");
 }
 
@@ -118,11 +120,13 @@ void game::render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glViewport(0, 0, WIDTH, HEIGHT);
 
-	/*phong_shader.use();
+	phong_shader.use();
 	game_camera.bind(phong_shader);
+	static glm::vec3 phong_pos(0, 10, 5);
+	phong_pos.x += sin(glfwGetTime() * 2.0f) / 10;
 	phong_shader.uniform("light_color", glm::vec3(1.f, 1.f, 1.f));
-	phong_shader.uniform("lightPos", glm::vec3(2, 0, 5));
-	temp.render(phong_shader);*/
+	phong_shader.uniform("lightPos", phong_pos);
+	temp->render(phong_shader);
 
 	basic_shader.use();
 	game_camera.bind(basic_shader);

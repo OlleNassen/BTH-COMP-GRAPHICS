@@ -49,7 +49,7 @@ private:
 	model temp_model;
 
 	//TEMP VARIABLES, PUT IN SCENE GRAPH WHEN FIXED
-	temp_box temp; // PHONG cube
+	temp_box* temp; // PHONG cube
 	temp_box environment; // ENVIRONMENT CUBE
 	quad* quad1; // phong
 	normal_quad* quad2; // normal mapping
