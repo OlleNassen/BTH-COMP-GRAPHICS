@@ -70,12 +70,11 @@ terrain::terrain(float x, float y, float z)
 			indices.push_back(pos + 1);
 			indices.push_back(pos + width);
 
-			indices.push_back(pos + 1);
-			indices.push_back(pos + width);
 			indices.push_back(pos + width + 1);
+			indices.push_back(pos + width);
+			indices.push_back(pos + 1);
 
 			draw_count += 6;
-
 		}
 	}
 
