@@ -15,6 +15,7 @@
 #include "particle_emitter.hpp"
 #include "model.hpp"
 #include <iostream>
+#include "mesh_factory.hpp"
 
 std::ostream& operator<<(std::ostream& os, const glm::mat4& value);
 
@@ -42,6 +43,8 @@ private:
 	directional_light light;
 	scene_node scene;
 	skybox sky;
+
+	mesh_factory factory;
 
 
 	model temp_model;
