@@ -60,12 +60,12 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<un
 	}
 }
 
-void load_skeleton(const aiScene* scene, skeleton& joints)
+void load_skeleton(const aiMesh* mesh, skeleton& joints)
 {
-	for (unsigned int i = 0; i < scene->mMeshes[0]->mNumBones; i++)
+	for (unsigned int i = 0; i < mesh->mNumBones; i++)
 	{
 		aiMatrix3x3 mat3;
-		aiMatrix4x4 mat4 = scene->mMeshes[0]->mBones[i]->mOffsetMatrix;
+		aiMatrix4x4 mat4 = mesh->mBones[i]->mOffsetMatrix;
 		glm::vec3 pos;
 
 		pos.x = mat4.d1;
@@ -85,29 +85,8 @@ void load_skeleton(const aiScene* scene, skeleton& joints)
 		aiQuaternion quat(mat3);
 		glm::quat rot(quat.x, quat.y, quat.z, quat.w);
 
-		//joints[i].parent = scene->mMeshes[0]->mBones[i]->mWeights->
 		joints[i].position = pos;
 		joints[i].rotation = rot;
-
-		/*joints[0][0] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.a1;
-		joints[0][1] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.a1;
-		joints[0][2] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.a1;
-		joints[0][3] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.a1;
-
-		joints[1][0] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.b2;
-		joints[1][1] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.b2;
-		joints[1][2] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.b2;
-		joints[1][3] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.b2;
-
-		joints[2][0] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.c3;
-		joints[2][1] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.c3;
-		joints[2][2] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.c3;
-		joints[2][3] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.c3;
-
-		joints[3][0] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.d4;
-		joints[3][1] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.d4;
-		joints[3][2] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.d4;
-		joints[3][3] = scene->mMeshes[0]->mBones[i]->mOffsetMatrix.d4;*/
 	}
 }
 
@@ -134,7 +113,9 @@ void import_model(const std::string& path,
 }
 
 void import_model(const std::string& path,
-	std::vector<vertex>& vertices, std::vector<unsigned int>& indices)
+	std::vector<vertex>& vertices,
+	std::vector<unsigned int>& indices,
+	skeleton& joints)
 {
 	Assimp::Importer importer;
 	const aiScene* scene = importer.ReadFile(path.c_str(),
@@ -144,6 +125,7 @@ void import_model(const std::string& path,
 		aiProcess_FlipUVs);
 
 	load_mesh(scene->mMeshes[0], vertices, indices);
+	load_skeleton(scene->mMeshes[0], joints);
 }
 
 model::model()
@@ -158,7 +140,7 @@ model::model()
 	vertices.push_back({ glm::vec3(1,0,0), glm::vec2(1,0), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });
 	vertices.push_back({ glm::vec3(0,1,0), glm::vec2(0,1), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });*/
 
-	import_model("models/boblampclean.md5mesh", vertices, indices);
+	import_model("models/boblampclean.md5mesh", vertices, indices, joints);
 
 	int stride = 12 * sizeof(float) + 4 * sizeof(int);
 
