@@ -1,5 +1,10 @@
 #include "animation.hpp"
 
+void animation::load(const std::vector<key_frame>& key_frames)
+{
+    this->key_frames = key_frames;
+}
+
 animation::animation()
 {
     time = 0.0f;
@@ -32,8 +37,11 @@ void animation::update(float delta_time, skeleton& joints)
 {
     time += delta_time;
 
-    update_key_frame();
-    update_pose(joints);
+    if(!key_frames.empty())
+    {
+        update_key_frame();
+        update_pose(joints);
+    }
 }
 
 void animation::update_key_frame()

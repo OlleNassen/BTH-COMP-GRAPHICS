@@ -101,7 +101,8 @@ void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames
 void import_model(const std::string& path,
 	std::vector<vertex>& vertices,
 	std::vector<unsigned int>& indices,
-	skeleton& joints)
+	skeleton& joints,
+	std::vector<key_frame>& key_frames)
 {
 	Assimp::Importer importer;
 	const aiScene* scene = importer.ReadFile(path.c_str(),
@@ -110,25 +111,20 @@ void import_model(const std::string& path,
 		aiProcess_GenSmoothNormals |
 		aiProcess_FlipUVs);
 
-    std::vector<key_frame> k;
 	load_mesh(scene->mMeshes[0], vertices, indices);
 	load_skeleton(scene->mMeshes[0], joints);
-	load_key_frames(scene->mAnimations[0], k);
+	load_key_frames(scene->mAnimations[0], key_frames);
 }
 
 model::model()
 	: model_buffer(target::ARRAY_BUFFER)
 	, element_buffer(target::ELEMENT_ARRAY_BUFFER)
 {
-	/*vertices.push_back({ glm::vec3(1,0,0), glm::vec2(1,0), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });
-	vertices.push_back({ glm::vec3(1,1,0), glm::vec2(1,1), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });
-	vertices.push_back({ glm::vec3(0,1,0), glm::vec2(0,1), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });
+    std::vector<key_frame> key_frames;
 
-	vertices.push_back({ glm::vec3(0,0,0), glm::vec2(0,0), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });
-	vertices.push_back({ glm::vec3(1,0,0), glm::vec2(1,0), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });
-	vertices.push_back({ glm::vec3(0,1,0), glm::vec2(0,1), glm::vec3(0,0,1), glm::ivec4(0,1,0,0), glm::vec4(0.5,0.5, 0,0) });*/
+	import_model("models/boblampclean.md5mesh", vertices, indices, joints, key_frames);
 
-	import_model("models/boblampclean.md5mesh", vertices, indices, joints);
+	current.load(key_frames);
 
 	int stride = 12 * sizeof(float) + 4 * sizeof(int);
 
