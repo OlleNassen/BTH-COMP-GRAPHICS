@@ -1,5 +1,10 @@
 #include "animation.hpp"
 
+void animation::load(const std::vector<key_frame>& key_frames)
+{
+    this->key_frames = key_frames;
+}
+
 animation::animation()
 {
     time = 0.0f;

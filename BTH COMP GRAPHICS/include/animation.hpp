@@ -25,6 +25,7 @@ struct key_frame
 class animation
 {
 public:
+    void load(const std::vector<key_frame>& key_frames);
     animation();
     ~animation();
 
