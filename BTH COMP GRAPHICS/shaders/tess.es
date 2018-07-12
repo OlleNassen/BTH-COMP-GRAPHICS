@@ -20,13 +20,13 @@ vec2 interpolate2D(vec2 v0, vec2 v1, vec2 v2)
 
 void main()
 {
-	vec3 p0 = mix(es_position[0], es_position[3], gl_TessCoord.x);
+	vec3 p0 = mix(es_position[0], es_position[1], gl_TessCoord.x);
 
-    vec3 p1 = mix(es_position[1], es_position[2], gl_TessCoord.x);
+    vec3 p1 = mix(es_position[2], es_position[3], gl_TessCoord.x);
 
     vec3 pos = normalize(mix(p0, p1, gl_TessCoord.y));
 
-	fs_texcoord = interpolate2D(es_texcoord[0], es_texcoord[1], es_texcoord[2]);
+	fs_texcoord = gl_TessCoord.xy;//interpolate2D(es_texcoord[0], es_texcoord[1], es_texcoord[2]);
 
     fs_patch_distance = gl_TessCoord.xy;
 
