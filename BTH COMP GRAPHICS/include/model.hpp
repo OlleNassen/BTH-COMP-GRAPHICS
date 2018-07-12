@@ -5,6 +5,9 @@
 #include "shader.hpp"
 #include "buffer.hpp"
 #include "vertex_array.hpp"
+#include <assimp/Importer.hpp>
+#include <assimp/Scene.h>
+#include <assimp/postprocess.h>
 
 struct vertex
 {
@@ -32,6 +35,7 @@ public:
 
 private:
     std::vector<vertex> vertices;
+    std::vector<unsigned int> indices;
 
     skeleton joints;
     std::array<glm::mat4, 50> world_joints;
@@ -39,6 +43,7 @@ private:
     animation current;
 
     buffer model_buffer;
+    buffer element_buffer;
     vertex_array model_array;
 
 };

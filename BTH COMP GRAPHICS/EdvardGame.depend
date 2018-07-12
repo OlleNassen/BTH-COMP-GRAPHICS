@@ -2044,7 +2044,7 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1531229204 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
+1531394960 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
 	"camera.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
@@ -2499,7 +2499,7 @@
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\simd\integer.h
 
-1531257862 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\shader.hpp
+1531390569 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\shader.hpp
 	<string>
 	<vector>
 	<array>
@@ -2602,14 +2602,14 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1531323016 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1531394960 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	"input.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1531323016 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1531394960 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	"window.hpp"
 	"camera.hpp"
 	"shader.hpp"
@@ -2624,6 +2624,7 @@
 	"normal_quad.hpp"
 	"particle_emitter.hpp"
 	"model.hpp"
+	"quad_tess.hpp"
 	<iostream>
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glfw\glfw3.h
@@ -2817,7 +2818,7 @@
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\postprocess.h
 	"types.h"
 
-1531257838 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\shader.cpp
+1531390569 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\shader.cpp
 	"shader.hpp"
 	<iostream>
 	<fstream>
@@ -2857,19 +2858,24 @@
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 
-1531318701 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\window.cpp
+1531394274 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\window.cpp
 	"window.hpp"
 	<iostream>
 
-1531390333 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1531396770 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
+	<algorithm>
 	<iostream>
+	"game.hpp"
 
-1531390341 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
+1531395357 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
 	"animation.hpp"
 	"shader.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
+	<assimp/Importer.hpp>
+	<assimp/Scene.h>
+	<assimp/postprocess.h>
 
 1530611757 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\input.cpp
 	"input.hpp"
@@ -3037,11 +3043,29 @@
 	<sys/stat.h>
 	<sys/types.h>
 
-1531390260 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model_loader.cpp
+1531394191 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model_loader.cpp
 	"model_loader.hpp"
+	<iostream>
 
-1531390516 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model_loader.hpp
+1531393642 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model_loader.hpp
+	<iostream>
+	<vector>
+	<map>
+	<sstream>
+	<iterator>
 	<string>
+	"GL/glew.h"
 	"tinyxml2.h"
 	"model.hpp"
+
+1531394960 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\quad_tess.hpp
+	"scene_node.hpp"
+	"buffer.hpp"
+	"vertex_array.hpp"
+	"texture.hpp"
+
+1531395081 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad_tess.cpp
+	"quad_tess.hpp"
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
 
