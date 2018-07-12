@@ -3,18 +3,11 @@
 #include <iostream>
 #include "game.hpp"
 
-void load_mesh(const aiScene* scene, std::vector<vertex>& vertices, std::vector<unsigned int>& indices)
+void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<unsigned int>& indices)
 {
-	aiMesh* mesh = scene->mMeshes[0];
-
 	vertices.resize(mesh->mNumVertices);
 
-	std::cout << mesh->mNumVertices << std::endl;
-	std::cout << mesh->mNumFaces << std::endl;
-	std::cout << mesh->mNumBones << std::endl;
-	std::cout << mesh->mBones[0]->mNumWeights << std::endl;
-
-	for (unsigned int i = 0; i < scene->mMeshes[0]->mNumVertices; i++)
+	for (unsigned int i = 0; i < mesh->mNumVertices; i++)
 	{
 		vertices[i].position.x = mesh->mVertices[i].x;
 		vertices[i].position.y = mesh->mVertices[i].y;
@@ -150,7 +143,7 @@ void import_model(const std::string& path,
 		aiProcess_GenSmoothNormals |
 		aiProcess_FlipUVs);
 
-	load_mesh(scene, vertices, indices);
+	load_mesh(scene->mMeshes[0], vertices, indices);
 }
 
 model::model()

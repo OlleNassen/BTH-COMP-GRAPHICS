@@ -18,11 +18,6 @@ struct vertex
     glm::vec4 weights;
 };
 
-void import_model(const std::string& path,
-    std::vector<vertex>& vertices,
-    skeleton& joints,
-    std::vector<key_frame>& key_frames);
-
 class model
 {
 public:
