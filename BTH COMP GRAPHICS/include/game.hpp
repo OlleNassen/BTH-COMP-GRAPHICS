@@ -14,6 +14,7 @@
 #include "normal_quad.hpp"
 #include "particle_emitter.hpp"
 #include "model.hpp"
+#include "quad_tess.hpp"
 #include <iostream>
 //#include "mesh_factory.hpp"
 
@@ -39,6 +40,7 @@ private:
 	shader billboard_shader;
 	shader terrain_shader;
 	shader environment_shader;
+	shader tess_shader;
 	camera game_camera;
 	directional_light light;
 	scene_node scene;
@@ -55,6 +57,7 @@ private:
 	normal_quad* quad2; // normal mapping
 	particle_emitter* particles;
 	terrain* terror;
+	quad_tess* tess;
 
 	void render();
 	void update(float delta_time);

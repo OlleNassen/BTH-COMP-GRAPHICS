@@ -159,6 +159,7 @@ void camera::bind(const shader& shader)
     shader.uniform("view_position", position);
     shader.uniform("view", view);
     shader.uniform("projection", projection);
+	shader.uniform("view_projection", projection * view);
 }
 
 void camera::move_on_terrain(const terrain& terrain)

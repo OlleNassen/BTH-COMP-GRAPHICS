@@ -23,6 +23,7 @@ game::game()
 	, billboard_shader("shaders/billboard.vs", "shaders/billboard.fs")
 	, terrain_shader("shaders/terrain.vs", "shaders/terrain.fs")
 	, environment_shader("shaders/environment_mapping.vs", "shaders/environment_mapping.fs")
+	, tess_shader("shaders/tess.vs", "shaders/tess.cs", "shaders/tess.es", "shaders/tess.fs")
 	, game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 10000.0f)
 	, light(glm::vec3(0.0f, -1.0f, 0.0f),
         glm::vec3(0.2f, 0.2f, 0.2f),
@@ -89,6 +90,8 @@ game::game()
 	temp = new temp_box(0, 10, 0);
 
 	environment = new temp_box(10, 2, 0);
+
+	tess = new quad_tess();
 
 	//factory.load_mesh("models/banner.obj");
 }
@@ -166,6 +169,10 @@ void game::render()
 	environment_shader.use();
 	game_camera.bind(environment_shader);
 	environment->render(environment_shader);
+
+	tess_shader.use();
+	game_camera.bind(tess_shader);
+	tess->render(tess_shader);
 
 	anim.use();
 	game_camera.bind(anim);
