@@ -2649,7 +2649,7 @@
 
 1530872665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\vertex_array.hpp
 
-1530555667 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\main.cpp
+1531389373 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\main.cpp
 	"game.hpp"
 
 1530800351 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
@@ -2861,19 +2861,15 @@
 	"window.hpp"
 	<iostream>
 
-1531323616 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1531390333 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
-	<algorithm>
 	<iostream>
 
-1531312311 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
+1531390341 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
 	"animation.hpp"
 	"shader.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
-	<assimp/Importer.hpp>
-	<assimp/Scene.h>
-	<assimp/postprocess.h>
 
 1530611757 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\input.cpp
 	"input.hpp"
@@ -3040,4 +3036,12 @@
 	<windows.h>
 	<sys/stat.h>
 	<sys/types.h>
+
+1531390260 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model_loader.cpp
+	"model_loader.hpp"
+
+1531390516 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model_loader.hpp
+	<string>
+	"tinyxml2.h"
+	"model.hpp"
 
