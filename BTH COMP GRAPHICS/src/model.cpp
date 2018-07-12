@@ -27,16 +27,6 @@ void load_mesh(const aiScene* scene, std::vector<vertex>& vertices, std::vector<
 		vertices[i].normal.y = mesh->mNormals[i].y;
 		vertices[i].normal.z = mesh->mNormals[i].z;
 		vertices[i].normal.z = mesh->mNormals[i].z;
-
-		/*vertices[i].joints.x = scene->mMeshes[0]->mBones[i]->mWeights[0].mVertexId;
-		vertices[i].joints.y = scene->mMeshes[0]->mBones[i]->mWeights[1].mVertexId;
-		vertices[i].joints.z = scene->mMeshes[0]->mBones[i]->mWeights[2].mVertexId;
-		vertices[i].joints.w = scene->mMeshes[0]->mBones[i]->mWeights[3].mVertexId;
-
-		vertices[i].weights.x = scene->mMeshes[0]->mBones[i]->mWeights[0].mWeight;
-		vertices[i].weights.y = scene->mMeshes[0]->mBones[i]->mWeights[1].mWeight;
-		vertices[i].weights.z = scene->mMeshes[0]->mBones[i]->mWeights[2].mWeight;
-		vertices[i].weights.w = scene->mMeshes[0]->mBones[i]->mWeights[3].mWeight;*/
 	}
 
 	for (unsigned int i = 0; i < mesh->mNumFaces; i++)
@@ -53,9 +43,6 @@ void load_mesh(const aiScene* scene, std::vector<vertex>& vertices, std::vector<
 		aiBone* bone = mesh->mBones[i];
 		for (unsigned int j = 0; j < bone->mNumWeights; j++)
 		{
-			//vertices[bone->mWeights[j].mVertexId].joints.x = i;
-            //vertices[bone->mWeights[j].mVertexId].weights.x = bone->mWeights[j].mWeight;
-
             if(vertices[bone->mWeights[j].mVertexId].joints.x == 0)
             {
                 vertices[bone->mWeights[j].mVertexId].joints.x = i;
