@@ -5,9 +5,6 @@
 #include "shader.hpp"
 #include "buffer.hpp"
 #include "vertex_array.hpp"
-#include <assimp/Importer.hpp>
-#include <assimp/Scene.h>
-#include <assimp/postprocess.h>
 
 struct vertex
 {
