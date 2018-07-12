@@ -100,20 +100,6 @@ void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames
 
 void import_model(const std::string& path,
 	std::vector<vertex>& vertices,
-	skeleton& joints,
-	std::vector<key_frame>& key_frames)
-{
-	/*Assimp::Importer importer;
-	const aiScene* scene = importer.ReadFile(path.c_str(),
-	aiProcess_Triangulate |
-	aiProcess_SortByPType |
-	aiProcess_GenSmoothNormals |
-	aiProcess_FlipUVs);
-	load_mesh(scene, vertices);*/
-}
-
-void import_model(const std::string& path,
-	std::vector<vertex>& vertices,
 	std::vector<unsigned int>& indices,
 	skeleton& joints)
 {
