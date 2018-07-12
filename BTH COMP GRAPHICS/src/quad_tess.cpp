@@ -43,11 +43,11 @@ void quad_tess::update_current(float delta_time, const glm::mat4 & world_transfo
 void quad_tess::render_current(const shader & shader, const glm::mat4 & world_transform) const
 {
 	shader.uniform("model", world_transform);
-	shader.uniform("TessLevelInner", 2.f);
-	shader.uniform("TessLevelOuter", 4.f);
+	shader.uniform("TessLevelInner", 4.f);
+	shader.uniform("TessLevelOuter", 1.f);
 
-	displacement_map.uniform(shader, "displacement_map", 0);
-	tess_texture.uniform(shader, "texture", 1);
+	//displacement_map.uniform(shader, "displacement_map", 0);
+	tess_texture.uniform(shader, "texture", 0);
 
 	quad_array.bind();
 	//glPatchParameteri(GL_PATCH_VERTICES, 16);
