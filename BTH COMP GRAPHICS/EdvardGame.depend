@@ -2862,7 +2862,7 @@
 	"window.hpp"
 	<iostream>
 
-1531398847 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1531402953 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 	<algorithm>
 	<iostream>
@@ -3064,7 +3064,7 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1531398860 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad_tess.cpp
+1531402194 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad_tess.cpp
 	"quad_tess.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>

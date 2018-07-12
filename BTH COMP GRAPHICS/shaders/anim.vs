@@ -31,6 +31,5 @@ void main()
     }
 
     normal_out = total_normal.xyz;
-    //gl_Position = projection * view * total_local_position;
-    gl_Position = projection * view * vec4(position, 1.0);
+    gl_Position = projection * view * total_local_position;
 }
