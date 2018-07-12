@@ -37,7 +37,7 @@ void load_mesh(const aiScene* scene, std::vector<vertex>& vertices, std::vector<
 
     for(unsigned int i = 0; i < scene->mMeshes[0]->mNumFaces; i++)
     {
-        indices[i] = scene->mMeshes[0]->mFaces[i].mIndices[0];
+        indices[i] = scene->mMeshes[0]->mFaces[0].mIndices[0];
     }
 }
 
