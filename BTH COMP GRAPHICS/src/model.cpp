@@ -90,9 +90,9 @@ void load_skeleton(const aiMesh* mesh, skeleton& joints)
 	}
 }
 
-void load_key_frames(const aiScene* scene, std::vector<key_frame>& key_frames)
+void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames)
 {
-	for (unsigned int i = 0; i < scene->mMeshes[0]->mNumVertices; i++)
+	for (unsigned int i = 0; i < anim->mNumChannels; i++)
 	{
 
 	}
@@ -124,8 +124,10 @@ void import_model(const std::string& path,
 		aiProcess_GenSmoothNormals |
 		aiProcess_FlipUVs);
 
+    std::vector<key_frame> k;
 	load_mesh(scene->mMeshes[0], vertices, indices);
 	load_skeleton(scene->mMeshes[0], joints);
+	load_key_frames(scene->mAnimations[0], k);
 }
 
 model::model()
