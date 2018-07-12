@@ -11,6 +11,7 @@ void load_mesh(const aiScene* scene, std::vector<vertex>& vertices, std::vector<
 
 	std::cout << mesh->mNumVertices << std::endl;
 	std::cout << mesh->mNumFaces << std::endl;
+	std::cout << mesh->mNumBones << std::endl;
 
 	for (unsigned int i = 0; i < scene->mMeshes[0]->mNumVertices; i++)
 	{
@@ -45,6 +46,15 @@ void load_mesh(const aiScene* scene, std::vector<vertex>& vertices, std::vector<
 			indices.push_back(face.mIndices[j]);
 		}
 	}
+
+	/*for (unsigned int i = 0; i < mesh->mNumBones; i++)
+	{
+		aiFace face = mesh->mFaces[i];
+		for (unsigned int j = 0; j < face.mNumIndices; j++)
+		{
+			indices.push_back(face.mIndices[j]);
+		}
+	}*/
 }
 
 void load_skeleton(const aiScene* scene, skeleton& joints)

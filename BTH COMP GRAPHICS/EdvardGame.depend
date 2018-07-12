@@ -2862,7 +2862,7 @@
 	"window.hpp"
 	<iostream>
 
-1531396770 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1531398847 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 	<algorithm>
 	<iostream>
@@ -3058,13 +3058,13 @@
 	"tinyxml2.h"
 	"model.hpp"
 
-1531394960 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\quad_tess.hpp
+1531398607 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\quad_tess.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1531395081 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad_tess.cpp
+1531398860 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad_tess.cpp
 	"quad_tess.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
