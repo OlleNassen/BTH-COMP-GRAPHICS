@@ -63,6 +63,7 @@
 		<Unit filename="include/temp_box.hpp" />
 		<Unit filename="include/terrain.hpp" />
 		<Unit filename="include/texture.hpp" />
+		<Unit filename="include/tinyxml2.h" />
 		<Unit filename="include/vertex_array.hpp" />
 		<Unit filename="include/window.hpp" />
 		<Unit filename="shaders/anim.fs" />
@@ -101,6 +102,7 @@
 		<Unit filename="src/temp_box.cpp" />
 		<Unit filename="src/terrain.cpp" />
 		<Unit filename="src/texture.cpp" />
+		<Unit filename="src/tinyxml2.cpp" />
 		<Unit filename="src/vertex_array.cpp" />
 		<Unit filename="src/window.cpp" />
 		<Extensions>
