@@ -19,8 +19,8 @@ void load_mesh(const aiScene* scene, std::vector<vertex>& vertices, std::vector<
 		vertices[i].position.y = mesh->mVertices[i].y;
 		vertices[i].position.z = mesh->mVertices[i].z;
 
-		//vertices[i].texture_coordinate.x = scene->mMeshes[0]->mTextureCoords[i][0].x;
-		//vertices[i].texture_coordinate.y = scene->mMeshes[0]->mTextureCoords[i][0].y;
+		vertices[i].texture_coordinate.x = mesh->mTextureCoords[0][i].x;
+		vertices[i].texture_coordinate.y = mesh->mTextureCoords[0][i].y;
 
 		vertices[i].normal.x = mesh->mNormals[i].x;
 		vertices[i].normal.y = mesh->mNormals[i].y;
@@ -47,14 +47,24 @@ void load_mesh(const aiScene* scene, std::vector<vertex>& vertices, std::vector<
 		}
 	}
 
-	/*for (unsigned int i = 0; i < mesh->mNumBones; i++)
+	for (unsigned int i = 0; i < mesh->mNumBones; i++)
 	{
 		aiFace face = mesh->mFaces[i];
 		for (unsigned int j = 0; j < face.mNumIndices; j++)
 		{
-			indices.push_back(face.mIndices[j]);
+			aiVertexWeight* w = mesh->mBones[i]->mWeights;
+
+			vertices[w[0].mVertexId].joints.x = i;
+            vertices[w[1].mVertexId].joints.y = i;
+            vertices[w[2].mVertexId].joints.z = i;
+            vertices[w[3].mVertexId].joints.w = i;
+
+            vertices[w[0].mVertexId].weights.x = w[0].mWeight;
+            vertices[w[1].mVertexId].weights.y = w[1].mWeight;
+            vertices[w[2].mVertexId].weights.z = w[2].mWeight;
+            vertices[w[3].mVertexId].weights.w = w[3].mWeight;
 		}
-	}*/
+	}
 }
 
 void load_skeleton(const aiScene* scene, skeleton& joints)
