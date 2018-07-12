@@ -47,7 +47,7 @@ void quad_tess::render_current(const shader & shader, const glm::mat4 & world_tr
 	shader.uniform("TessLevelOuter", 1.f);
 
 	//displacement_map.uniform(shader, "displacement_map", 0);
-	tess_texture.uniform(shader, "texture", 0);
+	tess_texture.uniform(shader, "diffuse", 0);
 
 	quad_array.bind();
 	//glPatchParameteri(GL_PATCH_VERTICES, 16);
