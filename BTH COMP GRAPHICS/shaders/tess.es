@@ -1,6 +1,6 @@
 #version 430
 
-layout(triangles, equal_spacing, ccw) in;
+layout(quads, cw) in;
 
 in vec3 es_position[];
 in vec2 es_texcoord[];
@@ -20,13 +20,15 @@ vec2 interpolate2D(vec2 v0, vec2 v1, vec2 v2)
 
 void main()
 {
-    vec3 p0 = gl_TessCoord.x * es_position[0];
-    vec3 p1 = gl_TessCoord.y * es_position[1];
-    vec3 p2 = gl_TessCoord.z * es_position[2];
+	vec3 p0 = mix(es_position[0], es_position[3], gl_TessCoord.x);
+
+    vec3 p1 = mix(es_position[1], es_position[2], gl_TessCoord.x);
+
+    vec3 pos = normalize(mix(p0, p1, gl_TessCoord.y));
 
 	fs_texcoord = interpolate2D(es_texcoord[0], es_texcoord[1], es_texcoord[2]);
 
     fs_patch_distance = gl_TessCoord.xy;
-    fs_position = normalize(p0 + p1 + p2);
-    gl_Position = projection * view * model * vec4(fs_position, 1);
+
+    gl_Position = projection * view * model * vec4(normalize(pos.xyz), 1);
 }

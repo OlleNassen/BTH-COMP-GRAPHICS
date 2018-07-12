@@ -1,7 +1,8 @@
 #version 430
 
-in vec3 fs_world_position;
+in vec3 fs_position;
 in vec2 fs_texcoord;
+in vec2 fs_patch_distance;
 
 out vec4 frag_color;
 

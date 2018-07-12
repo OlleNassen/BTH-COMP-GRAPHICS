@@ -1,6 +1,6 @@
 #version 430
 
-layout(vertices = 3) out;
+layout(vertices = 4) out;
 
 in vec3 cs_position[];
 in vec2 cs_texcoord[];
@@ -20,9 +20,12 @@ void main()
 
     if (ID == 0)
     {
-        gl_TessLevelInner[0] = TessLevelInner;
-        gl_TessLevelOuter[0] = TessLevelOuter;
-        gl_TessLevelOuter[1] = TessLevelOuter;
-        gl_TessLevelOuter[2] = TessLevelOuter;
+        gl_TessLevelInner[0] = 2.0;
+        gl_TessLevelInner[1] = 2.0;
+
+        gl_TessLevelOuter[0] = 4.0;
+        gl_TessLevelOuter[1] = 4.0;
+        gl_TessLevelOuter[2] = 4.0;
+        gl_TessLevelOuter[3] = 4.0;
     }
 }

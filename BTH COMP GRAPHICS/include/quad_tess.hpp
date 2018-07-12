@@ -15,6 +15,7 @@ public:
 private:
 	vertex_array quad_array;
 	buffer quad_vbo;
+	buffer quad_ebo;
 	texture displacement_map;
 	texture tess_texture;
 
