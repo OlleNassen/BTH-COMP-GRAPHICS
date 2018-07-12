@@ -124,7 +124,7 @@ model::model()
 
 	import_model("models/boblampclean.md5mesh", vertices, indices, joints, key_frames);
 
-	//current.load(key_frames);
+	current.load(key_frames);
 
 	int stride = 12 * sizeof(float) + 4 * sizeof(int);
 

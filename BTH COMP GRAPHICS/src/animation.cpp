@@ -37,8 +37,11 @@ void animation::update(float delta_time, skeleton& joints)
 {
     time += delta_time;
 
-    update_key_frame();
-    update_pose(joints);
+    if(!key_frames.empty())
+    {
+        update_key_frame();
+        update_pose(joints);
+    }
 }
 
 void animation::update_key_frame()
