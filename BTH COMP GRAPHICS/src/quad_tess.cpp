@@ -6,8 +6,8 @@
 
 quad_tess::quad_tess(float x, float y, float z)
 	:quad_vbo(target::ARRAY_BUFFER)
-	, displacement_map("images/displacement.jpg", wrap::REPEAT, filter::LINEAR, format::RGB)
 	, tess_texture("images/brick_texture.jpg", wrap::REPEAT, filter::LINEAR, format::RGB)
+	, displacement_map("images/diff_disp.png", wrap::REPEAT, filter::LINEAR, format::RGB)
 {
 	float vertices[] =
 	{
@@ -43,7 +43,7 @@ void quad_tess::update_current(float delta_time, const glm::mat4 & world_transfo
 void quad_tess::render_current(const shader & shader, const glm::mat4 & world_transform) const
 {
 	shader.uniform("model", world_transform);
-	shader.uniform("TessLevelInner", 4.f);
+	shader.uniform("TessLevelInner", 2.f);
 	shader.uniform("TessLevelOuter", 1.f);
 
 	//displacement_map.uniform(shader, "displacement_map", 0);

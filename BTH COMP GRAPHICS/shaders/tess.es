@@ -7,7 +7,7 @@ in vec2 es_texcoord[];
 
 out vec3 fs_position;
 out vec2 fs_texcoord;
-out vec3 fs_patch_distance;
+out vec2 fs_patch_distance;
 
 uniform mat4 model;
 uniform mat4 view;
@@ -26,7 +26,7 @@ void main()
 
 	fs_texcoord = interpolate2D(es_texcoord[0], es_texcoord[1], es_texcoord[2]);
 
-    fs_patch_distance = gl_TessCoord;
+    fs_patch_distance = gl_TessCoord.xy;
     fs_position = normalize(p0 + p1 + p2);
     gl_Position = projection * view * model * vec4(fs_position, 1);
 }
