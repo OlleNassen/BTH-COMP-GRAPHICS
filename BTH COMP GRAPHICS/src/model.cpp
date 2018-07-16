@@ -82,7 +82,7 @@ void load_skeleton(const aiMesh* mesh, skeleton& joints)
 		mat3.c3 = mat4.c3;
 
 		aiQuaternion quat(mat3);
-		glm::quat rot(quat.x, quat.y, quat.z, quat.w);
+		glm::quat rot(quat.w, quat.x, quat.y, quat.z);
 
 		joints[i].position = pos;
 		joints[i].rotation = rot;
@@ -114,7 +114,7 @@ void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames
             key_frames[j].pose[i].position = glm::vec3(v.x, v.y, v.z);
 
             aiQuaternion q = channel->mRotationKeys[j].mValue;
-            key_frames[j].pose[i].rotation = glm::quat(q.x, q.y, q.z, q.w);
+            key_frames[j].pose[i].rotation = glm::quat(q.w, q.x, q.y, q.z);
 		}
 	}
 }
