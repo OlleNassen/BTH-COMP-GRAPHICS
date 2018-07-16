@@ -19,7 +19,6 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<un
 		vertices[i].normal.x = mesh->mNormals[i].x;
 		vertices[i].normal.y = mesh->mNormals[i].y;
 		vertices[i].normal.z = mesh->mNormals[i].z;
-		vertices[i].normal.z = mesh->mNormals[i].z;
 	}
 
 	for (unsigned int i = 0; i < mesh->mNumFaces; i++)

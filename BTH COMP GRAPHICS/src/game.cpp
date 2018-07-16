@@ -97,7 +97,7 @@ game::game()
 
 	//factory.load_mesh("models/banner.obj");
 
-	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); // Wireframe
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); // Wireframe
 }
 
 game::~game()
