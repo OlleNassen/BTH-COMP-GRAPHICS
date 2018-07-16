@@ -87,6 +87,9 @@
     <ClCompile Include="src\quad_tess.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\icosahedron.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\buffer.hpp">
@@ -158,6 +161,9 @@
     <ClInclude Include="include\quad_tess.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\icosahedron.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\skybox.vs" />
@@ -176,5 +182,6 @@
     <None Include="shaders\tess.vs" />
     <None Include="shaders\tess.es" />
     <None Include="shaders\tess.fs" />
+    <None Include="shaders\tess.geo" />
   </ItemGroup>
 </Project>

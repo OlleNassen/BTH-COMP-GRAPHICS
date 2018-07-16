@@ -148,6 +148,7 @@
     <ClCompile Include="src\animation.cpp" />
     <ClCompile Include="src\box.cpp" />
     <ClCompile Include="src\game.cpp" />
+    <ClCompile Include="src\icosahedron.cpp" />
     <ClCompile Include="src\input.cpp" />
     <ClCompile Include="src\mesh_factory.cpp" />
     <ClCompile Include="src\model.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="include\directional_light.hpp" />
     <ClInclude Include="include\frame_buffer.hpp" />
     <ClInclude Include="include\game.hpp" />
+    <ClInclude Include="include\icosahedron.hpp" />
     <ClInclude Include="include\input.hpp" />
     <ClInclude Include="include\mesh_factory.hpp" />
     <ClInclude Include="include\model.hpp" />
@@ -211,6 +213,7 @@
     <None Include="shaders\tess.cs" />
     <None Include="shaders\tess.es" />
     <None Include="shaders\tess.fs" />
+    <None Include="shaders\tess.geo" />
     <None Include="shaders\tess.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -23,7 +23,7 @@ game::game()
 	, billboard_shader("shaders/billboard.vs", "shaders/billboard.fs")
 	, terrain_shader("shaders/terrain.vs", "shaders/terrain.fs")
 	, environment_shader("shaders/environment_mapping.vs", "shaders/environment_mapping.fs")
-	, tess_shader("shaders/tess.vs", "shaders/tess.cs", "shaders/tess.es", "shaders/tess.fs")
+	, tess_shader("shaders/tess.vs", "shaders/tess.cs", "shaders/tess.es", "shaders/tess.geo", "shaders/tess.fs")
 	, game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 10000.0f)
 	, light(glm::vec3(0.0f, -1.0f, 0.0f),
         glm::vec3(0.2f, 0.2f, 0.2f),
@@ -93,7 +93,11 @@ game::game()
 
 	tess = new quad_tess();
 
+	ico = new icosahedron();
+
 	//factory.load_mesh("models/banner.obj");
+
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); // Wireframe
 }
 
 game::~game()
@@ -139,6 +143,7 @@ void game::render()
 	scene.render(basic_shader);
 	quad1->render(basic_shader);
 
+
 	terrain_shader.use();
 	game_camera.bind(terrain_shader);
 	terror->render(terrain_shader);
@@ -170,9 +175,10 @@ void game::render()
 	game_camera.bind(environment_shader);
 	environment->render(environment_shader);
 
+	
 	tess_shader.use();
 	game_camera.bind(tess_shader);
-	tess->render(tess_shader);
+	ico->render(tess_shader);
 
 	anim.use();
 	game_camera.bind(anim);

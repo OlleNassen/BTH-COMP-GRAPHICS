@@ -15,6 +15,7 @@
 #include "particle_emitter.hpp"
 #include "model.hpp"
 #include "quad_tess.hpp"
+#include "icosahedron.hpp"
 #include <iostream>
 //#include "mesh_factory.hpp"
 
@@ -58,6 +59,8 @@ private:
 	particle_emitter* particles;
 	terrain* terror;
 	quad_tess* tess;
+	icosahedron* ico;
+
 
 	void render();
 	void update(float delta_time);
