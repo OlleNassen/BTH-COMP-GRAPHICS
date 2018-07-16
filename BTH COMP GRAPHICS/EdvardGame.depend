@@ -2499,7 +2499,7 @@
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\simd\integer.h
 
-1531390569 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\shader.hpp
+1531737166 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\shader.hpp
 	<string>
 	<vector>
 	<array>
@@ -2602,14 +2602,14 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1531394960 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1531737166 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	"input.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1531394960 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1531737166 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	"window.hpp"
 	"camera.hpp"
 	"shader.hpp"
@@ -2625,6 +2625,7 @@
 	"particle_emitter.hpp"
 	"model.hpp"
 	"quad_tess.hpp"
+	"icosahedron.hpp"
 	<iostream>
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glfw\glfw3.h
@@ -2818,7 +2819,7 @@
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\postprocess.h
 	"types.h"
 
-1531390569 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\shader.cpp
+1531737166 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\shader.cpp
 	"shader.hpp"
 	<iostream>
 	<fstream>
@@ -2862,7 +2863,7 @@
 	"window.hpp"
 	<iostream>
 
-1531734910 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1531736378 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 	<algorithm>
 	<iostream>
@@ -2995,7 +2996,7 @@
 	<ctime>
 	<iostream>
 
-1531405303 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1531737026 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 
 1531405138 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
@@ -3068,4 +3069,13 @@
 	"quad_tess.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
+
+1531737166 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\icosahedron.hpp
+	"scene_node.hpp"
+	"buffer.hpp"
+	"vertex_array.hpp"
+	"texture.hpp"
+
+1531737166 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\icosahedron.cpp
+	"icosahedron.hpp"
 

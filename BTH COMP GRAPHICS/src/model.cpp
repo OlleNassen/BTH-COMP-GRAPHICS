@@ -108,7 +108,16 @@ void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames
 
         for (unsigned int j = 0; j < channel->mNumPositionKeys; j++)
 		{
-            key_frames[j].time = channel->mPositionKeys[i].mTime;
+            if(i == 0)
+            {
+                key_frames[j].time = channel->mPositionKeys[i].mTime;
+            }
+            else
+            {
+                key_frames[j].time =
+                    channel->mPositionKeys[i].mTime -
+                    channel->mPositionKeys[i - 1].mTime;
+            }
 
             aiVector3D v = channel->mPositionKeys[i].mValue;
             key_frames[j].pose[i].position = glm::vec3(v.x, v.y, v.z);
