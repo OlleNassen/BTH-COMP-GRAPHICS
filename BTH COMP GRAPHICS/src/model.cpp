@@ -100,15 +100,15 @@ void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames
         key_frames[i].pose[0].parent = anim->mMeshChannels[i]->mKeys->mValue;
 	}
 
+	key_frames.resize(anim->mChannels[0]->mNumPositionKeys);
+
 	for (unsigned int i = 0; i < anim->mNumChannels; i++)
 	{
         aiNodeAnim* channel = anim->mChannels[i];
 
         for (unsigned int j = 0; j < channel->mNumPositionKeys; j++)
 		{
-            key_frames.push_back(key_frame());
-
-            key_frames[j].time = 0.1f;
+            key_frames[j].time = channel->mPositionKeys[i].mTime;
 
             aiVector3D v = channel->mPositionKeys[i].mValue;
             key_frames[j].pose[i].position = glm::vec3(v.x, v.y, v.z);
