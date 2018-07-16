@@ -92,9 +92,30 @@ void load_skeleton(const aiMesh* mesh, skeleton& joints)
 
 void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames)
 {
+	std::cout << anim->mNumMeshChannels << std::endl;
+	std::cout << anim->mNumChannels << std::endl;
+
+	for (unsigned int i = 0; i < anim->mNumMeshChannels; i++)
+	{
+        key_frames[i].pose[0].parent = anim->mMeshChannels[i]->mKeys->mValue;
+	}
+
+	key_frames.resize(anim->mChannels[0]->mNumPositionKeys);
+
 	for (unsigned int i = 0; i < anim->mNumChannels; i++)
 	{
+        aiNodeAnim* channel = anim->mChannels[i];
 
+        for (unsigned int j = 0; j < channel->mNumPositionKeys; j++)
+		{
+            key_frames[j].time = channel->mPositionKeys[i].mTime;
+
+            aiVector3D v = channel->mPositionKeys[i].mValue;
+            key_frames[j].pose[i].position = glm::vec3(v.x, v.y, v.z);
+
+            aiQuaternion q = channel->mRotationKeys[i].mValue;
+            key_frames[j].pose[i].rotation = glm::quat(q.x, q.y, q.z, q.w);
+		}
 	}
 }
 
@@ -156,7 +177,7 @@ void model::update(float delta_time)
 		glm::mat4 new_transform = glm::mat4_cast(joints[i].rotation);
 		new_transform = glm::translate(new_transform, joints[i].position);
 
-		world_joints[i] = glm::mat4(1.0f);//new_transform;
+		world_joints[i] = new_transform;
 
 		for (int j = joints[i].parent;
 			joints[j].parent != 0;
