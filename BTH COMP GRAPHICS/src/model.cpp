@@ -102,19 +102,21 @@ void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames
 		{
             if(i == 0)
             {
-                key_frames[j].time = channel->mPositionKeys[i].mTime;
+                key_frames[j].time = channel->mPositionKeys[j].mTime;
             }
             else
             {
                 key_frames[j].time =
-                    channel->mPositionKeys[i].mTime -
-                    channel->mPositionKeys[i - 1].mTime;
+                    channel->mPositionKeys[j].mTime -
+                    channel->mPositionKeys[j - 1].mTime;
             }
 
-            aiVector3D v = channel->mPositionKeys[i].mValue;
+            std::cout << key_frames[j].time << std::endl;
+
+            aiVector3D v = channel->mPositionKeys[j].mValue;
             key_frames[j].pose[i].position = glm::vec3(v.x, v.y, v.z);
 
-            aiQuaternion q = channel->mRotationKeys[i].mValue;
+            aiQuaternion q = channel->mRotationKeys[j].mValue;
             key_frames[j].pose[i].rotation = glm::quat(q.x, q.y, q.z, q.w);
 		}
 	}
@@ -185,7 +187,7 @@ void model::update(float delta_time)
 			j = joints[j].parent)
 		{
 			glm::mat4 parent_transform = glm::mat4_cast(joints[j].rotation);
-			parent_transform = glm::translate(new_transform, joints[j].position);
+			parent_transform = parent_transform * glm::translate(glm::mat4(1.0f), joints[j].position);
 
 			world_joints[i] *= parent_transform;
 		}
@@ -197,6 +199,5 @@ void model::draw(const shader& shader) const
 	shader.uniform("joint_transforms", world_joints);
 	model_array.bind();
 	glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
-	//glDrawArrays(GL_TRIANGLES, 0, vertices.size());
 	glBindVertexArray(0);
 }
