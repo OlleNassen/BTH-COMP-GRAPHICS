@@ -23,11 +23,11 @@ void main()
 
     for(int i = 0; i < MAX_WEIGHTS; i++)
     {
-        vec4 pose_position = joint_transforms[i] * vec4(position, 1.0);
-        total_local_position += pose_position * weight[i];
+        vec4 pose_position = joint_transforms[joint[i]] * vec4(position, 1.0);
+        total_local_position += pose_position * weight[joint[i]];
 
-        vec4 world_normal = joint_transforms[i] * vec4(normal, 1.0);
-        total_normal += world_normal * weight[i];
+        vec4 world_normal = joint_transforms[joint[i]] * vec4(normal, 1.0);
+        total_normal += world_normal * weight[joint[i]];
     }
 
     normal_out = total_normal.xyz;
