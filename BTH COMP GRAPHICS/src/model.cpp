@@ -92,14 +92,6 @@ void load_skeleton(const aiMesh* mesh, skeleton& joints)
 
 void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames)
 {
-	std::cout << anim->mNumMeshChannels << std::endl;
-	std::cout << anim->mNumChannels << std::endl;
-
-	for (unsigned int i = 0; i < anim->mNumMeshChannels; i++)
-	{
-        key_frames[i].pose[0].parent = anim->mMeshChannels[i]->mKeys->mValue;
-	}
-
 	key_frames.resize(anim->mChannels[0]->mNumPositionKeys);
 
 	for (unsigned int i = 0; i < anim->mNumChannels; i++)
