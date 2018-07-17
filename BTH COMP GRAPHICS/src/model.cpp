@@ -194,7 +194,7 @@ void model::update(float delta_time)
 
 	for (auto& joint : world_joints)
 	{
-	    joint = glm::inverse(joint);
+	    joint = glm::inverse(world_joints[0]) * joint;
 	}
 }
 
