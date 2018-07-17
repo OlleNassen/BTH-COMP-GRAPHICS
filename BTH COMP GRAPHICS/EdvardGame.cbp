@@ -79,8 +79,6 @@
 		<Unit filename="shaders/normal.vs" />
 		<Unit filename="shaders/phong.fs" />
 		<Unit filename="shaders/phong.vs" />
-		<Unit filename="shaders/shadow.fs" />
-		<Unit filename="shaders/shadow.vs" />
 		<Unit filename="shaders/skybox.fs" />
 		<Unit filename="shaders/skybox.vs" />
 		<Unit filename="shaders/terrain.fs" />

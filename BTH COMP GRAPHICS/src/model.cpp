@@ -175,8 +175,8 @@ void model::update(float delta_time)
 	for (unsigned int i = 0; i < joints.size(); i++)
 	{
 		glm::mat4 new_transform  =
-            glm::mat4_cast(joints[i].rotation) *
-            glm::translate(glm::mat4(1.0f), joints[i].position);
+            glm::translate(glm::mat4(1.0f), joints[i].position)
+            * glm::mat4_cast(joints[i].rotation);
 
 		world_joints[i] = new_transform;
 
@@ -185,11 +185,16 @@ void model::update(float delta_time)
 			j = joints[j].parent)
 		{
 			glm::mat4 parent_transform =
-                glm::mat4_cast(joints[j].rotation) *
-                glm::translate(glm::mat4(1.0f), joints[j].position);
+                glm::translate(glm::mat4(1.0f), joints[j].position)
+                * glm::mat4_cast(joints[j].rotation);
 
 			world_joints[i] *= parent_transform;
 		}
+	}
+
+	for (auto& joint : world_joints)
+	{
+	    joint = glm::inverse(joint);
 	}
 }
 
