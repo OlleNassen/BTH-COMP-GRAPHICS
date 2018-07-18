@@ -26,31 +26,31 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<un
 		auto face = mesh->mFaces[i];
 		for (auto j = 0u; j < face.mNumIndices; j++)
 		{
-			indices.push_back(face.mIndices[j]);
+			indices.emplace_back(face.mIndices[j]);
 		}
 	}
 
 	for (auto i = 0u; i < mesh->mNumBones; i++)
 	{
 		auto* bone = mesh->mBones[i];
-		for (unsigned int j = 0u; j < bone->mNumWeights; j++)
+		for (auto j = 0u; j < bone->mNumWeights; j++)
 		{
-            if(vertices[bone->mWeights[j].mVertexId].joints.x == 0)
+            if(vertices[bone->mWeights[j].mVertexId].joints.x == 0.0f)
             {
                 vertices[bone->mWeights[j].mVertexId].joints.x = i;
                 vertices[bone->mWeights[j].mVertexId].weights.x = bone->mWeights[j].mWeight;
             }
-            else if(vertices[bone->mWeights[j].mVertexId].joints.y == 0)
+            else if(vertices[bone->mWeights[j].mVertexId].joints.y == 0.0f)
             {
                 vertices[bone->mWeights[j].mVertexId].joints.y = i;
                 vertices[bone->mWeights[j].mVertexId].weights.y = bone->mWeights[j].mWeight;
             }
-            else if(vertices[bone->mWeights[j].mVertexId].joints.z == 0)
+            else if(vertices[bone->mWeights[j].mVertexId].joints.z == 0.0f)
             {
                 vertices[bone->mWeights[j].mVertexId].joints.z = i;
                 vertices[bone->mWeights[j].mVertexId].weights.z = bone->mWeights[j].mWeight;
             }
-            else if(vertices[bone->mWeights[j].mVertexId].joints.w == 0)
+            else if(vertices[bone->mWeights[j].mVertexId].joints.w == 0.0f)
             {
                 vertices[bone->mWeights[j].mVertexId].joints.w = i;
                 vertices[bone->mWeights[j].mVertexId].weights.w = bone->mWeights[j].mWeight;
@@ -86,47 +86,35 @@ void load_skeleton(const aiMesh* mesh, skeleton& joints)
 
 		joints[i].position = pos;
 		joints[i].rotation = rot;
-
-		joints[i].parent = 5;
 	}
+}
 
-	for (auto i = 0u; i < mesh->mNumBones; i++)
-    {
-       /* unsigned int bone_index = 0;
-        std::string BoneName(mesh->mBones[i]->mName.data);
+void load_parent_indices(const aiNode& node, std::vector<std::string>& names)
+{
+    names.emplace_back(node.mName.C_Str());
 
-        if (m_BoneMapping.find(BoneName) == m_BoneMapping.end())
-        {
-            // Allocate an index for a new bone
-            bone_index = m_NumBones;
-            m_NumBones++;
-	        BoneInfo bi;
-			m_BoneInfo.push_back(bi);
-            m_BoneMapping[BoneName] = bone_index;
-        }
-        else
-        {
-            bone_index = m_BoneMapping[BoneName];
-        }*/
-    }
+    for (auto i = 0u; i < node.mNumChildren; i++)
+	{
+        load_parent_indices(*node.mChildren[i], names);
+	}
 }
 
 void load_parent_indices(const aiNode* node, skeleton& joints)
 {
     std::vector<std::string> names(node->mNumChildren);
-    auto* walker = node;
 
-    for(std::string& name : names)
-    {
-        name = walker->mName.C_Str();
-        //node = node->mChildren[0];
-    }
-
-
+    names.emplace_back(node->mName.C_Str());
     for (auto i = 0u; i < node->mNumChildren; i++)
+	{
+        load_parent_indices(*node->mChildren[i], names);
+	}
+
+	for(auto& name : names)
     {
-        //node->
+        std::cout << name << std::endl;
     }
+
+
 }
 
 void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames)
@@ -188,7 +176,7 @@ model::model()
 
 	current.load(key_frames);
 
-	int stride = 12 * sizeof(float) + 4 * sizeof(int);
+	auto stride = 12 * sizeof(float) + 4 * sizeof(int);
 
 	model_array.bind();
 	model_buffer.data(sizeof(vertex) * vertices.size(), &vertices.front(), GL_STATIC_DRAW);
