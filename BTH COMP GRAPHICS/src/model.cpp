@@ -102,8 +102,6 @@ void load_parent_indices(const aiNode& node, std::vector<std::string>& names)
 void load_parent_indices(const aiNode* node, skeleton& joints)
 {
     std::vector<std::string> names;
-
-    names.emplace_back(node->mName.C_Str());
     for (auto i = 0u; i < node->mNumChildren; i++)
 	{
         load_parent_indices(*node->mChildren[i], names);
