@@ -113,6 +113,16 @@ void load_skeleton(const aiMesh* mesh, skeleton& joints)
 
 void load_parent_indices(const aiNode* node, skeleton& joints)
 {
+    std::vector<std::string> names(node->mNumChildren);
+    auto* walker = node;
+
+    for(std::string& name : names)
+    {
+        name = node->mName.C_Str();
+        //node = node->mChildren[0];
+    }
+
+
     for (auto i = 0u; i < node->mNumChildren; i++)
     {
         //node->
