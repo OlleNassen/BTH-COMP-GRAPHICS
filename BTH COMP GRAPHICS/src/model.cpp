@@ -118,7 +118,7 @@ void load_parent_indices(const aiNode* node, skeleton& joints)
 
     for(std::string& name : names)
     {
-        name = node->mName.C_Str();
+        name = walker->mName.C_Str();
         //node = node->mChildren[0];
     }
 
