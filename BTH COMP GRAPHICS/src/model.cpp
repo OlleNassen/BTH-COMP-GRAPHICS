@@ -7,7 +7,7 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<un
 {
 	vertices.resize(mesh->mNumVertices);
 
-	for (unsigned int i = 0; i < mesh->mNumVertices; i++)
+	for (auto i = 0u; i < mesh->mNumVertices; i++)
 	{
 		vertices[i].position.x = mesh->mVertices[i].x;
 		vertices[i].position.y = mesh->mVertices[i].y;
@@ -21,19 +21,19 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<un
 		vertices[i].normal.z = mesh->mNormals[i].z;
 	}
 
-	for (unsigned int i = 0; i < mesh->mNumFaces; i++)
+	for (auto i = 0u; i < mesh->mNumFaces; i++)
 	{
-		aiFace face = mesh->mFaces[i];
-		for (unsigned int j = 0; j < face.mNumIndices; j++)
+		auto face = mesh->mFaces[i];
+		for (auto j = 0u; j < face.mNumIndices; j++)
 		{
 			indices.push_back(face.mIndices[j]);
 		}
 	}
 
-	for (unsigned int i = 0; i < mesh->mNumBones; i++)
+	for (auto i = 0u; i < mesh->mNumBones; i++)
 	{
-		aiBone* bone = mesh->mBones[i];
-		for (unsigned int j = 0; j < bone->mNumWeights; j++)
+		auto* bone = mesh->mBones[i];
+		for (unsigned int j = 0u; j < bone->mNumWeights; j++)
 		{
             if(vertices[bone->mWeights[j].mVertexId].joints.x == 0)
             {
@@ -61,7 +61,7 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<un
 
 void load_skeleton(const aiMesh* mesh, skeleton& joints)
 {
-	for (unsigned int i = 0; i < mesh->mNumBones; i++)
+	for (auto i = 0u; i < mesh->mNumBones; i++)
 	{
 		aiMatrix3x3 mat3;
 		aiMatrix4x4 mat4 = mesh->mBones[i]->mOffsetMatrix;
@@ -86,18 +86,48 @@ void load_skeleton(const aiMesh* mesh, skeleton& joints)
 
 		joints[i].position = pos;
 		joints[i].rotation = rot;
+
+		joints[i].parent = 5;
 	}
+
+	for (auto i = 0u; i < mesh->mNumBones; i++)
+    {
+       /* unsigned int bone_index = 0;
+        std::string BoneName(mesh->mBones[i]->mName.data);
+
+        if (m_BoneMapping.find(BoneName) == m_BoneMapping.end())
+        {
+            // Allocate an index for a new bone
+            bone_index = m_NumBones;
+            m_NumBones++;
+	        BoneInfo bi;
+			m_BoneInfo.push_back(bi);
+            m_BoneMapping[BoneName] = bone_index;
+        }
+        else
+        {
+            bone_index = m_BoneMapping[BoneName];
+        }*/
+    }
+}
+
+void load_parent_indices(const aiNode* node, skeleton& joints)
+{
+    for (auto i = 0u; i < node->mNumChildren; i++)
+    {
+        //node->
+    }
 }
 
 void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames)
 {
 	key_frames.resize(anim->mChannels[0]->mNumPositionKeys);
 
-	for (unsigned int i = 0; i < anim->mNumChannels; i++)
+	for (auto i = 0u; i < anim->mNumChannels; i++)
 	{
-        aiNodeAnim* channel = anim->mChannels[i];
+        auto* channel = anim->mChannels[i];
 
-        for (unsigned int j = 0; j < channel->mNumPositionKeys; j++)
+        for (auto j = 0u; j < channel->mNumPositionKeys; j++)
 		{
             if(i == 0)
             {
@@ -126,7 +156,7 @@ void import_model(const std::string& path,
 	std::vector<key_frame>& key_frames)
 {
 	Assimp::Importer importer;
-	const aiScene* scene = importer.ReadFile(path.c_str(),
+	auto* scene = importer.ReadFile(path.c_str(),
 		aiProcess_Triangulate |
 		aiProcess_SortByPType |
 		aiProcess_GenSmoothNormals |
@@ -134,6 +164,7 @@ void import_model(const std::string& path,
 
 	load_mesh(scene->mMeshes[0], vertices, indices);
 	load_skeleton(scene->mMeshes[0], joints);
+	load_parent_indices(scene->mRootNode, joints);
 	load_key_frames(scene->mAnimations[0], key_frames);
 }
 
@@ -172,7 +203,7 @@ void model::update(float delta_time)
 {
 	current.update(delta_time, joints);
 
-	for (unsigned int i = 0; i < joints.size(); i++)
+	for (auto i = 0u; i < joints.size(); i++)
 	{
 		glm::mat4 new_transform  =
             glm::translate(glm::mat4(1.0f), joints[i].position)
@@ -180,7 +211,7 @@ void model::update(float delta_time)
 
 		world_joints[i] = new_transform;
 
-		for (int j = joints[i].parent;
+		for (auto j = joints[i].parent;
 			joints[j].parent != 0;
 			j = joints[j].parent)
 		{
@@ -189,6 +220,7 @@ void model::update(float delta_time)
                 * glm::mat4_cast(joints[j].rotation);
 
 			world_joints[i] *= parent_transform;
+			std::cout << i << std::endl;
 		}
 	}
 

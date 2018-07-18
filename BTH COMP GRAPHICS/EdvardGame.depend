@@ -2863,7 +2863,7 @@
 	"window.hpp"
 	<iostream>
 
-1531834780 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1531915669 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 	<algorithm>
 	<iostream>
@@ -2996,10 +2996,10 @@
 	<ctime>
 	<iostream>
 
-1531831698 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1531927122 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 
-1531405138 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
+1531924196 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
 	<array>
 	<vector>
 	<glm/glm.hpp>

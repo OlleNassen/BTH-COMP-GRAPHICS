@@ -28,11 +28,6 @@ animation::animation()
 
 }
 
-animation::~animation()
-{
-    //dtor
-}
-
 void animation::update(float delta_time, skeleton& joints)
 {
     time += delta_time;
@@ -57,21 +52,21 @@ void animation::update_key_frame()
 
 void animation::update_pose(skeleton& joints)
 {
-    key_frame& previous = key_frames[current_key_frame];
-    key_frame& next = key_frames[current_key_frame + 1];
+    auto& previous = key_frames[current_key_frame];
+    auto& next = key_frames[current_key_frame + 1];
 
-    for(int i = 0; i < joints.size(); i++)
+    for(auto i = 0u; i < joints.size(); i++)
     {
-        glm::vec3 new_position = previous.pose[i].position;
-        glm::quat new_rotation = previous.pose[i].rotation;
-
-        new_position =
+        auto new_position =
             glm::mix(previous.pose[i].position,
             next.pose[i].position, time);
 
-        new_rotation =
+        auto new_rotation =
             glm::slerp(previous.pose[i].rotation,
             next.pose[i].rotation, time);
+
+
+        //new_rotation = glm::normalize(new_rotation);
 
         joints[i].position = new_position;
         joints[i].rotation = new_rotation;

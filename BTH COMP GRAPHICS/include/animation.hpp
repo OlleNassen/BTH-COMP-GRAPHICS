@@ -16,6 +16,8 @@ struct joint
 
 using skeleton = std::array<joint, 50>;
 
+joint fn(const joint& previous, const joint& next);
+
 struct key_frame
 {
     float time;
@@ -27,7 +29,6 @@ class animation
 public:
     void load(const std::vector<key_frame>& key_frames);
     animation();
-    ~animation();
 
     void update(float delta_time, skeleton& joints);
 
