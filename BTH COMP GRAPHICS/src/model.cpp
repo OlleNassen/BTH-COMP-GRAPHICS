@@ -91,7 +91,10 @@ void load_skeleton(const aiMesh* mesh, skeleton& joints)
 
 void load_parent_indices(const aiNode& node, std::vector<std::string>& names)
 {
-    names.emplace_back(node.mName.C_Str());
+    if(node.mName.C_Str()[0] != '<')
+    {
+        names.emplace_back(node.mName.C_Str());
+    }
 
     for (auto i = 0u; i < node.mNumChildren; i++)
 	{
