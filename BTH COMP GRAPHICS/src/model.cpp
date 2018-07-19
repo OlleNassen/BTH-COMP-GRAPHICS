@@ -102,6 +102,24 @@ void load_parent_indices(const aiNode& node, std::vector<std::string>& names)
 	}
 }
 
+void parent_indices(const aiNode& node, const std::vector<std::string>& names, int index, skeleton& joints)
+{
+    if(node.mName.C_Str()[0] != '<')
+    {
+        index++;
+    }
+
+    for (auto i = 0u; i < node.mNumChildren; i++)
+    {
+        if(std::strcmp(names[index].c_str(), node.mParent->mName.C_Str()) > 0)
+        {
+            joints[index + i].parent = index;
+        }
+
+        parent_indices(*node.mChildren[i], names, index, joints);
+    }
+}
+
 void load_parent_indices(const aiNode* node, skeleton& joints)
 {
     std::vector<std::string> names;
@@ -110,12 +128,19 @@ void load_parent_indices(const aiNode* node, skeleton& joints)
         load_parent_indices(*node->mChildren[i], names);
 	}
 
+	for (auto i = 0u; i < node->mNumChildren; i++)
+    {
+        parent_indices(*node->mChildren[i], names, 0, joints);
+    }
+
 	for(auto& name : names)
     {
         std::cout << name << std::endl;
     }
-
-
+    for(auto& joint : joints)
+    {
+        std::cout << joint.parent << std::endl;
+    }
 }
 
 void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames)
