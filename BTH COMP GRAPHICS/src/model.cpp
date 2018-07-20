@@ -104,21 +104,22 @@ void load_parent_indices(const aiNode& node, std::vector<std::string>& names)
 
 void parent_indices(const aiNode& node, const std::vector<std::string>& names, int index, skeleton& joints)
 {
+    if(node.mName.C_Str()[0] != '<')
+    {
+        index++;
+    }
+
+    for (auto i = 0u; i < names.size(); i++)
+    {
+        if(names[i].compare(node.mParent->mName.C_Str()) == 0)
+        {
+            joints[index].parent = i;
+        }
+    }
+
     for (auto i = 0u; i < node.mNumChildren; i++)
     {
         parent_indices(*node.mChildren[i], names, index, joints);
-
-        if(node.mName.C_Str()[0] != '<')
-        {
-            for(auto j = 0u; j < names.size(); j++)
-            {
-                if(names[j].compare(node.mParent->mName.C_Str()) == 0)
-                {
-                    joints[j].parent = index;
-                }
-            }
-            index++;
-        }
     }
 }
 
