@@ -111,7 +111,7 @@ void parent_indices(const aiNode& node, const std::vector<std::string>& names, i
 
     for (auto i = 0u; i < node.mNumChildren; i++)
     {
-        if(std::strcmp(names[index].c_str(), node.mParent->mName.C_Str()) > 0)
+        if(names[index].compare(node.mParent->mName.C_Str()) != 0)
         {
             joints[index + i].parent = index;
         }
@@ -122,6 +122,11 @@ void parent_indices(const aiNode& node, const std::vector<std::string>& names, i
 
 void load_parent_indices(const aiNode* node, skeleton& joints)
 {
+    for(auto& joint : joints)
+    {
+        joint.parent = 1337;
+    }
+
     std::vector<std::string> names;
     for (auto i = 0u; i < node->mNumChildren; i++)
 	{
