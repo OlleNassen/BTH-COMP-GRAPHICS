@@ -125,11 +125,6 @@ void parent_indices(const aiNode& node, const std::vector<std::string>& names, i
 
 void load_parent_indices(const aiNode* node, skeleton& joints)
 {
-    for(auto& joint : joints)
-    {
-        joint.parent = 1337;
-    }
-
     std::vector<std::string> names;
     for (auto i = 0u; i < node->mNumChildren; i++)
 	{
@@ -145,11 +140,11 @@ void load_parent_indices(const aiNode* node, skeleton& joints)
 
 	for(auto& name : names)
     {
-        std::cout << name << std::endl;
+        //std::cout << name << std::endl;
     }
     for(auto& joint : joints)
     {
-        std::cout << joint.parent << std::endl;
+        //std::cout << joint.parent << std::endl;
     }
 }
 
@@ -207,6 +202,7 @@ model::model()
 	, element_buffer(target::ELEMENT_ARRAY_BUFFER)
 {
     std::vector<key_frame> key_frames;
+    joints.fill({ 0, glm::vec3(0.0f), glm::quat_cast(glm::mat4(1.0f)) });
 
 	import_model("models/boblampclean.md5mesh", vertices, indices, joints, key_frames);
 
@@ -224,7 +220,6 @@ model::model()
 	model_array.attribute_pointer(3, 4, GL_INT, stride, (void*)(8 * sizeof(float)));
 	model_array.attribute_pointer(4, 4, GL_FLOAT, GL_FALSE, stride, (void*)(8 * sizeof(float) + 4 * sizeof(int)));
 
-	joints.fill({ 0, glm::vec3(0.0f), glm::quat_cast(glm::mat4(1.0f)) });
 	world_joints.fill(glm::mat4(1.0f));
 }
 
@@ -244,6 +239,8 @@ void model::update(float delta_time)
             * glm::mat4_cast(joints[i].rotation);
 
 		world_joints[i] = new_transform;
+
+		std::cout << joints[i].parent << std::endl;
 
 		for (auto j = joints[i].parent;
 			joints[j].parent != 0;
