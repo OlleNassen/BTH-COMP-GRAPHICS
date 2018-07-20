@@ -106,18 +106,17 @@ void parent_indices(const aiNode& node, const std::vector<std::string>& names, i
 {
     for (auto i = 0u; i < node.mNumChildren; i++)
     {
-        for(auto j = 0u; j < names.size(); j++)
-        {
-            if(names[j].compare(node.mParent->mName.C_Str()) != 0)
-            {
-                joints[j].parent = index;
-            }
-        }
-
         parent_indices(*node.mChildren[i], names, index, joints);
 
         if(node.mName.C_Str()[0] != '<')
         {
+            for(auto j = 0u; j < names.size(); j++)
+            {
+                if(names[j].compare(node.mParent->mName.C_Str()) == 0)
+                {
+                    joints[j].parent = index;
+                }
+            }
             index++;
         }
     }
