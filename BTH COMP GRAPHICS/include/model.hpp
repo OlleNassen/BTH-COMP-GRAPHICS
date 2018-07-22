@@ -24,7 +24,7 @@ public:
     model();
     ~model();
 
-    void update(float delta_time);
+    void update(const std::chrono::milliseconds delta_time);
 
     void draw(const shader& shader) const;
 

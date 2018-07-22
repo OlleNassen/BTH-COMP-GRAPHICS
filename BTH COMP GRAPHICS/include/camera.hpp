@@ -1,6 +1,7 @@
 #ifndef CAMERA_HPP
 #define CAMERA_HPP
 
+#include <chrono>
 #include <glm/glm.hpp>
 #include "shader.hpp"
 #include "terrain.hpp"
@@ -23,7 +24,7 @@ public:
     void fast_pressed();
     void fast_released();
 
-    void update(float delta_time);
+    void update(const std::chrono::milliseconds delta_time);
     glm::mat4 model_view_projection(const glm::mat4& model) const;
 	glm::mat4 get_view()const;
 	glm::mat4 get_projection()const;

@@ -3,9 +3,12 @@
 
 #include <array>
 #include <vector>
+#include <chrono>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/quaternion.hpp>
+
+using namespace std::literals::chrono_literals;
 
 struct joint
 {
@@ -30,10 +33,10 @@ public:
     void load(const std::vector<key_frame>& key_frames);
     animation();
 
-    void update(float delta_time, skeleton& joints);
+    void update(const std::chrono::milliseconds delta_time, skeleton& joints);
 
 private:
-    float time;
+    std::chrono::duration<float> time;
     float length;
     int current_key_frame;
     std::vector<key_frame> key_frames;

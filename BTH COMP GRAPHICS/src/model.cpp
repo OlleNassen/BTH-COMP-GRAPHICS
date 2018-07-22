@@ -230,7 +230,7 @@ model::~model()
 	//dtor
 }
 
-void model::update(float delta_time)
+void model::update(const std::chrono::milliseconds delta_time)
 {
 	current.update(delta_time, joints);
 

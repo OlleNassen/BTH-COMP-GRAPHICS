@@ -4,10 +4,10 @@
 
 
 temp_box::temp_box(float x, float y, float z)
-	: box_vbo(target::ARRAY_BUFFER)
-	, scene_node(x, y, z)
+	: scene_node(x, y, z)
+	, box_vbo(target::ARRAY_BUFFER)
 {
-    float vertices[] =
+    constexpr float vertices[] =
 	{
 		//pos, uv, normal
 		-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
@@ -77,8 +77,6 @@ void temp_box::update_current(const std::chrono::milliseconds delta_time,
 void temp_box::render_current(const shader& shader,
 	const glm::mat4& world_transform) const
 {
-
-
 	shader.uniform("obj_color", color);
 	shader.uniform("model", world_transform);
 	box_array.bind();

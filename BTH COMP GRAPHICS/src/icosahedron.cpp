@@ -7,7 +7,7 @@ icosahedron::icosahedron(float x, float y, float z)
 , ebo(target::ELEMENT_ARRAY_BUFFER)
 {
 
-	constexpr  int Faces[] = {
+	constexpr  int faces[] = {
 		2, 1, 0,
 		3, 2, 0,
 		4, 3, 0,
@@ -29,7 +29,7 @@ icosahedron::icosahedron(float x, float y, float z)
 		5, 10, 9,
 		1, 6, 10 };
 
-	constexpr  float Verts[] = {
+	constexpr  float verts[] = {
 		0.000f,  0.000f,  1.000f,
 		0.894f,  0.000f,  0.447f,
 		0.276f,  0.851f,  0.447f,
@@ -43,13 +43,13 @@ icosahedron::icosahedron(float x, float y, float z)
 		0.724f, -0.526f, -0.447f,
 		0.000f,  0.000f, -1.000f };
 
-	index_count = sizeof(Faces) / sizeof(Faces[0]);
+	index_count = sizeof(faces) / sizeof(faces[0]);
 
 	// Create the VAO:
 	v_array.bind();
 
-	vbo.data(sizeof(Verts), &Verts[0], GL_STATIC_DRAW);
-	ebo.data(sizeof(Faces), &Faces[0], GL_STATIC_DRAW);
+	vbo.data(sizeof(verts), &verts[0], GL_STATIC_DRAW);
+	ebo.data(sizeof(faces), &faces[0], GL_STATIC_DRAW);
 
 	auto offset = 0;
 	v_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), BUFFER_OFFSET(offset));

@@ -10,9 +10,9 @@ shader::shader(const std::string& vertex_path, const std::string& fragment_path)
 {
     std::string vertex_code(load(vertex_path));
     std::string fragment_code(load(fragment_path));
-    unsigned int vertex_shader = create(GL_VERTEX_SHADER, vertex_code.c_str());
-    unsigned int fragment_shader = create(GL_FRAGMENT_SHADER, fragment_code.c_str());
-    int success;
+    auto vertex_shader = create(GL_VERTEX_SHADER, vertex_code.c_str());
+    auto fragment_shader = create(GL_FRAGMENT_SHADER, fragment_code.c_str());
+    auto success = 0;
     char infoLog[512];
 
     id = glCreateProgram();
@@ -40,13 +40,13 @@ shader::shader(const std::string & vertex_path, const std::string & tess_control
 	std::string geo_code(load(geo_path));
 	std::string fragment_code(load(fragment_path));
 
-	unsigned int vertex_shader = create(GL_VERTEX_SHADER, vertex_code.c_str());
-	unsigned int control_shader = create(GL_TESS_CONTROL_SHADER, control_code.c_str());
-	unsigned int eval_shader = create(GL_TESS_EVALUATION_SHADER, eval_code.c_str());
-	unsigned int geo_shader = create(GL_GEOMETRY_SHADER, geo_code.c_str());
-	unsigned int fragment_shader = create(GL_FRAGMENT_SHADER, fragment_code.c_str());
+	auto vertex_shader = create(GL_VERTEX_SHADER, vertex_code.c_str());
+	auto control_shader = create(GL_TESS_CONTROL_SHADER, control_code.c_str());
+	auto eval_shader = create(GL_TESS_EVALUATION_SHADER, eval_code.c_str());
+	auto geo_shader = create(GL_GEOMETRY_SHADER, geo_code.c_str());
+	auto fragment_shader = create(GL_FRAGMENT_SHADER, fragment_code.c_str());
 
-	int success;
+	auto success = 0;
 	char infoLog[512];
 
 	id = glCreateProgram();
@@ -203,8 +203,8 @@ std::string shader::load(const std::string& path) const
 
 unsigned int shader::create(unsigned int shader_type, const char* shader_code) const
 {
-    unsigned int shader_id;
-    int success;
+    auto shader_id = 0;
+    auto success = 0;
     char infoLog[512];
 
     shader_id = glCreateShader(shader_type);

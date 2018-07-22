@@ -18,8 +18,6 @@ private:
 	vertex_array v_array;
 	buffer vbo;
 	buffer ebo;
-	//texture displacement_map;
-	//texture tess_texture;
 
 	unsigned int index_count;
 

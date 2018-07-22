@@ -26,10 +26,10 @@ texture::texture(const std::string& path,
 {
     generate(wrap_parameter, filter_parameter);
 
-    int width;
-    int height;
-    int nr_of_channels;
-    unsigned char* data = stbi_load(path.c_str(),
+    auto width = 0;
+    auto height = 0;
+    auto nr_of_channels = 0;
+    auto* data = stbi_load(path.c_str(),
         &width, &height, &nr_of_channels, 0);
 
 	stbi_set_flip_vertically_on_load(true);
@@ -61,10 +61,13 @@ texture::texture(std::vector<std::string> paths,
 
     stbi_set_flip_vertically_on_load(false);
 
-    int width, height, nrChannels;
-    for (unsigned int i = 0; i < paths.size(); i++)
+    auto width = 0;
+    auto height = 0;
+    auto nr_of_channels = 0;
+
+    for (auto i = 0u; i < paths.size(); i++)
     {
-        unsigned char *data = stbi_load(paths[i].c_str(), &width, &height, &nrChannels, 0);
+        auto* data = stbi_load(paths[i].c_str(), &width, &height, &nr_of_channels, 0);
         if (data)
         {
             glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i,

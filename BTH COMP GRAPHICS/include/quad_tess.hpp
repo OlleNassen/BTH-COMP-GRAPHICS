@@ -16,8 +16,8 @@ private:
 	vertex_array quad_array;
 	buffer quad_vbo;
 	buffer quad_ebo;
-	texture displacement_map;
 	texture tess_texture;
+	texture displacement_map;
 
 	virtual void update_current(const std::chrono::milliseconds delta_time,
 		const glm::mat4& world_transform, glm::mat4& transform) override;

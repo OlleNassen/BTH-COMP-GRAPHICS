@@ -101,7 +101,7 @@ game::game()
 
 	//factory.load_mesh("models/banner.obj");
 
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); // Wireframe
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); // Wireframe
 }
 
 game::~game()
@@ -196,13 +196,11 @@ void game::render()
 
 void game::update(const std::chrono::milliseconds delta_time)
 {
-    using float_seconds = std::chrono::duration<float>;
-
     terror->update(delta_time);
     game_camera.move_on_terrain(*terror);
 
-    game_camera.update(std::chrono::duration_cast<float_seconds>(delta_time).count());
+    game_camera.update(delta_time);
 
     particles->update(delta_time);
-    temp_model.update(std::chrono::duration_cast<float_seconds>(delta_time).count());
+    temp_model.update(delta_time);
 }

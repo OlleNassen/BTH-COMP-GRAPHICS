@@ -7,7 +7,7 @@ void animation::load(const std::vector<key_frame>& key_frames)
 
 animation::animation()
 {
-    time = 0.0f;
+    time = 0s;
     current_key_frame = 0;
     glm::mat4 rot(1.0f);
 
@@ -28,7 +28,7 @@ animation::animation()
 
 }
 
-void animation::update(float delta_time, skeleton& joints)
+void animation::update(const std::chrono::milliseconds delta_time, skeleton& joints)
 {
     time += delta_time;
 
@@ -41,12 +41,12 @@ void animation::update(float delta_time, skeleton& joints)
 
 void animation::update_key_frame()
 {
-    if(time > key_frames[current_key_frame].time)
+    if(time.count() > key_frames[current_key_frame].time)
     {
         current_key_frame =
             (current_key_frame + 1)
             % (key_frames.size() - 1);
-        time = 0;
+        time = 0s;
     }
 }
 
@@ -54,16 +54,17 @@ void animation::update_pose(skeleton& joints)
 {
     auto& previous = key_frames[current_key_frame];
     auto& next = key_frames[current_key_frame + 1];
+    auto current_time = time.count();
 
     for(auto i = 0u; i < joints.size(); i++)
     {
         auto new_position =
             glm::mix(previous.pose[i].position,
-            next.pose[i].position, time);
+            next.pose[i].position, current_time);
 
         auto new_rotation =
             glm::slerp(previous.pose[i].rotation,
-            next.pose[i].rotation, time);
+            next.pose[i].rotation, current_time);
 
         joints[i].position = new_position;
         joints[i].rotation = new_rotation;

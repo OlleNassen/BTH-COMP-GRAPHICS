@@ -1,6 +1,6 @@
 #include "skybox.hpp"
 
-float skybox_vertices[] =
+constexpr float skybox_vertices[] =
 {
     -1.0f,  1.0f, -1.0f,
     -1.0f, -1.0f, -1.0f,

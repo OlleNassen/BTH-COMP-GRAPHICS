@@ -98,7 +98,7 @@ void scene_node::update_children(const std::chrono::milliseconds delta_time, glm
 
 void scene_node::prepare_render_children(const shader& shader, glm::mat4& world_transform) const
 {
-    for(const auto& child : children)
+    for(const auto* child : children)
     {
         glm::mat4 temp_transform = world_transform;
         child->prepare_render(shader, temp_transform);
@@ -107,7 +107,7 @@ void scene_node::prepare_render_children(const shader& shader, glm::mat4& world_
 
 void scene_node::render_children(const shader& shader, glm::mat4& world_transform) const
 {
-    for(const auto& child : children)
+    for(const auto* child : children)
     {
         glm::mat4 temp_transform = world_transform;
         child->render(shader, temp_transform);

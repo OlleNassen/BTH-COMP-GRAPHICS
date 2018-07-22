@@ -117,15 +117,17 @@ void camera::fast_released()
     pressed_shift = false;
 }
 
-void camera::update(float delta_time)
+void camera::update(const std::chrono::milliseconds delta_time)
 {
+	using namespace std::chrono;
+	using float_seconds = duration<float>;
 	auto velocity = 10.0f;
 	//TURBO SPEED
 	if (pressed_shift)
 	{
 		velocity *= 10;
 	}
-	velocity *= delta_time;
+	velocity *= duration_cast<float_seconds>(delta_time).count();
 
     if (pressed_up)
         position += forward * velocity;

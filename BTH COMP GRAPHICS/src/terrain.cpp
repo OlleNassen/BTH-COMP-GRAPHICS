@@ -7,33 +7,26 @@
 
 #define BUFFER_OFFSET(i) ((char *)nullptr + (i))
 
-struct Vertex
-{
-	glm::vec3 position;
-	glm::vec2 texture;
-
-	Vertex(const glm::vec3& position, const glm::vec2& texture)
-	{
-		this->position = position;
-		this->texture = texture;
-	}
-};
+using terrain_vertex = std::pair<glm::vec3, glm::vec2>; // pos, tex
 
 terrain::terrain(float x, float y, float z)
-	: draw_count(0)
+	: scene_node(x, y, z)
+    , draw_count(0)
 	, terrain_vbo(target::ARRAY_BUFFER), terrain_ebo(target::ELEMENT_ARRAY_BUFFER)
-	, scene_node(x, y, z)
 {
 	terrain_texture = new texture("images/ground.png", wrap::REPEAT, filter::LINEAR, format::RGBA);
 
-	int textureWidth, textureHeight, nrChannels;
+	auto textureWidth = 0;
+	auto textureHeight = 0;
+	auto nrChannels = 0;
 	data = stbi_load("images/heightmap.jpg", &textureWidth, &textureHeight, &nrChannels, 1);
 
 	std::vector<int> heights;
+	heights.reserve(textureWidth * textureHeight);
 
 	if (data)
 	{
-		for (int i = 0; i < textureWidth * textureHeight; i++)
+		for (auto i = 0; i < textureWidth * textureHeight; i++)
 		{
 			heights.push_back(static_cast<int>(data[i]));
 		}
@@ -46,25 +39,25 @@ terrain::terrain(float x, float y, float z)
 	width = textureWidth;
 	depth = textureHeight;
 
-	std::vector<Vertex> vertices;
+	std::vector<terrain_vertex> vertices;
 	std::vector<unsigned int> indices;
 
-	int heightIndex = 0;
+	auto heightIndex = 0;
 
-	for (int x = 0; x < depth; x++)
+	for (auto x = 0; x < depth; x++)
 	{
-		for (int z = 0; z < width; z++)
+		for (auto z = 0; z < width; z++)
 		{
-			vertices.push_back(Vertex(glm::vec3(x, heights[heightIndex] * 0.1f, z), glm::vec2(x, z)));
+			vertices.push_back({ glm::vec3(x, heights[heightIndex] * 0.1f, z), glm::vec2(x, z) });
 			heightIndex++;
 		}
 	}
 
-	for (int i = 0; i < depth - 1; i++)
+	for (auto i = 0; i < depth - 1; i++)
 	{
-		for (int j = 0; j < width - 1; j++)
+		for (auto j = 0; j < width - 1; j++)
 		{
-			int pos = j + (i * width);
+			auto pos = j + (i * width);
 
 			indices.push_back(pos);
 			indices.push_back(pos + 1);
@@ -83,9 +76,9 @@ terrain::terrain(float x, float y, float z)
 	terrain_ebo.data(sizeof(unsigned int) * indices.size(), &indices[0], GL_STATIC_DRAW);
 
 	int offset = 0;
-	terrain_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), BUFFER_OFFSET(offset));
+	terrain_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(terrain_vertex), BUFFER_OFFSET(offset));
 	offset += sizeof(glm::vec3);
-	terrain_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), BUFFER_OFFSET(offset));
+	terrain_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(terrain_vertex), BUFFER_OFFSET(offset));
 	offset += sizeof(glm::vec2);
 	x = 0;
 	y = 0;
