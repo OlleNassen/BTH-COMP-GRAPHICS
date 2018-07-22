@@ -68,9 +68,9 @@ void camera::on_mouse_moved(float x, float y)
         pitch = -89.0f;
 
     glm::vec3 front;
-    front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
-    front.y = sin(glm::radians(pitch));
-    front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+    front.x = glm::cos(glm::radians(yaw)) * glm::cos(glm::radians(pitch));
+    front.y = glm::sin(glm::radians(pitch));
+    front.z = glm::sin(glm::radians(yaw)) * glm::cos(glm::radians(pitch));
     forward = glm::normalize(front);
 }
 

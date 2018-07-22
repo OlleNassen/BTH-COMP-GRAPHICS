@@ -198,5 +198,5 @@ void game::update(const std::chrono::milliseconds delta_time)
     seconds += delta_time;
     light_pos.x += glm::sin(seconds.count() * 2.0f);
 	light_pos.y += glm::sin(seconds.count() * 0.7f);
-	phong_pos.x += sin(seconds.count() * 2.0f) / 10;
+	phong_pos.x += sin(seconds.count() * 2.0f) / 10.0f;
 }

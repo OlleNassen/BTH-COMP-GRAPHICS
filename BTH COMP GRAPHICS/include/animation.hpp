@@ -19,8 +19,6 @@ struct joint
 
 using skeleton = std::array<joint, 50>;
 
-joint fn(const joint& previous, const joint& next);
-
 struct key_frame
 {
     float time;

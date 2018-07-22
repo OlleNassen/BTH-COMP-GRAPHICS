@@ -9,7 +9,7 @@
 class quad : public scene_node
 {
 public:
-	quad(float x = 0.f, float y = 0.f, float z = 0.f);
+	quad(float x = 0.0f, float y = 0.0f, float z = 0.0f);
 	virtual ~quad();
 
 	void set_texture(const std::string& path);

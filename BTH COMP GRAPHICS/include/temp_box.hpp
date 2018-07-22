@@ -8,7 +8,7 @@
 class temp_box : public scene_node
 {
 public:
-	temp_box(float x = 0.f, float y = 0.f, float z = 0.f);
+	temp_box(float x = 0.0f, float y = 0.0f, float z = 0.0f);
 	virtual ~temp_box();
 
 private:

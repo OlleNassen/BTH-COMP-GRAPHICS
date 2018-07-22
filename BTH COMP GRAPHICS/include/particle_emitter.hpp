@@ -8,7 +8,7 @@
 class particle_emitter:public scene_node
 {
 public:
-	particle_emitter(float x = 0.f, float y = 0.f, float z = 0.f);
+	particle_emitter(float x = 0.0f, float y = 0.0f, float z = 0.0f);
 	virtual ~particle_emitter();
 
 	void set_texture(const std::string& path);

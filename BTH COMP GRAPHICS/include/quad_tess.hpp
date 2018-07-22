@@ -9,7 +9,7 @@
 class quad_tess : public scene_node
 {
 public:
-	quad_tess(float x = 0.f, float y = 0.f, float z = 0.f);
+	quad_tess(float x = 0.0f, float y = 0.0f, float z = 0.0f);
 	virtual ~quad_tess();
 
 private:

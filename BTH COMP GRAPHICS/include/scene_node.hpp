@@ -17,7 +17,7 @@ static constexpr char* buffer_offset(unsigned int offset)
 class scene_node
 {
 public:
-    scene_node(float x = 0, float y = 0, float z = 0);
+    scene_node(float x = 0.0f, float y = 0.0f, float z = 0.0f);
     virtual ~scene_node();
     void attach_child(scene_node* child);
 

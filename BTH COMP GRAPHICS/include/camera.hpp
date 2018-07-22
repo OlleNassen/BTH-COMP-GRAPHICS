@@ -51,8 +51,6 @@ private:
     glm::vec3 position;
     glm::vec3 forward;
     glm::vec3 up;
-
-    glm::vec<2, double, glm::highp> mouse_position;
 };
 
 #endif // CAMERA_HPP

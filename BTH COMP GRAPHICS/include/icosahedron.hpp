@@ -7,10 +7,10 @@
 #include "texture.hpp"
 
 
-class icosahedron :public scene_node
+class icosahedron : public scene_node
 {
 public:
-	icosahedron(float x = 0.f, float y = 0.f, float z = 0.f);
+	icosahedron(float x = 0.0f, float y = 0.0f, float z = 0.0f);
 	virtual ~icosahedron();
 
 private:
