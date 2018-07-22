@@ -100,6 +100,7 @@ game::game()
 	ico = new icosahedron();
 
 	light_pos = glm::vec3(50, 5, -15);
+    phong_pos = glm::vec3(0, 10, 5);
 
 	//factory.load_mesh("models/banner.obj");
 
@@ -140,8 +141,6 @@ void game::render()
 
 	phong_shader.use();
 	game_camera.bind(phong_shader);
-	static glm::vec3 phong_pos(0, 10, 5);
-	phong_pos.x += sin(glfwGetTime() * 2.0f) / 10;
 	phong_shader.uniform("light_color", glm::vec3(1.f, 1.f, 1.f));
 	phong_shader.uniform("lightPos", phong_pos);
 	temp->render(phong_shader);
@@ -205,4 +204,5 @@ void game::update(const std::chrono::milliseconds delta_time)
     seconds += delta_time;
     light_pos.x += glm::sin(seconds.count() * 2.0f);
 	light_pos.y += glm::sin(seconds.count() * 0.7f);
+	phong_pos.x += sin(seconds.count() * 2.0f) / 10;
 }

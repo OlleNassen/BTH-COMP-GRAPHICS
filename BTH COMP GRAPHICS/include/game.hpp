@@ -63,6 +63,7 @@ private:
 	icosahedron* ico;
 
 	glm::vec3 light_pos;
+	glm::vec3 phong_pos;
 	std::chrono::duration<float> seconds;
 
 	void render();
