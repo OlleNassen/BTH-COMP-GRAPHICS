@@ -7,7 +7,7 @@ icosahedron::icosahedron(float x, float y, float z)
 , ebo(target::ELEMENT_ARRAY_BUFFER)
 {
 
-	const int Faces[] = {
+	constexpr  int Faces[] = {
 		2, 1, 0,
 		3, 2, 0,
 		4, 3, 0,
@@ -29,7 +29,7 @@ icosahedron::icosahedron(float x, float y, float z)
 		5, 10, 9,
 		1, 6, 10 };
 
-	const float Verts[] = {
+	constexpr  float Verts[] = {
 		0.000f,  0.000f,  1.000f,
 		0.894f,  0.000f,  0.447f,
 		0.276f,  0.851f,  0.447f,

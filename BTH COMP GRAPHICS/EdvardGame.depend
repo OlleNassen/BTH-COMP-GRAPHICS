@@ -2902,7 +2902,7 @@
 	<glm/glm.hpp>
 	"shader.hpp"
 
-1532268908 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
+1532275868 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
 	"box.hpp"
 	<iostream>
 
@@ -2946,7 +2946,7 @@
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
-1532268987 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\point_light.cpp
+1532276003 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\point_light.cpp
 	"point_light.hpp"
 
 1532268957 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\point_light.hpp
@@ -2994,7 +2994,7 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1532268968 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particle_emitter.cpp
+1532275775 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particle_emitter.cpp
 	"particle_emitter.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<ctime>
@@ -3080,6 +3080,6 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1532269675 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\icosahedron.cpp
+1532275833 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\icosahedron.cpp
 	"icosahedron.hpp"
 

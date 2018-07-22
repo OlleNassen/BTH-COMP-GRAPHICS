@@ -21,8 +21,8 @@ particle_emitter::particle_emitter(float x, float y, float z)
     }
 
 	instance_vbo.data(sizeof(glm::vec3) * offsets.size(), offsets.data(), GL_STATIC_DRAW);
-	auto size = 0.3f;
-	float vertices[] =
+	constexpr auto size = 0.3f;
+	constexpr float vertices[] =
 	{
 		// positions //Texcoords     // colors
 		0.f,  size, 0.f, 0.0f, 1.0f,  0.0f, 1.0f, 0.0f,

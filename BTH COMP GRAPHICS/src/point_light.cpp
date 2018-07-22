@@ -6,7 +6,7 @@ point_light::point_light()
 	diffuse = glm::vec3(1, 1, 0.1);
 	specular = glm::vec3(0.1, 1, 0.1);
 	da_box = new box(5);
-	this->attach_child(da_box);
+	attach_child(da_box);
 }
 
 point_light::~point_light()
