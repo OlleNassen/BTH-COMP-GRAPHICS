@@ -81,7 +81,7 @@ skybox::~skybox()
     //dtor
 }
 
-void skybox::update_current(float delta_time,
+void skybox::update_current(const std::chrono::milliseconds delta_time,
         const glm::mat4& world_transform, glm::mat4& transform)
 {
 

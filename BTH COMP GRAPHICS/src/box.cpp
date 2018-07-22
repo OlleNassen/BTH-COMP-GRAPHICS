@@ -66,7 +66,7 @@ box::~box()
 
 }
 
-void box::update_current(float delta_time,
+void box::update_current(const std::chrono::milliseconds delta_time,
         const glm::mat4& world_transform, glm::mat4& transform)
 {
 

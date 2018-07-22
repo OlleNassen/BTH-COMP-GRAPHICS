@@ -74,7 +74,7 @@ normal_quad::normal_quad(float x, float y, float z)
 		pos3.x, pos3.y, pos3.z, nm.x, nm.y, nm.z, uv3.x, uv3.y, tangent2.x, tangent2.y, tangent2.z, bitangent2.x, bitangent2.y, bitangent2.z,
 		pos4.x, pos4.y, pos4.z, nm.x, nm.y, nm.z, uv4.x, uv4.y, tangent2.x, tangent2.y, tangent2.z, bitangent2.x, bitangent2.y, bitangent2.z
 	};
-	
+
 	quad_array.bind();
 	quad_vbo.data(sizeof(quadVertices), &quadVertices[0], GL_STATIC_DRAW);
 	int offset = 0;
@@ -118,7 +118,7 @@ normal_quad::~normal_quad()
 {
 }
 
-void normal_quad::update_current(float delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
+void normal_quad::update_current(const std::chrono::milliseconds delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
 {
 	transform = glm::scale(transform, glm::vec3(0.1, 0.1, 1));
 }

@@ -67,7 +67,7 @@ temp_box::~temp_box()
 
 }
 
-void temp_box::update_current(float delta_time,
+void temp_box::update_current(const std::chrono::milliseconds delta_time,
 	const glm::mat4& world_transform, glm::mat4& transform)
 {
 	glm::vec3 pos = glm::vec3(world_transform[0][0], world_transform[1][0], world_transform[2][0]);

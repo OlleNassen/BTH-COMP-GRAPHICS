@@ -2,17 +2,20 @@
 #define SCENE_NODE_HPP
 
 #include <vector>
+#include <chrono>
 #include <glm/glm.hpp>
 #include "shader.hpp"
 
 class scene_node
 {
 public:
+    //using namespace std::literals::chrono_literals;
+
     scene_node(float x = 0, float y = 0, float z = 0);
     virtual ~scene_node();
     void attach_child(scene_node* child);
 
-    void update(float delta_time);
+    void update(const std::chrono::milliseconds delta_time);
     void prepare_render(const shader& shader) const;
     void render(const shader& shader) const;
 
@@ -20,16 +23,16 @@ private:
     std::vector<scene_node*> children;
     glm::mat4 transform;
 
-    void update(float delta_time, glm::mat4& world_transform);
+    void update(const std::chrono::milliseconds delta_time, glm::mat4& world_transform);
     void prepare_render(const shader& shader, glm::mat4& world_transform) const;
     void render(const shader& shader, glm::mat4& world_transform) const;
 
-    virtual void update_current(float delta_time,
+    virtual void update_current(const std::chrono::milliseconds delta_time,
         const glm::mat4& world_transform, glm::mat4& transform);
     virtual void prepare_render_current(const shader& shader, const glm::mat4& world_transform) const;
     virtual void render_current(const shader& shader, const glm::mat4& world_transform) const;
 
-    void update_children(float delta_time, glm::mat4& world_transform);
+    void update_children(const std::chrono::milliseconds delta_time, glm::mat4& world_transform);
     void prepare_render_children(const shader& shader, glm::mat4& world_transform) const;
     void render_children(const shader& shader, glm::mat4& world_transform) const;
 };

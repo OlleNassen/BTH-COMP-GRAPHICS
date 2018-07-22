@@ -2044,7 +2044,7 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1531394960 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
+1532267640 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
 	"camera.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
@@ -2602,14 +2602,15 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1531748241 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1532266519 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
+	<chrono>
 	"input.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1531737166 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1532262534 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	"window.hpp"
 	"camera.hpp"
 	"shader.hpp"
@@ -2627,6 +2628,7 @@
 	"quad_tess.hpp"
 	"icosahedron.hpp"
 	<iostream>
+	<chrono>
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glfw\glfw3.h
 	<stddef.h>
@@ -2863,7 +2865,7 @@
 	"window.hpp"
 	<iostream>
 
-1532093406 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1532097564 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 	<algorithm>
 	<iostream>
@@ -2889,42 +2891,43 @@
 	<GLFW/glfw3.h>
 	"window.hpp"
 
-1530868405 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\scene_node.cpp
+1532269029 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\scene_node.cpp
 	"scene_node.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1530868309 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\scene_node.hpp
+1532268851 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\scene_node.hpp
 	<vector>
+	<chrono>
 	<glm/glm.hpp>
 	"shader.hpp"
 
-1531320609 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
+1532268908 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
 	"box.hpp"
 	<iostream>
 
-1530782783 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\box.hpp
+1532268867 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\box.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1530698317 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skybox.hpp
+1532268917 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skybox.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1531315919 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skybox.cpp
+1532269042 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skybox.cpp
 	"skybox.hpp"
 
-1531315827 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\terrain.hpp
+1532268895 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\terrain.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1531319370 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
+1532269061 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
 	"terrain.hpp"
 	<vector>
 	<iostream>
@@ -2932,45 +2935,45 @@
 	<glm/glm.hpp>
 	<stb_image.h>
 
-1530800353 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\quad.hpp
+1532268945 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\quad.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1531319555 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad.cpp
+1532268995 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad.cpp
 	"quad.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
-1530800353 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\point_light.cpp
+1532268987 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\point_light.cpp
 	"point_light.hpp"
 
-1530800353 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\point_light.hpp
+1532268957 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\point_light.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
 	"texture.hpp"
 	"box.hpp"
 
-1530800353 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\temp_box.hpp
+1532268962 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\temp_box.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1530800353 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\normal_quad.hpp
+1532268923 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\normal_quad.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1531320922 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\temp_box.cpp
+1532269054 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\temp_box.cpp
 	"temp_box.hpp"
 	<iostream>
 	<glm/gtc/matrix_transform.hpp>
 
-1530800353 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\normal_quad.cpp
+1532268930 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\normal_quad.cpp
 	"normal_quad.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
@@ -2984,19 +2987,19 @@
 	<glm/glm.hpp>
 	"animation.hpp"
 
-1530883707 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\particle_emitter.hpp
+1532268950 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\particle_emitter.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1530883707 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particle_emitter.cpp
+1532268968 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particle_emitter.cpp
 	"particle_emitter.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<ctime>
 	<iostream>
 
-1531927122 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1532096085 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 
 1531924196 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
@@ -3059,23 +3062,23 @@
 	"tinyxml2.h"
 	"model.hpp"
 
-1531406692 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\quad_tess.hpp
+1532268976 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\quad_tess.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1531406692 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad_tess.cpp
+1532269001 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad_tess.cpp
 	"quad_tess.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
-1531737166 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\icosahedron.hpp
+1532268888 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\icosahedron.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1531737166 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\icosahedron.cpp
+1532268901 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\icosahedron.cpp
 	"icosahedron.hpp"
 

@@ -65,9 +65,6 @@ void animation::update_pose(skeleton& joints)
             glm::slerp(previous.pose[i].rotation,
             next.pose[i].rotation, time);
 
-
-        //new_rotation = glm::normalize(new_rotation);
-
         joints[i].position = new_position;
         joints[i].rotation = new_rotation;
     }

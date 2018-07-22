@@ -24,7 +24,7 @@ void scene_node::attach_child(scene_node* child)
     children.push_back(child);
 }
 
-void scene_node::update(float delta_time)
+void scene_node::update(const std::chrono::milliseconds delta_time)
 {
     glm::mat4 world_transform(1.0f);
     update(delta_time, world_transform);
@@ -45,7 +45,7 @@ void scene_node::render(const shader& shader) const
     render(shader, world_transform);
 }
 
-void scene_node::update(float delta_time, glm::mat4& world_transform)
+void scene_node::update(const std::chrono::milliseconds delta_time, glm::mat4& world_transform)
 {
     world_transform *= transform;
 
@@ -70,7 +70,7 @@ void scene_node::render(const shader& shader, glm::mat4& world_transform) const
 	render_children(shader, world_transform);
 }
 
-void scene_node::update_current(float delta_time,
+void scene_node::update_current(const std::chrono::milliseconds delta_time,
     const glm::mat4& world_transform, glm::mat4& transform)
 {
 
@@ -87,7 +87,7 @@ void scene_node::render_current(const shader& shader, const glm::mat4& world_tra
 
 }
 
-void scene_node::update_children(float delta_time, glm::mat4& world_transform)
+void scene_node::update_children(const std::chrono::milliseconds delta_time, glm::mat4& world_transform)
 {
     for(auto* child : children)
     {

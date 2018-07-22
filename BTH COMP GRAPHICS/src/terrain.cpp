@@ -106,7 +106,7 @@ float terrain::calculate_camera_y(float x, float z) const
     return data[x_index + z_index * width] * 0.1f + y;
 }
 
-void terrain::update_current(float delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
+void terrain::update_current(const std::chrono::milliseconds delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
 {
     x = world_transform[3][0];
     y = world_transform[3][1];

@@ -17,7 +17,7 @@ quad_tess::quad_tess(float x, float y, float z)
 		-0.5f, -0.5f, 0.f, 0.0f, 0.0f,
 		-0.5f, 0.5f, 0.f, 0.0f, 1.0f,
 		0.5f, -0.5f, 0.f, 1.0f, 0.0f,
-		0.5f, 0.5f, 0.f, 1.0f, 1.0f, 
+		0.5f, 0.5f, 0.f, 1.0f, 1.0f,
 	};
 
 	int indices[] =
@@ -42,7 +42,7 @@ quad_tess::~quad_tess()
 
 }
 
-void quad_tess::update_current(float delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
+void quad_tess::update_current(const std::chrono::milliseconds delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
 {
 }
 

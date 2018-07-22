@@ -17,6 +17,7 @@
 #include "quad_tess.hpp"
 #include "icosahedron.hpp"
 #include <iostream>
+#include <chrono>
 //#include "mesh_factory.hpp"
 
 std::ostream& operator<<(std::ostream& os, const glm::mat4& value);
@@ -61,9 +62,8 @@ private:
 	quad_tess* tess;
 	icosahedron* ico;
 
-
 	void render();
-	void update(float delta_time);
+	void update(const std::chrono::milliseconds delta_time);
 };
 
 #endif

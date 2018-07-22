@@ -41,7 +41,7 @@ particle_emitter::particle_emitter(float x, float y, float z)
 	offset += sizeof(float) * 2;
 	quad_array.attribute_pointer(2, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), BUFFER_OFFSET(offset));
 	offset += sizeof(float) * 3;
-	
+
 	offset = 0;
 	instance_vbo.bind();
 	quad_array.attribute_pointer(3, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), BUFFER_OFFSET(offset));
@@ -52,7 +52,7 @@ particle_emitter::~particle_emitter()
 {
 }
 
-void particle_emitter::update_current(float delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
+void particle_emitter::update_current(const std::chrono::milliseconds delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
 {
 	instance_vbo.data(sizeof(glm::vec3) * MAX_NUM_PARTICLES, (void*)offsets, GL_STATIC_DRAW);
 	/*

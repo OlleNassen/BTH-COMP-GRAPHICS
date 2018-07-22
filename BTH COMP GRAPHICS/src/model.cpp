@@ -176,6 +176,8 @@ void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames
             key_frames[j].pose[i].rotation = glm::quat(q.w, q.x, q.y, q.z);
 		}
 	}
+
+    std::cout << key_frames[1].pose[1].position.x << std::endl;
 }
 
 void import_model(const std::string& path,
@@ -232,15 +234,15 @@ void model::update(float delta_time)
 {
 	current.update(delta_time, joints);
 
-	for (auto i = 0u; i < joints.size(); i++)
+	//std::cout << joints[1].position.x << std::endl;
+
+	for (auto i = 0u; i < 2; i++)
 	{
 		glm::mat4 new_transform  =
             glm::translate(glm::mat4(1.0f), joints[i].position)
             * glm::mat4_cast(joints[i].rotation);
 
 		world_joints[i] = new_transform;
-
-		std::cout << joints[i].parent << std::endl;
 
 		for (auto j = joints[i].parent;
 			joints[j].parent != 0;
@@ -250,8 +252,7 @@ void model::update(float delta_time)
                 glm::translate(glm::mat4(1.0f), joints[j].position)
                 * glm::mat4_cast(joints[j].rotation);
 
-			world_joints[i] *= parent_transform;
-			std::cout << i << std::endl;
+			//world_joints[i] *= parent_transform;
 		}
 	}
 

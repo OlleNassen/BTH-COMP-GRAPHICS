@@ -1,8 +1,13 @@
 #include "game.hpp"
 #include <iostream>
+#include <chrono>
 #include "input.hpp"
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+
+using namespace std::literals::chrono_literals;
+
+constexpr auto timestep = 16ms;
 
 std::ostream& operator<<(std::ostream& os, const glm::mat4& value)
 {
@@ -79,9 +84,8 @@ game::game()
 
 	quad1 = new quad(0, 5, -20);
 	quad2 = new normal_quad(50, 5, -20);
-	quad1->update(0.0016);
+	quad1->update(16ms);
 	quad1->set_texture("images/brickwall.jpg");
-	//quad2->update(0.0016);
 	quad2->set_texture("images/brickwall.jpg");
 
 	particles = new particle_emitter(75, 35,75);
@@ -106,19 +110,23 @@ game::~game()
 
 void game::run()
 {
-	float delta_time = 0.0f;
-	float last_frame = 0.0f;
+	using clock = std::chrono::high_resolution_clock;
+
+    auto last_time = clock::now();
+    auto delta_time = 0ns;
 
 	while (game_window.is_open())
 	{
-		float current_frame = glfwGetTime();
-		delta_time = current_frame - last_frame;
-		last_frame = current_frame;
+		delta_time += clock::now() - last_time;
+        last_time = clock::now();
 
-		update(delta_time);
+        if(delta_time > timestep)
+        {
+            delta_time = 0ns;
+            update(timestep);
+        }
 
 		render();
-
 		game_window.poll_events();
 	}
 }
@@ -175,7 +183,7 @@ void game::render()
 	game_camera.bind(environment_shader);
 	environment->render(environment_shader);
 
-	
+
 	tess_shader.use();
 	game_camera.bind(tess_shader);
 	ico->render(tess_shader);
@@ -187,12 +195,15 @@ void game::render()
 	game_window.swap_buffers();
 }
 
-void game::update(float delta_time)
+void game::update(const std::chrono::milliseconds delta_time)
 {
-	terror->update(delta_time);
-	game_camera.move_on_terrain(*terror);
-	game_camera.update(delta_time);
+    using float_seconds = std::chrono::duration<float>;
 
-	particles->update(delta_time);
-	temp_model.update(delta_time);
+    terror->update(delta_time);
+    game_camera.move_on_terrain(*terror);
+
+    game_camera.update(std::chrono::duration_cast<float_seconds>(delta_time).count());
+
+    particles->update(delta_time);
+    temp_model.update(std::chrono::duration_cast<float_seconds>(delta_time).count());
 }

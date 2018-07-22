@@ -33,7 +33,7 @@ quad::~quad()
 {
 }
 
-void quad::update_current(float delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
+void quad::update_current(const std::chrono::milliseconds delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
 {
 	transform = glm::scale(transform, glm::vec3(0.1,0.1,1));
 }
