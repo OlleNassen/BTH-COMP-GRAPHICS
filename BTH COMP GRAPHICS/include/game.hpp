@@ -30,8 +30,8 @@ public:
 
 	void run();
 private:
-	static const unsigned int WIDTH = 1280;
-	static const unsigned int HEIGHT = 720;
+	static constexpr auto WIDTH = 1280u;
+	static constexpr auto HEIGHT = 720u;
 
 	window game_window;
 	shader basic_shader;
@@ -61,6 +61,9 @@ private:
 	terrain* terror;
 	quad_tess* tess;
 	icosahedron* ico;
+
+	glm::vec3 light_pos;
+	std::chrono::duration<float> seconds;
 
 	void render();
 	void update(const std::chrono::milliseconds delta_time);

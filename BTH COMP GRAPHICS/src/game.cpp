@@ -99,6 +99,8 @@ game::game()
 
 	ico = new icosahedron();
 
+	light_pos = glm::vec3(50, 5, -15);
+
 	//factory.load_mesh("models/banner.obj");
 
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); // Wireframe
@@ -161,10 +163,6 @@ void game::render()
 	particles->render(billboard_shader);
 
 	//Normal mapping
-	static glm::vec3 light_pos(50, 5, -15);
-	light_pos.x += sin(glfwGetTime() * 2.0f);
-	light_pos.y += sin(glfwGetTime() * 0.7f);
-	//std::cout << light_pos.x << " " << light_pos.y << '\n';
 	normal_shader.use();
 	game_camera.bind(normal_shader);
 	normal_shader.uniform("lightPos", light_pos);
@@ -203,4 +201,8 @@ void game::update(const std::chrono::milliseconds delta_time)
 
     particles->update(delta_time);
     temp_model.update(delta_time);
+
+    seconds += delta_time;
+    light_pos.x += glm::sin(seconds.count() * 2.0f);
+	light_pos.y += glm::sin(seconds.count() * 0.7f);
 }
