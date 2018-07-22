@@ -1,5 +1,6 @@
 #ifndef PARTICLE_EMITTER_HPP
 #define PARTICLE_EMITTER_HPP
+#include <array>
 #include "scene_node.hpp"
 #include "buffer.hpp"
 #include "vertex_array.hpp"
@@ -17,9 +18,9 @@ private:
 	buffer instance_vbo;
 	texture* quad_texture;
 
-	static const unsigned int MAX_NUM_PARTICLES = 10000;
-	glm::vec3 offsets[MAX_NUM_PARTICLES];
-	bool going_up[MAX_NUM_PARTICLES];
+	static constexpr int MAX_NUM_PARTICLES = 10000;
+    std::array<glm::vec3, MAX_NUM_PARTICLES> offsets;
+    std::array<bool, MAX_NUM_PARTICLES> going_up;
 
 	virtual void update_current(const std::chrono::milliseconds delta_time,
 		const glm::mat4& world_transform, glm::mat4& transform) override;

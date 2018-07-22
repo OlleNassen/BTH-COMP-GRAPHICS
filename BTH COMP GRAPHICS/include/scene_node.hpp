@@ -6,11 +6,11 @@
 #include <glm/glm.hpp>
 #include "shader.hpp"
 
+using namespace std::literals::chrono_literals;
+
 class scene_node
 {
 public:
-    //using namespace std::literals::chrono_literals;
-
     scene_node(float x = 0, float y = 0, float z = 0);
     virtual ~scene_node();
     void attach_child(scene_node* child);

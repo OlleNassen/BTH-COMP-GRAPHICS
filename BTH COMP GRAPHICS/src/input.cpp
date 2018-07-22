@@ -17,11 +17,11 @@ void bind_key(const std::string& name, key keybind)
 
 void key_callback(GLFWwindow* window, int key_id, int scancode, int action, int mods)
 {
-    std::string name = keybinds[static_cast<key>(key_id)];
+    auto name = keybinds[static_cast<key>(key_id)];
 
     if(action == GLFW_PRESS)
     {
-        std::function<void()> callback = keymap_pressed[name];
+        auto callback = keymap_pressed[name];
         if(callback)
         {
             callback();
@@ -29,7 +29,7 @@ void key_callback(GLFWwindow* window, int key_id, int scancode, int action, int 
     }
     if(action == GLFW_RELEASE)
     {
-        std::function<void()> callback = keymap_released[name];
+        auto callback = keymap_released[name];
         if(callback)
         {
             callback();

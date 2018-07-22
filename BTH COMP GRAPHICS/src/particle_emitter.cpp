@@ -5,21 +5,23 @@
 #include <iostream>
 
 particle_emitter::particle_emitter(float x, float y, float z)
-	: quad_vbo(target::ARRAY_BUFFER), instance_vbo(target::ARRAY_BUFFER), quad_texture(new texture("images/edvard.png"))
-	, scene_node(x, y, z)
+	: scene_node(x, y, z)
+	, quad_vbo(target::ARRAY_BUFFER), instance_vbo(target::ARRAY_BUFFER), quad_texture(new texture("images/edvard.png"))
 {
 	srand(time(NULL));
-	for (int i = 0; i < MAX_NUM_PARTICLES; i++)
-	{
-		offsets[i].x = 0;
-		offsets[i].y = 0;
-		offsets[i].z = 0;
 
-		going_up[i] = true;
-	}
+	for(auto& offset : offsets)
+    {
+        offset = glm::vec3(0.0f, 0.0f, 0.0f);
+    }
 
-	instance_vbo.data(sizeof(glm::vec3) * MAX_NUM_PARTICLES, (void*)offsets, GL_STATIC_DRAW);
-	float size = 0.3f;
+    for(auto& up : going_up)
+    {
+        up = true;
+    }
+
+	instance_vbo.data(sizeof(glm::vec3) * offsets.size(), offsets.data(), GL_STATIC_DRAW);
+	auto size = 0.3f;
 	float vertices[] =
 	{
 		// positions //Texcoords     // colors
@@ -34,7 +36,7 @@ particle_emitter::particle_emitter(float x, float y, float z)
 
 	quad_array.bind();
 	quad_vbo.data(sizeof(vertices), &vertices[0], GL_STATIC_DRAW);
-	int offset = 0;
+	auto offset = 0;
 	quad_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), BUFFER_OFFSET(offset));
 	offset += sizeof(float) * 3;
 	quad_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), BUFFER_OFFSET(offset));
@@ -54,32 +56,26 @@ particle_emitter::~particle_emitter()
 
 void particle_emitter::update_current(const std::chrono::milliseconds delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
 {
-	instance_vbo.data(sizeof(glm::vec3) * MAX_NUM_PARTICLES, (void*)offsets, GL_STATIC_DRAW);
-	/*
-	static float pos = 0;
-	transform = glm::translate(transform, glm::vec3(0, pos, 0));
-	pos += 0.0000005;
-	*/
-	for (int i = 0; i < MAX_NUM_PARTICLES; i++)
+	instance_vbo.data(sizeof(glm::vec3) * offsets.size(), offsets.data(), GL_STATIC_DRAW);
+
+	for (auto i = 0u; i < offsets.size(); i++)
 	{
+		float randomX = (rand() % 100 - 50);
+		float randomY = (rand() % 100);
+		float randomZ = (rand() % 100 - 50);
+
 		if (offsets[i].y < 100 && going_up[i])
 		{
-			float randomX = (rand() % 100 - 50);
 			randomX /= 1000;
-			float randomY = (rand() % 100);
 			randomY /= 100;
-			float randomZ = (rand() % 100 - 50);
 			randomZ /= 1000;
 
 			offsets[i] = glm::vec3(offsets[i].x + randomX, offsets[i].y + randomY, offsets[i].z + randomZ);
 		}
 		else if (offsets[i].y < 200 && going_up[i])
 		{
-			float randomX = (rand() % 100 - 50);
 			randomX /= 100;
-			float randomY = (rand() % 100);
 			randomY /= 100;
-			float randomZ = (rand() % 100 - 50);
 			randomZ /= 100;
 
 			offsets[i] = glm::vec3(offsets[i].x + randomX, offsets[i].y + randomY, offsets[i].z + randomZ);
@@ -90,11 +86,8 @@ void particle_emitter::update_current(const std::chrono::milliseconds delta_time
 			{
 				going_up[i] = false;
 			}
-			float randomX = (rand() % 100 - 50);
 			randomX /= 50;
-			float randomY = (rand() % 100);
 			randomY /= 100;
-			float randomZ = (rand() % 100 - 50);
 			randomZ /= 50;
 
 			offsets[i] = glm::vec3(offsets[i].x + randomX, offsets[i].y + randomY, offsets[i].z + randomZ);
@@ -106,11 +99,8 @@ void particle_emitter::update_current(const std::chrono::milliseconds delta_time
 				offsets[i] = glm::vec3(0, 0, 0);
 				going_up[i] = true;
 			}
-			float randomX = (rand() % 100 - 50);
 			randomX /= 100;
-			float randomY = (rand() % 100);
 			randomY /= 50;
-			float randomZ = (rand() % 100 - 50);
 			randomZ /= 100;
 
 			offsets[i] = glm::vec3(offsets[i].x + randomX, offsets[i].y + -randomY, offsets[i].z + randomZ);
@@ -123,7 +113,7 @@ void particle_emitter::render_current(const shader & shader, const glm::mat4 & w
 	shader.uniform("model", world_transform);
 	quad_texture->uniform(shader, "diffuseMap", 0);
 	quad_array.bind();
-	glDrawArraysInstanced(GL_TRIANGLES, 0, 6, MAX_NUM_PARTICLES);
+	glDrawArraysInstanced(GL_TRIANGLES, 0, 6, offsets.size());
 	glBindVertexArray(0);
 }
 

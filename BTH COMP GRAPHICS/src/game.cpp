@@ -111,7 +111,6 @@ game::~game()
 void game::run()
 {
 	using clock = std::chrono::high_resolution_clock;
-
     auto last_time = clock::now();
     auto delta_time = 0ns;
 

@@ -2044,7 +2044,7 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1532267640 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
+1532269535 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
 	"camera.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
@@ -2602,7 +2602,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1532266519 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1532269421 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	<chrono>
@@ -2880,7 +2880,7 @@
 	<assimp/Scene.h>
 	<assimp/postprocess.h>
 
-1530611757 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\input.cpp
+1532269732 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\input.cpp
 	"input.hpp"
 	<iostream>
 	<map>
@@ -2896,7 +2896,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1532268851 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\scene_node.hpp
+1532269369 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\scene_node.hpp
 	<vector>
 	<chrono>
 	<glm/glm.hpp>
@@ -2973,7 +2973,7 @@
 	<iostream>
 	<glm/gtc/matrix_transform.hpp>
 
-1532268930 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\normal_quad.cpp
+1532269917 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\normal_quad.cpp
 	"normal_quad.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
@@ -2987,7 +2987,8 @@
 	<glm/glm.hpp>
 	"animation.hpp"
 
-1532268950 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\particle_emitter.hpp
+1532270819 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\particle_emitter.hpp
+	<array>
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
@@ -3079,6 +3080,6 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1532268901 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\icosahedron.cpp
+1532269675 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\icosahedron.cpp
 	"icosahedron.hpp"
 

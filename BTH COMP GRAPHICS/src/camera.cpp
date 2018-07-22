@@ -50,12 +50,12 @@ void camera::on_mouse_moved(float x, float y)
         first = false;
     }
 
-    float xoffset = x - last_x;
-    float yoffset = last_y - y;
+    auto xoffset = x - last_x;
+    auto yoffset = last_y - y;
     last_x = x;
     last_y = y;
 
-    float sensitivity = 0.05;
+    auto sensitivity = 0.05f;
     xoffset *= sensitivity;
     yoffset *= sensitivity;
 
@@ -119,7 +119,7 @@ void camera::fast_released()
 
 void camera::update(float delta_time)
 {
-	float velocity = 10.0f;
+	auto velocity = 10.0f;
 	//TURBO SPEED
 	if (pressed_shift)
 	{

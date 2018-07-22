@@ -51,7 +51,7 @@ icosahedron::icosahedron(float x, float y, float z)
 	vbo.data(sizeof(Verts), &Verts[0], GL_STATIC_DRAW);
 	ebo.data(sizeof(Faces), &Faces[0], GL_STATIC_DRAW);
 
-	int offset = 0;
+	auto offset = 0;
 	v_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), BUFFER_OFFSET(offset));
 	offset += sizeof(float) * 3;
 }
