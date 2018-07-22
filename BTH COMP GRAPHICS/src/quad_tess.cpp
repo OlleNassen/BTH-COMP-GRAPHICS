@@ -2,8 +2,6 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-#define BUFFER_OFFSET(i) ((char *)nullptr + (i))
-
 quad_tess::quad_tess(float x, float y, float z)
 	: scene_node(x, y, z)
 	, quad_vbo(target::ARRAY_BUFFER)
@@ -29,12 +27,8 @@ quad_tess::quad_tess(float x, float y, float z)
 	quad_vbo.data(sizeof(vertices), &vertices[0], GL_STATIC_DRAW);
 	quad_ebo.data(sizeof(indices), &indices[0], GL_STATIC_DRAW);
 
-	auto offset = 0;
-	quad_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), BUFFER_OFFSET(offset));
-	offset += sizeof(float) * 3;
-	quad_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), BUFFER_OFFSET(offset));
-	offset += sizeof(float) * 2;
-
+	quad_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), nullptr);
+	quad_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), buffer_offset<float>(3u));
 }
 
 quad_tess::~quad_tess()

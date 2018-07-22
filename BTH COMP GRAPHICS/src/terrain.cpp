@@ -5,8 +5,6 @@
 #include <glm/glm.hpp>
 #include <stb_image.h>
 
-#define BUFFER_OFFSET(i) ((char *)nullptr + (i))
-
 using terrain_vertex = std::pair<glm::vec3, glm::vec2>; // pos, tex
 
 terrain::terrain(float x, float y, float z)
@@ -75,11 +73,8 @@ terrain::terrain(float x, float y, float z)
 	terrain_vbo.data(sizeof(float) * 5 * vertices.size(), &vertices[0], GL_STATIC_DRAW);
 	terrain_ebo.data(sizeof(unsigned int) * indices.size(), &indices[0], GL_STATIC_DRAW);
 
-	int offset = 0;
-	terrain_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(terrain_vertex), BUFFER_OFFSET(offset));
-	offset += sizeof(glm::vec3);
-	terrain_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(terrain_vertex), BUFFER_OFFSET(offset));
-	offset += sizeof(glm::vec2);
+	terrain_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(terrain_vertex), nullptr);
+	terrain_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(terrain_vertex), buffer_offset<glm::vec3>(3u));
 	x = 0;
 	y = 0;
 	z = 0;

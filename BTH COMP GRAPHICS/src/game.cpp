@@ -77,9 +77,6 @@ game::game()
 
 	scene.attach_child(new point_light());
 	scene.attach_child(new box(20, 30, 40));
-	//scene_node* terr_temp = new terrain;
-	//terr_temp->attach_child(new particle_emitter); //Add this, fix shader problems
-	//scene.attach_child(new terrain(10, 10, 10));
 	scene.attach_child(new quad(20, 20, 20));
 
 	quad1 = new quad(0, 5, -20);
@@ -103,8 +100,6 @@ game::game()
     phong_pos = glm::vec3(0, 10, 5);
 
 	//factory.load_mesh("models/banner.obj");
-
-	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); // Wireframe
 }
 
 game::~game()
@@ -178,7 +173,6 @@ void game::render()
 	environment_shader.use();
 	game_camera.bind(environment_shader);
 	environment->render(environment_shader);
-
 
 	tess_shader.use();
 	game_camera.bind(tess_shader);

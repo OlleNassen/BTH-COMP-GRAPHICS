@@ -2603,7 +2603,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1532286557 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1532291876 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	<chrono>
@@ -2862,7 +2862,7 @@
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 
-1531394274 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\window.cpp
+1532291609 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\window.cpp
 	"window.hpp"
 	<iostream>
 
@@ -2897,13 +2897,13 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1532269369 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\scene_node.hpp
+1532300539 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\scene_node.hpp
 	<vector>
 	<chrono>
 	<glm/glm.hpp>
 	"shader.hpp"
 
-1532275868 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
+1532299242 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
 	"box.hpp"
 	<iostream>
 
@@ -2919,7 +2919,7 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1532279835 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skybox.cpp
+1532300257 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skybox.cpp
 	"skybox.hpp"
 
 1532268895 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\terrain.hpp
@@ -2928,7 +2928,7 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1532280773 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
+1532298237 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
 	"terrain.hpp"
 	<vector>
 	<iostream>
@@ -2942,7 +2942,7 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1532276084 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad.cpp
+1532300893 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad.cpp
 	"quad.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
@@ -2969,12 +2969,12 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1532279895 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\temp_box.cpp
+1532300963 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\temp_box.cpp
 	"temp_box.hpp"
 	<iostream>
 	<glm/gtc/matrix_transform.hpp>
 
-1532269917 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\normal_quad.cpp
+1532300817 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\normal_quad.cpp
 	"normal_quad.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
@@ -2995,7 +2995,7 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1532275775 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particle_emitter.cpp
+1532300786 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particle_emitter.cpp
 	"particle_emitter.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<ctime>
@@ -3071,7 +3071,7 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1532279480 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad_tess.cpp
+1532300946 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad_tess.cpp
 	"quad_tess.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
@@ -3082,6 +3082,6 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1532281353 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\icosahedron.cpp
+1532298183 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\icosahedron.cpp
 	"icosahedron.hpp"
 

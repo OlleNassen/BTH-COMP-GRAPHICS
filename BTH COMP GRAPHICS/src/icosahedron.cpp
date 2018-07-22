@@ -1,7 +1,5 @@
 #include "icosahedron.hpp"
 
-#define BUFFER_OFFSET(i) ((char *)nullptr + (i))
-
 icosahedron::icosahedron(float x, float y, float z)
 : vbo(target::ARRAY_BUFFER)
 , ebo(target::ELEMENT_ARRAY_BUFFER)
@@ -51,9 +49,7 @@ icosahedron::icosahedron(float x, float y, float z)
 	vbo.data(sizeof(verts), &verts[0], GL_STATIC_DRAW);
 	ebo.data(sizeof(faces), &faces[0], GL_STATIC_DRAW);
 
-	auto offset = 0;
-	v_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), BUFFER_OFFSET(offset));
-	offset += sizeof(float) * 3;
+	v_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 }
 
 icosahedron::~icosahedron()

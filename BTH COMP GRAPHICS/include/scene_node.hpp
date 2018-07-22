@@ -8,6 +8,12 @@
 
 using namespace std::literals::chrono_literals;
 
+template< typename T>
+static constexpr char* buffer_offset(unsigned int offset)
+{
+    return reinterpret_cast<char*>(offset * sizeof(T));
+}
+
 class scene_node
 {
 public:

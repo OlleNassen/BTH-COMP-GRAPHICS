@@ -56,9 +56,9 @@ box::box(float x, float y, float z)
 
     box_array.bind();
 	box_vbo.data(sizeof(vertices), &vertices[0], GL_STATIC_DRAW);
-    box_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-    box_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-    box_array.attribute_pointer(2, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(5 * sizeof(float)));
+    box_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), nullptr);
+    box_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), buffer_offset<float>(3u));
+    box_array.attribute_pointer(2, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), buffer_offset<float>(5u));
 }
 
 box::~box()

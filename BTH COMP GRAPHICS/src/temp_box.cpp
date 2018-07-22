@@ -56,8 +56,8 @@ temp_box::temp_box(float x, float y, float z)
 
 	box_array.bind();
 	box_vbo.data(sizeof(vertices), &vertices[0], GL_STATIC_DRAW);
-	box_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-	box_array.attribute_pointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+	box_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), nullptr);
+	box_array.attribute_pointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), buffer_offset<float>(3u));
 
 	color = glm::vec3(1.0f, 0.5f, 0.31f);
 }

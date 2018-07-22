@@ -1,6 +1,5 @@
 #include "particle_emitter.hpp"
 #include <glm/gtc/matrix_transform.hpp>
-#define BUFFER_OFFSET(i) ((char *)nullptr + (i))
 #include <ctime>
 #include <iostream>
 
@@ -36,17 +35,14 @@ particle_emitter::particle_emitter(float x, float y, float z)
 
 	quad_array.bind();
 	quad_vbo.data(sizeof(vertices), &vertices[0], GL_STATIC_DRAW);
-	auto offset = 0;
-	quad_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), BUFFER_OFFSET(offset));
-	offset += sizeof(float) * 3;
-	quad_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), BUFFER_OFFSET(offset));
-	offset += sizeof(float) * 2;
-	quad_array.attribute_pointer(2, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), BUFFER_OFFSET(offset));
-	offset += sizeof(float) * 3;
+	quad_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), nullptr);
+	auto offset = 3u;
+	quad_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), buffer_offset<float>(offset));
+	offset += 2u;
+	quad_array.attribute_pointer(2, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), buffer_offset<float>(offset));
 
-	offset = 0;
 	instance_vbo.bind();
-	quad_array.attribute_pointer(3, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), BUFFER_OFFSET(offset));
+	quad_array.attribute_pointer(3, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 	quad_array.attribute_divisor(3, 1);
 }
 
