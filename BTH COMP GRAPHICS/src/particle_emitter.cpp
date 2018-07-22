@@ -60,50 +60,38 @@ void particle_emitter::update_current(const std::chrono::milliseconds delta_time
 
 	for (auto i = 0u; i < offsets.size(); i++)
 	{
-		float randomX = (rand() % 100 - 50);
-		float randomY = (rand() % 100);
-		float randomZ = (rand() % 100 - 50);
+		glm::vec3 random(
+            rand() % 100 - 50,
+            rand() % 100,
+            rand() % 100 - 50);
 
 		if (offsets[i].y < 100 && going_up[i])
 		{
-			randomX /= 1000;
-			randomY /= 100;
-			randomZ /= 1000;
-
-			offsets[i] = glm::vec3(offsets[i].x + randomX, offsets[i].y + randomY, offsets[i].z + randomZ);
+			random /= glm::vec3(1000, 100, 1000);
+			offsets[i] += random;
 		}
 		else if (offsets[i].y < 200 && going_up[i])
 		{
-			randomX /= 100;
-			randomY /= 100;
-			randomZ /= 100;
-
-			offsets[i] = glm::vec3(offsets[i].x + randomX, offsets[i].y + randomY, offsets[i].z + randomZ);
+			random /= glm::vec3(100, 100, 100);
+			offsets[i] += random;
 		}
 		else if (going_up[i])
 		{
-			if (offsets[i].y > 400)
-			{
-				going_up[i] = false;
-			}
-			randomX /= 50;
-			randomY /= 100;
-			randomZ /= 50;
-
-			offsets[i] = glm::vec3(offsets[i].x + randomX, offsets[i].y + randomY, offsets[i].z + randomZ);
+			going_up[i] = offsets[i].y <= 400;
+            random /= glm::vec3(50, 100, 50);
+			offsets[i] += random;
 		}
 		else if (!going_up[i])
 		{
-			if (offsets[i].y < 0)
+			going_up[i] = offsets[i].y < 0;
+
+			if (going_up[i])
 			{
 				offsets[i] = glm::vec3(0, 0, 0);
-				going_up[i] = true;
 			}
-			randomX /= 100;
-			randomY /= 50;
-			randomZ /= 100;
 
-			offsets[i] = glm::vec3(offsets[i].x + randomX, offsets[i].y + -randomY, offsets[i].z + randomZ);
+			random /= glm::vec3(100, 50, 100);
+			offsets[i] += glm::vec3(random.x, -random.y, random.z);
 		}
 	}
 }
