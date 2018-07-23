@@ -12,7 +12,7 @@
 #include <map>
 #include "texture.hpp"
 
-glm::mat4 ai_to_glm4(const aiMatrix4x4& mat)
+static glm::mat4 ai_to_glm4(const aiMatrix4x4& mat)
 {
 	return glm::mat4(
 		mat.a1, mat.a2, mat.a3, mat.a4,
@@ -190,7 +190,7 @@ struct CompareVectors
 		return false;
 	}
 };
-/*
+
 class mesh
 {
 private:
@@ -534,7 +534,7 @@ private:
 	Assimp::Importer importer;
 	glm::mat4 global_inverse_transform;
 };
-*/
+
 class mesh_factory
 {
 public:
