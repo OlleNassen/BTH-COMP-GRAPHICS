@@ -12,9 +12,9 @@
 #include <map>
 #include "texture.hpp"
 
-glm::mat4 to_mat4(const aiMatrix4x4& mat)
+glm::mat4 ai_to_glm4(const aiMatrix4x4& mat)
 {
-	return glm::mat4x4(
+	return glm::mat4(
 		mat.a1, mat.a2, mat.a3, mat.a4,
 		mat.b1, mat.b2, mat.b3, mat.b4,
 		mat.c1, mat.c2, mat.c3, mat.c4,
@@ -235,7 +235,7 @@ public:
 
 		if (scene)
 		{
-			global_inverse_transform = to_mat4(scene->mRootNode->mTransformation);
+			global_inverse_transform = ai_to_glm4(scene->mRootNode->mTransformation);
 
 			glm::inverse(global_inverse_transform);
 			Ret = init_from_scene(scene, Filename);
@@ -318,7 +318,7 @@ public:
 				m_NumBones++;
 				BoneInfo bi;
 				m_BoneInfo.push_back(bi);
-				m_BoneInfo[BoneIndex].BoneOffset = to_mat4(pMesh->mBones[i]->mOffsetMatrix);
+				m_BoneInfo[BoneIndex].BoneOffset = ai_to_glm4(pMesh->mBones[i]->mOffsetMatrix);
 				m_BoneMapping[BoneName] = BoneIndex;
 			}
 			else {
