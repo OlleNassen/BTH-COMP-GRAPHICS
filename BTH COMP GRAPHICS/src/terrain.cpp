@@ -42,18 +42,18 @@ terrain::terrain(float x, float y, float z)
 
 	auto heightIndex = 0;
 
-	for (auto x = 0; x < depth; x++)
+	for (auto x = 0; x < depth; ++x)
 	{
-		for (auto z = 0; z < width; z++)
+		for (auto z = 0; z < width; ++z)
 		{
 			vertices.push_back({ glm::vec3(x, heights[heightIndex] * 0.1f, z), glm::vec2(x, z) });
 			heightIndex++;
 		}
 	}
 
-	for (auto i = 0; i < depth - 1; i++)
+	for (auto i = 0; i < depth - 1; ++i)
 	{
-		for (auto j = 0; j < width - 1; j++)
+		for (auto j = 0; j < width - 1; ++j)
 		{
 			auto pos = j + (i * width);
 

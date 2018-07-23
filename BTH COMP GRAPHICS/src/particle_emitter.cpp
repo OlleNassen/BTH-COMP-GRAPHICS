@@ -54,7 +54,7 @@ void particle_emitter::update_current(const std::chrono::milliseconds delta_time
 {
 	instance_vbo.data(sizeof(glm::vec3) * offsets.size(), offsets.data(), GL_STATIC_DRAW);
 
-	for (auto i = 0u; i < offsets.size(); i++)
+	for (auto i = 0u; i < offsets.size(); ++i)
 	{
 		glm::vec3 random(
             rand() % 100 - 50,

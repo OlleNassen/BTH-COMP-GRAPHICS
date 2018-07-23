@@ -7,7 +7,7 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<un
 {
 	vertices.resize(mesh->mNumVertices);
 
-	for (auto i = 0u; i < mesh->mNumVertices; i++)
+	for (auto i = 0u; i < mesh->mNumVertices; ++i)
 	{
 		vertices[i].position.x = mesh->mVertices[i].x;
 		vertices[i].position.y = mesh->mVertices[i].y;
@@ -21,10 +21,10 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<un
 		vertices[i].normal.z = mesh->mNormals[i].z;
 	}
 
-	for (auto i = 0u; i < mesh->mNumFaces; i++)
+	for (auto i = 0u; i < mesh->mNumFaces; ++i)
 	{
 		auto face = mesh->mFaces[i];
-		for (auto j = 0u; j < face.mNumIndices; j++)
+		for (auto j = 0u; j < face.mNumIndices; ++j)
 		{
 			indices.emplace_back(face.mIndices[j]);
 		}
@@ -35,10 +35,10 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<un
         vertex.joints = glm::ivec4(0.0f, 0.0f, 0.0f, 0.0f);
     }
 
-	for (auto i = 0u; i < mesh->mNumBones; i++)
+	for (auto i = 0u; i < mesh->mNumBones; ++i)
 	{
 		auto* bone = mesh->mBones[i];
-		for (auto j = 0u; j < bone->mNumWeights; j++)
+		for (auto j = 0u; j < bone->mNumWeights; ++j)
 		{
             if(vertices[bone->mWeights[j].mVertexId].joints.x == 0.0f)
             {
@@ -66,7 +66,7 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<un
 
 void load_skeleton(const aiMesh* mesh, skeleton& joints)
 {
-	for (auto i = 0u; i < mesh->mNumBones; i++)
+	for (auto i = 0u; i < mesh->mNumBones; ++i)
 	{
 		aiMatrix3x3 mat3;
 		aiMatrix4x4 mat4 = mesh->mBones[i]->mOffsetMatrix;
@@ -106,7 +106,7 @@ void load_parent_indices(const aiNode& node, std::vector<std::string>& names)
         names.emplace_back(node.mName.C_Str());
     }
 
-    for (auto i = 0u; i < node.mNumChildren; i++)
+    for (auto i = 0u; i < node.mNumChildren; ++i)
 	{
         load_parent_indices(*node.mChildren[i], names);
 	}
@@ -119,7 +119,7 @@ void parent_indices(const aiNode& node, const std::vector<std::string>& names, i
         index++;
     }
 
-    for (auto i = 0u; i < names.size(); i++)
+    for (auto i = 0u; i < names.size(); ++i)
     {
         if(names[i].compare(node.mParent->mName.C_Str()) == 0)
         {
@@ -127,7 +127,7 @@ void parent_indices(const aiNode& node, const std::vector<std::string>& names, i
         }
     }
 
-    for (auto i = 0u; i < node.mNumChildren; i++)
+    for (auto i = 0u; i < node.mNumChildren; ++i)
     {
         parent_indices(*node.mChildren[i], names, index, joints);
     }
@@ -137,13 +137,13 @@ void parent_indices(const aiNode& node, const std::vector<std::string>& names, i
 void load_parent_indices(const aiNode* node, skeleton& joints)
 {
     std::vector<std::string> names;
-    for (auto i = 0u; i < node->mNumChildren; i++)
+    for (auto i = 0u; i < node->mNumChildren; ++i)
 	{
         load_parent_indices(*node->mChildren[i], names);
 	}
 
 	auto index = 0;
-	for (auto i = 0u; i < node->mNumChildren; i++)
+	for (auto i = 0u; i < node->mNumChildren; ++i)
     {
         parent_indices(*node->mChildren[i], names, index, joints);
     }
@@ -153,11 +153,11 @@ void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames
 {
 	key_frames.resize(anim->mChannels[0]->mNumPositionKeys);
 
-	for (auto i = 0u; i < anim->mNumChannels; i++)
+	for (auto i = 0u; i < anim->mNumChannels; ++i)
 	{
         auto* channel = anim->mChannels[i];
 
-        for (auto j = 0u; j < channel->mNumPositionKeys; j++)
+        for (auto j = 0u; j < channel->mNumPositionKeys; ++j)
 		{
             if(i == 0)
             {
@@ -235,7 +235,7 @@ void model::update(const std::chrono::milliseconds delta_time)
 {
 	current.update(delta_time, joints);
 
-	for (auto i = 0u; i < joints.size(); i++)
+	for (auto i = 0u; i < joints.size(); ++i)
 	{
 		glm::mat4 new_transform  =
             glm::translate(glm::mat4(1.0f), joints[i].position)

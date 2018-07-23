@@ -56,7 +56,7 @@ void animation::update_pose(skeleton& joints)
     auto& next = key_frames[current_key_frame + 1];
     auto current_time = time.count();
 
-    for(auto i = 0u; i < joints.size(); i++)
+    for(auto i = 0u; i < joints.size(); ++i)
     {
         auto new_position =
             glm::mix(previous.pose[i].position,

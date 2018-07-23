@@ -65,7 +65,7 @@ texture::texture(std::vector<std::string> paths,
     auto height = 0;
     auto nr_of_channels = 0;
 
-    for (auto i = 0u; i < paths.size(); i++)
+    for (auto i = 0u; i < paths.size(); ++i)
     {
         auto* data = stbi_load(paths[i].c_str(), &width, &height, &nr_of_channels, 0);
         if (data)
