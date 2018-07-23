@@ -192,14 +192,9 @@ void import_model(const std::string& path,
 		aiProcess_GenSmoothNormals |
 		aiProcess_FlipUVs);
 
-	std::cout << scene->mNumMeshes << std::endl;
-	for(auto i = 0u; i < scene->mNumMeshes; i++)
-    {
-        load_mesh(scene->mMeshes[i], vertices, indices);
-        load_skeleton(scene->mMeshes[i], joints);
-    }
 
-
+    load_mesh(scene->mMeshes[0], vertices, indices);
+    load_skeleton(scene->mMeshes[0], joints);
 
 	load_parent_indices(scene->mRootNode, joints);
 	load_key_frames(scene->mAnimations[0], key_frames);
@@ -239,8 +234,6 @@ model::~model()
 void model::update(const std::chrono::milliseconds delta_time)
 {
 	current.update(delta_time, joints);
-
-	//std::cout << joints[1].position.x << std::endl;
 
 	for (auto i = 0u; i < joints.size(); i++)
 	{

@@ -1,13 +1,13 @@
 #include "race.hpp"
 
-constexpr race::sphere::sphere(const glm::vec3& position, float radius)
+sphere::sphere(const glm::vec3& position, float radius)
     : position(position)
     , radius(radius)
 {
 
 }
 
-bool race::sphere::contains(const glm::vec3& other) const
+bool sphere::contains(const glm::vec3& other) const
 {
     return glm::length(other - position) < radius;
 }
@@ -17,6 +17,26 @@ race::race()
     , current_lap(0)
 {
 
+}
+
+race::sphere_array::const_iterator race::begin() const
+{
+    return checkpoints.begin();
+}
+
+race::sphere_array::const_iterator race::end() const
+{
+    return checkpoints.end();
+}
+
+race::sphere_array::const_reference race::operator[](sphere_array::size_type pos) const
+{
+    return checkpoints[pos];
+}
+
+race::sphere_array::reference race::operator[](sphere_array::size_type pos)
+{
+    return checkpoints[pos];
 }
 
 int race::lap() const
