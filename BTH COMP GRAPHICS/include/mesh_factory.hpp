@@ -171,7 +171,7 @@ struct CompareEdges
 
 struct CompareVectors
 {
-	bool operator()(const aiVector3D& a, const aiVector3D& b)
+	bool operator()(const glm::vec3& a, const glm::vec3& b)
 	{
 		if (a.x < b.x) {
 			return true;
@@ -190,7 +190,7 @@ struct CompareVectors
 		return false;
 	}
 };
-
+/*
 class mesh
 {
 private:
@@ -409,17 +409,6 @@ public:
 					std::string FullPath = Dir + "/" + p;
 
 					m_Textures[i] = new texture(FullPath.c_str());
-					/*
-					if (!m_Textures[i]->Load()) {
-						printf("Error loading texture '%s'\n", FullPath.c_str());
-						delete m_Textures[i];
-						m_Textures[i] = NULL;
-						Ret = false;
-					}
-					else {
-						printf("%d - loaded texture '%s'\n", i, FullPath.c_str());
-					}
-					*/
 				}
 			}
 		}
@@ -545,7 +534,7 @@ private:
 	Assimp::Importer importer;
 	glm::mat4 global_inverse_transform;
 };
-
+*/
 class mesh_factory
 {
 public:
