@@ -11,7 +11,7 @@ class race
 public:
     race();
 
-    int lap_count() const;
+    int lap() const;
     void update(const glm::vec3& position);
 
 private:

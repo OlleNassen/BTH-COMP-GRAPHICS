@@ -19,7 +19,7 @@ race::race()
 
 }
 
-int race::lap_count() const
+int race::lap() const
 {
     return current_lap;
 }
@@ -28,14 +28,13 @@ void race::update(const glm::vec3& position)
 {
     if(current_checkpoint->contains(position))
     {
-        ++current_lap;
-
         if(current_checkpoint != checkpoints.end())
         {
             ++current_checkpoint;
         }
         else
         {
+            ++current_lap;
             current_checkpoint = checkpoints.begin();
         }
     }
