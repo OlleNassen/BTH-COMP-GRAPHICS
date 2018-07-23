@@ -150,7 +150,6 @@
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\icosahedron.cpp" />
     <ClCompile Include="src\input.cpp" />
-    <ClCompile Include="src\mesh_factory.cpp" />
     <ClCompile Include="src\model.cpp" />
     <ClCompile Include="src\normal_quad.cpp" />
     <ClCompile Include="src\particle_emitter.cpp" />
@@ -181,7 +180,6 @@
     <ClInclude Include="include\game.hpp" />
     <ClInclude Include="include\icosahedron.hpp" />
     <ClInclude Include="include\input.hpp" />
-    <ClInclude Include="include\mesh_factory.hpp" />
     <ClInclude Include="include\model.hpp" />
     <ClInclude Include="include\normal_quad.hpp" />
     <ClInclude Include="include\particle_emitter.hpp" />
