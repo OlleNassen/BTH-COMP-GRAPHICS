@@ -2833,7 +2833,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1532280896 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\texture.cpp
+1532357789 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\texture.cpp
 	"texture.hpp"
 	<iostream>
 	<stb_image.h>
@@ -2930,7 +2930,7 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1532301158 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
+1532357766 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
 	"terrain.hpp"
 	<vector>
 	<iostream>
@@ -2997,13 +2997,13 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1532300786 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particle_emitter.cpp
+1532357674 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particle_emitter.cpp
 	"particle_emitter.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<ctime>
 	<iostream>
 
-1532281972 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1532357600 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 
 1532301832 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp

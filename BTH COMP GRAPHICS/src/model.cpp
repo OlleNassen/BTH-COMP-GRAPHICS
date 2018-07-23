@@ -92,11 +92,6 @@ void load_skeleton(const aiMesh* mesh, skeleton& joints)
 		joints[i].position = pos;
 		joints[i].rotation = rot;
 	}
-
-	for(auto& joint : joints)
-    {
-        //std::cout << joint.position.x << std::endl;
-    }
 }
 
 void load_parent_indices(const aiNode& node, std::vector<std::string>& names)
@@ -116,7 +111,7 @@ void parent_indices(const aiNode& node, const std::vector<std::string>& names, i
 {
     if(node.mName.C_Str()[0] != '<')
     {
-        index++;
+        ++index;
     }
 
     for (auto i = 0u; i < names.size(); ++i)
