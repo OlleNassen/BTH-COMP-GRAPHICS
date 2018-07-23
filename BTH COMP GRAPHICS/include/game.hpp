@@ -18,7 +18,7 @@
 #include "icosahedron.hpp"
 #include <iostream>
 #include <chrono>
-//#include "mesh_factory.hpp"
+#include "mesh_factory.hpp"
 
 std::ostream& operator<<(std::ostream& os, const glm::mat4& value);
 
@@ -61,6 +61,8 @@ private:
 	terrain* terror;
 	quad_tess* tess;
 	icosahedron* ico;
+
+	
 
 	glm::vec3 light_pos;
 	glm::vec3 phong_pos;
