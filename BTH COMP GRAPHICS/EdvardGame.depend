@@ -2611,7 +2611,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1532351544 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1532353378 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	"window.hpp"
 	"camera.hpp"
 	"shader.hpp"
@@ -2631,6 +2631,7 @@
 	<iostream>
 	<chrono>
 	"mesh_factory.hpp"
+	"race.hpp"
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glfw\glfw3.h
 	<stddef.h>
@@ -3112,4 +3113,13 @@
 
 1532351544 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh_factory.cpp
 	"mesh_factory.hpp"
+
+1532353028 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\race.hpp
+	<iostream>
+	<chrono>
+	<array>
+	<glm/glm.hpp>
+
+1532353222 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\race.cpp
+	"race.hpp"
 

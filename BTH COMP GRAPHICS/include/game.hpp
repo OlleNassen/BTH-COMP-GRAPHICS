@@ -19,6 +19,7 @@
 #include <iostream>
 #include <chrono>
 #include "mesh_factory.hpp"
+#include "race.hpp"
 
 std::ostream& operator<<(std::ostream& os, const glm::mat4& value);
 
@@ -62,7 +63,7 @@ private:
 	quad_tess* tess;
 	icosahedron* ico;
 
-	
+    race current_race;
 
 	glm::vec3 light_pos;
 	glm::vec3 phong_pos;
