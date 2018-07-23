@@ -92,6 +92,11 @@ void load_skeleton(const aiMesh* mesh, skeleton& joints)
 		joints[i].position = pos;
 		joints[i].rotation = rot;
 	}
+
+	for(auto& joint : joints)
+    {
+        //std::cout << joint.position.x << std::endl;
+    }
 }
 
 void load_parent_indices(const aiNode& node, std::vector<std::string>& names)
@@ -142,15 +147,6 @@ void load_parent_indices(const aiNode* node, skeleton& joints)
     {
         parent_indices(*node->mChildren[i], names, index, joints);
     }
-
-	for(auto& name : names)
-    {
-        //std::cout << name << std::endl;
-    }
-    for(auto& joint : joints)
-    {
-        std::cout << joint.parent << std::endl;
-    }
 }
 
 void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames)
@@ -196,8 +192,15 @@ void import_model(const std::string& path,
 		aiProcess_GenSmoothNormals |
 		aiProcess_FlipUVs);
 
-	load_mesh(scene->mMeshes[0], vertices, indices);
-	load_skeleton(scene->mMeshes[0], joints);
+	std::cout << scene->mNumMeshes << std::endl;
+	for(auto i = 0u; i < scene->mNumMeshes; i++)
+    {
+        load_mesh(scene->mMeshes[i], vertices, indices);
+        load_skeleton(scene->mMeshes[i], joints);
+    }
+
+
+
 	load_parent_indices(scene->mRootNode, joints);
 	load_key_frames(scene->mAnimations[0], key_frames);
 }
