@@ -191,6 +191,7 @@ void game::update(const std::chrono::milliseconds delta_time)
     game_camera.move_on_terrain(*terror);
 
     game_camera.update(delta_time);
+    current_race.update(glm::vec3(0.0f, 0.0f, 0.0f));
 
     particles->update(delta_time);
     temp_model.update(delta_time);

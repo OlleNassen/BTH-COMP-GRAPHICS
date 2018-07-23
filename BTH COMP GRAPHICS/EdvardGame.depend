@@ -2611,7 +2611,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1532291391 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1532353378 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	"window.hpp"
 	"camera.hpp"
 	"shader.hpp"
@@ -2630,6 +2630,8 @@
 	"icosahedron.hpp"
 	<iostream>
 	<chrono>
+	"mesh_factory.hpp"
+	"race.hpp"
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glfw\glfw3.h
 	<stddef.h>
@@ -2866,7 +2868,7 @@
 	"window.hpp"
 	<iostream>
 
-1532339759 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1532343022 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 	<algorithm>
 	<iostream>
@@ -3012,8 +3014,18 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/quaternion.hpp>
 
-1531315827 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh_factory.hpp
+1532352542 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh_factory.hpp
 	<string>
+	<assimp/Importer.hpp>
+	<assimp/Scene.h>
+	<assimp/postprocess.h>
+	<vector>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/quaternion.hpp>
+	<gl/glew.h>
+	<map>
+	"texture.hpp"
 
 1530284274 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\tinyxml2.cpp
 	"tinyxml2.h"
@@ -3084,4 +3096,30 @@
 
 1532298183 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\icosahedron.cpp
 	"icosahedron.hpp"
+
+1532344010 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\checkpoint.cpp
+	"checkpoint.hpp"
+
+1532344616 c:\users\deadvard\bth-comp-graphics\bth comp graphics\checkpoint.hpp
+
+1532351179 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\rules.cpp
+	"rules.hpp"
+
+1532351578 c:\users\deadvard\bth-comp-graphics\bth comp graphics\rules.hpp
+	<iostream>
+	<chrono>
+	<array>
+	<glm/glm.hpp>
+
+1532351544 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh_factory.cpp
+	"mesh_factory.hpp"
+
+1532353028 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\race.hpp
+	<iostream>
+	<chrono>
+	<array>
+	<glm/glm.hpp>
+
+1532353222 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\race.cpp
+	"race.hpp"
 
