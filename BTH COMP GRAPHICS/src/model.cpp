@@ -30,6 +30,11 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<un
 		}
 	}
 
+	for(auto& vertex : vertices)
+    {
+        vertex.joints = glm::ivec4(0.0f, 0.0f, 0.0f, 0.0f);
+    }
+
 	for (auto i = 0u; i < mesh->mNumBones; i++)
 	{
 		auto* bone = mesh->mBones[i];
@@ -113,7 +118,7 @@ void parent_indices(const aiNode& node, const std::vector<std::string>& names, i
     {
         if(names[i].compare(node.mParent->mName.C_Str()) == 0)
         {
-            joints[index].parent = i;
+            joints[index - 1].parent = i;
         }
     }
 
@@ -121,6 +126,7 @@ void parent_indices(const aiNode& node, const std::vector<std::string>& names, i
     {
         parent_indices(*node.mChildren[i], names, index, joints);
     }
+
 }
 
 void load_parent_indices(const aiNode* node, skeleton& joints)
@@ -132,7 +138,6 @@ void load_parent_indices(const aiNode* node, skeleton& joints)
 	}
 
 	auto index = 0;
-
 	for (auto i = 0u; i < node->mNumChildren; i++)
     {
         parent_indices(*node->mChildren[i], names, index, joints);
@@ -144,7 +149,7 @@ void load_parent_indices(const aiNode* node, skeleton& joints)
     }
     for(auto& joint : joints)
     {
-        //std::cout << joint.parent << std::endl;
+        std::cout << joint.parent << std::endl;
     }
 }
 
@@ -176,8 +181,6 @@ void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames
             key_frames[j].pose[i].rotation = glm::quat(q.w, q.x, q.y, q.z);
 		}
 	}
-
-    std::cout << key_frames[1].pose[1].position.x << std::endl;
 }
 
 void import_model(const std::string& path,
@@ -236,7 +239,7 @@ void model::update(const std::chrono::milliseconds delta_time)
 
 	//std::cout << joints[1].position.x << std::endl;
 
-	for (auto i = 0u; i < 2; i++)
+	for (auto i = 0u; i < joints.size(); i++)
 	{
 		glm::mat4 new_transform  =
             glm::translate(glm::mat4(1.0f), joints[i].position)
@@ -252,7 +255,7 @@ void model::update(const std::chrono::milliseconds delta_time)
                 glm::translate(glm::mat4(1.0f), joints[j].position)
                 * glm::mat4_cast(joints[j].rotation);
 
-			//world_joints[i] *= parent_transform;
+			world_joints[i] *= parent_transform;
 		}
 	}
 
