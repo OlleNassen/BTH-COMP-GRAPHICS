@@ -37,7 +37,7 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<un
 
 	for (auto i = 0u; i < mesh->mNumBones; ++i)
 	{
-		offset[i] = ai_to_glm(mesh->mBones[i]->mOffsetMatrix);
+		offset[i] = glm::transpose(ai_to_glm(mesh->mBones[i]->mOffsetMatrix));
 
 		auto* bone = mesh->mBones[i];
 		for (auto j = 0u; j < bone->mNumWeights; ++j)
@@ -122,7 +122,6 @@ void load_parent_indices(const aiNode& node, const std::vector<std::string>& nam
     {
         load_parent_indices(*node.mChildren[i], names, index, joints);
     }
-
 }
 
 void load_skeleton(const aiNode* node, skeleton& joints)
@@ -185,7 +184,8 @@ void import_model(const std::string& path,
 		aiProcess_GenSmoothNormals |
 		aiProcess_FlipUVs);
 
-    global_inverse_transform = ai_to_glm(scene->mRootNode->mTransformation);
+    global_inverse_transform =
+        glm::inverse(ai_to_glm(scene->mRootNode->mTransformation));
 
     load_mesh(scene->mMeshes[0], vertices, indices, offset);
 
@@ -230,24 +230,13 @@ void model::update(const std::chrono::milliseconds delta_time)
 {
 	current.update(delta_time, joints);
 
-	for (auto i = 0u; i < 2/*joints.size()*/; ++i)
+	for (auto i = 0u; i < joints.size(); ++i)
 	{
 		glm::mat4 new_transform(1.0f);
         new_transform *= glm::translate(new_transform, joints[i].position);
         new_transform *= glm::mat4_cast(joints[i].rotation);
 
-		world_joints[i] = new_transform;
-
-		for (auto j = joints[i].parent;
-			joints[j].parent != 0;
-			j = joints[j].parent)
-		{
-			glm::mat4 parent_transform(1.0f);
-            parent_transform *= glm::translate(parent_transform, joints[j].position);
-            parent_transform *= glm::mat4_cast(joints[j].rotation);
-
-			world_joints[i] *= parent_transform;
-		}
+		world_joints[i] = new_transform * world_joints[joints[i].parent];
 	}
 
 	for (auto i = 0u; i < world_joints.size(); ++i)
