@@ -40,7 +40,7 @@ private:
 
 
     sphere_array checkpoints;
-    sphere_array::const_iterator current_checkpoint;
+    sphere_array::iterator current_checkpoint;
     int current_lap;
 };
 
