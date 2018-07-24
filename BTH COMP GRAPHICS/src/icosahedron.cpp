@@ -1,8 +1,12 @@
 #include "icosahedron.hpp"
 
 icosahedron::icosahedron(float x, float y, float z)
-: vbo(target::ARRAY_BUFFER)
-, ebo(target::ELEMENT_ARRAY_BUFFER)
+: 
+scene_node(x, y, z)
+,
+vbo(target::ARRAY_BUFFER)
+,
+ebo(target::ELEMENT_ARRAY_BUFFER)
 {
 
 	constexpr  int faces[] = {
