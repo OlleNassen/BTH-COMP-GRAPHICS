@@ -5,11 +5,13 @@ void animation::load(const std::vector<key_frame>& key_frames)
 {
     this->key_frames = key_frames;
     length = key_frames.back().time_point;
+    previous = this->key_frames.begin();
+    next = this->key_frames.begin();
+    ++next;
 }
 
 animation::animation()
-    : current_key_frame(1)
-    , time(0ms)
+    : time(0ms)
     , length(0ms)
 {
 
@@ -28,13 +30,16 @@ void animation::update(const std::chrono::milliseconds delta_time, skeleton& joi
 
 void animation::update_key_frame()
 {
-    if(time > key_frames[current_key_frame].time_point)
+    if(time > next->time_point)
     {
-        ++current_key_frame;
+        ++previous;
+        ++next;
 
-        if(current_key_frame >= key_frames.size())
+        if(next != key_frames.end())
         {
-            current_key_frame = 1;
+            previous = key_frames.begin();
+            next = key_frames.begin();
+            ++next;
         }
 
         if(time > length)
@@ -46,23 +51,20 @@ void animation::update_key_frame()
 
 void animation::update_pose(skeleton& joints)
 {
-    auto& previous = key_frames[current_key_frame - 1];
-    auto& next = key_frames[current_key_frame];
-
     auto progression =
         calculate_progression(
-        previous.time_point,
-        next.time_point);
+        previous->time_point,
+        next->time_point);
 
     for(auto i = 0u; i < joints.size(); ++i)
     {
         auto new_position =
-            glm::mix(previous.poses[i].position,
-            next.poses[i].position, progression);
+            glm::mix(previous->poses[i].position,
+            next->poses[i].position, progression);
 
         auto new_rotation =
-            glm::slerp(previous.poses[i].rotation,
-            next.poses[i].rotation, progression);
+            glm::slerp(previous->poses[i].rotation,
+            next->poses[i].rotation, progression);
 
         glm::mat4 new_transform(1.0f);
         new_transform *= glm::translate(new_transform, new_position);

@@ -32,10 +32,11 @@ public:
     void update(const std::chrono::milliseconds delta_time, skeleton& joints);
 
 private:
-    int current_key_frame;
     std::chrono::milliseconds time;
     std::chrono::milliseconds length;
     std::vector<key_frame> key_frames;
+    std::vector<key_frame>::iterator previous;
+    std::vector<key_frame>::iterator next;
 
     void update_key_frame();
     void update_pose(skeleton& joints);
