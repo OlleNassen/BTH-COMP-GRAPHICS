@@ -32,9 +32,9 @@ public:
     void update(const std::chrono::milliseconds delta_time, skeleton& joints);
 
 private:
+    int current_key_frame;
     std::chrono::milliseconds time;
     std::chrono::milliseconds length;
-    int current_key_frame;
     std::vector<key_frame> key_frames;
 
     void update_key_frame();

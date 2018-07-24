@@ -9,6 +9,8 @@ void animation::load(const std::vector<key_frame>& key_frames)
 
 animation::animation()
     : current_key_frame(1)
+    , time(0ms)
+    , length(0ms)
 {
 
 }
