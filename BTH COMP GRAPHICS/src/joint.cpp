@@ -24,6 +24,8 @@ joint& joint::operator=(const joint& other)
         global_transform = parent->global_transform * local_transform;
         inverse_bind_pose = glm::inverse(global_transform);
     }
+
+    return *this;
 }
 
 glm::mat4 joint::world_transform()
