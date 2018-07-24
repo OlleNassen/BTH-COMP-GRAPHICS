@@ -1,8 +1,10 @@
 #include "animation.hpp"
+#include <iostream>
 
 void animation::load(const std::vector<key_frame>& key_frames)
 {
     this->key_frames = key_frames;
+    length = key_frames.back().time_point;
 }
 
 animation::animation()
@@ -29,7 +31,11 @@ void animation::update_key_frame()
         current_key_frame =
             (current_key_frame + 1)
             % (key_frames.size() - 1);
-        time = 0s;
+
+        if(time > length)
+        {
+            time = 0s;
+        }
     }
 }
 
@@ -37,18 +43,23 @@ void animation::update_pose(skeleton& joints)
 {
     auto& previous = key_frames[current_key_frame];
     auto& next = key_frames[current_key_frame + 1];
-    std::chrono::duration<float> float_time = time;
-    auto current_time = float_time.count();
+
+    auto progression =
+        calculate_progression(
+        previous.time_point,
+        next.time_point);
+
+    std::cout << progression << std::endl;
 
     for(auto i = 0u; i < joints.size(); ++i)
     {
         auto new_position =
             glm::mix(previous.poses[i].position,
-            next.poses[i].position, current_time);
+            next.poses[i].position, progression);
 
         auto new_rotation =
             glm::slerp(previous.poses[i].rotation,
-            next.poses[i].rotation, current_time);
+            next.poses[i].rotation, progression);
 
         glm::mat4 new_transform(1.0f);
         new_transform *= glm::translate(new_transform, new_position);
@@ -57,4 +68,16 @@ void animation::update_pose(skeleton& joints)
         joints[i] = joint(new_transform);
 
     }
+}
+
+float
+    animation::calculate_progression(
+    const std::chrono::milliseconds previous,
+    const std::chrono::milliseconds next) const
+{
+    using namespace std::chrono;
+    duration<float> total_time = next - previous;
+    duration<float> current_time = length - previous;
+
+    return current_time.count() / total_time.count();
 }

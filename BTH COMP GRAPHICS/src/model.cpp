@@ -125,7 +125,7 @@ void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames
 
         for (auto j = 0u; j < channel->mNumPositionKeys; ++j)
 		{
-            if(i == 0)
+            if(j == 0)
             {
                 using namespace std::chrono;
 

@@ -2603,7 +2603,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1532444930 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1532446724 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	<chrono>
@@ -2867,7 +2867,7 @@
 	"window.hpp"
 	<iostream>
 
-1532444517 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1532446866 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 	<algorithm>
 	<iostream>
@@ -3005,7 +3005,7 @@
 1532446468 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 
-1532445877 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
+1532447732 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
 	<array>
 	<vector>
 	<chrono>
@@ -3088,13 +3088,13 @@
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
-1532301307 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\icosahedron.hpp
+1532446724 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\icosahedron.hpp
 	"scene_node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1532444930 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\icosahedron.cpp
+1532446724 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\icosahedron.cpp
 	"icosahedron.hpp"
 
 1532344010 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\checkpoint.cpp
@@ -3120,7 +3120,7 @@
 	<array>
 	<glm/glm.hpp>
 
-1532445411 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\race.cpp
+1532446724 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\race.cpp
 	"race.hpp"
 
 1532426116 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\scene_loader.cpp

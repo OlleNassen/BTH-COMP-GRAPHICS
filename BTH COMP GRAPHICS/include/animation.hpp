@@ -39,6 +39,10 @@ private:
 
     void update_key_frame();
     void update_pose(skeleton& joints);
+    float
+        calculate_progression(
+        const std::chrono::milliseconds previous,
+        const std::chrono::milliseconds next) const;
 };
 
 #endif // ANIMATION_HPP
