@@ -86,35 +86,11 @@ void load_parent_indices(const aiNode& node, const std::vector<std::string>& nam
         ++index;
     }
 
-    aiMatrix3x3 mat3;
-    aiMatrix4x4 mat4 = node.mTransformation;
-    glm::vec3 pos;
-
-    pos.x = mat4.d1;
-    pos.y = mat4.d2;
-    pos.z = mat4.d3;
-
-    mat3.a1 = mat4.a1;
-    mat3.a2 = mat4.a2;
-    mat3.a3 = mat4.a3;
-    mat3.b1 = mat4.b1;
-    mat3.b2 = mat4.b2;
-    mat3.b3 = mat4.b3;
-    mat3.c1 = mat4.c1;
-    mat3.c2 = mat4.c2;
-    mat3.c3 = mat4.c3;
-
-    aiQuaternion quat(mat3);
-    glm::quat rot(quat.w, quat.x, quat.y, quat.z);
-
-    joints[index].position = pos;
-    joints[index].rotation = rot;
-
     for (auto i = 0u; i < names.size(); ++i)
     {
         if(names[i].compare(node.mParent->mName.C_Str()) == 0)
         {
-            joints[index - 1].parent = i;
+            joints[index - 1] = joint(ai_to_glm(node.mTransformation), &joints[i]);
         }
     }
 
@@ -161,10 +137,10 @@ void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames
             }
 
             aiVector3D v = channel->mPositionKeys[j].mValue;
-            key_frames[j].pose[i].position = glm::vec3(v.x, v.y, v.z);
+            key_frames[j].poses[i].position = glm::vec3(v.x, v.y, v.z);
 
             aiQuaternion q = channel->mRotationKeys[j].mValue;
-            key_frames[j].pose[i].rotation = glm::quat(q.w, q.x, q.y, q.z);
+            key_frames[j].poses[i].rotation = glm::quat(q.w, q.x, q.y, q.z);
 		}
 	}
 }
@@ -198,7 +174,6 @@ model::model()
 	, element_buffer(target::ELEMENT_ARRAY_BUFFER)
 {
     std::vector<key_frame> key_frames;
-    joints.fill({ 0, glm::vec3(0.0f), glm::quat_cast(glm::mat4(1.0f)) });
 
 	import_model("models/boblampclean.md5mesh",
         vertices, indices, joints,
@@ -230,41 +205,10 @@ void model::update(const std::chrono::milliseconds delta_time)
 {
 	current.update(delta_time, joints);
 
-	struct joint2
-	{
-	    int parent = 0;
-	    glm::mat4 local_transform;
-	    glm::mat4 global_transform;
-	    glm::mat4 inverse_bind_pose;
-
-	};
-	std::array<joint2, 50> joints2;
-
-	for (auto& j : joints2)
-	{
-        joint2& parent = joints2[j.parent];
-
-        j.global_transform =
-            parent.global_transform *
-            j.local_transform;
-
-        j.inverse_bind_pose =
-            glm::inverse(j.global_transform);
-    }
-
 	for (auto i = 0u; i < joints.size(); ++i)
 	{
-		glm::mat4 new_transform(1.0f);
-        new_transform *= glm::translate(new_transform, joints[i].position);
-        new_transform *= glm::mat4_cast(joints[i].rotation);
-
-		world_joints[i] = new_transform * world_joints[joints[i].parent];
-	}
-
-	for (auto i = 0u; i < world_joints.size(); ++i)
-	{
-	    world_joints[i] = global_inverse_transform * world_joints[i] * offset[i];
-	}
+        world_joints[i] = joints[i].world_transform();
+    }
 }
 
 void model::draw(const shader& shader) const

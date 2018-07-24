@@ -9,7 +9,7 @@
 #include <assimp/Scene.h>
 #include <assimp/postprocess.h>
 
-static aiMatrix4x4 glm_to_ai(glm::mat4 mat)
+static aiMatrix4x4 glm_to_ai(const glm::mat4& mat)
 {
     return aiMatrix4x4(mat[0][0],mat[0][1],mat[0][2],mat[0][3],
         mat[1][0],mat[1][1],mat[1][2],mat[1][3],
@@ -17,7 +17,7 @@ static aiMatrix4x4 glm_to_ai(glm::mat4 mat)
         mat[3][0],mat[3][1],mat[3][2],mat[3][3]);
 }
 
-static glm::mat4 ai_to_glm(aiMatrix4x4& in_mat)
+static glm::mat4 ai_to_glm(const aiMatrix4x4& in_mat)
 {
     glm::mat4 tmp;
     tmp[0][0] = in_mat.a1;

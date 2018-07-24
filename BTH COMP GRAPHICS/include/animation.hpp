@@ -7,12 +7,12 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/quaternion.hpp>
+#include "joint.hpp"
 
 using namespace std::literals::chrono_literals;
 
-struct joint
+struct pose
 {
-    unsigned int parent;
     glm::vec3 position;
     glm::quat rotation;
 };
@@ -22,7 +22,7 @@ using skeleton = std::array<joint, 50>;
 struct key_frame
 {
     float time;
-    skeleton pose;
+    std::array<pose, 50> poses;
 };
 
 class animation

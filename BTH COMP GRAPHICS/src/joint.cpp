@@ -28,7 +28,7 @@ joint& joint::operator=(const joint& other)
     return *this;
 }
 
-glm::mat4 joint::world_transform()
+glm::mat4 joint::world_transform() const
 {
     return global_transform * inverse_bind_pose;
 }

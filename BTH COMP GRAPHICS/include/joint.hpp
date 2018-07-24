@@ -10,7 +10,7 @@ public:
     joint(const glm::mat4& transform = glm::mat4(1.0f), joint* parent = nullptr);
     joint& operator=(const joint& other);
 
-    glm::mat4 world_transform();
+    glm::mat4 world_transform() const;
 
 private:
     joint* parent;

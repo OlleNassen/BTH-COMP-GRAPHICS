@@ -7,24 +7,6 @@ void animation::load(const std::vector<key_frame>& key_frames)
 
 animation::animation()
 {
-    time = 0s;
-    current_key_frame = 0;
-    glm::mat4 rot(1.0f);
-
-    //rot = glm::rotate(rot, glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0));
-
-    key_frame f;
-    f.time = 1.0;
-    f.pose.fill({0, glm::vec3(0,0,0), glm::quat_cast(rot)});
-    key_frames.push_back(f);
-
-    f.time = 1.0;
-    f.pose.fill({0, glm::vec3(0,1,0), glm::quat_cast(rot)});
-    key_frames.push_back(f);
-
-    f.time = 1.0;
-    f.pose.fill({0, glm::vec3(0,0,0), glm::quat_cast(rot)});
-    key_frames.push_back(f);
 
 }
 
@@ -59,14 +41,18 @@ void animation::update_pose(skeleton& joints)
     for(auto i = 0u; i < joints.size(); ++i)
     {
         auto new_position =
-            glm::mix(previous.pose[i].position,
-            next.pose[i].position, current_time);
+            glm::mix(previous.poses[i].position,
+            next.poses[i].position, current_time);
 
         auto new_rotation =
-            glm::slerp(previous.pose[i].rotation,
-            next.pose[i].rotation, current_time);
+            glm::slerp(previous.poses[i].rotation,
+            next.poses[i].rotation, current_time);
 
-        joints[i].position = new_position;
-        joints[i].rotation = new_rotation;
+        glm::mat4 new_transform(1.0f);
+        new_transform *= glm::translate(new_transform, new_position);
+        new_transform *= glm::mat4_cast(new_rotation);
+
+        joints[i] = joint(new_transform);
+
     }
 }
