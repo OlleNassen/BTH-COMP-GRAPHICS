@@ -120,7 +120,7 @@ game::~game()
 
 void game::run()
 {
-	using clock = std::chrono::high_resolution_clock;
+	using clock = std::chrono::steady_clock;
     auto last_time = clock::now();
     auto delta_time = 0ns;
 

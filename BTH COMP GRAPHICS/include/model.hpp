@@ -69,8 +69,6 @@ private:
     std::array<glm::mat4, 50> offset;
     std::array<glm::mat4, 50> world_joints;
 
-    glm::mat4 global_inverse_transform;
-
     animation current;
 
     buffer model_buffer;
