@@ -99,7 +99,7 @@ game::game()
 	light_pos = glm::vec3(50, 5, -15);
     phong_pos = glm::vec3(0, 10, 5);
 
-    for(auto checkpoint : current_race)
+    for(auto& checkpoint : current_race)
     {
         checkpoint =
         sphere(glm::vec3(10.0f,

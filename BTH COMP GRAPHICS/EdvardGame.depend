@@ -2603,7 +2603,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1532389570 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1532441509 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	<chrono>
@@ -2611,7 +2611,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1532353378 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1532441097 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	"window.hpp"
 	"camera.hpp"
 	"shader.hpp"
@@ -2630,7 +2630,6 @@
 	"icosahedron.hpp"
 	<iostream>
 	<chrono>
-	"mesh_factory.hpp"
 	"race.hpp"
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glfw\glfw3.h
@@ -3003,7 +3002,7 @@
 	<ctime>
 	<iostream>
 
-1532440342 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1532440878 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 
 1532440214 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
@@ -3115,13 +3114,13 @@
 1532351544 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh_factory.cpp
 	"mesh_factory.hpp"
 
-1532355487 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\race.hpp
+1532441483 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\race.hpp
 	<iostream>
 	<chrono>
 	<array>
 	<glm/glm.hpp>
 
-1532355491 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\race.cpp
+1532441504 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\race.cpp
 	"race.hpp"
 
 1532426116 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\scene_loader.cpp

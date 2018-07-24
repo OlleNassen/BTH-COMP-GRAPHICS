@@ -28,6 +28,9 @@ public:
     sphere_array::const_iterator begin() const;
     sphere_array::const_iterator end() const;
     sphere_array::const_reference operator[](sphere_array::size_type pos) const;
+
+    sphere_array::iterator begin();
+    sphere_array::iterator end();
     sphere_array::reference operator[](sphere_array::size_type pos);
 
     int lap() const;

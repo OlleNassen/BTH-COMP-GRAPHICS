@@ -34,6 +34,16 @@ race::sphere_array::const_reference race::operator[](sphere_array::size_type pos
     return checkpoints[pos];
 }
 
+race::sphere_array::iterator race::begin()
+{
+    return checkpoints.begin();
+}
+
+race::sphere_array::iterator race::end()
+{
+    return checkpoints.end();
+}
+
 race::sphere_array::reference race::operator[](sphere_array::size_type pos)
 {
     return checkpoints[pos];
