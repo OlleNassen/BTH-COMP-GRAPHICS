@@ -12,7 +12,8 @@
 namespace anim
 {
 
-using namespace std::chrono;
+using namespace std::literals::chrono_literals;
+using milliseconds = std::chrono::milliseconds;
 
 struct pose
 {

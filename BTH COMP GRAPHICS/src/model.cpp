@@ -141,6 +141,7 @@ void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames
 		{
             if(i == 0)
             {
+                using namespace std::chrono;
                 key_frames[j].time_point =
                     duration_cast<milliseconds>(duration<float>
                     (channel->mPositionKeys[j].mTime));

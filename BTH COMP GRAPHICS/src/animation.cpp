@@ -83,6 +83,7 @@ float
     const milliseconds previous,
     const milliseconds next) const
 {
+    using namespace std::chrono;
     duration<float> total_time = next - previous;
     duration<float> current_time = time - previous;
 
