@@ -28,9 +28,12 @@ void animation::update_key_frame()
 {
     if(time > key_frames[current_key_frame].time_point)
     {
-        current_key_frame =
-            (current_key_frame + 1)
-            % key_frames.size();
+        ++current_key_frame;
+
+        if(current_key_frame >= key_frames.size())
+        {
+            current_key_frame = 1;
+        }
 
         if(time > length)
         {
