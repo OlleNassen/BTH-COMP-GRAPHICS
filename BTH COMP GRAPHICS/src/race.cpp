@@ -59,12 +59,9 @@ void race::update(const glm::vec3& position)
 {
     if(current_checkpoint->contains(position))
     {
-        if(current_checkpoint != checkpoints.end())
-        {
-            ++current_checkpoint;
-			std::cout << "CHECKPOINT" << '\n';
-        }
-        else
+        ++current_checkpoint;
+        std::cout << "CHECKPOINT" << '\n';
+        if(current_checkpoint == checkpoints.end())
         {
             ++current_lap;
             current_checkpoint = checkpoints.begin();
