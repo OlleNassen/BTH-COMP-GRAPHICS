@@ -19,7 +19,7 @@ struct pose
 
 struct key_frame
 {
-    float time;
+    std::chrono::milliseconds time_point;
     skeleton_array<pose> poses;
 };
 
@@ -32,8 +32,8 @@ public:
     void update(const std::chrono::milliseconds delta_time, skeleton& joints);
 
 private:
-    std::chrono::duration<float> time;
-    float length;
+    std::chrono::milliseconds time;
+    std::chrono::milliseconds length;
     int current_key_frame;
     std::vector<key_frame> key_frames;
 

@@ -127,14 +127,13 @@ void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames
 		{
             if(i == 0)
             {
-                key_frames[j].time = channel->mPositionKeys[j].mTime;
+                using namespace std::chrono;
+
+                key_frames[j].time_point =
+                    duration_cast<milliseconds>(duration<float>
+                    (channel->mPositionKeys[j].mTime));
             }
-            else
-            {
-                key_frames[j].time =
-                    channel->mPositionKeys[j].mTime -
-                    channel->mPositionKeys[j - 1].mTime;
-            }
+
 
             aiVector3D v = channel->mPositionKeys[j].mValue;
             key_frames[j].poses[i].position = glm::vec3(v.x, v.y, v.z);

@@ -24,7 +24,7 @@ void animation::update(const std::chrono::milliseconds delta_time, skeleton& joi
 
 void animation::update_key_frame()
 {
-    if(time.count() > key_frames[current_key_frame].time)
+    if(time > key_frames[current_key_frame].time_point)
     {
         current_key_frame =
             (current_key_frame + 1)
@@ -37,7 +37,8 @@ void animation::update_pose(skeleton& joints)
 {
     auto& previous = key_frames[current_key_frame];
     auto& next = key_frames[current_key_frame + 1];
-    auto current_time = time.count();
+    std::chrono::duration<float> float_time = time;
+    auto current_time = float_time.count();
 
     for(auto i = 0u; i < joints.size(); ++i)
     {
