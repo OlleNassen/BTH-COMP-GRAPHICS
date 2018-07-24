@@ -87,6 +87,12 @@
     <ClCompile Include="src\icosahedron.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\race.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\joint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\buffer.hpp">
@@ -156,6 +162,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\icosahedron.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\race.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\joint.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

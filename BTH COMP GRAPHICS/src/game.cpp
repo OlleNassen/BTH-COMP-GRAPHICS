@@ -106,6 +106,11 @@ game::game()
         10.0f, 10.0f), 10.0f);
     }
 
+	for (int i = 0; i < 10; ++i)
+	{
+		icos[i] = new icosahedron(current_race[i].position.x, current_race[i].position.y, current_race[i].position.z);
+	}
+
 	//factory.load_mesh("models/banner.obj");
 }
 
@@ -184,6 +189,10 @@ void game::render()
 	tess_shader.use();
 	game_camera.bind(tess_shader);
 	ico->render(tess_shader);
+	for (auto& ics : icos)
+	{
+		ics->render(tess_shader);
+	}
 
 	anim.use();
 	game_camera.bind(anim);
