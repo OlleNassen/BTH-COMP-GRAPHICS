@@ -32,6 +32,8 @@ public:
 
 	void move_on_terrain(const terrain& terrain);
 
+	glm::vec3 get_pos()const;
+
 private:
     bool pressed_up;
     bool pressed_down;
