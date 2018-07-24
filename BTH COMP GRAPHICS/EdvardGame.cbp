@@ -53,6 +53,7 @@
 		<Unit filename="include/game.hpp" />
 		<Unit filename="include/icosahedron.hpp" />
 		<Unit filename="include/input.hpp" />
+		<Unit filename="include/joint.hpp" />
 		<Unit filename="include/mesh_factory.hpp" />
 		<Unit filename="include/model.hpp" />
 		<Unit filename="include/normal_quad.hpp" />
@@ -93,6 +94,7 @@
 		<Unit filename="src/game.cpp" />
 		<Unit filename="src/icosahedron.cpp" />
 		<Unit filename="src/input.cpp" />
+		<Unit filename="src/joint.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/mesh_factory.cpp" />
 		<Unit filename="src/model.cpp" />

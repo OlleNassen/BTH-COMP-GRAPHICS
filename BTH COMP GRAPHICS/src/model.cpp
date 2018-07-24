@@ -230,6 +230,28 @@ void model::update(const std::chrono::milliseconds delta_time)
 {
 	current.update(delta_time, joints);
 
+	struct joint2
+	{
+	    int parent = 0;
+	    glm::mat4 local_transform;
+	    glm::mat4 global_transform;
+	    glm::mat4 inverse_bind_pose;
+
+	};
+	std::array<joint2, 50> joints2;
+
+	for (auto& j : joints2)
+	{
+        joint2& parent = joints2[j.parent];
+
+        j.global_transform =
+            parent.global_transform *
+            j.local_transform;
+
+        j.inverse_bind_pose =
+            glm::inverse(j.global_transform);
+    }
+
 	for (auto i = 0u; i < joints.size(); ++i)
 	{
 		glm::mat4 new_transform(1.0f);
