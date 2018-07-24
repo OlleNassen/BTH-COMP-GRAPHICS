@@ -30,7 +30,7 @@ void animation::update_key_frame()
     {
         current_key_frame =
             (current_key_frame + 1)
-            % (key_frames.size() - 1);
+            % key_frames.size();
 
         if(time > length)
         {
@@ -41,8 +41,8 @@ void animation::update_key_frame()
 
 void animation::update_pose(skeleton& joints)
 {
-    auto& previous = key_frames[current_key_frame];
-    auto& next = key_frames[current_key_frame + 1];
+    auto& previous = key_frames[current_key_frame - 1];
+    auto& next = key_frames[current_key_frame];
 
     auto progression =
         calculate_progression(
@@ -77,7 +77,7 @@ float
 {
     using namespace std::chrono;
     duration<float> total_time = next - previous;
-    duration<float> current_time = length - previous;
+    duration<float> current_time = time - previous;
 
     return current_time.count() / total_time.count();
 }
