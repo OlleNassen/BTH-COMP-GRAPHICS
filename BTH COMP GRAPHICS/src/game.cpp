@@ -209,7 +209,7 @@ void game::update(const std::chrono::milliseconds delta_time)
     game_camera.move_on_terrain(*terror);
 
     game_camera.update(delta_time);
-    current_race.update(game_camera.get_pos());
+	current_race.update(game_camera.get_pos());
 
     particles->update(delta_time);
     temp_model.update(delta_time);

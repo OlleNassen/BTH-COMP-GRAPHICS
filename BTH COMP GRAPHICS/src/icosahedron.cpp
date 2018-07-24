@@ -8,7 +8,7 @@ vbo(target::ARRAY_BUFFER)
 ,
 ebo(target::ELEMENT_ARRAY_BUFFER)
 {
-
+	temp_color = glm::vec3(1.0f, 0.1f, 0.1f);
 	constexpr  int faces[] = {
 		2, 1, 0,
 		3, 2, 0,
@@ -60,6 +60,11 @@ icosahedron::~icosahedron()
 {
 }
 
+void icosahedron::set_color(const glm::vec3 & color)
+{
+	temp_color = color;
+}
+
 void icosahedron::update_current(const std::chrono::milliseconds delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
 {
 }
@@ -67,6 +72,7 @@ void icosahedron::update_current(const std::chrono::milliseconds delta_time, con
 void icosahedron::render_current(const shader & shader, const glm::mat4 & world_transform) const
 {
 	shader.uniform("model", world_transform);
+	shader.uniform("color", temp_color);
 	v_array.bind();
 	glDrawElements(GL_PATCHES, index_count, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);

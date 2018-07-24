@@ -13,11 +13,15 @@ public:
 	icosahedron(float x = 0.0f, float y = 0.0f, float z = 0.0f);
 	virtual ~icosahedron();
 
+	void set_color(const glm::vec3& color);
+
 private:
 	GLuint vao;
 	vertex_array v_array;
 	buffer vbo;
 	buffer ebo;
+
+	glm::vec3 temp_color;
 
 	unsigned int index_count;
 
