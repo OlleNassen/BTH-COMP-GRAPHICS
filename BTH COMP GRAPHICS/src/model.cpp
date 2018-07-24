@@ -17,7 +17,7 @@ static constexpr glm::mat4 ai_to_glm(const aiMatrix4x4& mat)
     };
 }
 
-void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<unsigned int>& indices, skeleton_array<glm::mat4>& offset)
+void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<unsigned int>& indices)
 {
 	vertices.resize(mesh->mNumVertices);
 
@@ -46,35 +46,36 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<un
 
 	for(auto& vertex : vertices)
     {
-        vertex.joints = glm::ivec4(0.0f, 0.0f, 0.0f, 0.0f);
+        vertex.joints = glm::ivec4(0, 0, 0, 0);
+        vertex.weights = glm::vec4(0.0f, 0.0f, 0.0f, 0.0f);
     }
 
 	for (auto i = 0u; i < mesh->mNumBones; ++i)
 	{
-		offset[i] = glm::transpose(ai_to_glm(mesh->mBones[i]->mOffsetMatrix));
-
 		auto* bone = mesh->mBones[i];
 		for (auto j = 0u; j < bone->mNumWeights; ++j)
 		{
-            if(vertices[bone->mWeights[j].mVertexId].joints.x == 0.0f)
+            aiVertexWeight weight = bone->mWeights[j];
+
+            if(vertices[weight.mVertexId].weights.x == 0.0f)
             {
-                vertices[bone->mWeights[j].mVertexId].joints.x = i;
-                vertices[bone->mWeights[j].mVertexId].weights.x = bone->mWeights[j].mWeight;
+                vertices[weight.mVertexId].joints.x = i;
+                vertices[weight.mVertexId].weights.x = weight.mWeight;
             }
-            else if(vertices[bone->mWeights[j].mVertexId].joints.y == 0.0f)
+            else if(vertices[weight.mVertexId].weights.y == 0.0f)
             {
-                vertices[bone->mWeights[j].mVertexId].joints.y = i;
-                vertices[bone->mWeights[j].mVertexId].weights.y = bone->mWeights[j].mWeight;
+                vertices[weight.mVertexId].joints.y = i;
+                vertices[weight.mVertexId].weights.y = weight.mWeight;
             }
-            else if(vertices[bone->mWeights[j].mVertexId].joints.z == 0.0f)
+            else if(vertices[weight.mVertexId].weights.z == 0.0f)
             {
-                vertices[bone->mWeights[j].mVertexId].joints.z = i;
-                vertices[bone->mWeights[j].mVertexId].weights.z = bone->mWeights[j].mWeight;
+                vertices[weight.mVertexId].joints.z = i;
+                vertices[weight.mVertexId].weights.z = weight.mWeight;
             }
-            else if(vertices[bone->mWeights[j].mVertexId].joints.w == 0.0f)
+            else if(vertices[weight.mVertexId].weights.w == 0.0f)
             {
-                vertices[bone->mWeights[j].mVertexId].joints.w = i;
-                vertices[bone->mWeights[j].mVertexId].weights.w = bone->mWeights[j].mWeight;
+                vertices[weight.mVertexId].joints.w = i;
+                vertices[weight.mVertexId].weights.w = weight.mWeight;
             }
 		}
 	}
@@ -160,8 +161,7 @@ void import_model(const std::string& path,
 	std::vector<vertex>& vertices,
 	std::vector<unsigned int>& indices,
 	skeleton& joints,
-	std::vector<key_frame>& key_frames,
-	skeleton_array<glm::mat4>& offset)
+	std::vector<key_frame>& key_frames)
 {
 	Assimp::Importer importer;
 	auto* scene = importer.ReadFile(path.c_str(),
@@ -170,7 +170,7 @@ void import_model(const std::string& path,
 		aiProcess_GenSmoothNormals |
 		aiProcess_FlipUVs);
 
-    load_mesh(scene->mMeshes[0], vertices, indices, offset);
+    load_mesh(scene->mMeshes[0], vertices, indices);
 
 	load_skeleton(scene->mRootNode, joints);
 	load_key_frames(scene->mAnimations[0], key_frames);
@@ -184,7 +184,7 @@ model::model()
 
 	import_model("models/boblampclean.md5mesh",
         vertices, indices, joints,
-        key_frames, offset);
+        key_frames);
 
 	current.load(key_frames);
 

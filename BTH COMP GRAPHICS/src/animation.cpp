@@ -73,8 +73,7 @@ void animation::update_pose(skeleton& joints)
         new_transform *= glm::translate(new_transform, new_position);
         new_transform *= glm::mat4_cast(new_rotation);
 
-        joints[i] = joint(new_transform);
-
+        joints[i].transform(new_transform);
     }
 }
 

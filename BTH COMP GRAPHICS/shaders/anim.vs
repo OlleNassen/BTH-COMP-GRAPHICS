@@ -18,7 +18,7 @@ uniform mat4 projection;
 
 void main()
 {
-    vec4 total_local_position = vec4(0.0);
+    /*vec4 total_local_position = vec4(0.0);
     vec4 total_normal = vec4(0.0);
 
     for(int i = 0; i < MAX_WEIGHTS; i++)
@@ -31,5 +31,12 @@ void main()
     }
 
     normal_out = total_normal.xyz;
-    gl_Position = projection * view * total_local_position;
+    gl_Position = projection * view * total_local_position;*/
+
+    mat4 matrix = joint_transforms[joint[0]] * weight[0];
+    matrix += joint_transforms[joint[1]] * weight[1];
+    matrix += joint_transforms[joint[2]] * weight[2];
+    matrix += joint_transforms[joint[3]] * weight[3];
+
+     gl_Position = projection * view * matrix * (vec4(position, 1.0));
 }

@@ -2867,13 +2867,13 @@
 	"window.hpp"
 	<iostream>
 
-1532458759 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1532470278 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 	<algorithm>
 	<iostream>
 	"game.hpp"
 
-1532457690 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
+1532464588 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
 	"animation.hpp"
 	"shader.hpp"
 	"buffer.hpp"
@@ -3129,10 +3129,10 @@
 
 1532426116 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\scene_loader.hpp
 
-1532456186 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\joint.cpp
+1532470493 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\joint.cpp
 	"joint.hpp"
 
-1532456375 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\joint.hpp
+1532470390 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\joint.hpp
 	<array>
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>

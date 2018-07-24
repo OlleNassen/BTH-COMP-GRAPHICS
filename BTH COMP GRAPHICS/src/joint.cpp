@@ -15,20 +15,12 @@ joint::joint(const glm::mat4& transform, joint* parent)
 
 }
 
-joint& joint::operator=(const joint& other)
+void joint::transform(const glm::mat4& transform)
 {
-    if(this != &other)
-    {
-        parent = &other !=
-            other.parent ?
-            other.parent : parent;
-
-        local_transform = other.local_transform;
-        global_transform = parent->global_transform * local_transform;
-        inverse_bind_pose = glm::inverse(global_transform);
-    }
-
-    return *this;
+    local_transform = transform;
+    global_transform =
+        parent->global_transform
+        * local_transform;
 }
 
 glm::mat4 joint::world_transform() const
