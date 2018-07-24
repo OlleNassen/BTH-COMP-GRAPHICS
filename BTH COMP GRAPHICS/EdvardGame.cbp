@@ -61,6 +61,7 @@
 		<Unit filename="include/quad.hpp" />
 		<Unit filename="include/quad_tess.hpp" />
 		<Unit filename="include/race.hpp" />
+		<Unit filename="include/scene_loader.hpp" />
 		<Unit filename="include/scene_node.hpp" />
 		<Unit filename="include/shader.hpp" />
 		<Unit filename="include/skybox.hpp" />
@@ -101,6 +102,7 @@
 		<Unit filename="src/quad.cpp" />
 		<Unit filename="src/quad_tess.cpp" />
 		<Unit filename="src/race.cpp" />
+		<Unit filename="src/scene_loader.cpp" />
 		<Unit filename="src/scene_node.cpp" />
 		<Unit filename="src/shader.cpp" />
 		<Unit filename="src/skybox.cpp" />

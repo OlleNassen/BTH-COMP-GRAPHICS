@@ -2603,7 +2603,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1532356213 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1532389570 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	<chrono>
@@ -2868,13 +2868,13 @@
 	"window.hpp"
 	<iostream>
 
-1532355550 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1532426855 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 	<algorithm>
 	<iostream>
 	"game.hpp"
 
-1532281813 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
+1532428083 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
 	"animation.hpp"
 	"shader.hpp"
 	"buffer.hpp"
@@ -3122,4 +3122,9 @@
 
 1532355491 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\race.cpp
 	"race.hpp"
+
+1532426116 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\scene_loader.cpp
+	"scene_loader.hpp"
+
+1532426116 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\scene_loader.hpp
 

@@ -3,7 +3,7 @@
 #include <iostream>
 #include "game.hpp"
 
-void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<unsigned int>& indices)
+void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<unsigned int>& indices, std::array<glm::mat4, 50>& offset)
 {
 	vertices.resize(mesh->mNumVertices);
 
@@ -37,6 +37,8 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<un
 
 	for (auto i = 0u; i < mesh->mNumBones; ++i)
 	{
+		offset[i] = ai_to_glm(mesh->mBones[i]->mOffsetMatrix);
+
 		auto* bone = mesh->mBones[i];
 		for (auto j = 0u; j < bone->mNumWeights; ++j)
 		{
@@ -64,37 +66,7 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<un
 	}
 }
 
-void load_skeleton(const aiMesh* mesh, skeleton& joints)
-{
-	for (auto i = 0u; i < mesh->mNumBones; ++i)
-	{
-		aiMatrix3x3 mat3;
-		aiMatrix4x4 mat4 = mesh->mBones[i]->mOffsetMatrix;
-		glm::vec3 pos;
-
-		pos.x = mat4.d1;
-		pos.y = mat4.d2;
-		pos.z = mat4.d3;
-
-		mat3.a1 = mat4.a1;
-		mat3.a2 = mat4.a2;
-		mat3.a3 = mat4.a3;
-		mat3.b1 = mat4.b1;
-		mat3.b2 = mat4.b2;
-		mat3.b3 = mat4.b3;
-		mat3.c1 = mat4.c1;
-		mat3.c2 = mat4.c2;
-		mat3.c3 = mat4.c3;
-
-		aiQuaternion quat(mat3);
-		glm::quat rot(quat.w, quat.x, quat.y, quat.z);
-
-		joints[i].position = pos;
-		joints[i].rotation = rot;
-	}
-}
-
-void load_parent_indices(const aiNode& node, std::vector<std::string>& names)
+void load_parent_names(const aiNode& node, std::vector<std::string>& names)
 {
     if(node.mName.C_Str()[0] != '<')
     {
@@ -103,16 +75,40 @@ void load_parent_indices(const aiNode& node, std::vector<std::string>& names)
 
     for (auto i = 0u; i < node.mNumChildren; ++i)
 	{
-        load_parent_indices(*node.mChildren[i], names);
+        load_parent_names(*node.mChildren[i], names);
 	}
 }
 
-void parent_indices(const aiNode& node, const std::vector<std::string>& names, int& index, skeleton& joints)
+void load_parent_indices(const aiNode& node, const std::vector<std::string>& names, int& index, skeleton& joints)
 {
     if(node.mName.C_Str()[0] != '<')
     {
         ++index;
     }
+
+    aiMatrix3x3 mat3;
+    aiMatrix4x4 mat4 = node.mTransformation;
+    glm::vec3 pos;
+
+    pos.x = mat4.d1;
+    pos.y = mat4.d2;
+    pos.z = mat4.d3;
+
+    mat3.a1 = mat4.a1;
+    mat3.a2 = mat4.a2;
+    mat3.a3 = mat4.a3;
+    mat3.b1 = mat4.b1;
+    mat3.b2 = mat4.b2;
+    mat3.b3 = mat4.b3;
+    mat3.c1 = mat4.c1;
+    mat3.c2 = mat4.c2;
+    mat3.c3 = mat4.c3;
+
+    aiQuaternion quat(mat3);
+    glm::quat rot(quat.w, quat.x, quat.y, quat.z);
+
+    joints[index].position = pos;
+    joints[index].rotation = rot;
 
     for (auto i = 0u; i < names.size(); ++i)
     {
@@ -124,23 +120,23 @@ void parent_indices(const aiNode& node, const std::vector<std::string>& names, i
 
     for (auto i = 0u; i < node.mNumChildren; ++i)
     {
-        parent_indices(*node.mChildren[i], names, index, joints);
+        load_parent_indices(*node.mChildren[i], names, index, joints);
     }
 
 }
 
-void load_parent_indices(const aiNode* node, skeleton& joints)
+void load_skeleton(const aiNode* node, skeleton& joints)
 {
     std::vector<std::string> names;
     for (auto i = 0u; i < node->mNumChildren; ++i)
 	{
-        load_parent_indices(*node->mChildren[i], names);
+        load_parent_names(*node->mChildren[i], names);
 	}
 
 	auto index = 0;
 	for (auto i = 0u; i < node->mNumChildren; ++i)
     {
-        parent_indices(*node->mChildren[i], names, index, joints);
+        load_parent_indices(*node->mChildren[i], names, index, joints);
     }
 }
 
@@ -178,7 +174,9 @@ void import_model(const std::string& path,
 	std::vector<vertex>& vertices,
 	std::vector<unsigned int>& indices,
 	skeleton& joints,
-	std::vector<key_frame>& key_frames)
+	std::vector<key_frame>& key_frames,
+	glm::mat4& global_inverse_transform,
+	std::array<glm::mat4, 50>& offset)
 {
 	Assimp::Importer importer;
 	auto* scene = importer.ReadFile(path.c_str(),
@@ -187,11 +185,11 @@ void import_model(const std::string& path,
 		aiProcess_GenSmoothNormals |
 		aiProcess_FlipUVs);
 
+    global_inverse_transform = ai_to_glm(scene->mRootNode->mTransformation);
 
-    load_mesh(scene->mMeshes[0], vertices, indices);
-    load_skeleton(scene->mMeshes[0], joints);
+    load_mesh(scene->mMeshes[0], vertices, indices, offset);
 
-	load_parent_indices(scene->mRootNode, joints);
+	load_skeleton(scene->mRootNode, joints);
 	load_key_frames(scene->mAnimations[0], key_frames);
 }
 
@@ -202,7 +200,9 @@ model::model()
     std::vector<key_frame> key_frames;
     joints.fill({ 0, glm::vec3(0.0f), glm::quat_cast(glm::mat4(1.0f)) });
 
-	import_model("models/boblampclean.md5mesh", vertices, indices, joints, key_frames);
+	import_model("models/boblampclean.md5mesh",
+        vertices, indices, joints,
+        key_frames, global_inverse_transform, offset);
 
 	current.load(key_frames);
 
@@ -230,11 +230,11 @@ void model::update(const std::chrono::milliseconds delta_time)
 {
 	current.update(delta_time, joints);
 
-	for (auto i = 0u; i < joints.size(); ++i)
+	for (auto i = 0u; i < 2/*joints.size()*/; ++i)
 	{
-		glm::mat4 new_transform  =
-            glm::translate(glm::mat4(1.0f), joints[i].position)
-            * glm::mat4_cast(joints[i].rotation);
+		glm::mat4 new_transform(1.0f);
+        new_transform *= glm::translate(new_transform, joints[i].position);
+        new_transform *= glm::mat4_cast(joints[i].rotation);
 
 		world_joints[i] = new_transform;
 
@@ -242,17 +242,17 @@ void model::update(const std::chrono::milliseconds delta_time)
 			joints[j].parent != 0;
 			j = joints[j].parent)
 		{
-			glm::mat4 parent_transform =
-                glm::translate(glm::mat4(1.0f), joints[j].position)
-                * glm::mat4_cast(joints[j].rotation);
+			glm::mat4 parent_transform(1.0f);
+            parent_transform *= glm::translate(parent_transform, joints[j].position);
+            parent_transform *= glm::mat4_cast(joints[j].rotation);
 
 			world_joints[i] *= parent_transform;
 		}
 	}
 
-	for (auto& joint : world_joints)
+	for (auto i = 0u; i < world_joints.size(); ++i)
 	{
-	    joint = glm::inverse(world_joints[0]) * joint;
+	    world_joints[i] = global_inverse_transform * world_joints[i] * offset[i];
 	}
 }
 
