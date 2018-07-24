@@ -9,6 +9,7 @@ sphere::sphere(const glm::vec3& position, float radius)
 
 bool sphere::contains(const glm::vec3& other) const
 {
+	//std::cout << glm::length(other - position) << '\n';
     return glm::length(other - position) < radius;
 }
 
@@ -61,6 +62,7 @@ void race::update(const glm::vec3& position)
         if(current_checkpoint != checkpoints.end())
         {
             ++current_checkpoint;
+			std::cout << "CHECKPOINT" << '\n';
         }
         else
         {

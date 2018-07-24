@@ -101,9 +101,11 @@ game::game()
 
     for(auto& checkpoint : current_race)
     {
+		static float test = 0.f;
         checkpoint =
-        sphere(glm::vec3(10.0f,
-        10.0f, 10.0f), 10.0f);
+        sphere(glm::vec3(test,
+        10.0f, 0.0f), 2.5f);
+		test += 5;
     }
 
 	for (int i = 0; i < 10; ++i)
@@ -207,7 +209,8 @@ void game::update(const std::chrono::milliseconds delta_time)
     game_camera.move_on_terrain(*terror);
 
     game_camera.update(delta_time);
-    current_race.update(glm::vec3(0.0f, 0.0f, 0.0f));
+	glm::vec3 cam_pos{ game_camera.get_view()[3][0], game_camera.get_view()[3][1], game_camera.get_view()[3][2] };
+    current_race.update(cam_pos);
 
     particles->update(delta_time);
     temp_model.update(delta_time);
