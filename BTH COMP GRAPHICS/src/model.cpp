@@ -150,7 +150,6 @@ void import_model(const std::string& path,
 	std::vector<unsigned int>& indices,
 	skeleton& joints,
 	std::vector<key_frame>& key_frames,
-	glm::mat4& global_inverse_transform,
 	std::array<glm::mat4, 50>& offset)
 {
 	Assimp::Importer importer;
@@ -159,9 +158,6 @@ void import_model(const std::string& path,
 		aiProcess_SortByPType |
 		aiProcess_GenSmoothNormals |
 		aiProcess_FlipUVs);
-
-    global_inverse_transform =
-        glm::inverse(ai_to_glm(scene->mRootNode->mTransformation));
 
     load_mesh(scene->mMeshes[0], vertices, indices, offset);
 
@@ -177,7 +173,7 @@ model::model()
 
 	import_model("models/boblampclean.md5mesh",
         vertices, indices, joints,
-        key_frames, global_inverse_transform, offset);
+        key_frames, offset);
 
 	current.load(key_frames);
 
