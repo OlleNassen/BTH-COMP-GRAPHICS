@@ -39,7 +39,7 @@ void animation::update_key_frame()
 
         if(time > length)
         {
-            time = 0s;
+            time = 0ms;
         }
     }
 }
@@ -53,8 +53,6 @@ void animation::update_pose(skeleton& joints)
         calculate_progression(
         previous.time_point,
         next.time_point);
-
-    std::cout << progression << std::endl;
 
     for(auto i = 0u; i < joints.size(); ++i)
     {
