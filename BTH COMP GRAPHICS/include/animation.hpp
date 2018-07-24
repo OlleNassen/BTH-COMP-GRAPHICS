@@ -17,12 +17,10 @@ struct pose
     glm::quat rotation;
 };
 
-using skeleton = std::array<joint, 50>;
-
 struct key_frame
 {
     float time;
-    std::array<pose, 50> poses;
+    skeleton_array<pose> poses;
 };
 
 class animation

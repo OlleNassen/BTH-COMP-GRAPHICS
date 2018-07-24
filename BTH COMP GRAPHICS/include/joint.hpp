@@ -1,6 +1,7 @@
 #ifndef JOINT_HPP
 #define JOINT_HPP
 
+#include <array>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -20,5 +21,9 @@ private:
     glm::mat4 inverse_bind_pose;
 
 };
+
+template <class T>
+using skeleton_array = std::array<T, 50>;
+using skeleton = skeleton_array<joint>;
 
 #endif // JOINT_HPP

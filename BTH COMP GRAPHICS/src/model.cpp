@@ -3,7 +3,7 @@
 #include <iostream>
 #include "game.hpp"
 
-void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<unsigned int>& indices, std::array<glm::mat4, 50>& offset)
+void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<unsigned int>& indices, skeleton_array<glm::mat4>& offset)
 {
 	vertices.resize(mesh->mNumVertices);
 
@@ -150,7 +150,7 @@ void import_model(const std::string& path,
 	std::vector<unsigned int>& indices,
 	skeleton& joints,
 	std::vector<key_frame>& key_frames,
-	std::array<glm::mat4, 50>& offset)
+	skeleton_array<glm::mat4>& offset)
 {
 	Assimp::Importer importer;
 	auto* scene = importer.ReadFile(path.c_str(),

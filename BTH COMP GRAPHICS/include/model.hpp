@@ -66,8 +66,8 @@ private:
     std::vector<unsigned int> indices;
 
     skeleton joints;
-    std::array<glm::mat4, 50> offset;
-    std::array<glm::mat4, 50> world_joints;
+    skeleton_array<glm::mat4> offset;
+    skeleton_array<glm::mat4> world_joints;
 
     animation current;
 
