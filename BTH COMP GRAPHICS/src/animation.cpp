@@ -1,6 +1,9 @@
 #include "animation.hpp"
 #include <iostream>
 
+namespace anim
+{
+
 void animation::load(const std::vector<key_frame>& key_frames)
 {
     this->key_frames = key_frames;
@@ -17,7 +20,7 @@ animation::animation()
 
 }
 
-void animation::update(const std::chrono::milliseconds delta_time, skeleton& joints)
+void animation::update(const milliseconds delta_time, skeleton& joints)
 {
     time += delta_time;
 
@@ -77,12 +80,13 @@ void animation::update_pose(skeleton& joints)
 
 float
     animation::calculate_progression(
-    const std::chrono::milliseconds previous,
-    const std::chrono::milliseconds next) const
+    const milliseconds previous,
+    const milliseconds next) const
 {
-    using namespace std::chrono;
     duration<float> total_time = next - previous;
     duration<float> current_time = time - previous;
 
     return current_time.count() / total_time.count();
+}
+
 }

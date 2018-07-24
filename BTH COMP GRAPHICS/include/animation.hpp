@@ -9,7 +9,10 @@
 #include <glm/gtc/quaternion.hpp>
 #include "joint.hpp"
 
-using namespace std::literals::chrono_literals;
+namespace anim
+{
+
+using namespace std::chrono;
 
 struct pose
 {
@@ -19,7 +22,7 @@ struct pose
 
 struct key_frame
 {
-    std::chrono::milliseconds time_point;
+    milliseconds time_point;
     skeleton_array<pose> poses;
 };
 
@@ -29,11 +32,11 @@ public:
     void load(const std::vector<key_frame>& key_frames);
     animation();
 
-    void update(const std::chrono::milliseconds delta_time, skeleton& joints);
+    void update(const milliseconds delta_time, skeleton& joints);
 
 private:
-    std::chrono::milliseconds time;
-    std::chrono::milliseconds length;
+    milliseconds time;
+    milliseconds length;
     std::vector<key_frame> key_frames;
     std::vector<key_frame>::iterator previous;
     std::vector<key_frame>::iterator next;
@@ -42,8 +45,10 @@ private:
     void update_pose(skeleton& joints);
     float
         calculate_progression(
-        const std::chrono::milliseconds previous,
-        const std::chrono::milliseconds next) const;
+        const milliseconds previous,
+        const milliseconds next) const;
 };
+
+}
 
 #endif // ANIMATION_HPP

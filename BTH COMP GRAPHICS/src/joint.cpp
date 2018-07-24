@@ -1,5 +1,8 @@
 #include "joint.hpp"
 
+namespace anim
+{
+
 joint::joint(const glm::mat4& transform, joint* parent)
     : parent(parent ? parent : this)
     , local_transform(transform)
@@ -31,4 +34,6 @@ joint& joint::operator=(const joint& other)
 glm::mat4 joint::world_transform() const
 {
     return global_transform * inverse_bind_pose;
+}
+
 }

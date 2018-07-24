@@ -5,6 +5,9 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+namespace anim
+{
+
 class joint
 {
 public:
@@ -25,5 +28,7 @@ private:
 template <class T>
 using skeleton_array = std::array<T, 50>;
 using skeleton = skeleton_array<joint>;
+
+}
 
 #endif // JOINT_HPP

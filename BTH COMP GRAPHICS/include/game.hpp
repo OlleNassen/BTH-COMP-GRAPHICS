@@ -50,7 +50,7 @@ private:
 
 	//mesh_factory factory;
 
-	model temp_model;
+	anim::model temp_model;
 
 	//TEMP VARIABLES, PUT IN SCENE GRAPH WHEN FIXED
 	temp_box* temp; // PHONG cube
