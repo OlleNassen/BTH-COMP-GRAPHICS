@@ -174,3 +174,8 @@ void camera::move_on_terrain(const terrain& terrain)
     }
 }
 
+glm::vec3 camera::get_pos() const
+{
+	return position;
+}
+
