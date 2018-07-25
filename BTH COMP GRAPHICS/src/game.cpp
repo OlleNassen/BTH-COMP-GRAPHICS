@@ -29,6 +29,7 @@ game::game()
 	, terrain_shader("shaders/terrain.vs", "shaders/terrain.fs")
 	, environment_shader("shaders/environment_mapping.vs", "shaders/environment_mapping.fs")
 	, tess_shader("shaders/tess.vs", "shaders/tess.cs", "shaders/tess.es", "shaders/tess.geo", "shaders/tess.fs")
+	, text_shader("shaders/text.vs", "shaders/text.fs")
 	, game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 10000.0f)
 	, light(glm::vec3(0.0f, -1.0f, 0.0f),
         glm::vec3(0.2f, 0.2f, 0.2f),
@@ -104,7 +105,7 @@ game::game()
 		static float test = 0.f;
         checkpoint =
         sphere(glm::vec3(test,
-        10.0f, 0.0f), 2.5f);
+        15.0f, 0.0f), 2.5f);
 		test += 5;
     }
 
@@ -113,7 +114,10 @@ game::game()
 		icos[i] = new icosahedron(current_race[i].position.x, current_race[i].position.y, current_race[i].position.z);
 	}
 
+	temp_text = new text();
+
 	//factory.load_mesh("models/banner.obj");
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 }
 
 game::~game()
@@ -195,6 +199,11 @@ void game::render()
 	{
 		ics->render(tess_shader);
 	}
+
+	text_shader.use();
+	game_camera.bind(text_shader);
+	text_shader.uniform("textColor", glm::vec3(1.0f, 0.3f, 0.3f));
+	temp_text->render_text("CHECKPOINT", 100, 400, 1);
 
 	anim.use();
 	game_camera.bind(anim);

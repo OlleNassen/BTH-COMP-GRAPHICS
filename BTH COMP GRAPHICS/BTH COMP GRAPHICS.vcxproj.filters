@@ -93,6 +93,9 @@
     <ClCompile Include="src\joint.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\text.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\buffer.hpp">
@@ -170,6 +173,9 @@
     <ClInclude Include="include\joint.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\text.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\skybox.vs" />
@@ -189,5 +195,7 @@
     <None Include="shaders\tess.es" />
     <None Include="shaders\tess.fs" />
     <None Include="shaders\tess.geo" />
+    <None Include="shaders\text.vs" />
+    <None Include="shaders\text.fs" />
   </ItemGroup>
 </Project>

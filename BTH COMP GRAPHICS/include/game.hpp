@@ -19,6 +19,7 @@
 #include <iostream>
 #include <chrono>
 #include "race.hpp"
+#include "text.hpp"
 
 std::ostream& operator<<(std::ostream& os, const glm::mat4& value);
 
@@ -43,6 +44,8 @@ private:
 	shader terrain_shader;
 	shader environment_shader;
 	shader tess_shader;
+	shader text_shader;
+
 	camera game_camera;
 	directional_light light;
 	scene_node scene;
@@ -61,6 +64,7 @@ private:
 	terrain* terror;
 	quad_tess* tess;
 	icosahedron* ico;
+	text* temp_text;
 
     race current_race;
 	std::array<icosahedron*, 10> icos;
