@@ -237,7 +237,7 @@ void game::update(const std::chrono::milliseconds delta_time)
 		icos.emplace_back(new icosahedron(current_race[race_index].position.x, current_race[race_index].position.y, current_race[race_index].position.z));
 		++race_index;
 
-		if(race_index == 9)
+		if(race_index == 10)
             race_index = 0;
 	}
 
