@@ -207,6 +207,8 @@ void game::render()
 		text_shader.uniform("projection", projection);
 		text_shader.uniform("textColor", glm::vec3(1.0f, 0.3f, 0.3f));
 		temp_text->render_text("FINISHED", 100, 400, 1);
+		for (auto& obj : icos)
+			obj->set_color(glm::vec3(0.1, 1.0, 0.1));
 	}
 
 	anim.use();
