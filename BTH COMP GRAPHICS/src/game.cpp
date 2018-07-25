@@ -35,6 +35,8 @@ game::game()
         glm::vec3(0.2f, 0.2f, 0.2f),
         glm::vec3(0.5f, 0.5f, 0.5f),
         glm::vec3(1.0f, 1.0f, 1.0f))
+    , seconds(0s)
+    , color_timer(0ms)
 {
 	srand(time(NULL));
 	input::assign_window(game_window);
@@ -114,7 +116,7 @@ game::game()
     }
 
 	temp_text = new text();
-
+    change_color = false;
 	//factory.load_mesh("models/banner.obj");
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 }
@@ -211,10 +213,15 @@ void game::render()
 		glm::mat4 projection = glm::ortho(0.0f, 1280.f, 0.0f, 720.f);
 		text_shader.uniform("projection", projection);
 		text_shader.uniform("textColor", glm::vec3(1.0f, 0.3f, 0.3f));
-		//FIX HERE
-		for (auto& obj : icos)
-			obj->set_color(glm::vec3((rand() % 255) / 255.f, (rand() % 255) / 255.f, (rand() % 255) / 255.f));
-		temp_text->render_text("FINISHED", 100, 400, 1);
+
+		if(change_color)
+        {
+            change_color = false;
+            for (auto& obj : icos)
+                obj->set_color(glm::vec3((rand() % 255) / 255.f, (rand() % 255) / 255.f, (rand() % 255) / 255.f));
+            temp_text->render_text("FINISHED", 100, 400, 1);
+		}
+
 	}
 
 	game_window.swap_buffers();
@@ -241,6 +248,13 @@ void game::update(const std::chrono::milliseconds delta_time)
 		if(race_index == 10)
             race_index = 0;
 	}
+
+    color_timer += delta_time;
+    if(color_timer > 500ms)
+    {
+        change_color = true;
+        color_timer = 0ms;
+    }
 
     seconds += delta_time;
     light_pos.x += glm::sin(seconds.count() * 2.0f);

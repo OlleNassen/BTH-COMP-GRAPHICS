@@ -73,6 +73,8 @@ private:
 	glm::vec3 light_pos;
 	glm::vec3 phong_pos;
 	std::chrono::duration<float> seconds;
+	std::chrono::milliseconds color_timer;
+	bool change_color;
 
 	void render();
 	void update(const std::chrono::milliseconds delta_time);
