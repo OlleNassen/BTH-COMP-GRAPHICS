@@ -213,15 +213,13 @@ void game::render()
 		glm::mat4 projection = glm::ortho(0.0f, 1280.f, 0.0f, 720.f);
 		text_shader.uniform("projection", projection);
 		text_shader.uniform("textColor", glm::vec3(1.0f, 0.3f, 0.3f));
-
 		if(change_color)
         {
             change_color = false;
             for (auto& obj : icos)
                 obj->set_color(glm::vec3((rand() % 255) / 255.f, (rand() % 255) / 255.f, (rand() % 255) / 255.f));
-            temp_text->render_text("FINISHED", 100, 400, 1);
 		}
-
+            temp_text->render_text("FINISHED", 100, 400, 1);
 	}
 
 	game_window.swap_buffers();
