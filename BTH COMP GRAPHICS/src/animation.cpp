@@ -1,6 +1,5 @@
 #include "animation.hpp"
 #include <iostream>
-#include "game.hpp"
 
 namespace anim
 {
@@ -36,10 +35,16 @@ void animation::update(const milliseconds delta_time, skeleton& joints)
         glm::mat4 new_transform(1.0f);
         new_transform *= glm::translate(new_transform, next->poses[i].position);
         new_transform *= glm::mat4_cast(next->poses[i].rotation);
-        if(i == 0u)
-            std::cout << new_transform << std::endl;
 
-        joints[i].transform(new_transform);
+        if(i == 0u)
+        {
+            joints[i].global_transform = new_transform;
+        }
+        else
+        {
+            joints[i].transform(new_transform);
+        }
+
     }
 }
 
