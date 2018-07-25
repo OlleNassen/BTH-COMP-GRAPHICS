@@ -200,6 +200,12 @@ void game::render()
 		ics->render(tess_shader);
 	}
 
+	//Animated model
+	anim.use();
+	game_camera.bind(anim);
+	temp_model.draw(anim);
+
+	//Text
 	if (current_race.lap() == 3)
 	{
 		text_shader.use();
@@ -210,10 +216,6 @@ void game::render()
 		for (auto& obj : icos)
 			obj->set_color(glm::vec3(0.1, 1.0, 0.1));
 	}
-
-	anim.use();
-	game_camera.bind(anim);
-	temp_model.draw(anim);
 
 	game_window.swap_buffers();
 }
