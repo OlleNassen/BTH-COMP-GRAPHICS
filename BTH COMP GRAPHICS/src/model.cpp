@@ -8,21 +8,21 @@ namespace anim
 
 static constexpr glm::mat4 ai_to_glm(const aiMatrix4x4& mat)
 {
-    /*return
+    return
     {
         mat.a1, mat.b1, mat.c1, mat.d1,
         mat.a2, mat.b2, mat.c2, mat.d2,
         mat.a3, mat.b3, mat.c3, mat.d3,
         mat.a4, mat.b4, mat.c4, mat.d4
-    };*/
+    };
 
-     return
+     /*return
      {
         mat.a1, mat.a2, mat.a3, mat.a4,
         mat.b1, mat.b2, mat.b3, mat.b4,
         mat.c1, mat.c2, mat.c3, mat.c4,
         mat.d1, mat.d2, mat.d3, mat.d4
-    };
+    };*/
 }
 
 void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<unsigned int>& indices)
@@ -238,9 +238,6 @@ void model::update(const milliseconds delta_time)
 	for (auto i = 0u; i < joints.size(); ++i)
 	{
         world_joints[i] = joints[i].world_transform();
-
-        if(i == 1u)
-            std::cout << joints[i].parent->global_transform << std::endl;
     }
 }
 
