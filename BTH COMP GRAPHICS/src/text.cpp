@@ -116,5 +116,4 @@ void text::render_text(const std::string& text, float x, float y, float scale)
 		x += (ch.Advance >> 6) * scale; // Bitshift by 6 to get value in pixels (2^6 = 64)
 	}
 	glBindVertexArray(0);
-	glBindTexture(GL_TEXTURE_2D, 0);
 }
