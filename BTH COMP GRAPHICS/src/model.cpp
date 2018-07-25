@@ -15,6 +15,14 @@ static constexpr glm::mat4 ai_to_glm(const aiMatrix4x4& mat)
         mat.a3, mat.b3, mat.c3, mat.d3,
         mat.a4, mat.b4, mat.c4, mat.d4
     };
+
+     /*return
+     {
+        mat.a1, mat.a2, mat.a3, mat.a4,
+        mat.b1, mat.b2, mat.b3, mat.b4,
+        mat.c1, mat.c2, mat.c3, mat.c4,
+        mat.d1, mat.d2, mat.d3, mat.d4
+    };*/
 }
 
 void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<unsigned int>& indices)
@@ -105,7 +113,22 @@ void load_parent_indices(const aiNode& node, const std::vector<std::string>& nam
     {
         if(names[i].compare(node.mParent->mName.C_Str()) == 0)
         {
-            joints[index - 1] = joint(ai_to_glm(node.mTransformation), &joints[i]);
+            auto& joint = joints[index - 1];
+            auto* parent = &joints[i];
+
+            joint.parent = parent;
+            joint.local_transform = ai_to_glm(node.mTransformation);
+            if(index == 0u)
+            {
+                joint.global_transform = joint.local_transform;
+            }
+            else
+            {
+                joint.global_transform = parent->global_transform * joint.local_transform;
+            }
+            joint.inverse_bind_pose = glm::inverse(joint.global_transform);
+
+            //joints[index - 1] = joint(ai_to_glm(node.mTransformation), &joints[i]);
         }
     }
 
