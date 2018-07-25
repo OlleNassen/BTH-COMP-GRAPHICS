@@ -2603,7 +2603,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1532446724 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1532515643 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	<chrono>
@@ -2611,7 +2611,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1532456390 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1532513745 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	"window.hpp"
 	"camera.hpp"
 	"shader.hpp"
@@ -2631,6 +2631,7 @@
 	<iostream>
 	<chrono>
 	"race.hpp"
+	"text.hpp"
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glfw\glfw3.h
 	<stddef.h>
@@ -2863,11 +2864,11 @@
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 
-1532291609 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\window.cpp
+1532515389 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\window.cpp
 	"window.hpp"
 	<iostream>
 
-1532470278 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1532518561 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 	<algorithm>
 	<iostream>
@@ -3002,7 +3003,7 @@
 	<ctime>
 	<iostream>
 
-1532458893 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1532518280 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 	<iostream>
 
@@ -3129,11 +3130,29 @@
 
 1532426116 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\scene_loader.hpp
 
-1532470493 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\joint.cpp
+1532518550 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\joint.cpp
 	"joint.hpp"
 
-1532470390 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\joint.hpp
+1532518555 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\joint.hpp
 	<array>
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
+
+1532513745 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\text.hpp
+	<string>
+	<buffer.hpp>
+	"vertex_array.hpp"
+	<map>
+	<glm\glm.hpp>
+	<ft2build.h>
+
+1532513745 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\ft2build.h
+	<freetype/config/ftheader.h>
+
+1532513745 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\freetype\config\ftheader.h
+
+1532516532 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\text.cpp
+	"text.hpp"
+	<iostream>
+	<gl/glew.h>
 

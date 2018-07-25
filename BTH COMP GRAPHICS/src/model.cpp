@@ -55,7 +55,7 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<un
 		auto* bone = mesh->mBones[i];
 		for (auto j = 0u; j < bone->mNumWeights; ++j)
 		{
-            aiVertexWeight weight = bone->mWeights[j];
+            auto weight = bone->mWeights[j];
 
             if(vertices[weight.mVertexId].weights.x == 0.0f)
             {

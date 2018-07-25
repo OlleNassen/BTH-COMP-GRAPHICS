@@ -24,10 +24,19 @@ void animation::update(const milliseconds delta_time, skeleton& joints)
 {
     time += delta_time;
 
-    if(!key_frames.empty())
+    /*if(!key_frames.empty())
     {
         update_key_frame();
         update_pose(joints);
+    }*/
+
+    for(auto i = 0u; i < joints.size(); ++i)
+    {
+        glm::mat4 new_transform(1.0f);
+        new_transform *= glm::translate(new_transform, next->poses[i].position);
+        new_transform *= glm::mat4_cast(next->poses[i].rotation);
+
+        joints[i].transform(new_transform);
     }
 }
 
