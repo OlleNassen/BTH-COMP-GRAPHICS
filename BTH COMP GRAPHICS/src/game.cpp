@@ -205,7 +205,7 @@ void game::render()
 	temp_model.draw(anim);
 
 	//Text
-	if (current_race.lap() == 3)
+	if (current_race.lap() == 1)
 	{
 		text_shader.use();
 		glm::mat4 projection = glm::ortho(0.0f, 1280.f, 0.0f, 720.f);
@@ -235,7 +235,10 @@ void game::update(const std::chrono::milliseconds delta_time)
 		if(race_index != 0)
 			icos[race_index - 1]->set_color(glm::vec3(0.1f, 1.0f, 0.1f));
 		icos.emplace_back(new icosahedron(current_race[race_index].position.x, current_race[race_index].position.y, current_race[race_index].position.z));
-		race_index++;
+		++race_index;
+
+		if(race_index == 9)
+            race_index = 0;
 	}
 
     seconds += delta_time;
