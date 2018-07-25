@@ -200,11 +200,14 @@ void game::render()
 		ics->render(tess_shader);
 	}
 
-	text_shader.use();
-	glm::mat4 projection = glm::ortho(0.0f, 1280.f, 0.0f, 720.f);
-	text_shader.uniform("projection", projection);
-	text_shader.uniform("textColor", glm::vec3(1.0f, 0.3f, 0.3f));
-	temp_text->render_text("checkpoint", 100, 400, 1);
+	if (current_race.lap() == 3)
+	{
+		text_shader.use();
+		glm::mat4 projection = glm::ortho(0.0f, 1280.f, 0.0f, 720.f);
+		text_shader.uniform("projection", projection);
+		text_shader.uniform("textColor", glm::vec3(1.0f, 0.3f, 0.3f));
+		temp_text->render_text("FINISHED", 100, 400, 1);
+	}
 
 	anim.use();
 	game_camera.bind(anim);
