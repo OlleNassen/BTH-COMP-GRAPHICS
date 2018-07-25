@@ -101,6 +101,8 @@ game::game()
 	light_pos = glm::vec3(50, 5, -15);
     phong_pos = glm::vec3(0, 10, 5);
 
+	terror->update(16ms);
+
     for(auto& checkpoint : current_race)
     {
 		float x_val = rand() % terror->width;
@@ -108,7 +110,7 @@ game::game()
 
 		checkpoint =
 			sphere(glm::vec3(x_val,
-				terror->calculate_camera_y(static_cast<int>(x_val), static_cast<int>(z_val)), z_val), 2.5f);
+				terror->calculate_camera_y(x_val, z_val) + 2, z_val), 2.5f);
     }
 
 	temp_text = new text();
@@ -230,6 +232,8 @@ void game::update(const std::chrono::milliseconds delta_time)
 
 	if (race_index == current_race.get_checkpoint())
 	{
+		if(race_index != 0)
+			icos[race_index - 1]->set_color(glm::vec3(0.1f, 1.0f, 0.1f));
 		icos.emplace_back(new icosahedron(current_race[race_index].position.x, current_race[race_index].position.y, current_race[race_index].position.z));
 		race_index++;
 	}
