@@ -16,6 +16,7 @@ bool sphere::contains(const glm::vec3& other) const
 race::race()
     : current_checkpoint(checkpoints.begin())
     , current_lap(0)
+	, checkpoint(0)
 {
 
 }
@@ -55,14 +56,21 @@ int race::lap() const
     return current_lap;
 }
 
+int race::get_checkpoint() const
+{
+	return checkpoint;
+}
+
 void race::update(const glm::vec3& position)
 {
     if(current_checkpoint->contains(position))
     {
         ++current_checkpoint;
+		checkpoint++;
         if(current_checkpoint == checkpoints.end())
         {
             ++current_lap;
+			checkpoint = 0;
             current_checkpoint = checkpoints.begin();
         }
     }

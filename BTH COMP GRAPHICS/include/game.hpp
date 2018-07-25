@@ -66,8 +66,9 @@ private:
 	icosahedron* ico;
 	text* temp_text;
 
+	int race_index = 0;
     race current_race;
-	std::array<icosahedron*, 10> icos;
+	std::vector<icosahedron*> icos;
 
 	glm::vec3 light_pos;
 	glm::vec3 phong_pos;

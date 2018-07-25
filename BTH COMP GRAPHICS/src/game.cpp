@@ -36,6 +36,7 @@ game::game()
         glm::vec3(0.5f, 0.5f, 0.5f),
         glm::vec3(1.0f, 1.0f, 1.0f))
 {
+	srand(time(NULL));
 	input::assign_window(game_window);
 
 	input::assign_mouse_callback(
@@ -102,17 +103,13 @@ game::game()
 
     for(auto& checkpoint : current_race)
     {
-		static float test = 0.f;
-        checkpoint =
-        sphere(glm::vec3(test,
-        15.0f, 0.0f), 2.5f);
-		test += 5;
-    }
+		float x_val = rand() % terror->width;
+		float z_val = rand() % terror->width;
 
-	for (int i = 0; i < 10; ++i)
-	{
-		icos[i] = new icosahedron(current_race[i].position.x, current_race[i].position.y, current_race[i].position.z);
-	}
+		checkpoint =
+			sphere(glm::vec3(x_val,
+				terror->calculate_camera_y(static_cast<int>(x_val), static_cast<int>(z_val)), z_val), 2.5f);
+    }
 
 	temp_text = new text();
 
@@ -212,9 +209,9 @@ void game::render()
 		glm::mat4 projection = glm::ortho(0.0f, 1280.f, 0.0f, 720.f);
 		text_shader.uniform("projection", projection);
 		text_shader.uniform("textColor", glm::vec3(1.0f, 0.3f, 0.3f));
-		temp_text->render_text("FINISHED", 100, 400, 1);
 		for (auto& obj : icos)
 			obj->set_color(glm::vec3(0.1, 1.0, 0.1));
+		temp_text->render_text("FINISHED", 100, 400, 1);
 	}
 
 	game_window.swap_buffers();
@@ -230,6 +227,12 @@ void game::update(const std::chrono::milliseconds delta_time)
 
     particles->update(delta_time);
     temp_model.update(delta_time);
+
+	if (race_index == current_race.get_checkpoint())
+	{
+		icos.emplace_back(new icosahedron(current_race[race_index].position.x, current_race[race_index].position.y, current_race[race_index].position.z));
+		race_index++;
+	}
 
     seconds += delta_time;
     light_pos.x += glm::sin(seconds.count() * 2.0f);

@@ -29,7 +29,7 @@ void animation::update(const milliseconds delta_time, skeleton& joints)
     {
         update_key_frame();
         update_pose(joints);
-    }*/
+    }
 
     for(auto i = 0u; i < joints.size(); ++i)
     {
@@ -40,7 +40,12 @@ void animation::update(const milliseconds delta_time, skeleton& joints)
             std::cout << new_transform << std::endl;
 
         joints[i].transform(new_transform);
+
+
+
     }
+	*/
+
 }
 
 void animation::update_key_frame()

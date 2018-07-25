@@ -34,6 +34,7 @@ public:
     sphere_array::reference operator[](sphere_array::size_type pos);
 
     int lap() const;
+	int get_checkpoint()const;
     void update(const glm::vec3& position);
 
 private:
@@ -42,6 +43,7 @@ private:
     sphere_array checkpoints;
     sphere_array::iterator current_checkpoint;
     int current_lap;
+	int checkpoint;
 };
 
 #endif // RACE_HPP
