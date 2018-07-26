@@ -43,34 +43,34 @@ enum class type
 class texture
 {
 public:
-    texture(const int width, const int height,
-        const wrap wrap_parameter = wrap::REPEAT,
-        const filter filter_parameter = filter::LINEAR,
-        const format format_parameter = format::RGBA,
-        const type type_parameter = type::UNSIGNED_BYTE);
+    texture(int width, int height,
+        wrap wrap_parameter = wrap::REPEAT,
+        filter filter_parameter = filter::LINEAR,
+        format format_parameter = format::RGBA,
+        type type_parameter = type::UNSIGNED_BYTE);
 
     texture(const std::string& path,
-        const wrap wrap_parameter = wrap::REPEAT,
-        const filter filter_parameter = filter::LINEAR,
-        const format format_parameter = format::RGBA,
-        const type type_parameter = type::UNSIGNED_BYTE);
+        wrap wrap_parameter = wrap::REPEAT,
+        filter filter_parameter = filter::LINEAR,
+        format format_parameter = format::RGBA,
+        type type_parameter = type::UNSIGNED_BYTE);
 
     texture(const std::vector<std::string>& paths,
-        const wrap wrap_parameter = wrap::REPEAT,
-        const filter filter_parameter = filter::LINEAR,
-        const format format_parameter = format::RGBA,
-        const type type_parameter = type::UNSIGNED_BYTE);
+        wrap wrap_parameter = wrap::REPEAT,
+        filter filter_parameter = filter::LINEAR,
+        format format_parameter = format::RGBA,
+        type type_parameter = type::UNSIGNED_BYTE);
 
     ~texture();
 
-    void uniform(const shader& shader, const std::string& name, const int texture_index = 0) const;
+    void uniform(const shader& shader, const std::string& name, int texture_index = 0) const;
     void skybox(const shader& shader) const;
     void bind_to_buffer() const;
 
 private:
     unsigned int id;
 
-    void generate(const wrap wrap_parameter, const filter filter_parameter);
+    void generate(wrap wrap_parameter, filter filter_parameter);
 };
 
 #endif // TEXTURE_HPP

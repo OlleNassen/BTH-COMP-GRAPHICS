@@ -21,11 +21,11 @@ static constexpr char* buffer_offset(unsigned int offset)
 class node
 {
 public:
-    node(const float x = 0.0f, const float y = 0.0f, const float z = 0.0f);
+    node(float x = 0.0f, float y = 0.0f, float z = 0.0f);
     virtual ~node();
     void attach_child(node* child);
 
-    void update(const milliseconds delta_time);
+    void update(milliseconds delta_time);
     void prepare_render(const shader& shader) const;
     void render(const shader& shader) const;
 
@@ -33,11 +33,11 @@ private:
     std::vector<node*> children;
     glm::mat4 transform;
 
-    void update(const milliseconds delta_time, glm::mat4& world_transform);
+    void update(milliseconds delta_time, glm::mat4& world_transform);
     void prepare_render(const shader& shader, glm::mat4& world_transform) const;
     void render(const shader& shader, glm::mat4& world_transform) const;
 
-    virtual void update_current(const milliseconds delta_time,
+    virtual void update_current(milliseconds delta_time,
         const glm::mat4& world_transform, glm::mat4& transform);
     virtual void prepare_render_current(const shader& shader, const glm::mat4& world_transform) const;
     virtual void render_current(const shader& shader, const glm::mat4& world_transform) const;

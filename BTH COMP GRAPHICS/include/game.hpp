@@ -76,7 +76,7 @@ private:
 	std::chrono::milliseconds color_timer;
 
 	void render();
-	void update(const std::chrono::milliseconds delta_time);
+	void update(std::chrono::milliseconds delta_time);
 };
 
 #endif

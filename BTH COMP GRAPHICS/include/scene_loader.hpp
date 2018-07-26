@@ -4,13 +4,12 @@
 
 class scene_loader
 {
-    public:
-        scene_loader();
-        ~scene_loader();
+public:
+    scene_loader();
+    ~scene_loader();
 
-    protected:
 
-    private:
+private:
 };
 
 #endif // SCENE_LOADER_HPP

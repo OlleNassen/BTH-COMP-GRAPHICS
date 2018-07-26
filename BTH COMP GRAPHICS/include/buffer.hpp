@@ -24,12 +24,12 @@ enum class target
 class buffer
 {
 public:
-    buffer(const target buffer_target);
+    buffer(target buffer_target);
     ~buffer();
 
     void bind() const;
 
-    void data(const int size, const void* data, const unsigned int usage) const;
+    void data(int size, const void* data, unsigned int usage) const;
 
 private:
     unsigned int buffer_target;

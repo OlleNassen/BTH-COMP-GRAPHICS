@@ -10,8 +10,7 @@ namespace scene
 
 using terrain_vertex = std::pair<glm::vec3, glm::vec2>; // pos, tex
 
-terrain::terrain(const float x,
-    const float y, const float z)
+terrain::terrain(float x, float y, float z)
 	: node(x, y, z)
 	, x(x)
 	, y(y)
@@ -98,14 +97,14 @@ float terrain::calculate_camera_y(float x, float z) const
     return data[x_index + z_index * width] * 0.1f + y;
 }
 
-void terrain::update_current(const milliseconds delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
+void terrain::update_current(milliseconds delta_time, const glm::mat4& world_transform, glm::mat4& transform)
 {
     x = world_transform[3][0];
     y = world_transform[3][1];
     z = world_transform[3][2];
 }
 
-void terrain::render_current(const shader & shader, const glm::mat4 & world_transform) const
+void terrain::render_current(const shader& shader, const glm::mat4& world_transform) const
 {
 	shader.uniform("model", world_transform);
 	terrain_texture->uniform(shader, "diffuse", 0);

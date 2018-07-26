@@ -90,7 +90,7 @@ enum class key
 
 void assign_window(window& callback_window);
 
-void bind_key(const std::string& name, const key keybind);
+void bind_key(const std::string& name, key keybind);
 
 void assign_mouse_callback(
         std::function<void(float, float)> callback);

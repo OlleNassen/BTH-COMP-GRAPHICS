@@ -3,8 +3,7 @@
 namespace scene
 {
 
-icosahedron::icosahedron(const float x,
-    const float y, const float z)
+icosahedron::icosahedron(float x, float y, float z)
     : node(x, y, z)
     , vbo(target::ARRAY_BUFFER)
     ,   ebo(target::ELEMENT_ARRAY_BUFFER)
@@ -66,7 +65,7 @@ void icosahedron::set_color(const glm::vec3& color)
 	temp_color = color;
 }
 
-void icosahedron::update_current(const milliseconds delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
+void icosahedron::update_current(milliseconds delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
 {
 }
 

@@ -6,8 +6,7 @@
 namespace scene
 {
 
-particle_emitter::particle_emitter(const float x,
-    const float y, const float z)
+particle_emitter::particle_emitter(float x, float y, float z)
 	: node(x, y, z)
 	, quad_vbo(target::ARRAY_BUFFER), instance_vbo(target::ARRAY_BUFFER), quad_texture(new texture("images/edvard.png"))
 {
@@ -54,7 +53,7 @@ particle_emitter::~particle_emitter()
 {
 }
 
-void particle_emitter::update_current(const milliseconds delta_time, const glm::mat4& world_transform, glm::mat4& transform)
+void particle_emitter::update_current(milliseconds delta_time, const glm::mat4& world_transform, glm::mat4& transform)
 {
 	instance_vbo.data(sizeof(glm::vec3) * offsets.size(), offsets.data(), GL_STATIC_DRAW);
 

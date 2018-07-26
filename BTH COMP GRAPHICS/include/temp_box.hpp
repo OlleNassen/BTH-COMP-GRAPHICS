@@ -11,7 +11,7 @@ namespace scene
 class temp_box : public node
 {
 public:
-	temp_box(const float x = 0.0f, const float y = 0.0f, const float z = 0.0f);
+	temp_box(float x = 0.0f, float y = 0.0f, float z = 0.0f);
 	virtual ~temp_box();
 
 private:
@@ -19,7 +19,7 @@ private:
 	buffer box_vbo;
 	glm::vec3 color;
 
-	virtual void update_current(const milliseconds delta_time,
+	virtual void update_current(milliseconds delta_time,
 		const glm::mat4& world_transform, glm::mat4& transform) override;
 
 	virtual void render_current(const shader& shader,

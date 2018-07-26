@@ -9,13 +9,13 @@
 class camera
 {
 public:
-    camera(const float left, const float right,
-        const float bottom, const float top);
+    camera(float left, float right,
+        float bottom, float top);
 
-    camera(const float fovy, const float width,
-        const float height, const float near, const float far);
+    camera(float fovy, float width,
+        float height, float near, float far);
 
-    void on_mouse_moved(const float x, const float y);
+    void on_mouse_moved(float x, float y);
     void up_pressed();
     void up_released();
     void down_pressed();

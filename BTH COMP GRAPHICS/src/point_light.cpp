@@ -16,12 +16,12 @@ point_light::~point_light()
 {
 }
 
-void point_light::update_current(const std::chrono::milliseconds delta_time,
+void point_light::update_current(milliseconds delta_time,
     const glm::mat4& world_transform, glm::mat4& transform)
 {
 }
 
-void point_light::render_current(const shader & shader, const glm::mat4 & world_transform) const
+void point_light::render_current(const shader& shader, const glm::mat4& world_transform) const
 {
         shader.uniform("point_lights[0].position", glm::vec3(world_transform * glm::vec4(1.0f)));
         shader.uniform("point_lights[0].ambient", ambient);

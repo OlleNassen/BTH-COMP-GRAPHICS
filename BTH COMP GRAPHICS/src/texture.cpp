@@ -4,11 +4,11 @@
 #include <stb_image.h>
 
 texture::texture(const int width,
-    const int height,
-    const wrap wrap_parameter,
-    const filter filter_parameter,
-    const format format_parameter,
-    const type type_parameter)
+    int height,
+    wrap wrap_parameter,
+    filter filter_parameter,
+    format format_parameter,
+    type type_parameter)
 {
     generate(wrap_parameter, filter_parameter);
 
@@ -96,7 +96,7 @@ texture::~texture()
     glDeleteTextures(1, &id);
 }
 
-void texture::uniform(const shader& shader, const std::string& name, const int texture_index) const
+void texture::uniform(const shader& shader, const std::string& name, int texture_index) const
 {
     shader.uniform(name, texture_index);
     glActiveTexture(GL_TEXTURE0 + texture_index);

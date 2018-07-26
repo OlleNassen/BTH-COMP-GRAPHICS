@@ -9,8 +9,8 @@
 class window
 {
 public:
-    window(const unsigned int width,
-           const unsigned int height,
+    window(unsigned int width,
+           unsigned int height,
            const std::string& title);
     ~window();
 

@@ -2,10 +2,10 @@
 #include <GL/glew.h>
 
 directional_light::directional_light(
-    const glm::vec3 direction,
-    const glm::vec3 ambient,
-    const glm::vec3 diffuse,
-    const glm::vec3 specular)
+    const glm::vec3& direction,
+    const glm::vec3& ambient,
+    const glm::vec3& diffuse,
+    const glm::vec3& specular)
     : direction(direction)
     , ambient(ambient)
     , diffuse(diffuse)

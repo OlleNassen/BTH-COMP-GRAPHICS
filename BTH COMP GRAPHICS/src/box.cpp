@@ -4,7 +4,7 @@
 namespace scene
 {
 
-box::box(const float x, const float y, const float z)
+box::box(float x, float y, float z)
     : node(x, y, z)
     , box_vbo(target::ARRAY_BUFFER)
     , diffuse("images/container2.png")
@@ -69,7 +69,7 @@ box::~box()
 
 }
 
-void box::update_current(const milliseconds delta_time,
+void box::update_current(milliseconds delta_time,
         const glm::mat4& world_transform, glm::mat4& transform)
 {
 

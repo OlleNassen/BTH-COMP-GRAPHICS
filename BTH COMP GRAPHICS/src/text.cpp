@@ -78,19 +78,18 @@ text::~text()
 }
 
 void text::render_text(const std::string& text,
-    const float x, const float y, const float scale)
+    float x, float y, float scale)
 {
 	// Activate corresponding render state
 	glActiveTexture(GL_TEXTURE0);
 	glBindVertexArray(VAO);
 
 	// Iterate through all characters
-	auto x_off = x;
 	for (auto c = text.begin(); c != text.end(); c++)
 	{
 		character ch = characters[*c];
 
-		auto xpos = x_off + ch.bearing.x * scale;
+		auto xpos = x + ch.bearing.x * scale;
 		auto ypos = y - (ch.size.y - ch.bearing.y) * scale;
 
 		auto w = ch.size.x * scale;
@@ -115,7 +114,7 @@ void text::render_text(const std::string& text,
 		// Render quad
 		glDrawArrays(GL_TRIANGLES, 0, 6);
 		// Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
-		x_off += (ch.advance >> 6) * scale; // Bitshift by 6 to get value in pixels (2^6 = 64)
+		x += (ch.advance >> 6) * scale; // Bitshift by 6 to get value in pixels (2^6 = 64)
 	}
 	glBindVertexArray(0);
 }

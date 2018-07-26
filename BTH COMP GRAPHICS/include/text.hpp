@@ -23,14 +23,14 @@ class text
 private:
 	FT_Library library;
 	unsigned int VAO, VBO;
-	std::map <char, character> characters;
+	std::map<char, character> characters;
 
 
 public:
 	text();
 	~text();
 	void render_text(const std::string& text,
-        const float x, const float y, const float scale);
+        float x, float y, float scale);
 };
 
 #endif

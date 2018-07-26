@@ -5,7 +5,7 @@
 namespace scene
 {
 
-node::node(const float x, const float y, const float z)
+node::node(float x, float y, float z)
     : children()
     , transform(
         translate(glm::mat4(1.0f),
@@ -90,7 +90,7 @@ void node::render_current(const shader& shader, const glm::mat4& world_transform
 
 }
 
-void node::update_children(const std::chrono::milliseconds delta_time, glm::mat4& world_transform)
+void node::update_children(milliseconds delta_time, glm::mat4& world_transform)
 {
     for(auto* child : children)
     {

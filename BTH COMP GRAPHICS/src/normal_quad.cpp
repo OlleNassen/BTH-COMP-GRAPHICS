@@ -5,8 +5,7 @@
 namespace scene
 {
 
-normal_quad::normal_quad(const float x,
-    const float y, const float z)
+normal_quad::normal_quad(float x, float y, float z)
 	: node(x, y, z)
 	, quad_vbo(target::ARRAY_BUFFER), quad_texture(new texture("images/edvard.png"))
 {
@@ -96,12 +95,12 @@ normal_quad::~normal_quad()
 {
 }
 
-void normal_quad::update_current(const milliseconds delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
+void normal_quad::update_current(milliseconds delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
 {
 	transform = glm::scale(transform, glm::vec3(0.1, 0.1, 1));
 }
 
-void normal_quad::render_current(const shader & shader, const glm::mat4 & world_transform) const
+void normal_quad::render_current(const shader& shader, const glm::mat4& world_transform) const
 {
 	shader.uniform("model", world_transform);
 	quad_texture->uniform(shader, "diffuseMap", 0);
@@ -111,7 +110,7 @@ void normal_quad::render_current(const shader & shader, const glm::mat4 & world_
 	glBindVertexArray(0);
 }
 
-void normal_quad::set_texture(const std::string & path)
+void normal_quad::set_texture(const std::string& path)
 {
 	delete quad_texture;
 	quad_texture = new texture(path, wrap::REPEAT, filter::LINEAR, format::RGB);

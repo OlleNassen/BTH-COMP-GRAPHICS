@@ -5,7 +5,7 @@
 namespace scene
 {
 
-quad::quad(const float x, const float y, const float z)
+quad::quad(float x, float y, float z)
 	: node(x, y, z)
     , quad_vbo(target::ARRAY_BUFFER), quad_texture(new texture("images/edvard.png"))
 {
@@ -31,7 +31,7 @@ quad::~quad()
 {
 }
 
-void quad::update_current(const milliseconds delta_time, const glm::mat4& world_transform, glm::mat4& transform)
+void quad::update_current(milliseconds delta_time, const glm::mat4& world_transform, glm::mat4& transform)
 {
 	transform = glm::scale(transform, glm::vec3(0.1,0.1,1));
 }
