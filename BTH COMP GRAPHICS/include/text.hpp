@@ -8,11 +8,13 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
-struct Character {
-	GLuint     TextureID;  // ID handle of the glyph texture
-	glm::ivec2 Size;       // Size of glyph
-	glm::ivec2 Bearing;    // Offset from baseline to left/top of glyph
-	GLuint     Advance;    // Offset to advance to next glyph
+struct character
+{
+    unsigned int texture_index;  // ID handle of the glyph texture
+    long int advance;    // Offset to advance to next glyph
+	glm::ivec2 size;       // Size of glyph
+	glm::ivec2 bearing;    // Offset from baseline to left/top of glyph
+
 };
 
 
@@ -20,14 +22,15 @@ class text
 {
 private:
 	FT_Library library;
-	GLuint VAO, VBO;
-	std::map <GLchar, Character> Characters;
+	unsigned int VAO, VBO;
+	std::map <char, character> characters;
 
 
 public:
 	text();
 	~text();
-	void render_text(const std::string& text, float x, float y, float scale);
+	void render_text(const std::string& text,
+        const float x, const float y, const float scale);
 };
 
 #endif

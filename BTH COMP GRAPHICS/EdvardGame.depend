@@ -2603,7 +2603,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1532618246 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1532619173 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	<chrono>
@@ -3139,7 +3139,7 @@
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
-1532513745 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\text.hpp
+1532620543 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\text.hpp
 	<string>
 	<buffer.hpp>
 	"vertex_array.hpp"
@@ -3152,7 +3152,7 @@
 
 1532513745 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\freetype\config\ftheader.h
 
-1532516532 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\text.cpp
+1532620481 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\text.cpp
 	"text.hpp"
 	<iostream>
 	<gl/glew.h>
