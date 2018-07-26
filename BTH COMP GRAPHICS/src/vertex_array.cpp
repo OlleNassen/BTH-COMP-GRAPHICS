@@ -17,11 +17,11 @@ void vertex_array::bind() const
 }
 
 void vertex_array::attribute_pointer(
-    unsigned int index,
-    int size,
-    unsigned int type,
-    unsigned char normalized,
-    int stride,
+    const unsigned int index,
+    const int size,
+    const unsigned int type,
+    const unsigned char normalized,
+    const int stride,
     const void* pointer) const
 {
     bind();

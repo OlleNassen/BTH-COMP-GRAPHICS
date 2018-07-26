@@ -9,10 +9,13 @@
 class camera
 {
 public:
-    camera(float left, float right, float bottom, float top);
-    camera(float fovy, float width, float height, float near, float far);
+    camera(const float left, const float right,
+        const float bottom, const float top);
 
-    void on_mouse_moved(float x, float y);
+    camera(const float fovy, const float width,
+        const float height, const float near, const float far);
+
+    void on_mouse_moved(const float x, const float y);
     void up_pressed();
     void up_released();
     void down_pressed();
@@ -30,7 +33,7 @@ public:
 	glm::mat4 get_projection()const;
     void bind(const shader& shader);
 
-	void move_on_terrain(const terrain& terrain);
+	void move_on_terrain(const scene::terrain& terrain);
 
 	glm::vec3 get_pos()const;
 

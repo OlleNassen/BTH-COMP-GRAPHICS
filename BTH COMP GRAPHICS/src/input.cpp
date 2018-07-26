@@ -10,7 +10,7 @@ std::map<std::string, std::function<void()>> keymap_pressed;
 std::map<std::string, std::function<void()>> keymap_released;
 std::map<key, std::string> keybinds;
 
-void bind_key(const std::string& name, key keybind)
+void bind_key(const std::string& name, const key keybind)
 {
     keybinds.insert(std::pair<key, std::string>(keybind, name));
 }

@@ -55,8 +55,8 @@
 		<Unit filename="include/icosahedron.hpp" />
 		<Unit filename="include/input.hpp" />
 		<Unit filename="include/joint.hpp" />
-		<Unit filename="include/mesh_factory.hpp" />
 		<Unit filename="include/model.hpp" />
+		<Unit filename="include/node.hpp" />
 		<Unit filename="include/normal_quad.hpp" />
 		<Unit filename="include/particle_emitter.hpp" />
 		<Unit filename="include/point_light.hpp" />
@@ -64,7 +64,6 @@
 		<Unit filename="include/quad_tess.hpp" />
 		<Unit filename="include/race.hpp" />
 		<Unit filename="include/scene_loader.hpp" />
-		<Unit filename="include/scene_node.hpp" />
 		<Unit filename="include/shader.hpp" />
 		<Unit filename="include/skybox.hpp" />
 		<Unit filename="include/temp_box.hpp" />
@@ -98,8 +97,8 @@
 		<Unit filename="src/input.cpp" />
 		<Unit filename="src/joint.cpp" />
 		<Unit filename="src/main.cpp" />
-		<Unit filename="src/mesh_factory.cpp" />
 		<Unit filename="src/model.cpp" />
+		<Unit filename="src/node.cpp" />
 		<Unit filename="src/normal_quad.cpp" />
 		<Unit filename="src/particle_emitter.cpp" />
 		<Unit filename="src/point_light.cpp" />
@@ -107,7 +106,6 @@
 		<Unit filename="src/quad_tess.cpp" />
 		<Unit filename="src/race.cpp" />
 		<Unit filename="src/scene_loader.cpp" />
-		<Unit filename="src/scene_node.cpp" />
 		<Unit filename="src/shader.cpp" />
 		<Unit filename="src/skybox.cpp" />
 		<Unit filename="src/temp_box.cpp" />

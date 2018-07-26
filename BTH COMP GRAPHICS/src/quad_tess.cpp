@@ -2,8 +2,11 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-quad_tess::quad_tess(float x, float y, float z)
-	: scene_node(x, y, z)
+namespace scene
+{
+
+quad_tess::quad_tess(const float x, const float y, const float z)
+	: node(x, y, z)
 	, quad_vbo(target::ARRAY_BUFFER)
 	, quad_ebo(target::ELEMENT_ARRAY_BUFFER)
 	, tess_texture("images/brick_texture.jpg", wrap::REPEAT, filter::LINEAR, format::RGB)
@@ -36,11 +39,11 @@ quad_tess::~quad_tess()
 
 }
 
-void quad_tess::update_current(const std::chrono::milliseconds delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
+void quad_tess::update_current(const milliseconds delta_time, const glm::mat4& world_transform, glm::mat4& transform)
 {
 }
 
-void quad_tess::render_current(const shader & shader, const glm::mat4 & world_transform) const
+void quad_tess::render_current(const shader& shader, const glm::mat4& world_transform) const
 {
 	shader.uniform("model", world_transform);
 	shader.uniform("TessLevelInner", 2.f);
@@ -51,4 +54,6 @@ void quad_tess::render_current(const shader & shader, const glm::mat4 & world_tr
 	quad_array.bind();
 	glDrawElements(GL_PATCHES, 6, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
+}
+
 }

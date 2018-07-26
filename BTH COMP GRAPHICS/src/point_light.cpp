@@ -1,5 +1,8 @@
 #include "point_light.hpp"
 
+namespace scene
+{
+
 point_light::point_light()
 {
 	ambient = glm::vec3(0.4, 0.4, 0.4);
@@ -27,5 +30,7 @@ void point_light::render_current(const shader & shader, const glm::mat4 & world_
         shader.uniform("point_lights[0].constant", 1.0f);
         shader.uniform("point_lights[0].linear", 0.09f);
         shader.uniform("point_lights[0].quadratic", 0.032f);
+
+}
 
 }

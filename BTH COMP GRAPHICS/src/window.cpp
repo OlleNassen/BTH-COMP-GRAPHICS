@@ -2,8 +2,8 @@
 #include <iostream>
 
 window::window(
-    unsigned int width,
-    unsigned int height,
+    const unsigned int width,
+    const unsigned int height,
     const std::string& title)
 {
     if(!glfwInit())

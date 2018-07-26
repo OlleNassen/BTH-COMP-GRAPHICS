@@ -1,15 +1,18 @@
 #ifndef BOX_HPP
 #define BOX_HPP
 
-#include "scene_node.hpp"
+#include "node.hpp"
 #include "buffer.hpp"
 #include "vertex_array.hpp"
 #include "texture.hpp"
 
-class box : public scene_node
+namespace scene
+{
+
+class box : public node
 {
 public:
-    box(float x = 0.0f, float y = 0.0f, float z = 0.0f);
+    box(const float x = 0.0f, const float y = 0.0f, const float z = 0.0f);
     virtual ~box();
 
 private:
@@ -18,11 +21,13 @@ private:
 	texture diffuse;
 	texture specular;
 
-     virtual void update_current(const std::chrono::milliseconds delta_time,
+     virtual void update_current(const milliseconds delta_time,
         const glm::mat4& world_transform, glm::mat4& transform) override;
 
     virtual void render_current(const shader& shader,
         const glm::mat4& world_transform) const override;
 };
+
+}
 
 #endif // BOX_HPP

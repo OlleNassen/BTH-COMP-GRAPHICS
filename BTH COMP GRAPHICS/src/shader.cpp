@@ -201,7 +201,7 @@ std::string shader::load(const std::string& path) const
     return code;
 }
 
-unsigned int shader::create(unsigned int shader_type, const char* shader_code) const
+unsigned int shader::create(const unsigned int shader_type, const char* shader_code) const
 {
     auto shader_id = 0;
     auto success = 0;

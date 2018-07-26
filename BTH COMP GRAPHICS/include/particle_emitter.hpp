@@ -1,14 +1,18 @@
 #ifndef PARTICLE_EMITTER_HPP
 #define PARTICLE_EMITTER_HPP
 #include <array>
-#include "scene_node.hpp"
+#include "node.hpp"
 #include "buffer.hpp"
 #include "vertex_array.hpp"
 #include "texture.hpp"
-class particle_emitter:public scene_node
+
+namespace scene
+{
+
+class particle_emitter : public node
 {
 public:
-	particle_emitter(float x = 0.0f, float y = 0.0f, float z = 0.0f);
+	particle_emitter(const float x = 0.0f, const float y = 0.0f, const float z = 0.0f);
 	virtual ~particle_emitter();
 
 	void set_texture(const std::string& path);
@@ -22,11 +26,13 @@ private:
     std::array<glm::vec3, MAX_NUM_PARTICLES> offsets;
     std::array<bool, MAX_NUM_PARTICLES> going_up;
 
-	virtual void update_current(const std::chrono::milliseconds delta_time,
+	virtual void update_current(const milliseconds delta_time,
 		const glm::mat4& world_transform, glm::mat4& transform) override;
 
 	virtual void render_current(const shader& shader,
 		const glm::mat4& world_transform) const override;
 };
+
+}
 
 #endif

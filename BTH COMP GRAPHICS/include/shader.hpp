@@ -15,8 +15,8 @@ public:
 
     void use() const;
 
-    void uniform(const std::string& name, int value) const;
-    void uniform(const std::string& name, float value) const;
+    void uniform(const std::string& name, const int value) const;
+    void uniform(const std::string& name, const float value) const;
     void uniform(const std::string& name, const glm::vec2& value) const;
     void uniform(const std::string& name, const glm::vec3& value) const;
     void uniform(const std::string& name, const glm::vec4& value) const;
@@ -35,7 +35,7 @@ private:
     unsigned int id;
 
     std::string load(const std::string& path) const;
-    unsigned int create(unsigned int shader_type, const char* shader_code) const;
+    unsigned int create(const unsigned int shader_type, const char* shader_code) const;
 };
 
 #endif // SHADER_HPP

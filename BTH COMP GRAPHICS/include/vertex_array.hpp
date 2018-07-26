@@ -10,23 +10,23 @@ public:
     void bind() const;
 
     void attribute_pointer(
-        unsigned int index,
-        int size,
-        unsigned int type,
-        unsigned char normalized,
-        int stride,
+        const unsigned int index,
+        const int size,
+        const unsigned int type,
+        const unsigned char normalized,
+        const int stride,
         const void* pointer) const;
 
     void attribute_pointer(
-        unsigned int index,
-        int size,
-        unsigned int type,
-        int stride,
+        const unsigned int index,
+        const int size,
+        const unsigned int type,
+        const int stride,
         const void* pointer) const;
 
     void attribute_divisor(
-        unsigned int index,
-        unsigned int divisor) const;
+        const unsigned int index,
+        const unsigned int divisor) const;
 
 
 private:

@@ -1,5 +1,8 @@
 #include "skybox.hpp"
 
+namespace scene
+{
+
 constexpr float skybox_vertices[] =
 {
     -1.0f,  1.0f, -1.0f,
@@ -98,4 +101,6 @@ void skybox::render_current(const shader& shader,
     glDrawArrays(GL_TRIANGLES, 0, 36);
     glBindVertexArray(0);
     glDepthFunc(GL_LESS);
+}
+
 }

@@ -1,8 +1,11 @@
 #include "box.hpp"
 #include <iostream>
 
-box::box(float x, float y, float z)
-    : scene_node(x, y, z)
+namespace scene
+{
+
+box::box(const float x, const float y, const float z)
+    : node(x, y, z)
     , box_vbo(target::ARRAY_BUFFER)
     , diffuse("images/container2.png")
 	, specular("images/container2_specular.png")
@@ -66,7 +69,7 @@ box::~box()
 
 }
 
-void box::update_current(const std::chrono::milliseconds delta_time,
+void box::update_current(const milliseconds delta_time,
         const glm::mat4& world_transform, glm::mat4& transform)
 {
 
@@ -82,4 +85,6 @@ void box::render_current(const shader& shader,
     box_array.bind();
     glDrawArrays(GL_TRIANGLES, 0, 36);
     glBindVertexArray(0);
+}
+
 }

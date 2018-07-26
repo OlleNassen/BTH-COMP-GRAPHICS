@@ -3,7 +3,8 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <iostream>
 
-camera::camera(float left, float right, float bottom, float top)
+camera::camera(const float left, const float right,
+    const float bottom, const float top)
     : projection(glm::ortho(left, right, bottom, top))
 {
     yaw = -80.0f;
@@ -23,7 +24,8 @@ camera::camera(float left, float right, float bottom, float top)
     first = true;
 }
 
-camera::camera(float fovy, float width, float height, float near, float far)
+camera::camera(const float fovy, const float width,
+    const float height, const float near, const float far)
     : projection(glm::perspective(fovy, width / height, near, far))
 {
     yaw = -80.0f;
@@ -41,7 +43,7 @@ camera::camera(float fovy, float width, float height, float near, float far)
     first = true;
 }
 
-void camera::on_mouse_moved(float x, float y)
+void camera::on_mouse_moved(const float x, const float y)
 {
     if(first)
     {
@@ -164,7 +166,7 @@ void camera::bind(const shader& shader)
 	shader.uniform("view_projection", projection * view);
 }
 
-void camera::move_on_terrain(const terrain& terrain)
+void camera::move_on_terrain(const scene::terrain& terrain)
 {
 	if(position.x > terrain.x && position.z > terrain.z
         && position.x < terrain.z + terrain.width

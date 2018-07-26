@@ -4,7 +4,7 @@
 #include "camera.hpp"
 #include "shader.hpp"
 #include "directional_light.hpp"
-#include "scene_node.hpp"
+#include "node.hpp"
 #include "box.hpp"
 #include "skybox.hpp"
 #include "terrain.hpp"
@@ -48,33 +48,32 @@ private:
 
 	camera game_camera;
 	directional_light light;
-	scene_node scene;
-	skybox sky;
+	scene::node scene;
+	scene::skybox sky;
 
 	//mesh_factory factory;
 
 	anim::model temp_model;
 
 	//TEMP VARIABLES, PUT IN SCENE GRAPH WHEN FIXED
-	temp_box* temp; // PHONG cube
-	temp_box* environment; // ENVIRONMENT CUBE
-	quad* quad1; // phong
-	normal_quad* quad2; // normal mapping
-	particle_emitter* particles;
-	terrain* terror;
-	quad_tess* tess;
-	icosahedron* ico;
+	scene::temp_box* temp; // PHONG cube
+	scene::temp_box* environment; // ENVIRONMENT CUBE
+	scene::quad* quad; // phong
+	scene::normal_quad* normal_quad; // normal mapping
+	scene::particle_emitter* particles;
+	scene::terrain* terrain;
+	scene::quad_tess* quad_tess;
+	scene::icosahedron* ico;
 	text* temp_text;
 
 	int race_index = 0;
     race current_race;
-	std::vector<icosahedron*> icos;
+	std::vector<scene::icosahedron*> icos;
 
 	glm::vec3 light_pos;
 	glm::vec3 phong_pos;
 	std::chrono::duration<float> seconds;
 	std::chrono::milliseconds color_timer;
-	bool change_color;
 
 	void render();
 	void update(const std::chrono::milliseconds delta_time);

@@ -3,8 +3,12 @@
 #include <ctime>
 #include <iostream>
 
-particle_emitter::particle_emitter(float x, float y, float z)
-	: scene_node(x, y, z)
+namespace scene
+{
+
+particle_emitter::particle_emitter(const float x,
+    const float y, const float z)
+	: node(x, y, z)
 	, quad_vbo(target::ARRAY_BUFFER), instance_vbo(target::ARRAY_BUFFER), quad_texture(new texture("images/edvard.png"))
 {
 	srand(time(NULL));
@@ -50,7 +54,7 @@ particle_emitter::~particle_emitter()
 {
 }
 
-void particle_emitter::update_current(const std::chrono::milliseconds delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
+void particle_emitter::update_current(const milliseconds delta_time, const glm::mat4& world_transform, glm::mat4& transform)
 {
 	instance_vbo.data(sizeof(glm::vec3) * offsets.size(), offsets.data(), GL_STATIC_DRAW);
 
@@ -92,7 +96,7 @@ void particle_emitter::update_current(const std::chrono::milliseconds delta_time
 	}
 }
 
-void particle_emitter::render_current(const shader & shader, const glm::mat4 & world_transform) const
+void particle_emitter::render_current(const shader& shader, const glm::mat4& world_transform) const
 {
 	shader.uniform("model", world_transform);
 	quad_texture->uniform(shader, "diffuseMap", 0);
@@ -105,4 +109,6 @@ void particle_emitter::set_texture(const std::string & path)
 {
 	delete quad_texture;
 	quad_texture = new texture(path, wrap::REPEAT, filter::LINEAR, format::RGB);
+}
+
 }

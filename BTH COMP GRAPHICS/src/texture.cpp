@@ -3,11 +3,12 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
-texture::texture(int width, int height,
-    wrap wrap_parameter,
-    filter filter_parameter,
-    format format_parameter,
-    type type_parameter)
+texture::texture(const int width,
+    const int height,
+    const wrap wrap_parameter,
+    const filter filter_parameter,
+    const format format_parameter,
+    const type type_parameter)
 {
     generate(wrap_parameter, filter_parameter);
 
@@ -50,7 +51,7 @@ texture::texture(const std::string& path,
     stbi_image_free(data);
 }
 
-texture::texture(std::vector<std::string> paths,
+texture::texture(const std::vector<std::string>& paths,
     wrap wrap_parameter,
     filter filter_parameter,
     format format_parameter,
@@ -95,7 +96,7 @@ texture::~texture()
     glDeleteTextures(1, &id);
 }
 
-void texture::uniform(const shader& shader, const std::string& name, int texture_index) const
+void texture::uniform(const shader& shader, const std::string& name, const int texture_index) const
 {
     shader.uniform(name, texture_index);
     glActiveTexture(GL_TEXTURE0 + texture_index);

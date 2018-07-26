@@ -2,9 +2,12 @@
 #include <iostream>
 #include <glm/gtc/matrix_transform.hpp>
 
+namespace scene
+{
 
-temp_box::temp_box(float x, float y, float z)
-	: scene_node(x, y, z)
+temp_box::temp_box(const float x,
+    const float y, const float z)
+	: node(x, y, z)
 	, box_vbo(target::ARRAY_BUFFER)
 {
     constexpr float vertices[] =
@@ -67,7 +70,7 @@ temp_box::~temp_box()
 
 }
 
-void temp_box::update_current(const std::chrono::milliseconds delta_time,
+void temp_box::update_current(const milliseconds delta_time,
 	const glm::mat4& world_transform, glm::mat4& transform)
 {
 	glm::vec3 pos = glm::vec3(world_transform[0][0], world_transform[1][0], world_transform[2][0]);
@@ -82,4 +85,6 @@ void temp_box::render_current(const shader& shader,
 	box_array.bind();
 	glDrawArrays(GL_TRIANGLES, 0, 36);
 	glBindVertexArray(0);
+}
+
 }

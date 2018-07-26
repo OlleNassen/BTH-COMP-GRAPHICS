@@ -5,10 +5,17 @@
 #include <glm/glm.hpp>
 #include <stb_image.h>
 
+namespace scene
+{
+
 using terrain_vertex = std::pair<glm::vec3, glm::vec2>; // pos, tex
 
-terrain::terrain(float x, float y, float z)
-	: scene_node(x, y, z)
+terrain::terrain(const float x,
+    const float y, const float z)
+	: node(x, y, z)
+	, x(x)
+	, y(y)
+	, z(z)
     , draw_count(0)
 	, terrain_vbo(target::ARRAY_BUFFER), terrain_ebo(target::ELEMENT_ARRAY_BUFFER)
 {
@@ -75,9 +82,6 @@ terrain::terrain(float x, float y, float z)
 
 	terrain_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(terrain_vertex), nullptr);
 	terrain_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(terrain_vertex), buffer_offset<glm::vec3>(3u));
-	x = 0;
-	y = 0;
-	z = 0;
 }
 
 
@@ -94,7 +98,7 @@ float terrain::calculate_camera_y(float x, float z) const
     return data[x_index + z_index * width] * 0.1f + y;
 }
 
-void terrain::update_current(const std::chrono::milliseconds delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
+void terrain::update_current(const milliseconds delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
 {
     x = world_transform[3][0];
     y = world_transform[3][1];
@@ -108,4 +112,6 @@ void terrain::render_current(const shader & shader, const glm::mat4 & world_tran
 	terrain_array.bind();
 	glDrawElements(GL_TRIANGLES, draw_count, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
+}
+
 }
