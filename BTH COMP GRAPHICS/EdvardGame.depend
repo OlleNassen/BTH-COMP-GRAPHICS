@@ -3139,12 +3139,12 @@
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
-1532620543 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\text.hpp
+1532620663 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\text.hpp
 	<string>
 	<buffer.hpp>
 	"vertex_array.hpp"
 	<map>
-	<glm\glm.hpp>
+	<glm/glm.hpp>
 	<ft2build.h>
 
 1532513745 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\ft2build.h
