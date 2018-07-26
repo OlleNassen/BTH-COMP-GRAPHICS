@@ -3152,7 +3152,7 @@
 
 1532513745 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\freetype\config\ftheader.h
 
-1532623909 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\text.cpp
+1532626750 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\text.cpp
 	"text.hpp"
 	<iostream>
 	<gl/glew.h>

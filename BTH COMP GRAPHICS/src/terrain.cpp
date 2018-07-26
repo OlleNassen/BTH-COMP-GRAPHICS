@@ -8,7 +8,11 @@
 namespace scene
 {
 
-using terrain_vertex = std::pair<glm::vec3, glm::vec2>; // pos, tex
+struct terrain_vertex
+{
+    glm::vec3 position;
+    glm::vec2 texture;
+};
 
 terrain::terrain(float x, float y, float z)
 	: node(x, y, z)

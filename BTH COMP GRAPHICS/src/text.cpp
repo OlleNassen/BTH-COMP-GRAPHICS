@@ -56,7 +56,7 @@ text::text()
 			glm::ivec2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
 			glm::ivec2(face->glyph->bitmap_left, face->glyph->bitmap_top)
 		};
-		characters.insert(std::pair<char, character>(c, new_character));
+		characters.insert(std::make_pair(c, new_character));
 	}
 
 	FT_Done_Face(face);
