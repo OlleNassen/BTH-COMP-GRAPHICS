@@ -21,7 +21,7 @@ text::text()
 
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1); // Disable byte-alignment restriction
 
-	for (unsigned char c = 0; c < 128; c++)
+	for (auto c = 0ul; c < 128; ++c)
 	{
 		// Load character glyph
 		if (FT_Load_Char(face, c, FT_LOAD_RENDER))
@@ -80,21 +80,18 @@ text::~text()
 void text::render_text(const std::string& text,
     float x, float y, float scale)
 {
-	// Activate corresponding render state
 	glActiveTexture(GL_TEXTURE0);
 	glBindVertexArray(VAO);
 
-	// Iterate through all characters
-	for (auto c = text.begin(); c != text.end(); c++)
+	for (auto& c : text)
 	{
-		character ch = characters[*c];
+		character ch = characters[c];
 
 		auto xpos = x + ch.bearing.x * scale;
 		auto ypos = y - (ch.size.y - ch.bearing.y) * scale;
-
 		auto w = ch.size.x * scale;
 		auto h = ch.size.y * scale;
-		// Update VBO for each character
+
 		float vertices[6][4] =
 		{
 			{ xpos,     ypos + h,   0.0, 0.0 },
@@ -105,15 +102,13 @@ void text::render_text(const std::string& text,
             { xpos + w, ypos,       1.0, 1.0 },
             { xpos + w, ypos + h,   1.0, 0.0 }
 		};
-		// Render glyph texture over quad
+
 		glBindTexture(GL_TEXTURE_2D, ch.texture_index);
-		// Update content of VBO memory
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
 		glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
-		// Render quad
 		glDrawArrays(GL_TRIANGLES, 0, 6);
-		// Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
+
 		x += (ch.advance >> 6) * scale; // Bitshift by 6 to get value in pixels (2^6 = 64)
 	}
 	glBindVertexArray(0);

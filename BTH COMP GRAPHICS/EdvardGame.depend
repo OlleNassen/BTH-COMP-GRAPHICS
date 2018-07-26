@@ -2029,7 +2029,7 @@
 1530530002 source:c:\users\deadvard\documents\codeblocks\bth-comp-graphics\bth comp graphics\src\main.cpp
 	"game.hpp"
 
-1532617100 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\buffer.cpp
+1532624395 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\buffer.cpp
 	"buffer.hpp"
 
 1532623207 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\buffer.hpp
@@ -2905,7 +2905,7 @@
 	<glm/glm.hpp>
 	"shader.hpp"
 
-1532618471 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
+1532624418 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
 	"box.hpp"
 	<iostream>
 
