@@ -108,6 +108,14 @@ void load_parent_indices(const aiNode& node, const std::vector<std::string>& nam
     if(node.mName.C_Str()[0] != '<')
     {
         ++index;
+
+        auto& joint = joints[index - 1];
+        if(&joint == &joints.front())
+        {
+            joint.local_transform = ai_to_glm(node.mTransformation);
+            joint.global_transform = joint.local_transform;
+            joint.inverse_bind_pose = glm::inverse(joint.global_transform);
+        }
     }
 
     for (auto i = 0u; i < names.size(); ++i)
@@ -119,17 +127,7 @@ void load_parent_indices(const aiNode& node, const std::vector<std::string>& nam
 
             joint.parent = parent;
             joint.local_transform = ai_to_glm(node.mTransformation);
-            std::cout << index-1 << std::endl;
-
-            if(&joint == &joints.front())
-            {
-
-                joint.global_transform = joint.local_transform;
-            }
-            else
-            {
-                joint.global_transform = parent->global_transform * joint.local_transform;
-            }
+            joint.global_transform = parent->global_transform * joint.local_transform;
             joint.inverse_bind_pose = glm::inverse(joint.global_transform);
 
             //joints[index - 1] = joint(ai_to_glm(node.mTransformation), &joints[i]);
