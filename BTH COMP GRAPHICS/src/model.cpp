@@ -157,16 +157,12 @@ void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames
 {
 	key_frames.resize(anim->mChannels[0]->mNumPositionKeys);
 
-	std::cout << anim->mNumChannels << std::endl;
-	std::cout << anim->mChannels[0]->mNumPositionKeys << std::endl;
-
 	for (auto i = 0u; i < anim->mNumChannels; ++i)
 	{
         auto* channel = anim->mChannels[i];
-
         for (auto j = 0u; j < channel->mNumPositionKeys; ++j)
 		{
-            if(i == 0)
+            if(i == 0u)
             {
                 using namespace std::chrono;
                 key_frames[j].time_point =
