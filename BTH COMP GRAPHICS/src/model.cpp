@@ -61,6 +61,7 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<un
 	for (auto i = 0u; i < mesh->mNumBones; ++i)
 	{
 		auto* bone = mesh->mBones[i];
+
 		for (auto j = 0u; j < bone->mNumWeights; ++j)
 		{
             auto weight = bone->mWeights[j];
@@ -231,7 +232,7 @@ model::~model()
 	//dtor
 }
 
-void model::update(const milliseconds delta_time)
+void model::update(milliseconds delta_time)
 {
 	current.update(delta_time, joints);
 

@@ -33,7 +33,7 @@ public:
     void load(const std::vector<key_frame>& key_frames);
     animation();
 
-    void update(const milliseconds delta_time, skeleton& joints);
+    void update(milliseconds delta_time, skeleton& joints);
 
 private:
     milliseconds time;
@@ -46,8 +46,8 @@ private:
     void update_pose(skeleton& joints);
     float
         calculate_progression(
-        const milliseconds previous,
-        const milliseconds next) const;
+        milliseconds previous,
+        milliseconds next) const;
 };
 
 }

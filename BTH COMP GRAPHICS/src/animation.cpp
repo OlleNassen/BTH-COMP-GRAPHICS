@@ -1,6 +1,7 @@
 #include "animation.hpp"
 #include <iostream>
 
+
 namespace anim
 {
 
@@ -20,7 +21,7 @@ animation::animation()
 
 }
 
-void animation::update(const milliseconds delta_time, skeleton& joints)
+void animation::update(milliseconds delta_time, skeleton& joints)
 {
     time += delta_time;
 
@@ -38,7 +39,7 @@ void animation::update_key_frame()
         ++previous;
         ++next;
 
-        if(next != key_frames.end())
+        if(next == key_frames.end())
         {
             previous = key_frames.begin();
             next = key_frames.begin();
@@ -58,6 +59,8 @@ void animation::update_pose(skeleton& joints)
         calculate_progression(
         previous->time_point,
         next->time_point);
+
+    std::cout << progression << std::endl;
 
     for(auto i = 0u; i < joints.size(); ++i)
     {
@@ -84,10 +87,9 @@ void animation::update_pose(skeleton& joints)
     }
 }
 
-float
-    animation::calculate_progression(
-    const milliseconds previous,
-    const milliseconds next) const
+float animation::calculate_progression(
+    milliseconds previous,
+    milliseconds next) const
 {
     using namespace std::chrono;
     duration<float> total_time = next - previous;

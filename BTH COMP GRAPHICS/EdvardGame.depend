@@ -2868,13 +2868,13 @@
 	"window.hpp"
 	<iostream>
 
-1532531984 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
+1532688701 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
 	<algorithm>
 	<iostream>
 	"game.hpp"
 
-1532526612 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
+1532686693 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\model.hpp
 	"animation.hpp"
 	"shader.hpp"
 	"buffer.hpp"
@@ -3003,11 +3003,11 @@
 	<ctime>
 	<iostream>
 
-1532532825 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1532686814 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 	<iostream>
 
-1532458865 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
+1532686824 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
 	<array>
 	<vector>
 	<chrono>
@@ -3152,7 +3152,7 @@
 
 1532513745 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\freetype\config\ftheader.h
 
-1532683191 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\text.cpp
+1532683557 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\text.cpp
 	"text.hpp"
 	<iostream>
 	<gl/glew.h>
