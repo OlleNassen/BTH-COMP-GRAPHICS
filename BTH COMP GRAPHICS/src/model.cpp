@@ -119,8 +119,11 @@ void load_parent_indices(const aiNode& node, const std::vector<std::string>& nam
 
             joint.parent = parent;
             joint.local_transform = ai_to_glm(node.mTransformation);
-            if((index - 1) == 0u)
+            std::cout << index-1 << std::endl;
+
+            if(&joint == &joints.front())
             {
+
                 joint.global_transform = joint.local_transform;
             }
             else
