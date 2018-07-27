@@ -60,8 +60,6 @@ void animation::update_pose(skeleton& joints)
         previous->time_point,
         next->time_point);
 
-    std::cout << progression << std::endl;
-
     for(auto i = 0u; i < joints.size(); ++i)
     {
         auto new_position =
@@ -78,7 +76,8 @@ void animation::update_pose(skeleton& joints)
 
         if(i == 0u)
         {
-            joints[i].global_transform = new_transform;
+            joints[i].local_transform = new_transform;
+            joints[i].global_transform = joints[i].local_transform;
         }
         else
         {

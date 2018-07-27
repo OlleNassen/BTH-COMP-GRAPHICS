@@ -189,10 +189,11 @@ void import_model(const std::string& path,
 {
 	Assimp::Importer importer;
 	auto* scene = importer.ReadFile(path.c_str(),
-		aiProcess_Triangulate |
-		aiProcess_SortByPType |
 		aiProcess_GenSmoothNormals |
-		aiProcess_FlipUVs);
+		aiProcess_Triangulate |
+        aiProcess_CalcTangentSpace |
+        aiProcess_FlipUVs |
+        aiProcess_JoinIdenticalVertices);
 
     load_mesh(scene->mMeshes[0], vertices, indices);
 
