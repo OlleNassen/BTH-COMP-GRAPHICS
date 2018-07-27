@@ -2930,7 +2930,7 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1532623934 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
+1532626954 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
 	"terrain.hpp"
 	<vector>
 	<iostream>
@@ -3139,9 +3139,9 @@
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
-1532623635 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\text.hpp
+1532683346 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\text.hpp
 	<string>
-	<buffer.hpp>
+	"buffer.hpp"
 	"vertex_array.hpp"
 	<map>
 	<glm/glm.hpp>
@@ -3152,7 +3152,7 @@
 
 1532513745 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\freetype\config\ftheader.h
 
-1532626750 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\text.cpp
+1532683191 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\text.cpp
 	"text.hpp"
 	<iostream>
 	<gl/glew.h>

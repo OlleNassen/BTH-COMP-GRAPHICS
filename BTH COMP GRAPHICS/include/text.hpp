@@ -1,7 +1,7 @@
 #ifndef TEXT_HPP
 #define TEXT_HPP
 #include <string>
-#include <buffer.hpp>
+#include "buffer.hpp"
 #include "vertex_array.hpp"
 #include <map>
 #include <glm/glm.hpp>
@@ -20,17 +20,16 @@ struct character
 
 class text
 {
-private:
-	FT_Library library;
-	unsigned int VAO, VBO;
-	std::map<char, character> characters;
-
-
 public:
 	text();
 	~text();
 	void render_text(const std::string& text,
         float x, float y, float scale);
+
+private:
+	FT_Library library;
+	unsigned int VAO, VBO;
+	std::map<char, character> characters;
 };
 
 #endif
