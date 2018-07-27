@@ -37,7 +37,6 @@ public:
 
 private:
     milliseconds time;
-    milliseconds length;
     std::vector<key_frame> key_frames;
     std::vector<key_frame>::iterator previous;
     std::vector<key_frame>::iterator next;

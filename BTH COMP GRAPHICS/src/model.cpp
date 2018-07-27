@@ -129,8 +129,6 @@ void load_parent_indices(const aiNode& node, const std::vector<std::string>& nam
             joint.local_transform = ai_to_glm(node.mTransformation);
             joint.global_transform = parent->global_transform * joint.local_transform;
             joint.inverse_bind_pose = glm::inverse(joint.global_transform);
-
-            //joints[index - 1] = joint(ai_to_glm(node.mTransformation), &joints[i]);
         }
     }
 
@@ -197,7 +195,6 @@ void import_model(const std::string& path,
         aiProcess_JoinIdenticalVertices);
 
     load_mesh(scene->mMeshes[0], vertices, indices);
-
 	load_skeleton(scene->mRootNode, joints);
 	load_key_frames(scene->mAnimations[0], key_frames);
 }
