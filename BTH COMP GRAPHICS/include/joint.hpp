@@ -13,10 +13,9 @@ class joint
 public:
     joint(const glm::mat4& transform = glm::mat4(1.0f), joint* parent = nullptr);
 
-    void transform(const glm::mat4& transform);
+    void transform(const glm::mat4& new_transform);
 
     glm::mat4 world_transform() const;
-
 
     joint* parent;
 

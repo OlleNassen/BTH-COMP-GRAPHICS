@@ -19,9 +19,9 @@ joint::joint(const glm::mat4& transform, joint* parent)
     inverse_bind_pose = glm::mat4(1.0f);
 }
 
-void joint::transform(const glm::mat4& transform)
+void joint::transform(const glm::mat4& new_transform)
 {
-    local_transform = transform;
+    local_transform = new_transform;
     global_transform =
         parent->global_transform
         * local_transform;

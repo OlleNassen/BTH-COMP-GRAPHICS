@@ -64,7 +64,7 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<un
 
 		for (auto j = 0u; j < bone->mNumWeights; ++j)
 		{
-            auto weight = bone->mWeights[j];
+            auto& weight = bone->mWeights[j];
 
             if(vertices[weight.mVertexId].weights.x == 0.0f)
             {
@@ -156,6 +156,9 @@ void load_skeleton(const aiNode* node, skeleton& joints)
 void load_key_frames(const aiAnimation* anim, std::vector<key_frame>& key_frames)
 {
 	key_frames.resize(anim->mChannels[0]->mNumPositionKeys);
+
+	std::cout << anim->mNumChannels << std::endl;
+	std::cout << anim->mChannels[0]->mNumPositionKeys << std::endl;
 
 	for (auto i = 0u; i < anim->mNumChannels; ++i)
 	{
