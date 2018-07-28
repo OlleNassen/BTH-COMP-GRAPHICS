@@ -22,6 +22,8 @@
 #include "text.hpp"
 
 std::ostream& operator<<(std::ostream& os, const glm::mat4& value);
+using namespace std::literals::chrono_literals;
+static constexpr auto timestep = 16ms;
 
 class game
 {
@@ -31,6 +33,7 @@ public:
 
 	void run();
 private:
+
 	static constexpr auto WIDTH = 1280u;
 	static constexpr auto HEIGHT = 720u;
 
@@ -39,9 +42,9 @@ private:
 	shader skybox_shader{"shaders/skybox.vs", "shaders/skybox.fs"};
 	shader phong_shader{"shaders/phong.vs", "shaders/phong.fs"};
 	shader normal_shader{"shaders/normal.vs", "shaders/normal.fs"};
-	shader anim{"shaders/billboard.vs", "shaders/billboard.fs"};
+	shader anim{"shaders/anim.vs", "shaders/anim.fs"};
 	shader billboard_shader{"shaders/billboard.vs", "shaders/billboard.fs"};
-	shader terrain_shader{"shaders/environment_mapping.vs", "shaders/environment_mapping.fs"};
+	shader terrain_shader{"shaders/terrain.vs", "shaders/terrain.fs"};
 	shader environment_shader{"shaders/environment_mapping.vs", "shaders/environment_mapping.fs"};
 	shader text_shader{"shaders/text.vs", "shaders/text.fs"};
 	shader tess_shader{"shaders/tess.vs", "shaders/tess.cs",

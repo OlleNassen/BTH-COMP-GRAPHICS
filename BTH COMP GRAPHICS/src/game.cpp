@@ -5,10 +5,6 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-using namespace std::literals::chrono_literals;
-
-constexpr auto timestep = 16ms;
-
 std::ostream& operator<<(std::ostream& os, const glm::mat4& value)
 {
     return os
@@ -199,7 +195,7 @@ void game::render()
 	game_window.swap_buffers();
 }
 
-void game::update(const std::chrono::milliseconds delta_time)
+void game::update(std::chrono::milliseconds delta_time)
 {
     terrain->update(delta_time);
     game_camera.move_on_terrain(*terrain);
