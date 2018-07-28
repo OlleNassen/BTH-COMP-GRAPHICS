@@ -6,6 +6,8 @@
 namespace anim
 {
 
+skeleton_array<glm::mat4> offsets;
+
 static constexpr glm::mat4 ai_to_glm(const aiMatrix4x4& mat)
 {
     return
@@ -61,6 +63,8 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices, std::vector<un
 	for (auto i = 0u; i < mesh->mNumBones; ++i)
 	{
 		auto* bone = mesh->mBones[i];
+
+		offsets[i] = ai_to_glm(bone->mOffsetMatrix);
 
 		for (auto j = 0u; j < bone->mNumWeights; ++j)
 		{
