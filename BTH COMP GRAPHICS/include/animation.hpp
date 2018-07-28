@@ -17,13 +17,13 @@ using milliseconds = std::chrono::milliseconds;
 
 struct pose
 {
-    glm::vec3 position{ 0.0f, 0.0f, 0.0f };
-    glm::quat rotation{ 1.0f, 0.0f, 0.0f, 0.0f };
+    glm::vec3 position{0.0f, 0.0f, 0.0f};
+    glm::quat rotation{1.0f, 0.0f, 0.0f, 0.0f};
 };
 
 struct key_frame
 {
-    milliseconds time_point = 0ms;
+    milliseconds time_point{0ms};
     skeleton_array<pose> poses;
 };
 
@@ -35,7 +35,7 @@ public:
     void update(milliseconds delta_time, skeleton& joints);
 
 private:
-    milliseconds time = 0ms;
+    milliseconds time{0ms};
     std::vector<key_frame> key_frames;
     std::vector<key_frame>::iterator previous;
     std::vector<key_frame>::iterator next;

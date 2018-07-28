@@ -68,14 +68,14 @@ private:
 
 	text* temp_text;
 
-	int race_index = 0;
+	int race_index{0};
     race current_race;
 	std::vector<scene::icosahedron*> icos;
 
 	glm::vec3 light_pos;
 	glm::vec3 phong_pos;
-	std::chrono::duration<float> seconds = 0s;
-	std::chrono::milliseconds color_timer = 0ms;
+	std::chrono::duration<float> seconds{0s};
+	std::chrono::milliseconds color_timer{0ms};
 
 	void render();
 	void update(std::chrono::milliseconds delta_time);
