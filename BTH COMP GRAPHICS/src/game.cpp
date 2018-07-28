@@ -19,24 +19,11 @@ std::ostream& operator<<(std::ostream& os, const glm::mat4& value)
 }
 
 game::game()
-	: game_window(WIDTH, HEIGHT, "VOILA")
-	, basic_shader("shaders/basic.vs", "shaders/basic.fs")
-	, skybox_shader("shaders/skybox.vs", "shaders/skybox.fs")
-	, phong_shader("shaders/phong.vs", "shaders/phong.fs")
-	, normal_shader("shaders/normal.vs", "shaders/normal.fs")
-	, anim("shaders/anim.vs", "shaders/anim.fs")
-	, billboard_shader("shaders/billboard.vs", "shaders/billboard.fs")
-	, terrain_shader("shaders/terrain.vs", "shaders/terrain.fs")
-	, environment_shader("shaders/environment_mapping.vs", "shaders/environment_mapping.fs")
-	, tess_shader("shaders/tess.vs", "shaders/tess.cs", "shaders/tess.es", "shaders/tess.geo", "shaders/tess.fs")
-	, text_shader("shaders/text.vs", "shaders/text.fs")
-	, game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 10000.0f)
+	: game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 10000.0f)
 	, light(glm::vec3(0.0f, -1.0f, 0.0f),
         glm::vec3(0.2f, 0.2f, 0.2f),
         glm::vec3(0.5f, 0.5f, 0.5f),
         glm::vec3(1.0f, 1.0f, 1.0f))
-    , seconds(0s)
-    , color_timer(0ms)
 {
 	srand(time(NULL));
 	input::assign_window(game_window);

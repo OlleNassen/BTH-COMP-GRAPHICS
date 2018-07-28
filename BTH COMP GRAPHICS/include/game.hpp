@@ -34,28 +34,27 @@ private:
 	static constexpr auto WIDTH = 1280u;
 	static constexpr auto HEIGHT = 720u;
 
-	window game_window;
-	shader basic_shader;
-	shader skybox_shader;
-	shader phong_shader;
-	shader normal_shader;
-	shader anim;
-	shader billboard_shader;
-	shader terrain_shader;
-	shader environment_shader;
-	shader tess_shader;
-	shader text_shader;
+	window game_window{WIDTH, HEIGHT, "VOILA"};
+	shader basic_shader{"shaders/basic.vs", "shaders/basic.fs"};
+	shader skybox_shader{"shaders/skybox.vs", "shaders/skybox.fs"};
+	shader phong_shader{"shaders/phong.vs", "shaders/phong.fs"};
+	shader normal_shader{"shaders/normal.vs", "shaders/normal.fs"};
+	shader anim{"shaders/billboard.vs", "shaders/billboard.fs"};
+	shader billboard_shader{"shaders/billboard.vs", "shaders/billboard.fs"};
+	shader terrain_shader{"shaders/environment_mapping.vs", "shaders/environment_mapping.fs"};
+	shader environment_shader{"shaders/environment_mapping.vs", "shaders/environment_mapping.fs"};
+	shader text_shader{"shaders/text.vs", "shaders/text.fs"};
+	shader tess_shader{"shaders/tess.vs", "shaders/tess.cs",
+        "shaders/tess.es", "shaders/tess.geo", "shaders/tess.fs"};
+
 
 	camera game_camera;
 	directional_light light;
-	scene::node scene;
-	scene::skybox sky;
-
-	//mesh_factory factory;
 
 	anim::model temp_model;
 
-	//TEMP VARIABLES, PUT IN SCENE GRAPH WHEN FIXED
+	scene::node scene;
+	scene::skybox sky;
 	scene::temp_box* temp; // PHONG cube
 	scene::temp_box* environment; // ENVIRONMENT CUBE
 	scene::quad* quad; // phong
@@ -64,6 +63,7 @@ private:
 	scene::terrain* terrain;
 	scene::quad_tess* quad_tess;
 	scene::icosahedron* ico;
+
 	text* temp_text;
 
 	int race_index = 0;
@@ -72,8 +72,8 @@ private:
 
 	glm::vec3 light_pos;
 	glm::vec3 phong_pos;
-	std::chrono::duration<float> seconds;
-	std::chrono::milliseconds color_timer;
+	std::chrono::duration<float> seconds = 0s;
+	std::chrono::milliseconds color_timer = 0ms;
 
 	void render();
 	void update(std::chrono::milliseconds delta_time);
