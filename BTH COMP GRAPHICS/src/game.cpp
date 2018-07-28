@@ -97,10 +97,6 @@ game::game()
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 }
 
-game::~game()
-{
-}
-
 void game::run()
 {
 	using clock = std::chrono::steady_clock;
