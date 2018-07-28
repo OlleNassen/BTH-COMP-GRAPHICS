@@ -8,10 +8,12 @@
 
 shader::shader(const std::string& vertex_path, const std::string& fragment_path)
 {
-    std::string vertex_code(load(vertex_path));
-    std::string fragment_code(load(fragment_path));
+    auto vertex_code = load(vertex_path);
+    auto fragment_code = load(fragment_path);
+
     auto vertex_shader = create(GL_VERTEX_SHADER, vertex_code.c_str());
     auto fragment_shader = create(GL_FRAGMENT_SHADER, fragment_code.c_str());
+
     auto success = 0;
     char infoLog[512];
 

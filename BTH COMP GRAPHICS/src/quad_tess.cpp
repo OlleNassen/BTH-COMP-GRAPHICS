@@ -7,8 +7,6 @@ namespace scene
 
 quad_tess::quad_tess(float x, float y, float z)
 	: node(x, y, z)
-	, quad_vbo(target::ARRAY_BUFFER)
-	, quad_ebo(target::ELEMENT_ARRAY_BUFFER)
 	, tess_texture("images/brick_texture.jpg", wrap::REPEAT, filter::LINEAR, format::RGB)
 	, displacement_map("images/diff_disp.png", wrap::REPEAT, filter::LINEAR, format::RGB)
 {

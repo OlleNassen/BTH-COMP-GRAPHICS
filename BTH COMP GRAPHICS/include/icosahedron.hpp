@@ -21,7 +21,7 @@ private:
 	GLuint vao;
 	vertex_array v_array;
 	buffer vbo;
-	buffer ebo;
+	buffer ebo{target::ELEMENT_ARRAY_BUFFER};
 
 	glm::vec3 temp_color;
 

@@ -5,8 +5,6 @@ namespace scene
 
 icosahedron::icosahedron(float x, float y, float z)
     : node(x, y, z)
-    , vbo(target::ARRAY_BUFFER)
-    ,   ebo(target::ELEMENT_ARRAY_BUFFER)
 {
 	temp_color = glm::vec3(1.0f, 0.1f, 0.1f);
 	constexpr  int faces[] = {

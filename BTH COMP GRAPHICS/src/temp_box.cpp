@@ -7,7 +7,6 @@ namespace scene
 
 temp_box::temp_box(float x, float y, float z)
 	: node(x, y, z)
-	, box_vbo(target::ARRAY_BUFFER)
 {
     constexpr float vertices[] =
 	{

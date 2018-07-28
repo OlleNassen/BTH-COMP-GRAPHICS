@@ -8,7 +8,7 @@ namespace scene
 
 particle_emitter::particle_emitter(float x, float y, float z)
 	: node(x, y, z)
-	, quad_vbo(target::ARRAY_BUFFER), instance_vbo(target::ARRAY_BUFFER), quad_texture(new texture("images/edvard.png"))
+	, quad_texture(new texture("images/edvard.png"))
 {
 	srand(time(NULL));
 

@@ -20,7 +20,6 @@ terrain::terrain(float x, float y, float z)
 	, y(y)
 	, z(z)
     , draw_count(0)
-	, terrain_vbo(target::ARRAY_BUFFER), terrain_ebo(target::ELEMENT_ARRAY_BUFFER)
 {
 	terrain_texture = new texture("images/ground.png", wrap::REPEAT, filter::LINEAR, format::RGBA);
 

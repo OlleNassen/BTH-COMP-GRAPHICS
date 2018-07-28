@@ -70,8 +70,7 @@ std::vector<std::string> faces
 };
 
 skybox::skybox()
-    : vbo(target::ARRAY_BUFFER)
-    , sky(faces, wrap::CLAMP_TO_EDGE,
+    : sky(faces, wrap::CLAMP_TO_EDGE,
         filter::LINEAR, format::RGB)
 {
     vao.bind();

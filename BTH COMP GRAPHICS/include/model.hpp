@@ -16,18 +16,17 @@ static constexpr glm::mat4 ai_to_glm(const aiMatrix4x4& mat);
 
 struct vertex
 {
-    glm::vec3 position;
-    glm::vec2 texture_coordinate;
-    glm::vec3 normal;
-    glm::ivec4 joints;
-    glm::vec4 weights;
+    glm::vec3 position{0.0f, 0.0f, 0.0f};
+    glm::vec2 texture_coordinate{0.0f, 0.0f};
+    glm::vec3 normal{0.0f, 0.0f, 0.0f};
+    glm::ivec4 joints{0, 0, 0, 0};
+    glm::vec4 weights{0.0f, 0.0f, 0.0f, 0.0f};
 };
 
 class model
 {
 public:
     model();
-    ~model();
 
     void update(milliseconds delta_time);
 
@@ -43,7 +42,7 @@ private:
     animation current;
 
     buffer model_buffer;
-    buffer element_buffer;
+    buffer element_buffer{target::ELEMENT_ARRAY_BUFFER};
     vertex_array model_array;
 
 };

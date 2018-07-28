@@ -13,12 +13,6 @@ void animation::load(const std::vector<key_frame>& key_frames)
     ++next;
 }
 
-animation::animation()
-    : time(0ms)
-{
-
-}
-
 void animation::update(milliseconds delta_time, skeleton& joints)
 {
     time += delta_time;

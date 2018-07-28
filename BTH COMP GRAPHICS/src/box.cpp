@@ -6,7 +6,6 @@ namespace scene
 
 box::box(float x, float y, float z)
     : node(x, y, z)
-    , box_vbo(target::ARRAY_BUFFER)
     , diffuse("images/container2.png")
 	, specular("images/container2_specular.png")
 {

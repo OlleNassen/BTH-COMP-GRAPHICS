@@ -29,7 +29,7 @@ private:
 
 	vertex_array terrain_array;
 	buffer terrain_vbo;
-	buffer terrain_ebo;
+	buffer terrain_ebo{target::ELEMENT_ARRAY_BUFFER};
 	texture* terrain_texture;
 	int depth;
 	virtual void update_current(milliseconds delta_time,

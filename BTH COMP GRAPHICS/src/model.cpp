@@ -203,8 +203,6 @@ void import_model(const std::string& path,
 }
 
 model::model()
-	: model_buffer(target::ARRAY_BUFFER)
-	, element_buffer(target::ELEMENT_ARRAY_BUFFER)
 {
     std::vector<key_frame> key_frames;
 
@@ -227,11 +225,6 @@ model::model()
 	model_array.attribute_pointer(4, 4, GL_FLOAT, GL_FALSE, stride, (void*)(8 * sizeof(float) + 4 * sizeof(int)));
 
 	world_joints.fill(glm::mat4(1.0f));
-}
-
-model::~model()
-{
-	//dtor
 }
 
 void model::update(milliseconds delta_time)

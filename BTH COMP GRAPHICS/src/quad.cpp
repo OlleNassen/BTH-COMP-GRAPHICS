@@ -7,7 +7,7 @@ namespace scene
 
 quad::quad(float x, float y, float z)
 	: node(x, y, z)
-    , quad_vbo(target::ARRAY_BUFFER), quad_texture(new texture("images/edvard.png"))
+    , quad_texture(new texture("images/edvard.png"))
 {
 	constexpr float vertices[] =
 	{

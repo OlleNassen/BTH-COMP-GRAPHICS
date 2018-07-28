@@ -24,6 +24,7 @@ enum class target
 class buffer
 {
 public:
+    buffer();
     buffer(target buffer_target);
     ~buffer();
 
@@ -32,8 +33,8 @@ public:
     void data(int size, const void* data, unsigned int usage) const;
 
 private:
-    unsigned int buffer_target;
-    unsigned int id;
+    target buffer_target = target::ARRAY_BUFFER;
+    unsigned int id = 0u;
 
 };
 
