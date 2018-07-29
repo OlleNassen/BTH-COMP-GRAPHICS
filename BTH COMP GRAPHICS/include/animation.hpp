@@ -32,9 +32,9 @@ public:
     glm::mat4 world_transform() const;
 
     joint* parent{this};
-    glm::mat4 local_transform{glm::mat4(1.0f)};
-    glm::mat4 global_transform{glm::mat4(1.0f)};
-    glm::mat4 inverse_bind_pose{glm::mat4(1.0f)};
+    glm::mat4 local_transform{1.0f};
+    glm::mat4 global_transform{1.0f};
+    glm::mat4 inverse_bind_pose{1.0f};
 
 private:
 

@@ -54,8 +54,6 @@
 		<Unit filename="include/game.hpp" />
 		<Unit filename="include/icosahedron.hpp" />
 		<Unit filename="include/input.hpp" />
-		<Unit filename="include/joint.hpp" />
-		<Unit filename="include/model.hpp" />
 		<Unit filename="include/node.hpp" />
 		<Unit filename="include/normal_quad.hpp" />
 		<Unit filename="include/particle_emitter.hpp" />
@@ -95,15 +93,7 @@
 		<Unit filename="src/game.cpp" />
 		<Unit filename="src/icosahedron.cpp" />
 		<Unit filename="src/input.cpp" />
-		<Unit filename="src/joint.cpp">
-			<Option compile="0" />
-			<Option link="0" />
-		</Unit>
 		<Unit filename="src/main.cpp" />
-		<Unit filename="src/model.cpp">
-			<Option compile="0" />
-			<Option link="0" />
-		</Unit>
 		<Unit filename="src/node.cpp" />
 		<Unit filename="src/normal_quad.cpp" />
 		<Unit filename="src/particle_emitter.cpp" />
