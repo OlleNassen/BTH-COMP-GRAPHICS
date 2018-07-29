@@ -15,7 +15,7 @@ std::ostream& operator<<(std::ostream& os, const glm::mat4& value)
 }
 
 game::game()
-	: game_camera(glm::radians(45.0f), WIDTH, HEIGHT, 0.1f, 10000.0f)
+	: game_camera(glm::radians(45.0f), width, height, 0.1f, 10000.0f)
 	, light(glm::vec3(0.0f, -1.0f, 0.0f),
         glm::vec3(0.2f, 0.2f, 0.2f),
         glm::vec3(0.5f, 0.5f, 0.5f),
@@ -123,7 +123,7 @@ void game::render()
 {
 	glClearColor(0.6f, 0.9f, 0.6f, 0.f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glViewport(0, 0, WIDTH, HEIGHT);
+	glViewport(0, 0, width, height);
 
 	phong_shader.use();
 	game_camera.bind(phong_shader);

@@ -25,8 +25,8 @@ std::ostream& operator<<(std::ostream& os, const glm::mat4& value);
 using namespace std::literals::chrono_literals;
 
 static constexpr auto timestep = 16ms;
-static constexpr auto WIDTH = 1280u;
-static constexpr auto HEIGHT = 720u;
+static constexpr auto width = 1280u;
+static constexpr auto height = 720u;
 
 class game
 {
@@ -36,7 +36,7 @@ public:
 	void run();
 
 private:
-	window game_window{WIDTH, HEIGHT, "VOILA"};
+	window game_window{width, height, "VOILA"};
 	shader basic_shader{"shaders/basic.vs", "shaders/basic.fs"};
 	shader skybox_shader{"shaders/skybox.vs", "shaders/skybox.fs"};
 	shader phong_shader{"shaders/phong.vs", "shaders/phong.fs"};
