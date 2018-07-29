@@ -7,13 +7,45 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/quaternion.hpp>
-#include "joint.hpp"
+#include <assimp/Importer.hpp>
+#include <assimp/Scene.h>
+#include <assimp/postprocess.h>
+#include "shader.hpp"
+#include "buffer.hpp"
+#include "vertex_array.hpp"
 
 namespace anim
 {
 
 using namespace std::literals::chrono_literals;
 using milliseconds = std::chrono::milliseconds;
+static constexpr glm::mat4 ai_to_glm(const aiMatrix4x4& mat);
+
+class joint
+{
+public:
+    joint() = default;
+    joint(const glm::mat4& transform, joint* parent);
+
+    void transform(const glm::mat4& new_transform);
+
+    glm::mat4 world_transform() const;
+
+    joint* parent{this};
+    glm::mat4 local_transform{glm::mat4(1.0f)};
+    glm::mat4 global_transform{glm::mat4(1.0f)};
+    glm::mat4 inverse_bind_pose{glm::mat4(1.0f)};
+
+private:
+
+};
+
+template <class T>
+using skeleton_array = std::array<T, 50>;
+using skeleton = skeleton_array<joint>;
+
+
+
 
 struct pose
 {
@@ -45,6 +77,42 @@ private:
     float calculate_progression(
         milliseconds previous,
         milliseconds next) const;
+};
+
+
+
+
+struct vertex
+{
+    glm::vec3 position{0.0f, 0.0f, 0.0f};
+    glm::vec2 texture_coordinate{0.0f, 0.0f};
+    glm::vec3 normal{0.0f, 0.0f, 0.0f};
+    glm::ivec4 joints{0, 0, 0, 0};
+    glm::vec4 weights{0.0f, 0.0f, 0.0f, 0.0f};
+};
+
+class model
+{
+public:
+    model();
+
+    void update(milliseconds delta_time);
+
+    void draw(const shader& shader) const;
+
+private:
+    std::vector<vertex> vertices;
+    std::vector<unsigned int> indices;
+
+    skeleton joints;
+    skeleton_array<glm::mat4> world_joints;
+
+    animation current;
+
+    buffer model_buffer;
+    buffer element_buffer{target::ELEMENT_ARRAY_BUFFER};
+    vertex_array model_array;
+
 };
 
 }

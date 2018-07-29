@@ -13,7 +13,7 @@
 #include "temp_box.hpp"
 #include "normal_quad.hpp"
 #include "particle_emitter.hpp"
-#include "model.hpp"
+#include "animation.hpp"
 #include "quad_tess.hpp"
 #include "icosahedron.hpp"
 #include <iostream>

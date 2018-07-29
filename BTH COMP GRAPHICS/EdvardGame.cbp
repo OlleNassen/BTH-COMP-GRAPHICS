@@ -95,9 +95,15 @@
 		<Unit filename="src/game.cpp" />
 		<Unit filename="src/icosahedron.cpp" />
 		<Unit filename="src/input.cpp" />
-		<Unit filename="src/joint.cpp" />
+		<Unit filename="src/joint.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="src/main.cpp" />
-		<Unit filename="src/model.cpp" />
+		<Unit filename="src/model.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
 		<Unit filename="src/node.cpp" />
 		<Unit filename="src/normal_quad.cpp" />
 		<Unit filename="src/particle_emitter.cpp" />

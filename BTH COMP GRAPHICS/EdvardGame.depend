@@ -2603,7 +2603,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1532814083 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1532832150 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	<chrono>
@@ -2611,7 +2611,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1532831703 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1532890436 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	"window.hpp"
 	"camera.hpp"
 	"shader.hpp"
@@ -2625,7 +2625,7 @@
 	"temp_box.hpp"
 	"normal_quad.hpp"
 	"particle_emitter.hpp"
-	"model.hpp"
+	"animation.hpp"
 	"quad_tess.hpp"
 	"icosahedron.hpp"
 	<iostream>
@@ -3003,19 +3003,24 @@
 	<ctime>
 	<iostream>
 
-1532793891 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1532900544 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 	<iostream>
 	"game.hpp"
 
-1532814296 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
+1532890832 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
 	<array>
 	<vector>
 	<chrono>
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/quaternion.hpp>
-	"joint.hpp"
+	<assimp/Importer.hpp>
+	<assimp/Scene.h>
+	<assimp/postprocess.h>
+	"shader.hpp"
+	"buffer.hpp"
+	"vertex_array.hpp"
 
 1532352542 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh_factory.hpp
 	<string>
@@ -3131,11 +3136,11 @@
 
 1532623486 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\scene_loader.hpp
 
-1532793650 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\joint.cpp
+1532890487 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\joint.cpp
 	"joint.hpp"
 	"game.hpp"
 
-1532814257 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\joint.hpp
+1532890531 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\joint.hpp
 	<array>
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
