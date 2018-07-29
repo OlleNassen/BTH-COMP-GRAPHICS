@@ -11,6 +11,8 @@ layout (location = 4) in vec4 weight;
 
 out vec3 normal_out;
 
+out vec4 we;
+
 uniform mat4 joint_transforms[MAX_JOINTS];
 uniform mat4 model;
 uniform mat4 view;
@@ -37,6 +39,8 @@ void main()
     matrix += joint_transforms[joint[1]] * weight[1];
     matrix += joint_transforms[joint[2]] * weight[2];
     matrix += joint_transforms[joint[3]] * weight[3];
+
+    we = weight;
 
      gl_Position = projection * view * matrix * (vec4(position, 1.0));
 }
