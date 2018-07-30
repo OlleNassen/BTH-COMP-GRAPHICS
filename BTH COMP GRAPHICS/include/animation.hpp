@@ -69,8 +69,8 @@ public:
 private:
     milliseconds time{0ms};
     std::vector<key_frame> key_frames;
-    std::vector<key_frame>::iterator previous;
-    std::vector<key_frame>::iterator next;
+    std::vector<key_frame>::const_iterator prev;
+    std::vector<key_frame>::const_iterator next;
 
     void update_key_frame();
     void update_pose(skeleton& joints);

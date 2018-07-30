@@ -236,7 +236,7 @@ glm::mat4 joint::world_transform() const
 void animation::load(const std::vector<key_frame>& key_frames)
 {
     this->key_frames = key_frames;
-    previous = this->key_frames.begin();
+    prev = this->key_frames.begin();
     next = this->key_frames.begin();
     ++next;
 }
@@ -256,13 +256,13 @@ void animation::update_key_frame()
 {
     if(time > next->time_point)
     {
-        ++previous;
+        ++prev;
         ++next;
 
         if(next == key_frames.end())
         {
             time = 0ms;
-            previous = key_frames.begin();
+            prev = key_frames.begin();
             next = key_frames.begin();
             ++next;
         }
@@ -273,12 +273,12 @@ void animation::update_pose(skeleton& joints)
 {
     auto progression =
         calculate_progression(
-        previous->time_point,
+        prev->time_point,
         next->time_point);
 
     for(auto i = 0u; i < joints.size(); ++i)
     {
-        auto& prev_pose = previous->poses[i];
+        auto& prev_pose = prev->poses[i];
         auto& next_pose = next->poses[i];
 
         auto new_position =
@@ -301,11 +301,6 @@ void animation::update_pose(skeleton& joints)
         {
             joints[i].local_transform = new_transform;
             joints[i].global_transform = joints[i].local_transform;
-        }
-        if(i == 25u)
-        {
-            std::cout << new_position.x << std::endl;
-            std::cout << joints[i].local_transform << std::endl;
         }
     }
 }
