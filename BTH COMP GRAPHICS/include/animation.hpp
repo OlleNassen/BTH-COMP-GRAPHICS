@@ -55,7 +55,7 @@ struct pose
 
 struct key_frame
 {
-    milliseconds time_point{0ms};
+    milliseconds timepoint{0ms};
     skeleton_array<pose> poses;
 };
 

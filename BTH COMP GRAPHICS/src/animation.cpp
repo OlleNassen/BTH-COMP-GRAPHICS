@@ -169,7 +169,7 @@ void load_key_frames(const aiAnimation* anim,
             if(i == 0u)
             {
                 using namespace std::chrono;
-                key_frames[j].time_point =
+                key_frames[j].timepoint =
                     duration_cast<milliseconds>(duration<float>
                     (channel->mPositionKeys[j].mTime));
             }
@@ -254,7 +254,7 @@ void animation::update(milliseconds delta_time, skeleton& joints)
 
 void animation::update_key_frame()
 {
-    if(time > next->time_point)
+    if(time > next->timepoint)
     {
         ++prev;
         ++next;
@@ -273,8 +273,8 @@ void animation::update_pose(skeleton& joints)
 {
     auto progression =
         calculate_progression(
-        prev->time_point,
-        next->time_point);
+        prev->timepoint,
+        next->timepoint);
 
     for(auto i = 0u; i < joints.size(); ++i)
     {
@@ -306,11 +306,11 @@ void animation::update_pose(skeleton& joints)
 }
 
 float animation::calculate_progression(
-    milliseconds previous,
+    milliseconds prev,
     milliseconds next) const
 {
-    auto total_time = next - previous;
-    auto current_time = time - previous;
+    auto total_time = next - prev;
+    auto current_time = time - prev;
 
     return
         static_cast<float>(current_time.count()) /
