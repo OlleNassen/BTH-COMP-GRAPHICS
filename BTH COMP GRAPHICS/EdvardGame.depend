@@ -3003,12 +3003,13 @@
 	<ctime>
 	<iostream>
 
-1532913983 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1532984580 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 	<iostream>
+	<algorithm>
 	"game.hpp"
 
-1532915587 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
+1532997727 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
 	<array>
 	<vector>
 	<chrono>

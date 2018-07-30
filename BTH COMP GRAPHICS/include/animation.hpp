@@ -29,7 +29,7 @@ public:
 
     void transform(const glm::mat4& new_transform);
 
-    glm::mat4 world_transform() const;
+    glm::mat4 as_matrix() const;
 
     joint* parent{this};
     glm::mat4 local_transform{1.0f};
@@ -74,6 +74,9 @@ private:
 
     void update_key_frame();
     void update_pose(skeleton& joints);
+
+    pose mix(const pose& x, const pose& y, float a) const;
+
     float calculate_progression(
         milliseconds previous,
         milliseconds next) const;

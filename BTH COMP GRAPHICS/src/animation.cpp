@@ -1,5 +1,6 @@
 #include "animation.hpp"
 #include <iostream>
+#include <algorithm>
 #include "game.hpp"
 
 namespace anim
@@ -14,14 +15,6 @@ static constexpr glm::mat4 ai_to_glm(const aiMatrix4x4& mat)
         mat.a3, mat.b3, mat.c3, mat.d3,
         mat.a4, mat.b4, mat.c4, mat.d4
     };
-
-     /*return
-     {
-        mat.a1, mat.a2, mat.a3, mat.a4,
-        mat.b1, mat.b2, mat.b3, mat.b4,
-        mat.c1, mat.c2, mat.c3, mat.c4,
-        mat.d1, mat.d2, mat.d3, mat.d4
-    };*/
 }
 
 void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices,
@@ -114,6 +107,7 @@ void load_parent_indices(const aiNode& node,
         auto& joint = joints[index - 1];
         if(&joint == &joints.front())
         {
+            joint.parent = nullptr;
             joint.local_transform = ai_to_glm(node.mTransformation);
             joint.global_transform = joint.local_transform;
             joint.inverse_bind_pose = glm::inverse(joint.global_transform);
@@ -225,7 +219,7 @@ void joint::transform(const glm::mat4& new_transform)
         * local_transform;
 }
 
-glm::mat4 joint::world_transform() const
+glm::mat4 joint::as_matrix() const
 {
     return global_transform * inverse_bind_pose;
 }
@@ -303,6 +297,17 @@ void animation::update_pose(skeleton& joints)
             joints[i].global_transform = joints[i].local_transform;
         }
     }
+
+
+}
+
+pose animation::mix(const pose& x, const pose& y, float a) const
+{
+    return
+    {
+        glm::mix(x.position, y.position, a),
+        glm::mix(x.rotation, y.rotation, a)
+    };
 }
 
 float animation::calculate_progression(
@@ -357,10 +362,11 @@ void model::update(milliseconds delta_time)
 {
 	current.update(delta_time, joints);
 
-	for (auto i = 0u; i < joints.size(); ++i)
-	{
-        world_joints[i] = joints[i].world_transform();
-    }
+	std::transform(joints.begin(), joints.end(), world_joints.begin(),
+        [](const joint& j) -> glm::mat4
+        {
+            return j.as_matrix();
+        });
 }
 
 void model::draw(const shader& shader) const
