@@ -74,8 +74,6 @@ private:
     void update_key_frame();
     void update_pose(skeleton& joints);
 
-    pose mix(const pose& x, const pose& y, float a) const;
-
     float calculate_progression(
         milliseconds previous,
         milliseconds next) const;

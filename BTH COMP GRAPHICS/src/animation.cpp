@@ -17,6 +17,15 @@ static constexpr glm::mat4 ai_to_glm(const aiMatrix4x4& mat)
     };
 }
 
+static pose mix(const pose& x, const pose& y, float a)
+{
+    return
+    {
+        glm::mix(x.position, y.position, a),
+        glm::mix(x.rotation, y.rotation, a)
+    };
+}
+
 void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices,
     std::vector<unsigned int>& indices)
 {
@@ -290,15 +299,6 @@ void animation::update_pose(skeleton& joints)
     }
 
 
-}
-
-pose animation::mix(const pose& x, const pose& y, float a) const
-{
-    return
-    {
-        glm::mix(x.position, y.position, a),
-        glm::mix(x.rotation, y.rotation, a)
-    };
 }
 
 float animation::calculate_progression(
