@@ -94,7 +94,6 @@ game::game()
     }
 
 	temp_text = new text();
-	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	std::vector<scene::node*> v;
 	glm::vec3 cam_pos;
@@ -202,6 +201,9 @@ void game::render()
 
 void game::update(std::chrono::milliseconds delta_time)
 {
+	glm::vec3 cam_pos = game_camera.get_pos();
+	scene.sort(cam_pos);
+
     terrain->update(delta_time);
     game_camera.move_on_terrain(*terrain);
 
