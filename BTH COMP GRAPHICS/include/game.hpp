@@ -1,5 +1,9 @@
 #ifndef GAME_HPP
 #define GAME_HPP
+
+#include <iostream>
+#include <chrono>
+
 #include "window.hpp"
 #include "camera.hpp"
 #include "shader.hpp"
@@ -16,8 +20,6 @@
 #include "animation.hpp"
 #include "quad_tess.hpp"
 #include "icosahedron.hpp"
-#include <iostream>
-#include <chrono>
 #include "race.hpp"
 #include "text.hpp"
 
@@ -44,11 +46,13 @@ private:
 	shader anim{"shaders/anim.vs", "shaders/anim.fs"};
 	shader billboard_shader{"shaders/billboard.vs", "shaders/billboard.fs"};
 	shader terrain_shader{"shaders/terrain.vs", "shaders/terrain.fs"};
-	shader environment_shader{"shaders/environment_mapping.vs", "shaders/environment_mapping.fs"};
+	shader environment_shader{"shaders/environment_mapping.vs",
+        "shaders/environment_mapping.fs"};
 	shader text_shader{"shaders/text.vs", "shaders/text.fs"};
 	shader tess_shader{"shaders/tess.vs", "shaders/tess.cs",
         "shaders/tess.es", "shaders/tess.geo", "shaders/tess.fs"};
-	shader backface_shader{ "shaders/backface.vs", "shaders/backface.geo", "shaders/backface.fs" };
+	shader backface_shader{ "shaders/backface.vs",
+        "shaders/backface.geo", "shaders/backface.fs" };
 
 
 	camera game_camera;

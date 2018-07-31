@@ -22,7 +22,6 @@ class node
 {
 public:
     node(float x = 0.0f, float y = 0.0f, float z = 0.0f);
-    virtual ~node();
 
     void attach_child(node* child);
 
@@ -34,7 +33,6 @@ public:
 private:
     std::vector<node*> children;
     glm::mat4 transform;
-
 
     void update(milliseconds delta_time, glm::mat4& world_transform);
     void prepare_render(const shader& shader,

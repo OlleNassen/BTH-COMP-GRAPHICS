@@ -2604,7 +2604,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1533075934 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1533077250 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	<chrono>
@@ -2612,7 +2612,9 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1533074402 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1533077744 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+	<iostream>
+	<chrono>
 	"window.hpp"
 	"camera.hpp"
 	"shader.hpp"
@@ -2629,8 +2631,6 @@
 	"animation.hpp"
 	"quad_tess.hpp"
 	"icosahedron.hpp"
-	<iostream>
-	<chrono>
 	"race.hpp"
 	"text.hpp"
 
@@ -2906,7 +2906,7 @@
 	<glm/glm.hpp>
 	"shader.hpp"
 
-1533076285 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
+1533077004 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
 	"box.hpp"
 	<iostream>
 
@@ -2931,7 +2931,7 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1532798810 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
+1533077120 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
 	"terrain.hpp"
 	<vector>
 	<iostream>
@@ -2972,7 +2972,7 @@
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1532798784 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\temp_box.cpp
+1533076986 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\temp_box.cpp
 	"temp_box.hpp"
 	<iostream>
 	<glm/gtc/matrix_transform.hpp>
@@ -3160,7 +3160,7 @@
 
 1532513745 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\freetype\config\ftheader.h
 
-1532683557 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\text.cpp
+1533077135 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\text.cpp
 	"text.hpp"
 	<iostream>
 	<gl/glew.h>
@@ -3171,7 +3171,7 @@
 	<glm/gtc/type_ptr.hpp>
 	<algorithm>
 
-1533039336 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\node.hpp
+1533077929 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\node.hpp
 	<vector>
 	<chrono>
 	<glm/glm.hpp>

@@ -15,14 +15,6 @@ node::node(float x, float y, float z)
 
 }
 
-node::~node()
-{
-    for(auto* child : children)
-    {
-        delete child;
-    }
-}
-
 void node::attach_child(node* child)
 {
     children.push_back(child);
