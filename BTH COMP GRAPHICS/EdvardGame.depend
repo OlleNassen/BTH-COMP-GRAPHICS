@@ -2029,11 +2029,12 @@
 1530530002 source:c:\users\deadvard\documents\codeblocks\bth-comp-graphics\bth comp graphics\src\main.cpp
 	"game.hpp"
 
-1532798539 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\buffer.cpp
+1533065950 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\buffer.cpp
 	"buffer.hpp"
 
-1532798448 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\buffer.hpp
+1533073274 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\buffer.hpp
 	<GL/glew.h>
+	"texture.hpp"
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\gl\glew.h
 	<stddef.h>
@@ -2603,7 +2604,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1533040928 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1533074436 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	<chrono>
@@ -2611,7 +2612,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1533040928 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1533074402 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	"window.hpp"
 	"camera.hpp"
 	"shader.hpp"
@@ -3003,13 +3004,13 @@
 	<ctime>
 	<iostream>
 
-1533035173 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1533075117 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 	<iostream>
 	<algorithm>
 	"game.hpp"
 
-1532999131 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
+1533075952 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
 	<array>
 	<vector>
 	<chrono>

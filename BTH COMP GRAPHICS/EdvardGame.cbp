@@ -50,7 +50,6 @@
 		<Unit filename="include/buffer.hpp" />
 		<Unit filename="include/camera.hpp" />
 		<Unit filename="include/directional_light.hpp" />
-		<Unit filename="include/frame_buffer.hpp" />
 		<Unit filename="include/game.hpp" />
 		<Unit filename="include/icosahedron.hpp" />
 		<Unit filename="include/input.hpp" />
@@ -90,7 +89,6 @@
 		<Unit filename="src/buffer.cpp" />
 		<Unit filename="src/camera.cpp" />
 		<Unit filename="src/directional_light.cpp" />
-		<Unit filename="src/frame_buffer.cpp" />
 		<Unit filename="src/game.cpp" />
 		<Unit filename="src/icosahedron.cpp" />
 		<Unit filename="src/input.cpp" />

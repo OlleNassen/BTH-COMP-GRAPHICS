@@ -2,6 +2,7 @@
 #define BUFFER_HPP
 
 #include <GL/glew.h>
+#include "texture.hpp"
 
 enum class target
 {
@@ -35,6 +36,23 @@ public:
 private:
     target buffer_target = target::ARRAY_BUFFER;
     unsigned int id = 0u;
+
+};
+
+
+
+
+class frame_buffer
+{
+public:
+    frame_buffer();
+    ~frame_buffer();
+
+    void bind() const;
+    void bind_texture(const texture& texture) const;
+
+private:
+    unsigned int id;
 
 };
 
