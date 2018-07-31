@@ -80,27 +80,30 @@ normal_quad::normal_quad(float x, float y, float z)
 	quad_vbo.data(sizeof(quad_vertices), &quad_vertices[0], GL_STATIC_DRAW);
 	quad_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 14 * sizeof(float), nullptr);
 	auto offset = 3u;
-	quad_array.attribute_pointer(1, 3, GL_FLOAT, GL_FALSE, 14 * sizeof(float), buffer_offset<float>(offset));
+	quad_array.attribute_pointer(1, 3, GL_FLOAT, GL_FALSE, 14 * sizeof(float),
+        buffer_offset<float>(offset));
 	offset += 3u;
-	quad_array.attribute_pointer(2, 2, GL_FLOAT, GL_FALSE, 14 * sizeof(float), buffer_offset<float>(offset));
+	quad_array.attribute_pointer(2, 2, GL_FLOAT, GL_FALSE, 14 * sizeof(float),
+        buffer_offset<float>(offset));
 	offset += 2u;
-	quad_array.attribute_pointer(3, 3, GL_FLOAT, GL_FALSE, 14 * sizeof(float), buffer_offset<float>(offset));
+	quad_array.attribute_pointer(3, 3, GL_FLOAT, GL_FALSE, 14 * sizeof(float),
+        buffer_offset<float>(offset));
 	offset += 3u;
-	quad_array.attribute_pointer(4, 3, GL_FLOAT, GL_FALSE, 14 * sizeof(float), buffer_offset<float>(offset));
+	quad_array.attribute_pointer(4, 3, GL_FLOAT, GL_FALSE, 14 * sizeof(float),
+        buffer_offset<float>(offset));
 
-	quad_normal = new texture("images/brickwall_normal.jpg", wrap::REPEAT, filter::LINEAR, format::RGB);
+	quad_normal = new texture("images/brickwall_normal.jpg",
+        wrap::REPEAT, filter::LINEAR, format::RGB);
 }
 
-normal_quad::~normal_quad()
-{
-}
-
-void normal_quad::update_current(milliseconds delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
+void normal_quad::update_current(milliseconds delta_time,
+    const glm::mat4& world_transform, glm::mat4& transform)
 {
 	transform = glm::scale(transform, glm::vec3(0.1, 0.1, 1));
 }
 
-void normal_quad::render_current(const shader& shader, const glm::mat4& world_transform) const
+void normal_quad::render_current(const shader& shader,
+    const glm::mat4& world_transform) const
 {
 	shader.uniform("model", world_transform);
 	quad_texture->uniform(shader, "diffuseMap", 0);

@@ -7,8 +7,10 @@ namespace scene
 
 quad_tess::quad_tess(float x, float y, float z)
 	: node(x, y, z)
-	, tess_texture("images/brick_texture.jpg", wrap::REPEAT, filter::LINEAR, format::RGB)
-	, displacement_map("images/diff_disp.png", wrap::REPEAT, filter::LINEAR, format::RGB)
+	, tess_texture("images/brick_texture.jpg",
+        wrap::REPEAT, filter::LINEAR, format::RGB)
+	, displacement_map("images/diff_disp.png",
+        wrap::REPEAT, filter::LINEAR, format::RGB)
 {
 	constexpr float vertices[] =
 	{
@@ -28,20 +30,19 @@ quad_tess::quad_tess(float x, float y, float z)
 	quad_vbo.data(sizeof(vertices), &vertices[0], GL_STATIC_DRAW);
 	quad_ebo.data(sizeof(indices), &indices[0], GL_STATIC_DRAW);
 
-	quad_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), nullptr);
-	quad_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), buffer_offset<float>(3u));
+	quad_array.attribute_pointer(0, 3, GL_FLOAT,
+        GL_FALSE, 5 * sizeof(float), nullptr);
+	quad_array.attribute_pointer(1, 2, GL_FLOAT,
+        GL_FALSE, 5 * sizeof(float), buffer_offset<float>(3u));
 }
 
-quad_tess::~quad_tess()
-{
-
-}
-
-void quad_tess::update_current(milliseconds delta_time, const glm::mat4& world_transform, glm::mat4& transform)
+void quad_tess::update_current(milliseconds delta_time,
+    const glm::mat4& world_transform, glm::mat4& transform)
 {
 }
 
-void quad_tess::render_current(const shader& shader, const glm::mat4& world_transform) const
+void quad_tess::render_current(const shader& shader,
+    const glm::mat4& world_transform) const
 {
 	shader.uniform("model", world_transform);
 	shader.uniform("TessLevelInner", 2.f);

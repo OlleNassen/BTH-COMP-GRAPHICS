@@ -77,6 +77,7 @@ text::text()
 
 text::~text()
 {
+
 }
 
 void text::render_text(const std::string& text,

@@ -13,8 +13,7 @@ class terrain : public node
 {
 public:
 	terrain(float x = 0.0f, float y = 0.0f, float z = 0.0f);
-
-	virtual ~terrain();
+	~terrain();
 
 	float calculate_camera_y(const float x, const float z) const;
 
@@ -32,10 +31,10 @@ private:
 	buffer terrain_ebo{target::ELEMENT_ARRAY_BUFFER};
 	texture* terrain_texture;
 	int depth;
-	virtual void update_current(milliseconds delta_time,
+	void update_current(milliseconds delta_time,
 		const glm::mat4& world_transform, glm::mat4& transform) override;
 
-	virtual void render_current(const shader& shader,
+	void render_current(const shader& shader,
 		const glm::mat4& world_transform) const override;
 
 };

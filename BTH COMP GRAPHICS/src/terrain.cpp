@@ -21,12 +21,14 @@ terrain::terrain(float x, float y, float z)
 	, z(z)
     , draw_count(0)
 {
-	terrain_texture = new texture("images/ground.png", wrap::REPEAT, filter::LINEAR, format::RGBA);
+	terrain_texture = new texture("images/ground.png",
+        wrap::REPEAT, filter::LINEAR, format::RGBA);
 
 	auto textureWidth = 0;
 	auto textureHeight = 0;
 	auto nrChannels = 0;
-	data = stbi_load("images/heightmap.jpg", &textureWidth, &textureHeight, &nrChannels, 1);
+	data = stbi_load("images/heightmap.jpg",
+        &textureWidth, &textureHeight, &nrChannels, 1);
 
 	std::vector<int> heights;
 	heights.reserve(textureWidth * textureHeight);
@@ -55,7 +57,8 @@ terrain::terrain(float x, float y, float z)
 	{
 		for (auto z = 0; z < width; ++z)
 		{
-			vertices.push_back({ glm::vec3(x, heights[heightIndex] * 0.1f, z), glm::vec2(x, z) });
+			vertices.push_back({ glm::vec3(x, heights[heightIndex]
+                * 0.1f, z), glm::vec2(x, z) });
 			heightIndex++;
 		}
 	}
@@ -79,11 +82,15 @@ terrain::terrain(float x, float y, float z)
 	}
 
 	terrain_array.bind();
-	terrain_vbo.data(sizeof(float) * 5 * vertices.size(), &vertices[0], GL_STATIC_DRAW);
-	terrain_ebo.data(sizeof(unsigned int) * indices.size(), &indices[0], GL_STATIC_DRAW);
+	terrain_vbo.data(sizeof(float) * 5 * vertices.size(),
+        &vertices[0], GL_STATIC_DRAW);
+	terrain_ebo.data(sizeof(unsigned int) * indices.size(),
+        &indices[0], GL_STATIC_DRAW);
 
-	terrain_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(terrain_vertex), nullptr);
-	terrain_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(terrain_vertex), buffer_offset<glm::vec3>(3u));
+	terrain_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE,
+        sizeof(terrain_vertex), nullptr);
+	terrain_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE,
+        sizeof(terrain_vertex), buffer_offset<glm::vec3>(3u));
 }
 
 
@@ -100,14 +107,16 @@ float terrain::calculate_camera_y(float x, float z) const
     return data[x_index + z_index * width] * 0.1f + y;
 }
 
-void terrain::update_current(milliseconds delta_time, const glm::mat4& world_transform, glm::mat4& transform)
+void terrain::update_current(milliseconds delta_time,
+    const glm::mat4& world_transform, glm::mat4& transform)
 {
     x = world_transform[3][0];
     y = world_transform[3][1];
     z = world_transform[3][2];
 }
 
-void terrain::render_current(const shader& shader, const glm::mat4& world_transform) const
+void terrain::render_current(const shader& shader,
+    const glm::mat4& world_transform) const
 {
 	shader.uniform("model", world_transform);
 	terrain_texture->uniform(shader, "diffuse", 0);

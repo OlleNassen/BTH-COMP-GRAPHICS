@@ -54,10 +54,6 @@ icosahedron::icosahedron(float x, float y, float z)
 	v_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 }
 
-icosahedron::~icosahedron()
-{
-}
-
 void icosahedron::set_color(const glm::vec3& color)
 {
 	temp_color = color;

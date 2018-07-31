@@ -13,7 +13,6 @@ class box : public node
 {
 public:
     box(float x = 0.0f, float y = 0.0f, float z = 0.0f);
-    virtual ~box();
 
 private:
 	vertex_array box_array;
@@ -21,10 +20,10 @@ private:
 	texture diffuse;
 	texture specular;
 
-     virtual void update_current(milliseconds delta_time,
+    void update_current(milliseconds delta_time,
         const glm::mat4& world_transform, glm::mat4& transform) override;
 
-    virtual void render_current(const shader& shader,
+    void render_current(const shader& shader,
         const glm::mat4& world_transform) const override;
 };
 
