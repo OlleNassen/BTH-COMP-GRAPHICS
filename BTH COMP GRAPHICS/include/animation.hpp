@@ -19,7 +19,6 @@ namespace anim
 
 using namespace std::literals::chrono_literals;
 using milliseconds = std::chrono::milliseconds;
-static constexpr glm::mat4 ai_to_glm(const aiMatrix4x4& mat);
 
 class joint
 {
