@@ -48,7 +48,7 @@ private:
 	shader text_shader{"shaders/text.vs", "shaders/text.fs"};
 	shader tess_shader{"shaders/tess.vs", "shaders/tess.cs",
         "shaders/tess.es", "shaders/tess.geo", "shaders/tess.fs"};
-	shader backface_shader{ "shaders/basic.vs", "shaders/backface.geo", "shaders/basic.fs" };
+	shader backface_shader{ "shaders/backface.vs", "shaders/backface.geo", "shaders/backface.fs" };
 
 
 	camera game_camera;

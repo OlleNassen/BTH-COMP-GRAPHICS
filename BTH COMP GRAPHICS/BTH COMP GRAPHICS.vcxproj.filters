@@ -186,5 +186,7 @@
     <None Include="shaders\text.vs" />
     <None Include="shaders\text.fs" />
     <None Include="shaders\backface.geo" />
+    <None Include="shaders\backface.vs" />
+    <None Include="shaders\backface.fs" />
   </ItemGroup>
 </Project>
