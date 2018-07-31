@@ -10,6 +10,10 @@ class shader
 {
 public:
     shader(const std::string& vertex_path, const std::string& fragment_path);
+
+	shader(const std::string& vertex_path,
+		const std::string& geo_path, const std::string& fragment_path);
+
 	shader(const std::string & vertex_path, const std::string& tess_control,
         const std::string& tess_eval, const std::string& geo_path,
         const std::string& fragment_path);

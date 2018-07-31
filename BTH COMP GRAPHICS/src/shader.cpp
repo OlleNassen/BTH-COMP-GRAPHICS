@@ -34,6 +34,39 @@ shader::shader(const std::string& vertex_path, const std::string& fragment_path)
     glDeleteShader(fragment_shader);
 }
 
+shader::shader(const std::string& vertex_path,
+	const std::string& geo_path, const std::string& fragment_path)
+{
+	auto vertex_code = load(vertex_path);
+	auto geo_code(load(geo_path));
+	auto fragment_code = load(fragment_path);
+
+	auto vertex_shader = create(GL_VERTEX_SHADER, vertex_code.c_str());
+	auto geo_shader = create(GL_GEOMETRY_SHADER, geo_code.c_str());
+	auto fragment_shader = create(GL_FRAGMENT_SHADER, fragment_code.c_str());
+
+	auto success = 0;
+	char infoLog[512];
+
+	id = glCreateProgram();
+	glAttachShader(id, vertex_shader);
+	glAttachShader(id, geo_shader);
+	glAttachShader(id, fragment_shader);
+	glLinkProgram(id);
+	// print linking errors if any
+	glGetProgramiv(id, GL_LINK_STATUS, &success);
+	if (!success)
+	{
+		glGetProgramInfoLog(id, 512, NULL, infoLog);
+		std::cout << "Error linking failed: " << infoLog << " in " << vertex_path
+			<< " or " << fragment_path << std::endl;
+	}
+
+	glDeleteShader(vertex_shader);
+	glDeleteShader(geo_shader);
+	glDeleteShader(fragment_shader);
+}
+
 shader::shader(const std::string & vertex_path, const std::string & tess_control, const std::string & tess_eval, const std::string & geo_path, const std::string & fragment_path)
 {
 	std::string vertex_code(load(vertex_path));
