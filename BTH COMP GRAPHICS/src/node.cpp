@@ -23,12 +23,6 @@ node::~node()
     }
 }
 
-float node::distance_to(const glm::vec3& other) const
-{
-    glm::vec3 position{transform[3]};
-    return glm::length(position - other);
-}
-
 void node::attach_child(node* child)
 {
     children.push_back(child);
@@ -150,4 +144,12 @@ void node::render_children(const shader& shader,
     }
 }
 
+float node::distance_to(const glm::vec3& other) const
+{
+    glm::vec3 position{transform[3]};
+    return glm::length(position - other);
 }
+
+}
+
+
