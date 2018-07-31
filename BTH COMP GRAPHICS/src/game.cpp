@@ -68,7 +68,6 @@ game::game()
 
 	quad = new scene::quad(0, 5, -20);
 	normal_quad = new scene::normal_quad(50, 5, -20);
-	quad->update(16ms);
 	quad->set_texture("images/brickwall.jpg");
 	normal_quad->set_texture("images/brickwall.jpg");
 
