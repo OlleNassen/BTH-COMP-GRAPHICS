@@ -94,15 +94,6 @@ game::game()
     }
 
 	temp_text = new text();
-
-	std::vector<scene::node*> v;
-	glm::vec3 cam_pos;
-
-	std::sort(v.begin(), v.end(),
-        [&cam_pos](const scene::node* l, const scene::node* r) -> bool
-        {
-            return l->distance_to(cam_pos) < r->distance_to(cam_pos);
-        });
 }
 
 void game::run()
