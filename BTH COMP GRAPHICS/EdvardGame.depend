@@ -3164,10 +3164,11 @@
 	<iostream>
 	<gl/glew.h>
 
-1533034829 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\node.cpp
+1533036207 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\node.cpp
 	"node.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
+	<algorithm>
 
 1533036051 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\node.hpp
 	<vector>
