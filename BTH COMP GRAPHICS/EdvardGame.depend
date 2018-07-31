@@ -3003,7 +3003,7 @@
 	<ctime>
 	<iostream>
 
-1532998196 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1532999168 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 	<iostream>
 	<algorithm>
@@ -3164,12 +3164,12 @@
 	<iostream>
 	<gl/glew.h>
 
-1532624268 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\node.cpp
+1533034829 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\node.cpp
 	"node.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1532623392 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\node.hpp
+1533034803 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\node.hpp
 	<vector>
 	<chrono>
 	<glm/glm.hpp>

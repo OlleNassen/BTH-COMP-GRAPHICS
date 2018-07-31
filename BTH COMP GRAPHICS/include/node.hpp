@@ -23,6 +23,9 @@ class node
 public:
     node(float x = 0.0f, float y = 0.0f, float z = 0.0f);
     virtual ~node();
+
+    float distance_to(const glm::vec3& other) const;
+
     void attach_child(node* child);
 
     void update(milliseconds delta_time);
