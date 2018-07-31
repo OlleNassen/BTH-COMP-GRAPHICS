@@ -54,25 +54,28 @@ private:
 	shader backface_shader{ "shaders/backface.vs",
         "shaders/backface.geo", "shaders/backface.fs" };
 
-
 	camera game_camera;
 	directional_light light;
 
 	anim::model temp_model;
 
+	scene::point_light pl;
+	scene::box s_box{20, 30, 40};
+	scene::quad s_quad{20, 20, 20};
+
 	scene::node scene;
 	scene::skybox sky;
-	scene::temp_box* temp; // PHONG cube
-	scene::temp_box* environment; // ENVIRONMENT CUBE
-	scene::quad* quad; // phong
-	scene::normal_quad* normal_quad; // normal mapping
-	scene::particle_emitter* particles;
-	scene::terrain* terrain;
-	scene::quad_tess* quad_tess;
-	scene::icosahedron* ico;
-	scene::quad* backface;
+	scene::temp_box temp{0, 10, 0}; // PHONG cube
+	scene::temp_box environment{10, 2, 0};
+	scene::quad quad{0, 5, -20}; // phong
+	scene::normal_quad normal_quad{50, 5, -20};
+	scene::particle_emitter particles{75, 35,75};
+	scene::terrain terrain{10, 10, 10};
+	scene::quad_tess quad_tess;
+	scene::icosahedron ico;
+	scene::quad backface{0, 0, -10};
 
-	text* temp_text;
+	text temp_text;
 
 	int race_index{0};
     race current_race;

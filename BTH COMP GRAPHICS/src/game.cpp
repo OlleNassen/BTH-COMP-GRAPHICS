@@ -62,39 +62,25 @@ game::game()
         std::bind(&camera::fast_pressed, &game_camera),
         std::bind(&camera::fast_released, &game_camera));
 
-	scene.attach_child(new scene::point_light());
-	scene.attach_child(new scene::box(20, 30, 40));
-	scene.attach_child(new scene::quad(20, 20, 20));
+	scene.attach_child(&pl);
+	scene.attach_child(&s_box);
+	scene.attach_child(&s_quad);
 
-	quad = new scene::quad(0, 5, -20);
-	normal_quad = new scene::normal_quad(50, 5, -20);
-	quad->set_texture("images/brickwall.jpg");
-	normal_quad->set_texture("images/brickwall.jpg");
-
-	particles = new scene::particle_emitter(75, 35,75);
-	terrain = new scene::terrain(10, 10, 10);
-	temp = new scene::temp_box(0, 10, 0);
-	environment = new scene::temp_box(10, 2, 0);
-	quad_tess = new scene::quad_tess();
-	ico = new scene::icosahedron();
-
+	quad.set_texture("images/brickwall.jpg");
+	normal_quad.set_texture("images/brickwall.jpg");
 	light_pos = glm::vec3(50, 5, -15);
     phong_pos = glm::vec3(0, 10, 5);
 
     for(auto& checkpoint : current_race)
     {
-		float x_val = rand() % terrain->width;
-		float z_val = rand() % terrain->width;
+		float x_val = rand() % terrain.width;
+		float z_val = rand() % terrain.width;
 
 		checkpoint =
             sphere(glm::vec3(x_val,
-            terrain->calculate_camera_y(
+            terrain.calculate_camera_y(
             x_val, z_val) + 2, z_val), 2.5f);
     }
-
-	temp_text = new text();
-
-	backface = new scene::quad(0, 0, -10);
 }
 
 void game::run()
@@ -129,33 +115,33 @@ void game::render()
 	game_camera.bind(phong_shader);
 	phong_shader.uniform("light_color", glm::vec3(1.f, 1.f, 1.f));
 	phong_shader.uniform("lightPos", phong_pos);
-	temp->render(phong_shader);
+	temp.render(phong_shader);
 
 	basic_shader.use();
 	game_camera.bind(basic_shader);
 	light.bind(basic_shader);
 	scene.render(basic_shader);
-	quad->render(basic_shader);
+	quad.render(basic_shader);
 
 	//Backface culling
 	backface_shader.use();
 	game_camera.bind(backface_shader);
-	backface->render(backface_shader);
+	backface.render(backface_shader);
 
 	terrain_shader.use();
 	game_camera.bind(terrain_shader);
-	terrain->render(terrain_shader);
+	terrain.render(terrain_shader);
 
 	//Billboard particles
 	billboard_shader.use();
 	game_camera.bind(billboard_shader);
-	particles->render(billboard_shader);
+	particles.render(billboard_shader);
 
 	//Normal mapping
 	normal_shader.use();
 	game_camera.bind(normal_shader);
 	normal_shader.uniform("lightPos", light_pos);
-	normal_quad->render(normal_shader);
+	normal_quad.render(normal_shader);
 
 	skybox_shader.use();
 	game_camera.bind(skybox_shader);
@@ -167,11 +153,11 @@ void game::render()
 
 	environment_shader.use();
 	game_camera.bind(environment_shader);
-	environment->render(environment_shader);
+	environment.render(environment_shader);
 
 	tess_shader.use();
 	game_camera.bind(tess_shader);
-	ico->render(tess_shader);
+	ico.render(tess_shader);
 	for (auto& ics : icos)
 	{
 		ics->render(tess_shader);
@@ -189,7 +175,7 @@ void game::render()
 		glm::mat4 projection = glm::ortho(0.0f, 1280.f, 0.0f, 720.f);
 		text_shader.uniform("projection", projection);
 		text_shader.uniform("textColor", glm::vec3(1.0f, 0.3f, 0.3f));
-        temp_text->render_text("FINISHED", 100, 400, 1);
+        temp_text.render_text("FINISHED", 100, 400, 1);
 	}
 
 	game_window.swap_buffers();
@@ -200,20 +186,23 @@ void game::update(std::chrono::milliseconds delta_time)
 	glm::vec3 cam_pos = game_camera.get_pos();
 	scene.sort(cam_pos);
 
-    terrain->update(delta_time);
-    game_camera.move_on_terrain(*terrain);
+    terrain.update(delta_time);
+    game_camera.move_on_terrain(terrain);
 
     game_camera.update(delta_time);
 	current_race.update(game_camera.get_pos());
 
-    particles->update(delta_time);
+    particles.update(delta_time);
     temp_model.update(delta_time);
 
 	if (race_index == current_race.get_checkpoint())
 	{
 		if(race_index != 0)
 			icos[race_index - 1]->set_color(glm::vec3(0.1f, 1.0f, 0.1f));
-		icos.emplace_back(new scene::icosahedron(current_race[race_index].position.x, current_race[race_index].position.y, current_race[race_index].position.z));
+		icos.emplace_back(new scene::icosahedron(
+            current_race[race_index].position.x,
+            current_race[race_index].position.y,
+            current_race[race_index].position.z));
 		++race_index;
 
 		if(race_index == 10)

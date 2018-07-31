@@ -7,7 +7,7 @@ icosahedron::icosahedron(float x, float y, float z)
     : node(x, y, z)
 {
 	temp_color = glm::vec3(1.0f, 0.1f, 0.1f);
-	constexpr  int faces[] = {
+	constexpr int faces[] = {
 		2, 1, 0,
 		3, 2, 0,
 		4, 3, 0,
@@ -51,7 +51,8 @@ icosahedron::icosahedron(float x, float y, float z)
 	vbo.data(sizeof(verts), &verts[0], GL_STATIC_DRAW);
 	ebo.data(sizeof(faces), &faces[0], GL_STATIC_DRAW);
 
-	v_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
+	v_array.attribute_pointer(0, 3, GL_FLOAT,
+        GL_FALSE, 3 * sizeof(float), nullptr);
 }
 
 void icosahedron::set_color(const glm::vec3& color)
@@ -59,11 +60,13 @@ void icosahedron::set_color(const glm::vec3& color)
 	temp_color = color;
 }
 
-void icosahedron::update_current(milliseconds delta_time, const glm::mat4 & world_transform, glm::mat4 & transform)
+void icosahedron::update_current(milliseconds delta_time,
+    const glm::mat4 & world_transform, glm::mat4 & transform)
 {
 }
 
-void icosahedron::render_current(const shader& shader, const glm::mat4& world_transform) const
+void icosahedron::render_current(const shader& shader,
+    const glm::mat4& world_transform) const
 {
 	shader.uniform("model", world_transform);
 	shader.uniform("color", temp_color);

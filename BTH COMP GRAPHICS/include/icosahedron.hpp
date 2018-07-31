@@ -17,7 +17,6 @@ public:
 	void set_color(const glm::vec3& color);
 
 private:
-	GLuint vao;
 	vertex_array v_array;
 	buffer vbo;
 	buffer ebo{target::ELEMENT_ARRAY_BUFFER};
