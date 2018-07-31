@@ -17,6 +17,11 @@ out vec2 texture_coord;
 
 void main()
 {
+	vec3 uno = fragment_position[0] - fragment_position[1];
+	vec3 dos = fragment_position[0] - fragment_position[2];
+
+	vec3 cross_product = cross(uno, dos);
+
     for(int i = 0;i < 3;i++)
     {
 		texture_coord = texture_coordinate[i];
