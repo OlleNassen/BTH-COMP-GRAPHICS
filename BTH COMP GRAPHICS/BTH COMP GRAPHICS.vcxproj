@@ -198,6 +198,7 @@
     <ClInclude Include="include\window.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="shaders\backface.geo" />
     <None Include="shaders\billboard.fs" />
     <None Include="shaders\billboard.vs" />
     <None Include="shaders\environment_mapping.fs" />

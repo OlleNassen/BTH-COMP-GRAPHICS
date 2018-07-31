@@ -48,6 +48,7 @@ private:
 	shader text_shader{"shaders/text.vs", "shaders/text.fs"};
 	shader tess_shader{"shaders/tess.vs", "shaders/tess.cs",
         "shaders/tess.es", "shaders/tess.geo", "shaders/tess.fs"};
+	shader backface_shader{ "shaders/basic.vs", "shaders/backface.geo", "shaders/basic.fs" };
 
 
 	camera game_camera;
@@ -65,6 +66,7 @@ private:
 	scene::terrain* terrain;
 	scene::quad_tess* quad_tess;
 	scene::icosahedron* ico;
+	scene::quad backface;
 
 	text* temp_text;
 
