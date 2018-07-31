@@ -22,13 +22,19 @@ void main()
 
 	vec3 cross_product = cross(uno, dos);
 
-    for(int i = 0;i < 3;i++)
-    {
-		texture_coord = texture_coordinate[i];
-		norm = normal[i];
-		fragment_pos = fragment_position[i];
-        gl_Position = gl_in[i].gl_Position;
-        EmitVertex();
-    }
-    EndPrimitive();
+	vec4 position = view * vec4(fragment_position[0], 1);
+
+	if(dot(cross_product, position.xyz) > 0.0)
+	{
+		for(int i = 0;i < 3;i++)
+	    {
+			texture_coord = texture_coordinate[i];
+			norm = normal[i];
+			fragment_pos = fragment_position[i];
+			gl_Position = gl_in[i].gl_Position;
+			EmitVertex();
+	    }
+	    EndPrimitive();
+	}
+
 }

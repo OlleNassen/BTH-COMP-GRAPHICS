@@ -94,6 +94,8 @@ game::game()
     }
 
 	temp_text = new text();
+
+	backface = new scene::quad(0, 0, -10);
 }
 
 void game::run()
@@ -139,7 +141,7 @@ void game::render()
 	//Backface culling
 	backface_shader.use();
 	game_camera.bind(backface_shader);
-	backface.render(backface_shader);
+	backface->render(backface_shader);
 
 	terrain_shader.use();
 	game_camera.bind(terrain_shader);

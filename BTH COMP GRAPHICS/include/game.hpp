@@ -66,7 +66,7 @@ private:
 	scene::terrain* terrain;
 	scene::quad_tess* quad_tess;
 	scene::icosahedron* ico;
-	scene::quad backface;
+	scene::quad* backface;
 
 	text* temp_text;
 
