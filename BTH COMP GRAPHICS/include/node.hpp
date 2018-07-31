@@ -28,6 +28,7 @@ public:
 
     void attach_child(node* child);
 
+    void sort(glm::vec3& pos);
     void update(milliseconds delta_time);
     void prepare_render(const shader& shader) const;
     void render(const shader& shader) const;
@@ -35,6 +36,7 @@ public:
 private:
     std::vector<node*> children;
     glm::mat4 transform;
+
 
     void update(milliseconds delta_time, glm::mat4& world_transform);
     void prepare_render(const shader& shader, glm::mat4& world_transform) const;
@@ -45,6 +47,7 @@ private:
     virtual void prepare_render_current(const shader& shader, const glm::mat4& world_transform) const;
     virtual void render_current(const shader& shader, const glm::mat4& world_transform) const;
 
+    void sort_children(glm::vec3& pos);
     void update_children(const milliseconds delta_time, glm::mat4& world_transform);
     void prepare_render_children(const shader& shader, glm::mat4& world_transform) const;
     void render_children(const shader& shader, glm::mat4& world_transform) const;

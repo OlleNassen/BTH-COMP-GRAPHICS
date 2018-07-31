@@ -1,6 +1,7 @@
 #include "node.hpp"
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <algorithm>
 
 namespace scene
 {
@@ -33,6 +34,17 @@ void node::attach_child(node* child)
     children.push_back(child);
 }
 
+void node::sort(glm::vec3& pos)
+{
+    std::sort(children.begin(), children.end(),
+        [&pos](const node* l, const scene::node* r) -> bool
+    {
+        return l->distance_to(pos) < r->distance_to(pos);
+    });
+
+    sort_children(pos);
+}
+
 void node::update(const milliseconds delta_time)
 {
     glm::mat4 world_transform(1.0f);
@@ -54,6 +66,8 @@ void node::render(const shader& shader) const
     render(shader, world_transform);
 }
 
+
+
 void node::update(const milliseconds delta_time, glm::mat4& world_transform)
 {
     world_transform *= transform;
@@ -63,7 +77,8 @@ void node::update(const milliseconds delta_time, glm::mat4& world_transform)
     update_children(delta_time, world_transform);
 }
 
-void node::prepare_render(const shader& shader, glm::mat4& world_transform) const
+void node::prepare_render(const shader& shader,
+    glm::mat4& world_transform) const
 {
     world_transform *= transform;
 
@@ -85,15 +100,25 @@ void node::update_current(const std::chrono::milliseconds delta_time,
 
 }
 
-void node::prepare_render_current(const shader& shader, const glm::mat4& world_transform) const
+void node::prepare_render_current(const shader& shader,
+    const glm::mat4& world_transform) const
 {
 
 }
 
 
-void node::render_current(const shader& shader, const glm::mat4& world_transform) const
+void node::render_current(const shader& shader,
+    const glm::mat4& world_transform) const
 {
 
+}
+
+void node::sort_children(glm::vec3& pos)
+{
+    for(auto* child : children)
+    {
+        child->sort(pos);
+    }
 }
 
 void node::update_children(milliseconds delta_time, glm::mat4& world_transform)
@@ -105,7 +130,8 @@ void node::update_children(milliseconds delta_time, glm::mat4& world_transform)
     }
 }
 
-void node::prepare_render_children(const shader& shader, glm::mat4& world_transform) const
+void node::prepare_render_children(const shader& shader,
+    glm::mat4& world_transform) const
 {
     for(const auto* child : children)
     {
@@ -114,7 +140,8 @@ void node::prepare_render_children(const shader& shader, glm::mat4& world_transf
     }
 }
 
-void node::render_children(const shader& shader, glm::mat4& world_transform) const
+void node::render_children(const shader& shader,
+    glm::mat4& world_transform) const
 {
     for(const auto* child : children)
     {
