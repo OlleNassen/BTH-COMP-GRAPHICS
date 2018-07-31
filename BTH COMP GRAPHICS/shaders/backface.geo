@@ -22,9 +22,13 @@ void main()
 
 	vec3 cross_product = cross(uno, dos);
 
+	vec4 calc = view * vec4(cross_product, 1);
+
+	cross_product = calc.xyz;
+
 	vec4 position = view * vec4(fragment_position[0], 1);
 
-	if(dot(cross_product, position.xyz) > 0.0)
+	if(dot(cross_product, -position.xyz) > 0.0)
 	{
 		for(int i = 0;i < 3;i++)
 	    {
