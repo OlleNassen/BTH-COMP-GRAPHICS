@@ -28,7 +28,7 @@ void main()
 
 	vec4 position = gl_in[0].gl_Position * model * view;
 
-	if(dot(cross_product, -position.xyz) > 0.0)
+	if(dot(cross_product, position.xyz) > 0.0)
 	{
 		for(int i = 0;i < 3;i++)
 	    {
