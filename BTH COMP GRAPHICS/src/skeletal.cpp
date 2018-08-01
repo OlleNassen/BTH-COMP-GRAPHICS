@@ -24,12 +24,9 @@ skeletal::skeletal()
 			GL_FALSE, 5 * sizeof(float), scene::buffer_offset<float>(3u));
 	}
 
-	for (auto& transf : transforms)
-	{
-		transf = glm::mat4(1.f);
-		transf[3][0] = -5.f;
-		transf[3][2] = -20.f;
-	}
+	transforms[0][3][0] = -5.f;
+	transforms[0][3][2] = -20.f;
+
 	for (auto& rot : rotations)
 	{
 		rot = glm::quat( 1.f, 0.f, 0.f, 0.f );
@@ -43,8 +40,7 @@ skeletal::~skeletal()
 void skeletal::render_current(const shader& shader,
 	const glm::mat4& world_transform)
 {
-	//transforms[1] *= transforms[0];
-	transforms[1] *= glm::mat4_cast(rotations[0]);
+	//transforms[1] *= glm::mat4_cast(rotations[0]);
 
 	std::cout << transforms[1][3][0] << " " << transforms[1][3][1] << " " << transforms[1][3][2] << '\n';
 
@@ -53,8 +49,14 @@ void skeletal::render_current(const shader& shader,
 
 	for (int i = 0; i < NUM_OBJECTS; i++)
 	{
+
 		glm::mat4 rot = glm::mat4_cast(rotations[i]);
-		transforms[i] *= rot;
+		transforms[i] = rot * transforms[i];
+
+		if (i != 0)
+		{
+			//transforms[i] = transforms[0] * transforms[i];
+		}
 
 		shader.uniform("model", transforms[i]);
 		//quad_texture->uniform(shader, "object_material.diffuse", 0);
