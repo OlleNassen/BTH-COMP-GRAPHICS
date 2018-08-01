@@ -18,5 +18,5 @@ void main()
     normal = mat3(transpose(inverse(model))) * normal_in;
     texture_coordinate = texture_coordinate_in;
 
-    gl_Position =  projection * view * model * vec4(position, 1.0);
+    gl_Position = view * model * vec4(position, 1.0);
 }
