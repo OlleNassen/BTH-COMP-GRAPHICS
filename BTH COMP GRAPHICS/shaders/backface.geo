@@ -22,11 +22,11 @@ void main()
 
 	vec3 cross_product = cross(uno, dos);
 
-	vec4 calc = vec4(cross_product, 1) * model * view;
+	vec4 calc = vec4(cross_product, 1);
 
 	cross_product = calc.xyz;
 
-	vec4 position = gl_in[0].gl_Position * model * view;
+	vec4 position = gl_in[0].gl_Position;
 
 	if(dot(cross_product, position.xyz) > 0.0)
 	{
