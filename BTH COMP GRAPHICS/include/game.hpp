@@ -22,6 +22,7 @@
 #include "icosahedron.hpp"
 #include "race.hpp"
 #include "text.hpp"
+#include "skeletal.hpp"
 
 std::ostream& operator<<(std::ostream& os, const glm::mat4& value);
 using namespace std::literals::chrono_literals;
@@ -76,6 +77,7 @@ private:
 	scene::quad backface{0, 0, -10};
 
 	text temp_text;
+	skeletal test;
 
 	int race_index{0};
     race current_race;

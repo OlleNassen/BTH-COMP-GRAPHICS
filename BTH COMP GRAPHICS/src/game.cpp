@@ -122,6 +122,7 @@ void game::render()
 	light.bind(basic_shader);
 	scene.render(basic_shader);
 	quad.render(basic_shader);
+	test.render_current(basic_shader, glm::mat4(1.f));
 
 	//Backface culling
 	backface_shader.use();
