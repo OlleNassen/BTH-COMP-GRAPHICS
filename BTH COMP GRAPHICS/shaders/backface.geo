@@ -7,7 +7,7 @@ uniform mat4 model;
 uniform mat4 view;
 uniform mat4 projection;
 
-in vec3 fragment_position[];
+in vec3 position[];
 in vec3 normal[];
 in vec2 texture_coordinate[];
 
@@ -17,25 +17,19 @@ out vec2 texture_coord;
 
 void main()
 {
-	vec3 uno = normalize(gl_in[1].gl_Position.xyz - gl_in[0].gl_Position.xyz);
-	vec3 dos = normalize(gl_in[2].gl_Position.xyz - gl_in[0].gl_Position.xyz);
+	vec3 uno = normalize(position[1].xyz - position[0].xyz);
+	vec3 dos = normalize(position[2].xyz - position[0].xyz);
 
 	vec3 cross_product = cross(uno, dos);
 
-	vec4 calc = vec4(cross_product, 1);
-
-	cross_product = calc.xyz;
-
-	vec4 position = gl_in[0].gl_Position;
-
-	if(dot(cross_product, -position.xyz) > 0.0)
+	if(dot(cross_product, -position[0]) > 0.0)
 	{
 		for(int i = 0;i < 3;i++)
 	    {
 			texture_coord = texture_coordinate[i];
 			norm = normal[i];
-			fragment_pos = fragment_position[i];
-			gl_Position = projection * gl_in[i].gl_Position;
+			fragment_pos = position[i];
+			gl_Position = projection * vec4(position[i], 1);
 			EmitVertex();
 	    }
 	    EndPrimitive();
