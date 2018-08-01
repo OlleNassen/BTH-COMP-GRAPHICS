@@ -31,6 +31,11 @@ skeletal::skeletal()
 	for (auto& transf : transforms)
 	{
 		transf = glm::mat4(1.f);
+		transf[3][2] = -20.f;
+	}
+	for (auto& rot : rotations)
+	{
+		rot = glm::quat( 1.f, 0.f, 0.f, 0.f );
 	}
 }
 
@@ -39,11 +44,13 @@ skeletal::~skeletal()
 }
 
 void skeletal::render_current(const shader& shader,
-	const glm::mat4& world_transform) const
+	const glm::mat4& world_transform)
 {
+	transforms[0][3][1] = glm::sin(1*glfwGetTime());
+
 	for (int i = 0; i < NUM_OBJECTS; i++)
 	{
-		transforms[i][3][0] -= 2.f;
+		transforms[i][3][0] = glm::sin(i*glfwGetTime());
 		shader.uniform("model", transforms[i]);
 		//quad_texture->uniform(shader, "object_material.diffuse", 0);
 		objects[i].bind();
