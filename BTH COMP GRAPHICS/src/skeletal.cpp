@@ -42,7 +42,7 @@ void skeletal::render_current(const shader& shader,
 {
 	//transforms[1] *= glm::mat4_cast(rotations[0]);
 
-	std::cout << transforms[1][3][0] << " " << transforms[1][3][1] << " " << transforms[1][3][2] << '\n';
+	//std::cout << transforms[1][3][0] << " " << transforms[1][3][1] << " " << transforms[1][3][2] << '\n';
 
 	transforms[0][3][1] = glm::sin(1*glfwGetTime());
 	rotations[0] = glm::rotate(rotations[0], 0.00001f, glm::vec3(1, 0, 0));
@@ -51,7 +51,7 @@ void skeletal::render_current(const shader& shader,
 	{
 
 		glm::mat4 rot = glm::mat4_cast(rotations[i]);
-		transforms[i] = rot * transforms[i];
+		transforms[i] =  transforms[i] * rot;
 
 		if (i != 0)
 		{
