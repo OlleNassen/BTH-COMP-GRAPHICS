@@ -17,16 +17,16 @@ out vec2 texture_coord;
 
 void main()
 {
-	vec3 uno = fragment_position[0] - fragment_position[1];
-	vec3 dos = fragment_position[0] - fragment_position[2];
+	vec3 uno = normalize(gl_in[1].gl_Position.xyz - gl_in[0].gl_Position.xyz);
+	vec3 dos = normalize(gl_in[2].gl_Position.xyz - gl_in[0].gl_Position.xyz);
 
 	vec3 cross_product = cross(uno, dos);
 
-	vec4 calc = view * vec4(cross_product, 1);
+	vec4 calc = vec4(cross_product, 1) * model * view;
 
 	cross_product = calc.xyz;
 
-	vec4 position = view * vec4(fragment_position[0], 1);
+	vec4 position = gl_in[0].gl_Position * model * view;
 
 	if(dot(cross_product, -position.xyz) > 0.0)
 	{

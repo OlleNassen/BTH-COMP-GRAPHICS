@@ -160,7 +160,6 @@
     <ClCompile Include="src\buffer.cpp" />
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\directional_light.cpp" />
-    <ClCompile Include="src\frame_buffer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\shader.cpp" />
     <ClCompile Include="src\skybox.cpp" />
@@ -177,7 +176,6 @@
     <ClInclude Include="include\buffer.hpp" />
     <ClInclude Include="include\camera.hpp" />
     <ClInclude Include="include\directional_light.hpp" />
-    <ClInclude Include="include\frame_buffer.hpp" />
     <ClInclude Include="include\game.hpp" />
     <ClInclude Include="include\icosahedron.hpp" />
     <ClInclude Include="include\input.hpp" />
