@@ -135,10 +135,6 @@ void load_parent_indices(const aiNode& node,
             joint.global_transform = parent->global_transform
                 * joint.local_transform;
             joint.inverse_bind_pose = glm::inverse(joint.global_transform);
-
-            aiMatrix4x4 m = node.mTransformation;
-            aiMatrix4x4 i = node.mTransformation * m.Inverse();
-            std::cout << ai_to_glm(i) << std::endl;
         }
     }
 
@@ -352,13 +348,15 @@ model::model()
 
 void model::update(milliseconds delta)
 {
-	//current.update(delta, joints);
+	current.update(delta, joints);
 
 	std::transform(joints.begin(), joints.end(), world_joints.begin(),
         [](const joint& j) -> glm::mat4
         {
             return j.as_matrix();
         });
+
+
 }
 
 void model::draw(const shader& shader) const
