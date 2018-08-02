@@ -278,6 +278,7 @@ void animation::update_pose(skeleton& joints)
 
     for (auto i = 0u; i < joints.size(); ++i)
     {
+        auto& j = joints[i];
         auto p = mix(prev->poses[i], next->poses[i], progression);
 
         //MVP, TRS
@@ -287,16 +288,17 @@ void animation::update_pose(skeleton& joints)
 
         if (i != 0u)
         {
-            joints[i].transform(new_transform);
+            j.local_transform = new_transform;
+            j.global_transform =
+                j.parent->global_transform *
+                j.local_transform;
         }
         else
         {
-            joints[i].local_transform = new_transform;
-            joints[i].global_transform = joints[i].local_transform;
+            j.local_transform = new_transform;
+            j.global_transform = j.local_transform;
         }
     }
-
-
 }
 
 float animation::calculate_progression(
