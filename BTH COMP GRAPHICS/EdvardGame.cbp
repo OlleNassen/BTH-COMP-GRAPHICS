@@ -62,6 +62,7 @@
 		<Unit filename="include/race.hpp" />
 		<Unit filename="include/scene_loader.hpp" />
 		<Unit filename="include/shader.hpp" />
+		<Unit filename="include/skeletal.hpp" />
 		<Unit filename="include/skybox.hpp" />
 		<Unit filename="include/temp_box.hpp" />
 		<Unit filename="include/terrain.hpp" />
@@ -71,7 +72,9 @@
 		<Unit filename="include/window.hpp" />
 		<Unit filename="shaders/anim.fs" />
 		<Unit filename="shaders/anim.vs" />
+		<Unit filename="shaders/backface.fs" />
 		<Unit filename="shaders/backface.geo" />
+		<Unit filename="shaders/backface.vs" />
 		<Unit filename="shaders/basic.fs" />
 		<Unit filename="shaders/basic.vs" />
 		<Unit filename="shaders/billboard.fs" />
@@ -102,6 +105,7 @@
 		<Unit filename="src/race.cpp" />
 		<Unit filename="src/scene_loader.cpp" />
 		<Unit filename="src/shader.cpp" />
+		<Unit filename="src/skeletal.cpp" />
 		<Unit filename="src/skybox.cpp" />
 		<Unit filename="src/temp_box.cpp" />
 		<Unit filename="src/terrain.cpp" />

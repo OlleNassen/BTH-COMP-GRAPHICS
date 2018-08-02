@@ -6,7 +6,7 @@
 namespace anim
 {
 
-static constexpr glm::mat4 ai_to_glm(const aiMatrix4x4& mat)
+constexpr glm::mat4 ai_to_glm(const aiMatrix4x4& mat)
 {
     return
     {
@@ -17,7 +17,7 @@ static constexpr glm::mat4 ai_to_glm(const aiMatrix4x4& mat)
     };
 }
 
-static pose mix(const pose& x, const pose& y, float a)
+pose mix(const pose& x, const pose& y, float a)
 {
     return
     {
@@ -54,7 +54,7 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices,
 		}
 	}
 
-	for(auto& vertex : vertices)
+	for (auto& vertex : vertices)
     {
         vertex.joints = glm::ivec4(0, 0, 0, 0);
         vertex.weights = glm::vec4(0.0f, 0.0f, 0.0f, 0.0f);
@@ -68,22 +68,22 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices,
 		{
             auto& weight = bone->mWeights[j];
 
-            if(vertices[weight.mVertexId].weights.x == 0.0f)
+            if (vertices[weight.mVertexId].weights.x == 0.0f)
             {
                 vertices[weight.mVertexId].joints.x = i;
                 vertices[weight.mVertexId].weights.x = weight.mWeight;
             }
-            else if(vertices[weight.mVertexId].weights.y == 0.0f)
+            else if (vertices[weight.mVertexId].weights.y == 0.0f)
             {
                 vertices[weight.mVertexId].joints.y = i;
                 vertices[weight.mVertexId].weights.y = weight.mWeight;
             }
-            else if(vertices[weight.mVertexId].weights.z == 0.0f)
+            else if (vertices[weight.mVertexId].weights.z == 0.0f)
             {
                 vertices[weight.mVertexId].joints.z = i;
                 vertices[weight.mVertexId].weights.z = weight.mWeight;
             }
-            else if(vertices[weight.mVertexId].weights.w == 0.0f)
+            else if (vertices[weight.mVertexId].weights.w == 0.0f)
             {
                 vertices[weight.mVertexId].joints.w = i;
                 vertices[weight.mVertexId].weights.w = weight.mWeight;
@@ -94,7 +94,7 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices,
 
 void load_parent_names(const aiNode& node, std::vector<std::string>& names)
 {
-    if(node.mName.C_Str()[0] != '<')
+    if (node.mName.C_Str()[0] != '<')
     {
         names.emplace_back(node.mName.C_Str());
     }
@@ -135,6 +135,10 @@ void load_parent_indices(const aiNode& node,
             joint.global_transform = parent->global_transform
                 * joint.local_transform;
             joint.inverse_bind_pose = glm::inverse(joint.global_transform);
+
+            aiMatrix4x4 m = node.mTransformation;
+            aiMatrix4x4 i = node.mTransformation * m.Inverse();
+            std::cout << ai_to_glm(i) << std::endl;
         }
     }
 
@@ -169,7 +173,7 @@ void load_key_frames(const aiAnimation* anim,
         auto* channel = anim->mChannels[i];
         for (auto j = 0u; j < channel->mNumPositionKeys; ++j)
 		{
-            if(i == 0u)
+            if (i == 0u)
             {
                 using namespace std::chrono;
                 key_frames[j].timepoint =
@@ -244,25 +248,22 @@ void animation::load(const std::vector<key_frame>& key_frames)
     ++next;
 }
 
-void animation::update(milliseconds delta_time, skeleton& joints)
+void animation::update(milliseconds delta, skeleton& joints)
 {
-    time += delta_time;
+    time += delta;
 
-    if(!key_frames.empty())
-    {
-        update_key_frame();
-        update_pose(joints);
-    }
+    update_key_frame();
+    update_pose(joints);
 }
 
 void animation::update_key_frame()
 {
-    if(time > next->timepoint)
+    if (time > next->timepoint)
     {
         ++prev;
         ++next;
 
-        if(next == key_frames.end())
+        if (next == key_frames.end())
         {
             time = 0ms;
             prev = key_frames.begin();
@@ -279,7 +280,7 @@ void animation::update_pose(skeleton& joints)
         prev->timepoint,
         next->timepoint);
 
-    for(auto i = 0u; i < joints.size(); ++i)
+    for (auto i = 0u; i < joints.size(); ++i)
     {
         auto pose = mix(prev->poses[i], next->poses[i], progression);
 
@@ -287,7 +288,7 @@ void animation::update_pose(skeleton& joints)
         new_transform *= glm::translate(new_transform, pose.position);
         new_transform *= glm::mat4_cast(pose.rotation);
 
-        if(i != 0u)
+        if (i != 0u)
         {
             joints[i].transform(new_transform);
         }
@@ -349,9 +350,9 @@ model::model()
 	world_joints.fill(glm::mat4(1.0f));
 }
 
-void model::update(milliseconds delta_time)
+void model::update(milliseconds delta)
 {
-	current.update(delta_time, joints);
+	//current.update(delta, joints);
 
 	std::transform(joints.begin(), joints.end(), world_joints.begin(),
         [](const joint& j) -> glm::mat4

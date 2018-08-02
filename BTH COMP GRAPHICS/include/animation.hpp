@@ -18,7 +18,7 @@ namespace anim
 {
 
 using namespace std::literals::chrono_literals;
-using milliseconds = std::chrono::milliseconds;
+using std::chrono::milliseconds;
 
 class joint
 {
@@ -63,7 +63,7 @@ class animation
 public:
     void load(const std::vector<key_frame>& key_frames);
 
-    void update(milliseconds delta_time, skeleton& joints);
+    void update(milliseconds delta, skeleton& joints);
 
 private:
     milliseconds time{0ms};
@@ -96,7 +96,7 @@ class model
 public:
     model();
 
-    void update(milliseconds delta_time);
+    void update(milliseconds delta);
 
     void draw(const shader& shader) const;
 

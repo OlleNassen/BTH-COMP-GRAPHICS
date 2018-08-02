@@ -2604,7 +2604,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1533079167 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1533121743 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	<chrono>
@@ -2612,7 +2612,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1533079403 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1533121743 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	<iostream>
 	<chrono>
 	"window.hpp"
@@ -2633,6 +2633,7 @@
 	"icosahedron.hpp"
 	"race.hpp"
 	"text.hpp"
+	"skeletal.hpp"
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glfw\glfw3.h
 	<stddef.h>
@@ -3004,13 +3005,13 @@
 	<ctime>
 	<iostream>
 
-1533076014 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1533211011 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 	<iostream>
 	<algorithm>
 	"game.hpp"
 
-1533075952 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
+1533208743 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
 	<array>
 	<vector>
 	<chrono>
@@ -3176,4 +3177,16 @@
 	<chrono>
 	<glm/glm.hpp>
 	"shader.hpp"
+
+1533123636 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skeletal.hpp
+	<array>
+	"vertex_array.hpp"
+	"buffer.hpp"
+	"node.hpp"
+	<glm/glm.hpp>
+	<glm/gtc/quaternion.hpp>
+	<GLFW/glfw3.h>
+
+1533123738 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skeletal.cpp
+	"skeletal.hpp"
 

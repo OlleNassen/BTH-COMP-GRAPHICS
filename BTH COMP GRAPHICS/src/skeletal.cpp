@@ -47,7 +47,7 @@ skeletal::~skeletal()
 void skeletal::render_current(const shader& shader,
 	const glm::mat4& world_transform)
 {
-	//transforms[1] = transforms[1] * transforms[0];
+	transforms[1] = transforms[1] * transforms[0];
 
 	transforms[0][3][1] = glm::sin(1*glfwGetTime());
 	rotations[0] = glm::rotate(rotations[0], 0.00001f, glm::vec3(1, 0, 0));
