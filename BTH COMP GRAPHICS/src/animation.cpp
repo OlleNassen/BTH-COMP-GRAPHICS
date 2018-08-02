@@ -278,11 +278,12 @@ void animation::update_pose(skeleton& joints)
 
     for (auto i = 0u; i < joints.size(); ++i)
     {
-        auto pose = mix(prev->poses[i], next->poses[i], progression);
+        auto p = mix(prev->poses[i], next->poses[i], progression);
 
-        glm::mat4 new_transform(1.0f);
-        new_transform *= glm::translate(new_transform, pose.position);
-        new_transform *= glm::mat4_cast(pose.rotation);
+        //MVP, TRS
+        glm::mat4 new_transform{
+            glm::translate(glm::mat4{1.0f}, p.position)
+            * glm::mat4_cast(p.rotation)};
 
         if (i != 0u)
         {
