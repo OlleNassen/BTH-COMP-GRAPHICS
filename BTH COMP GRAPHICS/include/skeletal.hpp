@@ -18,7 +18,7 @@ public:
 		const glm::mat4& world_transform);
 
 private:
-	static constexpr unsigned int NUM_OBJECTS = 2;
+	static constexpr int NUM_OBJECTS = 2;
 	std::array<vertex_array, NUM_OBJECTS> objects;
 	std::array<buffer, NUM_OBJECTS> buffers;
 	std::array<glm::mat4, NUM_OBJECTS>transforms;

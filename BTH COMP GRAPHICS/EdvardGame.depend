@@ -3005,7 +3005,7 @@
 	<ctime>
 	<iostream>
 
-1533211011 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1533212375 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 	<iostream>
 	<algorithm>
@@ -3178,15 +3178,17 @@
 	<glm/glm.hpp>
 	"shader.hpp"
 
-1533123636 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skeletal.hpp
+1533212940 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skeletal.hpp
 	<array>
 	"vertex_array.hpp"
 	"buffer.hpp"
 	"node.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/quaternion.hpp>
+	<glm/gtc/matrix_transform.hpp>
 	<GLFW/glfw3.h>
 
-1533123738 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skeletal.cpp
+1533212820 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skeletal.cpp
 	"skeletal.hpp"
+	<iostream>
 
