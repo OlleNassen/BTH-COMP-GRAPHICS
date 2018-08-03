@@ -72,7 +72,6 @@ public:
 	{
 		if (mesh)
 		{
-			shade.uniform("model", transform);
 			dynamic_cast<scene::box*>(mesh)->draw();
 		}
 	}
@@ -100,6 +99,7 @@ class cube_robot : public skeletal_node
 {
 protected:
 	scene::box* cube;
+	skeletal_node* body;
 	skeletal_node* head;
 	skeletal_node* left_arm;
 	skeletal_node* right_arm;
@@ -109,17 +109,13 @@ public:
 		create_cube();
 		set_mesh(cube);
 		//BODY
-		skeletal_node* body = new skeletal_node(cube, glm::vec4(1, 0, 0, 1));    //Red!
+		body = new skeletal_node(cube, glm::vec4(1, 0, 0, 1));    //Red!
 		body->set_model_scale(glm::vec3(10, 15, 5));
 		glm::mat4 tran(1.f);
 		//Transform
 		tran[3][0] = 0.f;
-		tran[3][1] = 20.f;
+		tran[3][1] = 35.f;
 		tran[3][2] = 0.f;
-		//Scale
-		tran[0][0] = body->get_model_scale().x;
-		tran[1][1] = body->get_model_scale().y;
-		tran[2][2] = body->get_model_scale().z;
 
 		body->set_transform(tran);
 		add_child(body);
@@ -129,14 +125,11 @@ public:
 		head->set_model_scale(glm::vec3(5, 5, 5));
 		glm::mat4 tran1(1.f);
 		tran1[3][0] = 0.f;
-		tran1[3][1] = 35.f;
+		tran1[3][1] = 30.f;
 		tran1[3][2] = 0.f;
-		//Scale
-		tran1[0][0] = head->get_model_scale().x;
-		tran1[1][1] = head->get_model_scale().y;
-		tran1[2][2] = head->get_model_scale().z;
+
 		head->set_transform(tran1);
-		add_child(head);
+		body->add_child(head);
 
 		//LEFT ARM
 		left_arm = new skeletal_node(cube, glm::vec4(0, 0, 1, 1));    //Blue!
@@ -145,12 +138,9 @@ public:
 		tran2[3][0] = -12.f;
 		tran2[3][1] = 30.f;
 		tran2[3][2] = -1.f;
-		//Scale
-		tran2[0][0] = left_arm->get_model_scale().x;
-		tran2[1][1] = left_arm->get_model_scale().y;
-		tran2[2][2] = left_arm->get_model_scale().z;
+
 		left_arm->set_transform(tran2);
-		add_child(left_arm);
+		body->add_child(left_arm);
 
 		//RIGHT ARM
 		right_arm = new skeletal_node(cube, glm::vec4(0, 0, 1, 1));    //Blue!
@@ -159,12 +149,9 @@ public:
 		tran3[3][0] = 12.f;
 		tran3[3][1] = 30.f;
 		tran3[3][2] = -1.f;
-		//Scale
-		tran3[0][0] = right_arm->get_model_scale().x;
-		tran3[1][1] = right_arm->get_model_scale().y;
-		tran3[2][2] = right_arm->get_model_scale().z;
+
 		right_arm->set_transform(tran3);
-		add_child(right_arm);
+		body->add_child(right_arm);
 
 		//LEFT LEG
 		skeletal_node* left_leg = new skeletal_node(cube, glm::vec4(0, 1, 1, 1));    //Red!
@@ -173,12 +160,9 @@ public:
 		tran4[3][0] = -8.f;
 		tran4[3][1] = 0.f;
 		tran4[3][2] = 0.f;
-		//Scale
-		tran4[0][0] = left_leg->get_model_scale().x;
-		tran4[1][1] = left_leg->get_model_scale().y;
-		tran4[2][2] = left_leg->get_model_scale().z;
+
 		left_leg->set_transform(tran4);
-		add_child(left_leg);
+		body->add_child(left_leg);
 
 		//RIGHT LEG
 		skeletal_node* right_leg = new skeletal_node(cube, glm::vec4(0, 1, 1, 1));    //Red!
@@ -187,12 +171,9 @@ public:
 		tran5[3][0] = 8.f;
 		tran5[3][1] = 0.f;
 		tran5[3][2] = 0.f;
-		//Scale
-		tran5[0][0] = right_leg->get_model_scale().x;
-		tran5[1][1] = right_leg->get_model_scale().y;
-		tran5[2][2] = right_leg->get_model_scale().z;
+
 		right_leg->set_transform(tran5);
-		add_child(right_leg);
+		body->add_child(right_leg);
 
 	}
 	~cube_robot()
