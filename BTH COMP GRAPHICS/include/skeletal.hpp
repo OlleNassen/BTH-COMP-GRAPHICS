@@ -47,7 +47,7 @@ public:
 		children.emplace_back(child);
 	}
 
-	void update(float delta_time)
+	virtual void update(float delta_time)
 	{
 		if (parent)
 		{
@@ -173,16 +173,16 @@ public:
 	{
 		cube = new scene::box;
 	}
-	void update(float delta_time)
+	virtual void update(float delta_time)override
 	{
 		std::cout << delta_time << '\n';
 		std::cout << transform[3][0] << " " << transform[3][1] << " " <<
 			transform[3][2] << '\n';
-		
+
 		transform = transform *
 			glm::rotate(transform, delta_time / 10.0f,
 				glm::vec3(0.f, 1.f, 0.f));
-		
+
 		head->set_transform(head->get_transform() *
 			glm::rotate(head->get_transform(), -delta_time / 10.0f,
 				glm::vec3(0.f, 1.f, 0.f)));
