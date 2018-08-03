@@ -20,6 +20,10 @@ public:
 		this->mesh = mesh;
 		parent = nullptr;
 		this->color = color;
+		transform = glm::mat4(1.f);
+		world_transform = glm::mat4(1.f);
+		model_scale = glm::vec4(1.f);
+		color = glm::vec4(1.f);
 	}
 	virtual ~skeletal_node()
 	{
@@ -128,7 +132,7 @@ public:
 		left_arm = new skeletal_node(cube, glm::vec4(0, 0, 1, 1));    //Blue!
 		left_arm->set_model_scale(glm::vec3(3, -18, 3));
 		glm::mat4 tran2(1.f);
-		tran2[3][0] = 12.f;
+		tran2[3][0] = -12.f;
 		tran2[3][1] = 30.f;
 		tran2[3][2] = -1.f;
 		left_arm->set_transform(tran2);
@@ -178,7 +182,7 @@ public:
 		std::cout << delta_time << '\n';
 		std::cout << transform[3][0] << " " << transform[3][1] << " " <<
 			transform[3][2] << '\n';
-
+		/*
 		transform = transform *
 			glm::rotate(transform, delta_time / 10.0f,
 				glm::vec3(0.f, 1.f, 0.f));
@@ -194,6 +198,8 @@ public:
 		right_arm->set_transform(right_arm->get_transform() *
 			glm::rotate(right_arm->get_transform(), delta_time / 10.0f,
 				glm::vec3(1.f, 0.f, 0.f)));
+
+		*/
 
 		skeletal_node::update(delta_time);
 	}
