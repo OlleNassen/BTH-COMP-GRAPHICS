@@ -15,6 +15,50 @@
 #include <assimp/postprocess.h>
 #include <iostream>
 
+class foo
+{
+public:
+	foo()
+	{
+		Assimp::Importer imp;
+		auto scene = imp.ReadFile(
+			"hellknight.md5mesh",
+			aiProcess_GenSmoothNormals |
+			aiProcess_Triangulate |
+			aiProcess_CalcTangentSpace |
+			aiProcess_FlipUVs |
+			aiProcess_JoinIdenticalVertices);
+	}
+	~foo()
+	{
+
+	}
+	void recursiveProcess(aiNode* node, const aiScene* scene)
+	{
+		//process
+		for (int i = 0; i<node->mNumMeshes; i++)
+		{
+			aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
+			//processMesh(mesh, scene);
+		}
+		//recursion
+		for (int i = 0; i<node->mNumChildren; i++)
+		{
+			recursiveProcess(node->mChildren[i], scene);
+		}
+	}
+
+	void loadasset(const char* path)
+	{
+		scene = importer.ReadFile(path, aiProcess_GenSmoothNormals | aiProcess_Triangulate | aiProcess_CalcTangentSpace | aiProcess_FlipUVs);
+		//recursiveProcess(scene->mRootNode, scene);
+	}
+
+private:
+	const aiScene* scene;
+	Assimp::Importer importer;
+};
+
 class skeletal_node
 {
 public:

@@ -126,8 +126,6 @@ void game::render()
 	scene.render(basic_shader);
 	quad.render(basic_shader);
 
-	root->update(0.16);
-
 	for (auto i = root->get_child_iterator_start(); i < root->get_child_iterator_end(); ++i)
 	{
 		//Should be nothing on this level
@@ -221,7 +219,7 @@ void game::update(std::chrono::milliseconds delta_time)
 	glm::vec3 cam_pos = game_camera.get_pos();
 	scene.sort(cam_pos);
 
-	//cube->update(0.000016f);
+	root->update(0.016f);
 
     terrain.update(delta_time);
     game_camera.move_on_terrain(terrain);
