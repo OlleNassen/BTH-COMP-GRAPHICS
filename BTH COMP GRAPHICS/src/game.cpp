@@ -82,7 +82,8 @@ game::game()
             x_val, z_val) + 2, z_val), 2.5f);
     }
 
-	cube = new cube_robot;
+	root = new skeletal_node;
+	root->add_child(new cube_robot);
 }
 
 void game::run()
@@ -125,10 +126,9 @@ void game::render()
 	scene.render(basic_shader);
 	quad.render(basic_shader);
 
-	cube->update(0.0000016f);
-	cube->draw(basic_shader);
+	root->update(16);
 
-	for (auto i = cube->get_child_iterator_start(); i < cube->get_child_iterator_end(); ++i)
+	for (auto i = root->get_child_iterator_start(); i < root->get_child_iterator_end(); ++i)
 	{
 		(*i)->draw(basic_shader);
 		for (auto k = (*i)->get_child_iterator_start(); k < (*i)->get_child_iterator_end(); ++k)
