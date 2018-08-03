@@ -10,6 +10,9 @@
 #include <GLFW/glfw3.h>
 #include "box.hpp"
 #include "shader.hpp"
+#include <assimp/Importer.hpp>
+#include <assimp/Scene.h>
+#include <assimp/postprocess.h>
 #include <iostream>
 
 class skeletal_node
