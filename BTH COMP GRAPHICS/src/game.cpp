@@ -124,14 +124,15 @@ void game::render()
 	light.bind(basic_shader);
 	scene.render(basic_shader);
 	quad.render(basic_shader);
+
+	cube->update(0.0000016f);
+	cube->draw(basic_shader);
+
 	for (auto i = cube->get_child_iterator_start(); i < cube->get_child_iterator_end(); ++i)
 	{
-
-		(*i)->update(0.0000016f);
 		(*i)->draw(basic_shader);
 		for (auto k = (*i)->get_child_iterator_start(); k < (*i)->get_child_iterator_end(); ++k)
 		{
-			(*k)->update(0.0000016f);
 			(*k)->draw(basic_shader);
 		}
 	}
