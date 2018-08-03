@@ -126,7 +126,7 @@ void game::render()
 	scene.render(basic_shader);
 	quad.render(basic_shader);
 
-	root->update(160);
+	root->update(0.16);
 
 	for (auto i = root->get_child_iterator_start(); i < root->get_child_iterator_end(); ++i)
 	{

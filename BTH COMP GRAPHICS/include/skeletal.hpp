@@ -179,27 +179,26 @@ public:
 	}
 	virtual void update(float delta_time)override
 	{
+
 		std::cout << delta_time << '\n';
 		std::cout << transform[3][0] << " " << transform[3][1] << " " <<
 			transform[3][2] << '\n';
 		
-		transform = transform *
+		transform = 
 			glm::rotate(transform, delta_time / 10.0f,
 				glm::vec3(0.f, 1.f, 0.f));
 
-		head->set_transform(head->get_transform() *
+		head->set_transform(
 			glm::rotate(head->get_transform(), -delta_time / 10.0f,
 				glm::vec3(0.f, 1.f, 0.f)));
 
-		left_arm->set_transform(left_arm->get_transform() *
+		left_arm->set_transform(
 			glm::rotate(left_arm->get_transform(), -delta_time / 10.0f,
 				glm::vec3(1.f, 0.f, 0.f)));
 
-		right_arm->set_transform(right_arm->get_transform() *
+		right_arm->set_transform(
 			glm::rotate(right_arm->get_transform(), delta_time / 10.0f,
 				glm::vec3(1.f, 0.f, 0.f)));
-
-		
 
 		skeletal_node::update(delta_time);
 	}
