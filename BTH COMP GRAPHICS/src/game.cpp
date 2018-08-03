@@ -126,6 +126,7 @@ void game::render()
 	quad.render(basic_shader);
 	for (auto i = cube->get_child_iterator_start(); i < cube->get_child_iterator_end(); ++i)
 	{
+
 		(*i)->update(0.0000016f);
 		(*i)->draw(basic_shader);
 		for (auto k = (*i)->get_child_iterator_start(); k < (*i)->get_child_iterator_end(); ++k)

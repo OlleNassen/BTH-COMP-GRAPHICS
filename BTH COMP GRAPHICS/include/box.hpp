@@ -13,7 +13,12 @@ class box : public node
 {
 public:
     box(float x = 0.0f, float y = 0.0f, float z = 0.0f);
-
+	void draw()
+	{
+		box_array.bind();
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glBindVertexArray(0);
+	}
 private:
 	vertex_array box_array;
 	buffer box_vbo;
@@ -25,6 +30,8 @@ private:
 
     void render_current(const shader& shader,
         const glm::mat4& world_transform) const override;
+
+
 };
 
 }

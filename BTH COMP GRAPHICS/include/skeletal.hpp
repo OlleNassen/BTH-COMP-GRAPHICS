@@ -10,6 +10,7 @@
 #include <GLFW/glfw3.h>
 #include "box.hpp"
 #include "shader.hpp"
+#include <iostream>
 
 class skeletal_node
 {
@@ -67,7 +68,8 @@ public:
 	{
 		if (mesh)
 		{
-			mesh->render(shade);
+			shade.uniform("model", transform);
+			dynamic_cast<scene::box*>(mesh)->draw();
 		}
 	}
 
@@ -171,8 +173,10 @@ public:
 	{
 		cube = new scene::box;
 	}
-	virtual void update(float delta_time)
+	virtual void update(float delta_time)override
 	{
+		std::cout << "NO";
+		std::cout << transform[3][0] << '\n';
 		transform = transform *
 			glm::rotate(transform, delta_time / 10.0f,
 				glm::vec3(0.f, 1.f, 0.f));
