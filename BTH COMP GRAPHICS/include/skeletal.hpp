@@ -182,7 +182,7 @@ public:
 		std::cout << delta_time << '\n';
 		std::cout << transform[3][0] << " " << transform[3][1] << " " <<
 			transform[3][2] << '\n';
-		/*
+		
 		transform = transform *
 			glm::rotate(transform, delta_time / 10.0f,
 				glm::vec3(0.f, 1.f, 0.f));
@@ -199,7 +199,7 @@ public:
 			glm::rotate(right_arm->get_transform(), delta_time / 10.0f,
 				glm::vec3(1.f, 0.f, 0.f)));
 
-		*/
+		
 
 		skeletal_node::update(delta_time);
 	}
