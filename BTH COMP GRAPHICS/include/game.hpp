@@ -77,7 +77,7 @@ private:
 	scene::quad backface{0, 0, -10};
 
 	text temp_text;
-	skeletal test;
+	cube_robot* cube;
 
 	int race_index{0};
     race current_race;

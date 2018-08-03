@@ -81,6 +81,8 @@ game::game()
             terrain.calculate_camera_y(
             x_val, z_val) + 2, z_val), 2.5f);
     }
+
+	cube = new cube_robot;
 }
 
 void game::run()
@@ -122,7 +124,17 @@ void game::render()
 	light.bind(basic_shader);
 	scene.render(basic_shader);
 	quad.render(basic_shader);
-	test.render_current(basic_shader, glm::mat4(1.f));
+	for (auto i = cube->get_child_iterator_start(); i < cube->get_child_iterator_end(); ++i)
+	{
+		(*i)->update(0.0000016f);
+		(*i)->draw(basic_shader);
+		for (auto k = (*i)->get_child_iterator_start(); k < (*i)->get_child_iterator_end(); ++k)
+		{
+			(*k)->update(0.0000016f);
+			(*k)->draw(basic_shader);
+		}
+	}
+
 
 	//Backface culling
 	backface_shader.use();
@@ -186,6 +198,8 @@ void game::update(std::chrono::milliseconds delta_time)
 {
 	glm::vec3 cam_pos = game_camera.get_pos();
 	scene.sort(cam_pos);
+
+	//cube->update(0.000016f);
 
     terrain.update(delta_time);
     game_camera.move_on_terrain(terrain);
