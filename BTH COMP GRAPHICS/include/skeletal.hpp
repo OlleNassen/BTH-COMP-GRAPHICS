@@ -20,7 +20,7 @@ public:
 		parent = nullptr;
 		this->color = color;
 	}
-	~skeletal_node()
+	virtual ~skeletal_node()
 	{
 		for (auto i = 0u; i < children.size(); i++)
 			delete children[i];
