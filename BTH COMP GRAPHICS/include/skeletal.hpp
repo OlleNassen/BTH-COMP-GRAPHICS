@@ -179,11 +179,6 @@ public:
 	}
 	virtual void update(float delta_time)override
 	{
-
-		std::cout << delta_time << '\n';
-		std::cout << transform[3][0] << " " << transform[3][1] << " " <<
-			transform[3][2] << '\n';
-		
 		transform = 
 			glm::rotate(transform, delta_time / 10.0f,
 				glm::vec3(0.f, 1.f, 0.f));
