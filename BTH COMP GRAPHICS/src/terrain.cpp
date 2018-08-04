@@ -39,15 +39,14 @@ terrain::terrain(float x, float y, float z)
 	}
 
 	std::vector<terrain_vertex> vertices(width * height);
-	auto index = 0;
 	for (auto x = 0; x < height; ++x)
 	{
 		for (auto z = 0; z < width; ++z)
 		{
-			vertices[index] =
-            { {x, heights[index] * 0.1f, z}, {0,0,0},
-            {static_cast<float>(x) / height, static_cast<float>(z) / width} };
-			++index;
+			auto& v = vertices[x * width + z];
+			v.position = {x, heights[x * width + z] * 0.1f, z};
+			v.texture = {static_cast<float>(x) / height,
+                static_cast<float>(z) / width};
 		}
 	}
 
