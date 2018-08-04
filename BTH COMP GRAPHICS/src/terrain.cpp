@@ -11,6 +11,7 @@ namespace scene
 struct terrain_vertex
 {
     glm::vec3 position;
+    glm::vec3 normal;
     glm::vec2 texture;
 };
 
@@ -44,9 +45,19 @@ terrain::terrain(float x, float y, float z)
 		for (auto z = 0; z < width; ++z)
 		{
 			vertices[index] =
-            { {x, heights[index] * 0.1f, z}, {x, z} };
+            { {x, heights[index] * 0.1f, z}, {0,0,0}, {x, z} };
 			++index;
 		}
+	}
+
+	for (auto i = 0; i < width * height; ++i)
+	{
+        glm::vec3 tangent = glm::normalize(
+            vertices[i].position - vertices[i+1].position);
+        glm::vec3 bitangent = glm::normalize(
+            vertices[i].position - vertices[i+2].position);
+
+        vertices[i].normal = glm::cross(bitangent, tangent);
 	}
 
     std::vector<unsigned int> indices((width-1) * (height-1) * 6);
@@ -67,6 +78,7 @@ terrain::terrain(float x, float y, float z)
 	}
 
 	terrain_array.bind();
+
 	terrain_vbo.data(sizeof(terrain_vertex) * vertices.size(),
         &vertices[0], GL_STATIC_DRAW);
 	terrain_ebo.data(sizeof(unsigned int) * indices.size(),
@@ -74,8 +86,12 @@ terrain::terrain(float x, float y, float z)
 
 	terrain_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE,
         sizeof(terrain_vertex), nullptr);
-	terrain_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE,
-        sizeof(terrain_vertex), buffer_offset<glm::vec3>(3u));
+
+    terrain_array.attribute_pointer(1, 3, GL_FLOAT, GL_FALSE,
+        sizeof(terrain_vertex), buffer_offset<glm::vec3>(1));
+
+	terrain_array.attribute_pointer(2, 2, GL_FLOAT, GL_FALSE,
+        sizeof(terrain_vertex), buffer_offset<glm::vec3>(2));
 }
 
 
@@ -88,7 +104,6 @@ float terrain::calculate_camera_y(float x, float z) const
 {
     int x_index = x - this->x - this->x * 0.25f;
     int z_index = z - this->z + this->z * 0.25f;
-
     return data[x_index + z_index * width] * 0.1f + y;
 }
 
