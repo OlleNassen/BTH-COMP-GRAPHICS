@@ -17,9 +17,9 @@ public:
 
 	float calculate_camera_y(const float x, const float z) const;
 
-	float x;
-	float y;
-	float z;
+	float x = 0.0f;
+	float y = 0.0f;
+	float z = 0.0f;
 	int width = 0;
 
 private:

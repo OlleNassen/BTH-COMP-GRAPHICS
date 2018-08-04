@@ -16,9 +16,6 @@ struct terrain_vertex
 
 terrain::terrain(float x, float y, float z)
 	: node(x, y, z)
-	, x(x)
-	, y(y)
-	, z(z)
 {
 	terrain_texture = new texture("images/ground.png",
         wrap::REPEAT, filter::LINEAR, format::RGBA);
@@ -28,7 +25,6 @@ terrain::terrain(float x, float y, float z)
         &width, &height, &nrChannels, 1);
 
 	std::vector<int> heights(width * height);
-
 	if (data)
 	{
 		for (auto i = 0; i < width * height; i++)
@@ -43,7 +39,6 @@ terrain::terrain(float x, float y, float z)
 
 	std::vector<terrain_vertex> vertices(width * height);
 	auto index = 0;
-
 	for (auto x = 0; x < height; ++x)
 	{
 		for (auto z = 0; z < width; ++z)
@@ -53,7 +48,6 @@ terrain::terrain(float x, float y, float z)
 			++index;
 		}
 	}
-
 
     std::vector<unsigned int> indices((width-1) * (height-1) * 6);
 	for (auto i = 0; i < height - 1; ++i)

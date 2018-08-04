@@ -22,6 +22,7 @@ class node
 {
 public:
     node(float x = 0.0f, float y = 0.0f, float z = 0.0f);
+    virtual ~node() = default;
 
     void attach_child(node* child);
 
