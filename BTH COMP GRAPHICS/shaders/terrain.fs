@@ -1,13 +1,12 @@
 #version 330 core
 
 in vec2 texture;
-in vec3 color;
 
 uniform sampler2D diffuse;
 
-out vec4 fragColor;
+out vec4 fragment_color;
 
 void main()
 {
-	fragColor = texture2D(diffuse, texture) * vec4(color, 1);
+	fragment_color = texture2D(diffuse, texture);
 }

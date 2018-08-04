@@ -20,17 +20,19 @@ public:
 	float x;
 	float y;
 	float z;
-	int width;
+	int width = 0;
 
 private:
-	unsigned int draw_count;
+	int draw_count{-1};
 	unsigned char* data;
 
 	vertex_array terrain_array;
 	buffer terrain_vbo;
 	buffer terrain_ebo{target::ELEMENT_ARRAY_BUFFER};
 	texture* terrain_texture;
-	int depth;
+
+	int height = 0;
+
 	void update_current(milliseconds delta_time,
 		const glm::mat4& world_transform, glm::mat4& transform) override;
 

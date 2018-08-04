@@ -326,7 +326,7 @@ model::model()
 
 	current.load(key_frames);
 
-	auto stride = 12 * sizeof(float) + 4 * sizeof(int);
+	auto stride = 12 * sizeof(float) + 4 * sizeof(unsigned int);
 
 	model_array.bind();
 	model_buffer.data(sizeof(vertex) * vertices.size(),
@@ -344,7 +344,7 @@ model::model()
         GL_INT, stride, (void*)(8 * sizeof(float)));
 	model_array.attribute_pointer(4, 4,
         GL_FLOAT, GL_FALSE, stride,
-        (void*)(8 * sizeof(float) + 4 * sizeof(int)));
+        (void*)(8 * sizeof(float) + 4 * sizeof(unsigned int)));
 
 	world_joints.fill(glm::mat4(1.0f));
 }

@@ -2604,7 +2604,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1533295437 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1533308031 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<iostream>
 	<chrono>
@@ -2612,7 +2612,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1533293170 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1533298407 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	<iostream>
 	<chrono>
 	"window.hpp"
@@ -2926,13 +2926,13 @@
 1533076907 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skybox.cpp
 	"skybox.hpp"
 
-1533077108 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\terrain.hpp
+1533347345 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\terrain.hpp
 	"node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1533077120 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
+1533346921 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
 	"terrain.hpp"
 	<vector>
 	<iostream>
@@ -3005,7 +3005,7 @@
 	<ctime>
 	<iostream>
 
-1533240867 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1533302090 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 	<iostream>
 	<algorithm>
@@ -3178,7 +3178,7 @@
 	<glm/glm.hpp>
 	"shader.hpp"
 
-1533295716 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skeletal.hpp
+1533308031 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skeletal.hpp
 	<array>
 	"vertex_array.hpp"
 	"buffer.hpp"
@@ -3189,8 +3189,11 @@
 	<GLFW/glfw3.h>
 	"box.hpp"
 	"shader.hpp"
+	<assimp/Importer.hpp>
+	<assimp/Scene.h>
+	<assimp/postprocess.h>
 	<iostream>
 
-1533293170 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skeletal.cpp
+1533297388 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skeletal.cpp
 	"skeletal.hpp"
 

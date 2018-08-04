@@ -19,25 +19,21 @@ terrain::terrain(float x, float y, float z)
 	, x(x)
 	, y(y)
 	, z(z)
-    , draw_count(0)
 {
 	terrain_texture = new texture("images/ground.png",
         wrap::REPEAT, filter::LINEAR, format::RGBA);
 
-	auto textureWidth = 0;
-	auto textureHeight = 0;
 	auto nrChannels = 0;
 	data = stbi_load("images/heightmap.jpg",
-        &textureWidth, &textureHeight, &nrChannels, 1);
+        &width, &height, &nrChannels, 1);
 
-	std::vector<int> heights;
-	heights.reserve(textureWidth * textureHeight);
+	std::vector<int> heights(width * height);
 
 	if (data)
 	{
-		for (auto i = 0; i < textureWidth * textureHeight; i++)
+		for (auto i = 0; i < width * height; i++)
 		{
-			heights.push_back(static_cast<int>(data[i]));
+			heights[i] = static_cast<int>(data[i]);
 		}
 	}
 	else
@@ -45,44 +41,39 @@ terrain::terrain(float x, float y, float z)
 		std::cout << "Failed to load texture\n";
 	}
 
-	width = textureWidth;
-	depth = textureHeight;
+	std::vector<terrain_vertex> vertices(width * height);
+	auto index = 0;
 
-	std::vector<terrain_vertex> vertices;
-	std::vector<unsigned int> indices;
-
-	auto heightIndex = 0;
-
-	for (auto x = 0; x < depth; ++x)
+	for (auto x = 0; x < height; ++x)
 	{
 		for (auto z = 0; z < width; ++z)
 		{
-			vertices.push_back({ glm::vec3(x, heights[heightIndex]
-                * 0.1f, z), glm::vec2(x, z) });
-			heightIndex++;
+			vertices[index] =
+            { {x, heights[index] * 0.1f, z}, {x, z} };
+			++index;
 		}
 	}
 
-	for (auto i = 0; i < depth - 1; ++i)
+
+    std::vector<unsigned int> indices((width-1) * (height-1) * 6);
+	for (auto i = 0; i < height - 1; ++i)
 	{
 		for (auto j = 0; j < width - 1; ++j)
 		{
 			auto pos = j + (i * width);
 
-			indices.push_back(pos);
-			indices.push_back(pos + 1);
-			indices.push_back(pos + width);
+			indices[++draw_count] = pos;
+			indices[++draw_count] = pos + 1;
+			indices[++draw_count] = pos + width;
 
-			indices.push_back(pos + width + 1);
-			indices.push_back(pos + width);
-			indices.push_back(pos + 1);
-
-			draw_count += 6;
+			indices[++draw_count] = pos + width + 1;
+			indices[++draw_count] = pos + width;
+			indices[++draw_count] = pos + 1;
 		}
 	}
 
 	terrain_array.bind();
-	terrain_vbo.data(sizeof(float) * 5 * vertices.size(),
+	terrain_vbo.data(sizeof(terrain_vertex) * vertices.size(),
         &vertices[0], GL_STATIC_DRAW);
 	terrain_ebo.data(sizeof(unsigned int) * indices.size(),
         &indices[0], GL_STATIC_DRAW);
