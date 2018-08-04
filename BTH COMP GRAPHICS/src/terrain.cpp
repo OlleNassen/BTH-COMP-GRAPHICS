@@ -50,14 +50,15 @@ terrain::terrain(float x, float y, float z)
 		}
 	}
 
-	for (auto i = 0; i < width * height; ++i)
+	for (auto i = 0; i < width * height; i += 3)
 	{
-        glm::vec3 tangent = glm::normalize(
-            vertices[i].position - vertices[i+1].position);
-        glm::vec3 bitangent = glm::normalize(
-            vertices[i].position - vertices[i+2].position);
+        auto u = vertices[i].position - vertices[i+1].position;
+        auto v = vertices[i].position - vertices[i+2].position;
+        auto normal = glm::cross(u, v);
 
-        vertices[i].normal = glm::cross(bitangent, tangent);
+        vertices[i].normal = normal;
+        vertices[i+1].normal = normal;
+        vertices[i+2].normal = normal;
 	}
 
     std::vector<unsigned int> indices((width-1) * (height-1) * 6);
