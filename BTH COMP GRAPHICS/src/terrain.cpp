@@ -45,7 +45,8 @@ terrain::terrain(float x, float y, float z)
 		for (auto z = 0; z < width; ++z)
 		{
 			vertices[index] =
-            { {x, heights[index] * 0.1f, z}, {0,0,0}, {x, z} };
+            { {x, heights[index] * 0.1f, z}, {0,0,0},
+            {static_cast<float>(x) / height, static_cast<float>(z) / width} };
 			++index;
 		}
 	}
