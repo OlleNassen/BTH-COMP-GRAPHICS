@@ -29,14 +29,14 @@ terrain::terrain(float x, float y, float z)
     stbi_image_free(begin);
 
 	std::vector<terrain_vertex> vertices(heights.size());
-	for (auto i = 0; i < vertices.size(); ++i)
+	for (auto i = 0u; i < vertices.size(); ++i)
 	{
         glm::vec2 v{i % width, i / height};
         vertices[i].position = {v.x, heights[i] * 0.1f, v.y};
         vertices[i].texture = {v.x / width, v.y / height};
 	}
 
-	for (auto i = 0; i < vertices.size(); i += 3)
+	for (auto i = 0u; i < vertices.size(); i += 3)
 	{
         auto u = vertices[i].position - vertices[i+1].position;
         auto v = vertices[i].position - vertices[i+2].position;
@@ -47,8 +47,8 @@ terrain::terrain(float x, float y, float z)
         vertices[i+2].normal = normal;
 	}
 
-    std::vector<unsigned int> indices((width-1) * (height-1) * 6);
-	/*for (auto i = 0; i < (width-1) * (height-1); ++i)
+    std::vector<unsigned int> indices(((width - 1) * height - 1) * 6);
+	/*for (auto i = 0; i < indices.size()/6; ++i)
 	{
         indices[++draw_count] = i;
         indices[++draw_count] = i + 1;
@@ -73,7 +73,7 @@ terrain::terrain(float x, float y, float z)
 			indices[++draw_count] = pos + width;
 			indices[++draw_count] = pos + 1;
 		}
-}
+    }
 
 	terrain_array.bind();
 
