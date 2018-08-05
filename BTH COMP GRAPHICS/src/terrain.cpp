@@ -18,6 +18,8 @@ struct terrain_vertex
 
 terrain::terrain(float x, float y, float z)
 	: node(x, y, z)
+	, terrain_texture{"images/ground.png",
+        wrap::REPEAT, filter::LINEAR, format::RGBA}
 {
 	auto nrChannels = 0;
 	auto* data = stbi_load("images/heightmap.jpg",
@@ -32,10 +34,6 @@ terrain::terrain(float x, float y, float z)
             return static_cast<int>(h);
         });
     stbi_image_free(data);
-
-
-    terrain_texture = new texture("images/ground.png",
-        wrap::REPEAT, filter::LINEAR, format::RGBA);
 
 	std::vector<terrain_vertex> vertices(width * height);
 	for (auto x = 0; x < height; ++x)
@@ -113,7 +111,7 @@ void terrain::render_current(const shader& shader,
     const glm::mat4& world_transform) const
 {
 	shader.uniform("model", world_transform);
-	terrain_texture->uniform(shader, "diffuse", 0);
+	terrain_texture.uniform(shader, "diffuse", 0);
 	terrain_array.bind();
 	glDrawElements(GL_TRIANGLES, draw_count, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);

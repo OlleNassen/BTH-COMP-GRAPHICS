@@ -28,7 +28,7 @@ private:
 	vertex_array terrain_array;
 	buffer terrain_vbo;
 	buffer terrain_ebo{target::ELEMENT_ARRAY_BUFFER};
-	texture* terrain_texture;
+	texture terrain_texture;
 
 	int height = 0;
 
