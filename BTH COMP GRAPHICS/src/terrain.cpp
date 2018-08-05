@@ -36,7 +36,7 @@ terrain::terrain(float x, float y, float z)
         vertices[i].texture = {v.x / width, v.y / height};
 	}
 
-	for (auto i = 0; i < width * height; i += 3)
+	for (auto i = 0; i < vertices.size(); i += 3)
 	{
         auto u = vertices[i].position - vertices[i+1].position;
         auto v = vertices[i].position - vertices[i+2].position;
@@ -48,7 +48,7 @@ terrain::terrain(float x, float y, float z)
 	}
 
     std::vector<unsigned int> indices((width-1) * (height-1) * 6);
-	for (auto i = 0; i < (width-1) * (height-1); ++i)
+	/*for (auto i = 0; i < (width-1) * (height-1); ++i)
 	{
         indices[++draw_count] = i;
         indices[++draw_count] = i + 1;
@@ -57,7 +57,23 @@ terrain::terrain(float x, float y, float z)
         indices[++draw_count] = i + width + 1;
         indices[++draw_count] = i + width;
         indices[++draw_count] = i + 1;
-	}
+	}*/
+
+	for (auto i = 0; i < height - 1; ++i)
+	{
+		for (auto j = 0; j < width - 1; ++j)
+		{
+			auto pos = j + (i * width);
+
+			indices[++draw_count] = pos;
+			indices[++draw_count] = pos + 1;
+			indices[++draw_count] = pos + width;
+
+			indices[++draw_count] = pos + width + 1;
+			indices[++draw_count] = pos + width;
+			indices[++draw_count] = pos + 1;
+		}
+}
 
 	terrain_array.bind();
 
