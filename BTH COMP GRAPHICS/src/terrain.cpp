@@ -26,15 +26,11 @@ terrain::terrain(float x, float y, float z)
 
     heights.resize(width * height);
     auto* begin = data;
-    auto* end = begin + width * height;
-    std::transform(begin, end, heights.begin(),
-        [](auto& h) -> int
-        {
-            return static_cast<int>(h);
-        });
+    auto* end = begin + heights.size();
+    std::copy(begin, end, heights.begin());
     stbi_image_free(data);
 
-	std::vector<terrain_vertex> vertices(width * height);
+	std::vector<terrain_vertex> vertices(heights.size());
 	for (auto x = 0; x < height; ++x)
 	{
 		for (auto z = 0; z < width; ++z)
@@ -73,6 +69,9 @@ terrain::terrain(float x, float y, float z)
 			indices[++draw_count] = pos + 1;
 		}
 	}
+
+    std::cout << vertices.size() << std::endl;
+	std::cout << indices.size() << std::endl;
 
 	terrain_array.bind();
 
