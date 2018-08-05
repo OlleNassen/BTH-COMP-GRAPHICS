@@ -31,6 +31,7 @@ private:
 	texture terrain_texture;
 
 	int height = 0;
+	int channels = 0;
 
 	void update_current(milliseconds delta_time,
 		const glm::mat4& world_transform, glm::mat4& transform) override;

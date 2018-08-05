@@ -21,9 +21,8 @@ terrain::terrain(float x, float y, float z)
 	, terrain_texture{"images/ground.png",
         wrap::REPEAT, filter::LINEAR, format::RGBA}
 {
-	auto nrChannels = 0;
 	auto* data = stbi_load("images/heightmap.jpg",
-        &width, &height, &nrChannels, 1);
+        &width, &height, &channels, 1);
 
     heights.resize(width * height);
     auto* begin = data;
