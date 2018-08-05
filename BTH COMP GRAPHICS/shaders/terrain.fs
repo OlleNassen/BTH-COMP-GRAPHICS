@@ -19,7 +19,7 @@ void main()
 
 	fragment_color = texture2D(diffuse, texture);
 
-    if (slope < 0.2)
+   /* if (slope < 0.2)
     {
         blend = slope / 0.2f;
         fragment_color = mix(color1, color2, blend);
@@ -34,5 +34,5 @@ void main()
     if (slope >= 0.7)
     {
         fragment_color = color3;
-    }
+    }*/
 }

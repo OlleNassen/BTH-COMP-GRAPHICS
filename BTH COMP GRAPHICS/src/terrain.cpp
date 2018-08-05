@@ -54,24 +54,16 @@ terrain::terrain(float x, float y, float z)
 	}
 
     std::vector<unsigned int> indices((width-1) * (height-1) * 6);
-	for (auto i = 0; i < height - 1; ++i)
+	for (auto i = 0; i < (width-1) * (height-1); ++i)
 	{
-		for (auto j = 0; j < width - 1; ++j)
-		{
-			auto pos = j + (i * width);
+        indices[++draw_count] = i;
+        indices[++draw_count] = i + 1;
+        indices[++draw_count] = i + width;
 
-			indices[++draw_count] = pos;
-			indices[++draw_count] = pos + 1;
-			indices[++draw_count] = pos + width;
-
-			indices[++draw_count] = pos + width + 1;
-			indices[++draw_count] = pos + width;
-			indices[++draw_count] = pos + 1;
-		}
+        indices[++draw_count] = i + width + 1;
+        indices[++draw_count] = i + width;
+        indices[++draw_count] = i + 1;
 	}
-
-    std::cout << vertices.size() << std::endl;
-	std::cout << indices.size() << std::endl;
 
 	terrain_array.bind();
 
