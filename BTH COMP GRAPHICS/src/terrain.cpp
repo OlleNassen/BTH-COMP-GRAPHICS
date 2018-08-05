@@ -1,6 +1,7 @@
 #include "terrain.hpp"
 #include <vector>
 #include <iostream>
+#include <algorithm>
 #include <gl/glew.h>
 #include <glm/glm.hpp>
 #include <stb_image.h>
@@ -18,25 +19,23 @@ struct terrain_vertex
 terrain::terrain(float x, float y, float z)
 	: node(x, y, z)
 {
-	terrain_texture = new texture("images/ground.png",
-        wrap::REPEAT, filter::LINEAR, format::RGBA);
-
 	auto nrChannels = 0;
-	data = stbi_load("images/heightmap.jpg",
+	auto* data = stbi_load("images/heightmap.jpg",
         &width, &height, &nrChannels, 1);
 
-	std::vector<int> heights(width * height);
-	if (data)
-	{
-		for (auto i = 0; i < width * height; i++)
-		{
-			heights[i] = static_cast<int>(data[i]);
-		}
-	}
-	else
-	{
-		std::cout << "Failed to load texture\n";
-	}
+    heights.resize(width * height);
+    auto* begin = data;
+    auto* end = begin + width * height;
+    std::transform(begin, end, heights.begin(),
+        [](auto& h) -> int
+        {
+            return static_cast<int>(h);
+        });
+    stbi_image_free(data);
+
+
+    terrain_texture = new texture("images/ground.png",
+        wrap::REPEAT, filter::LINEAR, format::RGBA);
 
 	std::vector<terrain_vertex> vertices(width * height);
 	for (auto x = 0; x < height; ++x)
@@ -95,17 +94,11 @@ terrain::terrain(float x, float y, float z)
         sizeof(terrain_vertex), buffer_offset<glm::vec3>(2));
 }
 
-
-terrain::~terrain()
-{
-	stbi_image_free(data);
-}
-
 float terrain::calculate_camera_y(float x, float z) const
 {
     int x_index = x - this->x - this->x * 0.25f;
     int z_index = z - this->z + this->z * 0.25f;
-    return data[x_index + z_index * width] * 0.1f + y;
+    return heights[x_index + z_index * width] * 0.1f + y;
 }
 
 void terrain::update_current(milliseconds delta_time,

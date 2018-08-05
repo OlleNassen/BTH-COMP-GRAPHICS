@@ -228,11 +228,6 @@ void joint::transform(const glm::mat4& new_transform)
         * local_transform;
 }
 
-glm::mat4 joint::as_matrix() const
-{
-    return global_transform * inverse_bind_pose;
-}
-
 
 
 

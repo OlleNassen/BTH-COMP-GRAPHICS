@@ -28,7 +28,7 @@ public:
 
     void transform(const glm::mat4& new_transform);
 
-    glm::mat4 as_matrix() const;
+    auto as_matrix() const{return global_transform * inverse_bind_pose;}
 
     joint* parent{this};
     glm::mat4 local_transform{1.0f};

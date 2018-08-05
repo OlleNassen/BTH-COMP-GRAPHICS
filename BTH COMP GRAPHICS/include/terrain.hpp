@@ -13,7 +13,6 @@ class terrain : public node
 {
 public:
 	terrain(float x = 0.0f, float y = 0.0f, float z = 0.0f);
-	~terrain();
 
 	float calculate_camera_y(const float x, const float z) const;
 
@@ -23,8 +22,8 @@ public:
 	int width = 0;
 
 private:
+	std::vector<int> heights;
 	int draw_count{-1};
-	unsigned char* data;
 
 	vertex_array terrain_array;
 	buffer terrain_vbo;
