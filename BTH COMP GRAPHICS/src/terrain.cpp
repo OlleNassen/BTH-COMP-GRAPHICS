@@ -21,14 +21,12 @@ terrain::terrain(float x, float y, float z)
 	, terrain_texture{"images/ground.png",
         wrap::REPEAT, filter::LINEAR, format::RGBA}
 {
-	auto* data = stbi_load("images/heightmap.jpg",
-        &width, &height, &channels, 1);
-
-    heights.resize(width * height);
-    auto* begin = data;
-    auto* end = begin + heights.size();
+	auto* begin =
+        stbi_load("images/heightmap.jpg", &width, &height, &channels, 1);
+    auto* end = begin + width * height;
+    heights.resize(end - begin);
     std::copy(begin, end, heights.begin());
-    stbi_image_free(data);
+    stbi_image_free(begin);
 
 	std::vector<terrain_vertex> vertices(heights.size());
 	for (auto x = 0; x < height; ++x)
