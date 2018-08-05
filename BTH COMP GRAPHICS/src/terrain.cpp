@@ -29,15 +29,11 @@ terrain::terrain(float x, float y, float z)
     stbi_image_free(begin);
 
 	std::vector<terrain_vertex> vertices(heights.size());
-	for (auto x = 0; x < height; ++x)
+	for (auto i = 0; i < vertices.size(); ++i)
 	{
-		for (auto z = 0; z < width; ++z)
-		{
-			auto& v = vertices[x * width + z];
-			v.position = {x, heights[x * width + z] * 0.1f, z};
-			v.texture = {static_cast<float>(x) / height,
-                static_cast<float>(z) / width};
-		}
+        glm::vec2 v{i % width, i / height};
+        vertices[i].position = {v.x, heights[i] * 0.1f, v.y};
+        vertices[i].texture = {v.x / width, v.y / height};
 	}
 
 	for (auto i = 0; i < width * height; i += 3)
