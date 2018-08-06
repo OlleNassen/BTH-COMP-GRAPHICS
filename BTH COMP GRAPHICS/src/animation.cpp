@@ -17,6 +17,17 @@ constexpr glm::mat4 ai_to_glm(const aiMatrix4x4& mat)
     };
 }
 
+constexpr float calculate_progression(
+    milliseconds prev, milliseconds next, milliseconds time)
+{
+    auto total_time = next - prev;
+    auto current_time = time - prev;
+
+    return
+        static_cast<float>(current_time.count()) /
+        static_cast<float>(total_time.count());
+}
+
 pose mix(const pose& x, const pose& y, float a)
 {
     return
@@ -25,6 +36,10 @@ pose mix(const pose& x, const pose& y, float a)
         glm::mix(x.rotation, y.rotation, a)
     };
 }
+
+
+
+
 
 void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices,
     std::vector<unsigned int>& indices)
@@ -267,9 +282,8 @@ void animation::update_key_frame()
 void animation::update_pose(skeleton& joints)
 {
     auto progression =
-        calculate_progression(
-        prev->timepoint,
-        next->timepoint);
+        calculate_progression(prev->timepoint,
+        next->timepoint, time);
 
     for (auto i = 0u; i < joints.size(); ++i)
     {
@@ -294,18 +308,6 @@ void animation::update_pose(skeleton& joints)
             j.global_transform = j.local_transform;
         }
     }
-}
-
-float animation::calculate_progression(
-    milliseconds prev,
-    milliseconds next) const
-{
-    auto total_time = next - prev;
-    auto current_time = time - prev;
-
-    return
-        static_cast<float>(current_time.count()) /
-        static_cast<float>(total_time.count());
 }
 
 

@@ -9,9 +9,9 @@ out vec4 fragment_color;
 
 void main()
 {
-	vec4 color1 = vec4(1.0, 1.0, 1.0, 1.0);
-	vec4 color2 = vec4(0.5, 0.5, 0.5, 1.0);
-	vec4 color3 = vec4(0.0, 0.0, 0.0, 1.0);
+	vec4 color1 = vec4(0.0, 1.0, 0.0, 1.0);
+	vec4 color2 = vec4(0.0, 0.0, 1.0, 1.0);
+	vec4 color3 = vec4(1.0, 0.0, 0.0, 1.0);
 	float blend = 0.0;
 
 	vec3 normalized_normal = normalize(normal);
@@ -19,7 +19,7 @@ void main()
 
 	fragment_color = texture2D(diffuse, texture);
 
-    /*if (slope < 0.2)
+    if (slope < 0.2)
     {
         blend = slope / 0.2f;
         fragment_color = mix(color1, color2, blend);
@@ -34,5 +34,5 @@ void main()
     if (slope >= 0.7)
     {
         fragment_color = color3;
-    }*/
+    }
 }

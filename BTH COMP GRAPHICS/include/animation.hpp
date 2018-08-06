@@ -73,10 +73,6 @@ private:
 
     void update_key_frame();
     void update_pose(skeleton& joints);
-
-    float calculate_progression(
-        milliseconds previous,
-        milliseconds next) const;
 };
 
 

@@ -36,15 +36,65 @@ terrain::terrain(float x, float y, float z)
         vertices[i].texture = {v.x / width, v.y / height};
 	}
 
-	for (auto i = 0u; i < vertices.size(); i += 3)
+	std::vector<glm::vec3> normals(heights.size());
+	for (auto j = 0; j < (height-1); ++j)
 	{
-        auto u = vertices[i].position - vertices[i+1].position;
-        auto v = vertices[i].position - vertices[i+2].position;
-        auto normal = glm::cross(u, v);
+		for (auto i = 0; i < (width-1); ++i)
+		{
+			auto index1 = (j * height) + i;
+			auto index2 = (j * height) + (i+1);
+			auto index3 = ((j+1) * height) + i;
 
-        vertices[i].normal = normal;
-        vertices[i+1].normal = normal;
-        vertices[i+2].normal = normal;
+			auto u = vertices[index1].position - vertices[index3].position;
+            auto v = vertices[index3].position - vertices[index2].position;
+
+			auto index = (j * (height-1)) + i;
+            normals[index] = glm::cross(u, v);
+
+		}
+	}
+
+	for (auto j = 0; j < (height-1); ++j)
+	{
+		for (auto i = 0; i < (width-1); ++i)
+		{
+            glm::vec3 v{0.0f, 0.0f, 0.0f};
+			auto count = 0;
+
+			// Bottom left face.
+			if(((i-1) >= 0) && ((j-1) >= 0))
+			{
+				auto index = ((j-1) * (height-1)) + (i-1);
+                v += normals[index];
+				++count;
+			}
+			// Bottom right face.
+			if((i < (width-1)) && ((j-1) >= 0))
+			{
+				auto index = ((j-1) * (height-1)) + i;
+                v += normals[index];
+				++count;
+			}
+			// Upper left face.
+			if(((i-1) >= 0) && (j < (height-1)))
+			{
+				auto index = (j * (height-1)) + (i-1);
+                v += normals[index];
+				++count;
+			}
+			// Upper right face.
+			if((i < (width-1)) && (j < (height-1)))
+			{
+				auto index = (j * (height-1)) + i;
+				v += normals[index];
+				++count;
+			}
+
+			v = {v.x/count, v.y/count, v.z/count};
+			float length = glm::length(v);
+			auto index = (j * height) + i;
+			vertices[index].normal = glm::normalize(v);
+		}
 	}
 
     std::vector<unsigned int> indices((width - 1) * (height - 1) * 6);
