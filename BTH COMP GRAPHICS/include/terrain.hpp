@@ -23,7 +23,7 @@ public:
 
 private:
 	std::vector<int> heights;
-	int draw_count{-1};
+	int draw_count{0};
 
 	vertex_array terrain_array;
 	buffer terrain_vbo;

@@ -47,33 +47,19 @@ terrain::terrain(float x, float y, float z)
         vertices[i+2].normal = normal;
 	}
 
-    std::vector<unsigned int> indices(((width - 1) * height - 1) * 6);
-	/*for (auto i = 0; i < indices.size()/6; ++i)
+    std::vector<unsigned int> indices((width - 1) * (height - 1) * 6);
+	for (auto i = 0; i < indices.size()/6; ++i)
 	{
-        indices[++draw_count] = i;
-        indices[++draw_count] = i + 1;
-        indices[++draw_count] = i + width;
+        auto pos = (i/(height-1)) * height + (i%(width-1));
+        indices[  draw_count] = pos;
+        indices[++draw_count] = pos + 1;
+        indices[++draw_count] = pos + width;
 
-        indices[++draw_count] = i + width + 1;
-        indices[++draw_count] = i + width;
-        indices[++draw_count] = i + 1;
-	}*/
-
-	for (auto i = 0; i < height - 1; ++i)
-	{
-		for (auto j = 0; j < width - 1; ++j)
-		{
-			auto pos = j + (i * width);
-
-			indices[++draw_count] = pos;
-			indices[++draw_count] = pos + 1;
-			indices[++draw_count] = pos + width;
-
-			indices[++draw_count] = pos + width + 1;
-			indices[++draw_count] = pos + width;
-			indices[++draw_count] = pos + 1;
-		}
-    }
+        indices[++draw_count] = pos + 1;
+        indices[++draw_count] = pos + width + 1;
+        indices[++draw_count] = pos + width;
+        ++draw_count;
+	}
 
 	terrain_array.bind();
 
