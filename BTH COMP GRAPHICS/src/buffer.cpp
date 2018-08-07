@@ -28,9 +28,6 @@ void buffer::data(int size, const void* data, unsigned int usage) const
     glBufferData(static_cast<unsigned int>(buffer_target), size, data, usage);
 }
 
-
-
-
 frame_buffer::frame_buffer()
 {
     glGenFramebuffers(1, &id);

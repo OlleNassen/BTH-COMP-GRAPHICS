@@ -221,6 +221,11 @@ void game::update(std::chrono::milliseconds delta_time)
 
 	root->update(0.016f);
 
+	for (auto& ico : icos)
+	{
+		ico->set_tessellation(ico->distance_to(cam_pos));
+	}
+
     terrain.update(delta_time);
     game_camera.move_on_terrain(terrain);
 

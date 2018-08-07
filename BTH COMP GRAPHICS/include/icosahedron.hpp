@@ -15,11 +15,14 @@ public:
 	icosahedron(float x = 0.0f, float y = 0.0f, float z = 0.0f);
 
 	void set_color(const glm::vec3& color);
+	void set_tessellation(float distance);
 
 private:
 	vertex_array v_array;
 	buffer vbo;
 	buffer ebo{target::ELEMENT_ARRAY_BUFFER};
+
+	float tessellation_level;
 
 	glm::vec3 temp_color;
 

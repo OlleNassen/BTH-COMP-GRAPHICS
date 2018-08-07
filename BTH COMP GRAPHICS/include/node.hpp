@@ -33,6 +33,7 @@ public:
     void prepare_render(const shader& shader) const;
     void render(const shader& shader) const;
 
+	float distance_to(const glm::vec3& other) const;
 private:
     std::vector<node*> children;
     glm::mat4 transform{1.0f};
@@ -57,7 +58,6 @@ private:
     void render_children(const shader& shader,
         glm::mat4& world_transform) const;
 
-    float distance_to(const glm::vec3& other) const;
 };
 
 }

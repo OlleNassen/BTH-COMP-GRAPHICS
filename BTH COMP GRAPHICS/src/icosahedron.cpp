@@ -1,4 +1,5 @@
 #include "icosahedron.hpp"
+#include <iostream>
 
 namespace scene
 {
@@ -60,6 +61,21 @@ void icosahedron::set_color(const glm::vec3& color)
 	temp_color = color;
 }
 
+void icosahedron::set_tessellation(float distance)
+{
+	if (distance < 5)
+	{
+		tessellation_level = 4;
+		std::cout << "level 4" << '\n';
+	}
+
+	else if (distance < 10)
+	{
+		tessellation_level = 2;
+		std::cout << "level 2" << '\n';
+	}
+}
+
 void icosahedron::update_current(milliseconds delta_time,
     const glm::mat4 & world_transform, glm::mat4 & transform)
 {
@@ -70,6 +86,7 @@ void icosahedron::render_current(const shader& shader,
 {
 	shader.uniform("model", world_transform);
 	shader.uniform("color", temp_color);
+	shader.uniform("tessellation", tessellation_level);
 	v_array.bind();
 	glDrawElements(GL_PATCHES, index_count, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
