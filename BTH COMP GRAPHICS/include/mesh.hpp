@@ -3,7 +3,7 @@
 #include <vector>
 #include "texture.hpp"
 #include "shader.hpp"
-#include "vertex_array.hpp"
+
 #include "buffer.hpp"
 #include "node.hpp"
 

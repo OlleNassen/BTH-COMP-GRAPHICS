@@ -3,7 +3,7 @@
 #include <array>
 #include "node.hpp"
 #include "buffer.hpp"
-#include "vertex_array.hpp"
+
 #include "texture.hpp"
 
 namespace scene

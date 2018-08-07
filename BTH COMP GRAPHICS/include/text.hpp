@@ -2,7 +2,6 @@
 #define TEXT_HPP
 #include <string>
 #include "buffer.hpp"
-#include "vertex_array.hpp"
 #include <map>
 #include <glm/glm.hpp>
 #include <ft2build.h>

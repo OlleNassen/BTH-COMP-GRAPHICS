@@ -56,4 +56,36 @@ private:
 
 };
 
+class vertex_array
+{
+public:
+	vertex_array();
+	~vertex_array();
+
+	void bind() const;
+
+	void attribute_pointer(
+		unsigned int index,
+		int size,
+		unsigned int type,
+		unsigned char normalized,
+		int stride,
+		const void* pointer) const;
+
+	void attribute_pointer(
+		unsigned int index,
+		int size,
+		unsigned int type,
+		int stride,
+		const void* pointer) const;
+
+	void attribute_divisor(
+		unsigned int index,
+		unsigned int divisor) const;
+
+
+private:
+	unsigned int id;
+};
+
 #endif // BUFFER_HPP

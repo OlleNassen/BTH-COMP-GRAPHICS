@@ -12,7 +12,7 @@
 #include <assimp/postprocess.h>
 #include "shader.hpp"
 #include "buffer.hpp"
-#include "vertex_array.hpp"
+
 
 namespace anim
 {

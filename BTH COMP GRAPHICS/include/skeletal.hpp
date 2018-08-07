@@ -1,7 +1,6 @@
 #ifndef SKELETAL_HPP
 #define SKELETAL_HPP
 #include <array>
-#include "vertex_array.hpp"
 #include "buffer.hpp"
 #include "node.hpp"
 #include <glm/glm.hpp>
@@ -15,7 +14,7 @@
 #include <assimp/Scene.h>
 #include <assimp/postprocess.h>
 #include <iostream>
-#include "md5_import.hpp"
+//#include "md5_import.hpp"
 
 class foo
 {

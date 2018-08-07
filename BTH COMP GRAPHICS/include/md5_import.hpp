@@ -219,20 +219,7 @@ namespace md5
 
 
 	};
-	class importer
-	{
 
-	};
-
-	class file_data
-	{
-
-	};
-
-	class animation
-	{
-
-	};
 }
 
 #endif

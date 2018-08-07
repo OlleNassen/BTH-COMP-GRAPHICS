@@ -152,7 +152,6 @@
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\icosahedron.cpp" />
     <ClCompile Include="src\input.cpp" />
-    <ClCompile Include="src\md5_import.cpp" />
     <ClCompile Include="src\mesh.cpp" />
     <ClCompile Include="src\node.cpp" />
     <ClCompile Include="src\normal_quad.cpp" />
@@ -172,7 +171,6 @@
     <ClCompile Include="src\terrain.cpp" />
     <ClCompile Include="src\text.cpp" />
     <ClCompile Include="src\texture.cpp" />
-    <ClCompile Include="src\vertex_array.cpp" />
     <ClCompile Include="src\window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -187,7 +185,6 @@
     <ClInclude Include="include\game.hpp" />
     <ClInclude Include="include\icosahedron.hpp" />
     <ClInclude Include="include\input.hpp" />
-    <ClInclude Include="include\md5_import.hpp" />
     <ClInclude Include="include\mesh.hpp" />
     <ClInclude Include="include\node.hpp" />
     <ClInclude Include="include\normal_quad.hpp" />
@@ -203,7 +200,6 @@
     <ClInclude Include="include\terrain.hpp" />
     <ClInclude Include="include\text.hpp" />
     <ClInclude Include="include\texture.hpp" />
-    <ClInclude Include="include\vertex_array.hpp" />
     <ClInclude Include="include\window.hpp" />
   </ItemGroup>
   <ItemGroup>
