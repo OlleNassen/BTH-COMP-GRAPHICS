@@ -109,7 +109,7 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices,
 
 void load_parent_names(const aiNode& node, std::vector<std::string>& names)
 {
-    if (node.mName.C_Str()[0] != '<')
+    if (strcmp(node.mName.C_Str(), "Camera"))
     {
         names.emplace_back(node.mName.C_Str());
     }
@@ -124,7 +124,7 @@ void load_parent_indices(const aiNode& node,
     const std::vector<std::string>& names,
     int& index, skeleton& joints)
 {
-    if(node.mName.C_Str()[0] != '<')
+    if(strcmp(node.mName.C_Str(), "Camera"))
     {
         ++index;
 
