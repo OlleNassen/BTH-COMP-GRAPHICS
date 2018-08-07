@@ -15,6 +15,7 @@
 #include <assimp/Scene.h>
 #include <assimp/postprocess.h>
 #include <iostream>
+#include "nclgl/MD5Anim.h"
 
 class foo
 {
@@ -58,6 +59,7 @@ public:
 private:
 	const aiScene* scene;
 	Assimp::Importer importer;
+	//MD5Anim test;
 };
 
 class skeletal_node
