@@ -71,15 +71,16 @@ game::game()
 	light_pos = glm::vec3(50, 5, -15);
     phong_pos = glm::vec3(0, 10, 5);
 
+    terrain.update(16ms);
     for(auto& checkpoint : current_race)
     {
-		//float x_val = rand() % terrain.width;
-		//float z_val = rand() % terrain.width;
+		glm::vec3 v;
+		v.x = 10 + rand() % 128;
+		v.y = 10;
+		v.z = 10 + rand() % 128;
 
-		/*checkpoint =
-            sphere(glm::vec3(x_val,
-            terrain.calculate_camera_y(
-            x_val, z_val) + 2, z_val), 2.5f);*/
+		checkpoint =
+            sphere(terrain.calculate_camera_position(v, 2.5f), 2.5f);
     }
 
 	root = new skeletal_node;
