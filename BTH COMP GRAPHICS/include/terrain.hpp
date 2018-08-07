@@ -27,7 +27,12 @@ private:
 	vertex_array terrain_array;
 	buffer terrain_vbo;
 	buffer terrain_ebo{target::ELEMENT_ARRAY_BUFFER};
-	texture terrain_texture;
+	texture grass{"images/grass.png",
+        wrap::REPEAT, filter::LINEAR, format::RGB};
+	texture grass_rock{"images/grass_rock.png",
+        wrap::REPEAT, filter::LINEAR, format::RGB};
+	texture rock{"images/rock.png",
+        wrap::REPEAT, filter::LINEAR, format::RGB};
 
 	int width = 0;
 	int height = 0;
