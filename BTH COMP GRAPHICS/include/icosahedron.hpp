@@ -22,7 +22,7 @@ private:
 	buffer vbo;
 	buffer ebo{target::ELEMENT_ARRAY_BUFFER};
 
-	float tessellation_level;
+	float tessellation_level{2};
 
 	glm::vec3 temp_color;
 

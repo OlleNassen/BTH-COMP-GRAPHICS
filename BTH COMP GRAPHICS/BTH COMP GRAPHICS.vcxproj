@@ -160,7 +160,6 @@
     <ClCompile Include="src\quad.cpp" />
     <ClCompile Include="src\quad_tess.cpp" />
     <ClCompile Include="src\race.cpp" />
-    <ClCompile Include="src\buffer.cpp" />
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\directional_light.cpp" />
     <ClCompile Include="src\main.cpp" />
