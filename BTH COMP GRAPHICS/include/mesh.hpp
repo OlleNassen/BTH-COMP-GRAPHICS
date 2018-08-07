@@ -37,4 +37,9 @@ protected:
 	virtual void setup_mesh();
 };
 
+class md5_mesh
+{
+
+};
+
 #endif
