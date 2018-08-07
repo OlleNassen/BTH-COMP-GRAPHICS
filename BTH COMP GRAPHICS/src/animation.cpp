@@ -45,7 +45,6 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices,
     std::vector<unsigned int>& indices)
 {
 	vertices.resize(mesh->mNumVertices);
-	std::cout << mesh->mNumFaces << std::endl;
 
 	for (auto i = 0u; i < mesh->mNumVertices; ++i)
 	{

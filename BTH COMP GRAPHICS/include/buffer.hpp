@@ -25,13 +25,25 @@ enum class target
 class buffer
 {
 public:
-    buffer();
-    buffer(target buffer_target);
-    ~buffer();
+    buffer(target buffer_target)
+        : buffer()
+    {
+        this->buffer_target = buffer_target;
+    }
+    buffer(){glGenBuffers(1, &id);}
+    ~buffer(){glDeleteBuffers(1, &id);}
 
-    void bind() const;
+    void bind() const
+    {
+        glBindBuffer(static_cast<unsigned int>(buffer_target), id);
+    }
 
-    void data(int size, const void* data, unsigned int usage) const;
+    void data(int size, const void* data, unsigned int usage) const
+    {
+        bind();
+        glBufferData(static_cast<unsigned int>(buffer_target),
+            size, data, usage);
+    }
 
 private:
     target buffer_target = target::ARRAY_BUFFER;
@@ -42,47 +54,36 @@ private:
 
 
 
-class frame_buffer
-{
-public:
-    frame_buffer();
-    ~frame_buffer();
-
-    void bind() const;
-    void bind_texture(const texture& texture) const;
-
-private:
-    unsigned int id;
-
-};
-
 class vertex_array
 {
 public:
-	vertex_array();
-	~vertex_array();
+	vertex_array(){glGenVertexArrays(1, &id);}
 
-	void bind() const;
+	~vertex_array(){glDeleteVertexArrays(1, &id);}
 
-	void attribute_pointer(
-		unsigned int index,
-		int size,
-		unsigned int type,
-		unsigned char normalized,
-		int stride,
-		const void* pointer) const;
+	void bind() const{glBindVertexArray(id);}
 
-	void attribute_pointer(
-		unsigned int index,
-		int size,
-		unsigned int type,
-		int stride,
-		const void* pointer) const;
+	void attribute_pointer(unsigned int index, int size, unsigned int type,
+		unsigned char normalized, int stride, const void* pointer) const
+    {
+        bind();
+        glEnableVertexAttribArray(index);
+        glVertexAttribPointer(index, size, type, normalized, stride, pointer);
+    }
 
-	void attribute_divisor(
-		unsigned int index,
-		unsigned int divisor) const;
+	void attribute_pointer(unsigned int index, int size, unsigned int type,
+		int stride,const void* pointer) const
+    {
+        bind();
+        glEnableVertexAttribArray(index);
+        glVertexAttribIPointer(index, size, type, stride, pointer);
+    }
 
+	void attribute_divisor(unsigned int index, unsigned int divisor) const
+    {
+        bind();
+        glVertexAttribDivisor(index, divisor);
+    }
 
 private:
 	unsigned int id;
