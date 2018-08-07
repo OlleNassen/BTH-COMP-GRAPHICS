@@ -58,15 +58,20 @@ std::vector<std::string> faces
     "images/skybox3/petesoasis_bk.tga", // BACK
     "images/skybox3/petesoasis_ft.tga" // FRONT
 	*/
-
+    /*
 	"images/skybox3/negx.jpg", // RIGHT
 	"images/skybox3/posx.jpg", // LEFT
 	"images/skybox3/posy.jpg", // TOP
 	"images/skybox3/negy.jpg", // BOTTOM
 	"images/skybox3/negz.jpg", // BACK
 	"images/skybox3/posz.jpg" // FRONT
-
-
+	*/
+	"images/ely_cloudtop/cloudtop_ft.tga", // FRONT
+    "images/ely_cloudtop/cloudtop_bk.tga", // BACK
+    "images/ely_cloudtop/cloudtop_up.tga", // TOP
+    "images/ely_cloudtop/cloudtop_dn.tga", // BOTTOM
+    "images/ely_cloudtop/cloudtop_rt.tga", // RIGHT
+    "images/ely_cloudtop/cloudtop_lf.tga" // LEFT
 };
 
 skybox::skybox()
