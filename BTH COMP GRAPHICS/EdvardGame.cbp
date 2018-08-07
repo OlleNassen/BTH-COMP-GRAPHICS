@@ -89,7 +89,6 @@
 		<Unit filename="shaders/terrain.vs" />
 		<Unit filename="src/animation.cpp" />
 		<Unit filename="src/box.cpp" />
-		<Unit filename="src/buffer.cpp" />
 		<Unit filename="src/camera.cpp" />
 		<Unit filename="src/directional_light.cpp" />
 		<Unit filename="src/game.cpp" />

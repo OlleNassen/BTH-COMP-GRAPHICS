@@ -2032,7 +2032,7 @@
 1533065950 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\buffer.cpp
 	"buffer.hpp"
 
-1533655357 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\buffer.hpp
+1533655471 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\buffer.hpp
 	<GL/glew.h>
 	"texture.hpp"
 

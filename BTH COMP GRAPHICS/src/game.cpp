@@ -75,9 +75,9 @@ game::game()
     for(auto& checkpoint : current_race)
     {
 		glm::vec3 v;
-		v.x = 10 + rand() % 128;
+		v.x = 10 + rand() % 256;
 		v.y = 10;
-		v.z = 10 + rand() % 128;
+		v.z = 10 + rand() % 256;
 
 		checkpoint =
             sphere(terrain.calculate_camera_position(v, 2.5f), 2.5f);

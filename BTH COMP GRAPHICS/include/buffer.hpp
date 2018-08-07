@@ -72,7 +72,7 @@ public:
     }
 
 	void attribute_pointer(unsigned int index, int size, unsigned int type,
-		int stride,const void* pointer) const
+		int stride, const void* pointer) const
     {
         bind();
         glEnableVertexAttribArray(index);
