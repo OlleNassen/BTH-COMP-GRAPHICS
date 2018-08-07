@@ -20,6 +20,7 @@ terrain::terrain(float x, float y, float z)
 	: node(x, y, z)
 	, terrain_texture{"images/ground.png",
         wrap::REPEAT, filter::LINEAR, format::RGBA}
+    , height_offset(y)
 {
 	auto* begin =
         stbi_load("images/heightmap.jpg", &width, &height, &channels, 1);
@@ -91,7 +92,6 @@ terrain::terrain(float x, float y, float z)
 			}
 
 			v = {v.x/count, v.y/count, v.z/count};
-			float length = glm::length(v);
 			auto index = (j * height) + i;
 			vertices[index].normal = glm::normalize(v);
 		}
@@ -127,19 +127,27 @@ terrain::terrain(float x, float y, float z)
         sizeof(terrain_vertex), buffer_offset<glm::vec3>(2));
 }
 
-float terrain::calculate_camera_y(float x, float z) const
+glm::vec3 terrain::calculate_camera_position(
+    const glm::vec3& world_position, float position_offset) const
 {
-    int x_index = x - this->x - this->x * 0.25f;
-    int z_index = z - this->z + this->z * 0.25f;
-    return heights[x_index + z_index * width] * 0.1f + y;
+    glm::vec4 position{inverse_transform * glm::vec4{world_position, 1.0f}};
+
+    if(position.x > 0 && position.z > 0 && position.x < width
+        && position.z < height)
+    {
+        std::cout << height << " : " << position.z << std::endl;
+        int i = position.x + position.z * width;
+        return {world_position.x, heights[i] * 0.1f +
+            height_offset + position_offset, world_position.z};
+    }
+
+    return world_position;
 }
 
 void terrain::update_current(milliseconds delta_time,
     const glm::mat4& world_transform, glm::mat4& transform)
 {
-    x = world_transform[3][0];
-    y = world_transform[3][1];
-    z = world_transform[3][2];
+    inverse_transform = glm::inverse(world_transform);
 }
 
 void terrain::render_current(const shader& shader,

@@ -168,12 +168,7 @@ void camera::bind(const shader& shader)
 
 void camera::move_on_terrain(const scene::terrain& terrain)
 {
-	if(position.x > terrain.x && position.z > terrain.z
-        && position.x < terrain.z + terrain.width
-        && position.z < terrain.z + terrain.width)
-    {
-        position.y = terrain.calculate_camera_y(position.x, position.z) + 3;
-    }
+    position = terrain.calculate_camera_position(position, 4.0f);
 }
 
 glm::vec3 camera::get_pos() const

@@ -14,24 +14,24 @@ class terrain : public node
 public:
 	terrain(float x = 0.0f, float y = 0.0f, float z = 0.0f);
 
-	float calculate_camera_y(const float x, const float z) const;
-
-	float x = 0.0f;
-	float y = 0.0f;
-	float z = 0.0f;
-	int width = 0;
+	glm::vec3 calculate_camera_position(
+        const glm::vec3& world_position, float position_offset) const;
 
 private:
 	std::vector<int> heights;
 	int draw_count{0};
+
+	glm::mat4 inverse_transform{1.0f};
 
 	vertex_array terrain_array;
 	buffer terrain_vbo;
 	buffer terrain_ebo{target::ELEMENT_ARRAY_BUFFER};
 	texture terrain_texture;
 
+	int width = 0;
 	int height = 0;
 	int channels = 0;
+	float height_offset;
 
 	void update_current(milliseconds delta_time,
 		const glm::mat4& world_transform, glm::mat4& transform) override;

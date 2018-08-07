@@ -73,13 +73,13 @@ game::game()
 
     for(auto& checkpoint : current_race)
     {
-		float x_val = rand() % terrain.width;
-		float z_val = rand() % terrain.width;
+		//float x_val = rand() % terrain.width;
+		//float z_val = rand() % terrain.width;
 
-		checkpoint =
+		/*checkpoint =
             sphere(glm::vec3(x_val,
             terrain.calculate_camera_y(
-            x_val, z_val) + 2, z_val), 2.5f);
+            x_val, z_val) + 2, z_val), 2.5f);*/
     }
 
 	root = new skeletal_node;
