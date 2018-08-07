@@ -17,6 +17,7 @@ public:
 	glm::vec3 calculate_camera_position(
         const glm::vec3& world_position, float position_offset) const;
 
+
 private:
 	std::vector<int> heights;
 	int draw_count{0};
