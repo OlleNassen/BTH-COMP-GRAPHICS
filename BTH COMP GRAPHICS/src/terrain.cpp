@@ -135,8 +135,8 @@ glm::vec3 terrain::calculate_camera_position(
     if(position.x > 0 && position.z > 0 && position.x < width
         && position.z < height)
     {
-        std::cout << height << " : " << position.z << std::endl;
-        int i = position.x + position.z * width;
+        glm::ivec2 v{position.x, position.z};
+        int i = v.x + v.y * width;
         return {world_position.x, heights[i] * 0.1f +
             height_offset + position_offset, world_position.z};
     }
