@@ -2045,7 +2045,7 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1533633366 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
+1533633986 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\camera.cpp
 	"camera.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>

@@ -132,20 +132,16 @@ glm::vec3 terrain::calculate_camera_position(
 {
     glm::vec4 position{inverse_transform * glm::vec4{world_position, 1.0f}};
 
-    if(world_position.x > 0 && world_position.z > 0
-        && world_position.x < width
-        && world_position.z < height)
+    if(position.x > 0 && position.z > 0 && position.x < width
+        && position.z < height)
     {
-        return
-            {world_position.x, heights[world_position.x
-            + world_position.z * height] * 0.1f +
-            height_offset + position_offset,
-            world_position.z};
+        std::cout << height << " : " << position.z << std::endl;
+        int i = position.x + position.z * width;
+        return {world_position.x, heights[i] * 0.1f +
+            height_offset + position_offset, world_position.z};
     }
-    else
-    {
-        return world_position;
-    }
+
+    return world_position;
 }
 
 void terrain::update_current(milliseconds delta_time,
