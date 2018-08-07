@@ -2664,7 +2664,7 @@
 1533636154 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
 	"mesh.hpp"
 
-1533636154 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh.hpp
+1533638504 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh.hpp
 	<vector>
 	"texture.hpp"
 	"shader.hpp"
@@ -3172,7 +3172,7 @@
 	<glm/glm.hpp>
 	"shader.hpp"
 
-1533636154 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skeletal.hpp
+1533638504 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skeletal.hpp
 	<array>
 	"vertex_array.hpp"
 	"buffer.hpp"
@@ -3189,6 +3189,6 @@
 	<assimp/postprocess.h>
 	<iostream>
 
-1533297388 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skeletal.cpp
+1533638504 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skeletal.cpp
 	"skeletal.hpp"
 

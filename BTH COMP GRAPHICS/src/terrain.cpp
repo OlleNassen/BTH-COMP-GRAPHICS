@@ -21,7 +21,7 @@ terrain::terrain(float x, float y, float z)
     , height_offset(y)
 {
 	auto* begin =
-        stbi_load("images/heightmap.jpg", &width, &height, &channels, 1);
+        stbi_load("images/heightmap-test.png", &width, &height, &channels, 1);
     auto* end = begin + width * height;
     heights.resize(end - begin);
     std::copy(begin, end, heights.begin());
@@ -31,7 +31,7 @@ terrain::terrain(float x, float y, float z)
 	for (auto i = 0u; i < vertices.size(); ++i)
 	{
         glm::vec2 v{i % width, i / height};
-        vertices[i].position = {v.x, heights[i] * 0.1f, v.y};
+        vertices[i].position = {v.x, heights[i], v.y};
         vertices[i].texture = {v.x / width, v.y / height};
 	}
 
@@ -135,7 +135,7 @@ glm::vec3 terrain::calculate_camera_position(
     {
         glm::ivec2 v{position.x, position.z};
         int i = v.x + v.y * width;
-        return {world_position.x, heights[i] * 0.1f +
+        return {world_position.x, heights[i] +
             height_offset + position_offset, world_position.z};
     }
 
