@@ -10,6 +10,7 @@
 #include <GLFW/glfw3.h>
 #include "box.hpp"
 #include "shader.hpp"
+#include "mesh.hpp"
 #include <assimp/Importer.hpp>
 #include <assimp/Scene.h>
 #include <assimp/postprocess.h>
@@ -62,9 +63,9 @@ private:
 class skeletal_node
 {
 public:
-	skeletal_node(scene::box* mesh = nullptr, glm::vec4 color = glm::vec4(1,1,0,1))
+	skeletal_node(mesh* mesh_ptr = nullptr, glm::vec4 color = glm::vec4(1,1,0,1))
 	{
-		this->mesh = mesh;
+		this->mesh_ptr = mesh_ptr;
 		parent = nullptr;
 		this->color = color;
 		transform = glm::mat4(1.f);
@@ -89,8 +90,8 @@ public:
 	void set_color(const glm::vec4 color) { this->color = color; }
 	glm::vec4 get_color()const { return this->color; }
 
-	void set_mesh(scene::box* ptr){mesh = ptr;}
-	scene::box* get_mesh()const{return mesh;}
+	void set_mesh(mesh* ptr){mesh_ptr = ptr;}
+	mesh* get_mesh()const{return mesh_ptr;}
 
 	void add_child(skeletal_node* child)
 	{
@@ -117,9 +118,9 @@ public:
 
 	virtual void draw(const shader& shade)
 	{
-		if (mesh)
+		if (mesh_ptr)
 		{
-			dynamic_cast<scene::box*>(mesh)->draw();
+			mesh_ptr->draw(shade);
 		}
 	}
 
@@ -134,7 +135,7 @@ public:
 
 protected:
 	skeletal_node* parent;
-	scene::box* mesh;
+	mesh* mesh_ptr;
 	glm::mat4 world_transform;
 	glm::mat4 transform;
 	glm::vec3 model_scale;
@@ -145,7 +146,7 @@ protected:
 class cube_robot : public skeletal_node
 {
 protected:
-	scene::box* cube;
+	mesh* cube;
 	skeletal_node* body;
 	skeletal_node* head;
 	skeletal_node* left_arm;
@@ -229,7 +230,54 @@ public:
 	}
 	void create_cube()
 	{
-		cube = new scene::box;
+		std::vector<vertex>vertices =
+		{
+			//pos, uv, normal
+			vertex(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec2(0.0f, 0.0f),  glm::vec3(0.0f,  0.0f, -1.0f)),
+			vertex(glm::vec3(-0.5f,  0.5f, -0.5f), glm::vec2(0.0f, 1.0f),   glm::vec3(0.0f,  0.0f, -1.0f)),
+			vertex(glm::vec3(0.5f,  0.5f, -0.5f), glm::vec2(1.0f, 1.0f),   glm::vec3(0.0f,  0.0f, -1.0f)),
+			vertex(glm::vec3(0.5f,  0.5f, -0.5f), glm::vec2(1.0f, 1.0f),   glm::vec3(0.0f,  0.0f, -1.0f)),
+			vertex(glm::vec3(0.5f, -0.5f, -0.5f), glm::vec2(1.0f, 0.0f),   glm::vec3(0.0f,  0.0f, -1.0f)),
+			vertex(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec2(0.0f, 0.0f),  glm::vec3(0.0f,  0.0f, -1.0f)),
+
+			vertex(glm::vec3(-0.5f, -0.5f,  0.5f), glm::vec2(0.0f, 0.0f),  glm::vec3(0.0f,  0.0f, 1.0f)),
+			vertex(glm::vec3(0.5f, -0.5f,   0.5f), glm::vec2(1.0f, 0.0f),  glm::vec3(0.0f,  0.0f, 1.0f)),
+			vertex(glm::vec3(0.5f,  0.5f,   0.5f), glm::vec2(1.0f, 1.0f),  glm::vec3(0.0f,  0.0f, 1.0f)),
+			vertex(glm::vec3(0.5f,  0.5f,   0.5f), glm::vec2(1.0f, 1.0f),  glm::vec3(0.0f,  0.0f, 1.0f)),
+			vertex(glm::vec3(-0.5f,  0.5f,  0.5f), glm::vec2(0.0f, 1.0f),  glm::vec3(0.0f,  0.0f, 1.0f)),
+			vertex(glm::vec3(-0.5f, -0.5f,  0.5f), glm::vec2(0.0f, 0.0f),  glm::vec3(0.0f,  0.0f, 1.0f)),
+				  
+			vertex(glm::vec3(-0.5f,  0.5f,  0.5f), glm::vec2(1.0f, 0.0f), glm::vec3(-1.0f,  0.0f,  0.0f)),
+			vertex(glm::vec3(-0.5f,  0.5f, -0.5f), glm::vec2(1.0f, 1.0f), glm::vec3(-1.0f,  0.0f,  0.0f)),
+			vertex(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec2(0.0f, 1.0f), glm::vec3(-1.0f,  0.0f,  0.0f)),
+			vertex(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec2(0.0f, 1.0f), glm::vec3(-1.0f,  0.0f,  0.0f)),
+			vertex(glm::vec3(-0.5f, -0.5f,  0.5f), glm::vec2(0.0f, 0.0f), glm::vec3(-1.0f,  0.0f,  0.0f)),
+			vertex(glm::vec3(-0.5f,  0.5f,  0.5f), glm::vec2(1.0f, 0.0f), glm::vec3(-1.0f,  0.0f,  0.0f)),
+				
+			vertex(glm::vec3(0.5f,  0.5f,  0.5f), glm::vec2(1.0f, 0.0f), glm::vec3(1.0f,  0.0f,  0.0f)),
+			vertex(glm::vec3(0.5f, -0.5f,  0.5f), glm::vec2(0.0f, 0.0f), glm::vec3(1.0f,  0.0f,  0.0f)),
+			vertex(glm::vec3(0.5f, -0.5f, -0.5f), glm::vec2(0.0f, 1.0f), glm::vec3(1.0f,  0.0f,  0.0f)),
+			vertex(glm::vec3(0.5f, -0.5f, -0.5f), glm::vec2(0.0f, 1.0f), glm::vec3(1.0f,  0.0f,  0.0f)),
+			vertex(glm::vec3(0.5f,  0.5f, -0.5f), glm::vec2(1.0f, 1.0f), glm::vec3(1.0f,  0.0f,  0.0f)),
+			vertex(glm::vec3(0.5f,  0.5f,  0.5f), glm::vec2(1.0f, 0.0f), glm::vec3(1.0f,  0.0f,  0.0f)),
+				
+			vertex(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec2(0.0f, 1.0f),  glm::vec3(0.0f, -1.0f,  0.0f)),
+			vertex(glm::vec3(0.5f, -0.5f,  -0.5f), glm::vec2(1.0f, 1.0f),  glm::vec3(0.0f, -1.0f,  0.0f)),
+			vertex(glm::vec3(0.5f, -0.5f,   0.5f), glm::vec2(1.0f, 0.0f),  glm::vec3(0.0f, -1.0f,  0.0f)),
+			vertex(glm::vec3(0.5f, -0.5f,   0.5f), glm::vec2(1.0f, 0.0f),  glm::vec3(0.0f, -1.0f,  0.0f)),
+			vertex(glm::vec3(-0.5f, -0.5f,  0.5f), glm::vec2(0.0f, 0.0f),  glm::vec3(0.0f, -1.0f,  0.0f)),
+			vertex(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec2(0.0f, 1.0f),  glm::vec3(0.0f, -1.0f,  0.0f)),
+				 
+			vertex(glm::vec3(-0.5f,  0.5f, -0.5f), glm::vec2(0.0f, 1.0f),  glm::vec3(0.0f,  1.0f,  0.0f)),
+			vertex(glm::vec3(-0.5f,  0.5f,  0.5f), glm::vec2(0.0f, 0.0f),  glm::vec3(0.0f,  1.0f,  0.0f)),
+			vertex(glm::vec3(0.5f,  0.5f,   0.5f), glm::vec2(1.0f, 0.0f),  glm::vec3(0.0f,  1.0f,  0.0f)),
+			vertex(glm::vec3(0.5f,  0.5f,   0.5f), glm::vec2(1.0f, 0.0f),  glm::vec3(0.0f,  1.0f,  0.0f)),
+			vertex(glm::vec3(0.5f,  0.5f,  -0.5f), glm::vec2(1.0f, 1.0f),  glm::vec3(0.0f,  1.0f,  0.0f)),
+			vertex(glm::vec3(-0.5f,  0.5f, -0.5f), glm::vec2(0.0f, 1.0f),  glm::vec3(0.0f,  1.0f,  0.0f))
+		};
+		std::vector<unsigned int> throw_away1;
+		std::vector<texture>throw_away2;
+		cube = new mesh(vertices, throw_away1, throw_away2);
 	}
 	virtual void update(float delta_time)override
 	{
