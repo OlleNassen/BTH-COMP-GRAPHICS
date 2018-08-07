@@ -191,7 +191,6 @@ void game::render()
 
 	tess_shader.use();
 	game_camera.bind(tess_shader);
-	ico.render(tess_shader);
 	for (auto& ics : icos)
 	{
 		ics->render(tess_shader);

@@ -73,7 +73,6 @@ private:
 	scene::particle_emitter particles{75, 35,75};
 	scene::terrain terrain{10, 10, 10};
 	scene::quad_tess quad_tess;
-	scene::icosahedron ico;
 	scene::quad backface{0, 0, -10};
 
 	text temp_text;

@@ -45,6 +45,7 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices,
     std::vector<unsigned int>& indices)
 {
 	vertices.resize(mesh->mNumVertices);
+	std::cout << mesh->mNumFaces << std::endl;
 
 	for (auto i = 0u; i < mesh->mNumVertices; ++i)
 	{
@@ -65,7 +66,7 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices,
 		auto face = mesh->mFaces[i];
 		for (auto j = 0u; j < face.mNumIndices; ++j)
 		{
-			indices.emplace_back(face.mIndices[j]);
+			indices.push_back(face.mIndices[j]);
 		}
 	}
 
@@ -317,7 +318,7 @@ model::model()
 {
     std::vector<key_frame> key_frames;
 
-	import_model("models/boblampclean.md5mesh",
+	import_model("models/test/model.dae",
         vertices, indices, joints,
         key_frames);
 
