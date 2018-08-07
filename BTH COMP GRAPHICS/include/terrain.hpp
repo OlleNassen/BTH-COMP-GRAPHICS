@@ -28,11 +28,11 @@ private:
 	buffer terrain_vbo;
 	buffer terrain_ebo{target::ELEMENT_ARRAY_BUFFER};
 	texture grass{"images/grass.png",
-        wrap::REPEAT, filter::LINEAR, format::RGB};
-	texture grass_rock{"images/grass_rock.png",
-        wrap::REPEAT, filter::LINEAR, format::RGB};
+        wrap::REPEAT, filter::LINEAR, format::RGBA};
+	texture slope{"images/slope.png",
+        wrap::REPEAT, filter::LINEAR, format::RGBA};
 	texture rock{"images/rock.png",
-        wrap::REPEAT, filter::LINEAR, format::RGB};
+        wrap::REPEAT, filter::LINEAR, format::RGBA};
 
 	int width = 0;
 	int height = 0;

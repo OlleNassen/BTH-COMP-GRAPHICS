@@ -21,7 +21,7 @@ terrain::terrain(float x, float y, float z)
     , height_offset(y)
 {
 	auto* begin =
-        stbi_load("images/heightmap.jpg", &width, &height, &channels, 1);
+        stbi_load("images/heightmap.png", &width, &height, &channels, 1);
     auto* end = begin + width * height;
     heights.resize(end - begin);
     std::copy(begin, end, heights.begin());
@@ -31,8 +31,8 @@ terrain::terrain(float x, float y, float z)
 	for (auto i = 0u; i < vertices.size(); ++i)
 	{
         glm::vec2 v{i % width, i / height};
-        vertices[i].position = {v.x, heights[i], v.y};
-        vertices[i].texture = {v.x / width, v.y / height};
+        vertices[i].position = {v.x, heights[i] * 0.1f, v.y};
+        vertices[i].texture = {v.x/4, v.y/4};
 	}
 
 	std::vector<glm::vec3> normals(heights.size());
@@ -135,7 +135,7 @@ glm::vec3 terrain::calculate_camera_position(
     {
         glm::ivec2 v{position.x, position.z};
         int i = v.x + v.y * width;
-        return {world_position.x, heights[i] +
+        return {world_position.x, heights[i] * 0.1f +
             height_offset + position_offset, world_position.z};
     }
 
@@ -153,7 +153,7 @@ void terrain::render_current(const shader& shader,
 {
 	shader.uniform("model", world_transform);
 	grass.uniform(shader, "diffuse", 0);
-	grass_rock.uniform(shader, "diffuse2", 1);
+	slope.uniform(shader, "diffuse2", 1);
 	rock.uniform(shader, "diffuse3", 2);
 	terrain_array.bind();
 	glDrawElements(GL_TRIANGLES, draw_count, GL_UNSIGNED_INT, 0);

@@ -2919,13 +2919,13 @@
 1533076907 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skybox.cpp
 	"skybox.hpp"
 
-1533638380 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\terrain.hpp
+1533641755 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\terrain.hpp
 	"node.hpp"
 	"buffer.hpp"
 	"vertex_array.hpp"
 	"texture.hpp"
 
-1533639991 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
+1533641760 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\terrain.cpp
 	"terrain.hpp"
 	<vector>
 	<iostream>
@@ -3172,7 +3172,7 @@
 	<glm/glm.hpp>
 	"shader.hpp"
 
-1533638504 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skeletal.hpp
+1533640103 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skeletal.hpp
 	<array>
 	"vertex_array.hpp"
 	"buffer.hpp"
@@ -3188,7 +3188,25 @@
 	<assimp/Scene.h>
 	<assimp/postprocess.h>
 	<iostream>
+	"nclgl/MD5Anim.h"
 
 1533638504 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skeletal.cpp
 	"skeletal.hpp"
+
+1533640103 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\nclgl\md5anim.h
+	"common.h"
+	<fstream>
+	<string>
+	"quaternion.h"
+	"Vector3.h"
+	"MD5Mesh.h"
+	"MD5FileData.h"
+
+1533640103 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\nclgl\common.h
+
+1533640103 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\nclgl\md5filedata.h
+	"common.h"
+	"MD5FileData.h"
+	"MD5Mesh.h"
+	"MD5Anim.h"
 
