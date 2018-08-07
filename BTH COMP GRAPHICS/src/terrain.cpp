@@ -95,10 +95,10 @@ terrain::terrain(float x, float y, float z)
 		}
 	}
 
-    std::vector<unsigned int> indices((width-2) * (height-1) * 6);
+    std::vector<unsigned int> indices((width-2) * (height-2) * 6);
 	for (auto i = 0u; i < indices.size()/6; ++i)
 	{
-        auto pos = (i/(height-1)) * width + (i%(width-2));
+        auto pos = (i/(height-2)) * width + (i%(width-2));
         indices[  draw_count] = pos;
         indices[++draw_count] = pos + width;
         indices[++draw_count] = pos + 1;
