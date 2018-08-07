@@ -18,8 +18,6 @@ struct terrain_vertex
 
 terrain::terrain(float x, float y, float z)
 	: node(x, y, z)
-	, terrain_texture{"images/ground.png",
-        wrap::REPEAT, filter::LINEAR, format::RGBA}
     , height_offset(y)
 {
 	auto* begin =
@@ -154,7 +152,9 @@ void terrain::render_current(const shader& shader,
     const glm::mat4& world_transform) const
 {
 	shader.uniform("model", world_transform);
-	terrain_texture.uniform(shader, "diffuse", 0);
+	grass.uniform(shader, "diffuse", 0);
+	grass_rock.uniform(shader, "diffuse2", 1);
+	rock.uniform(shader, "diffuse3", 2);
 	terrain_array.bind();
 	glDrawElements(GL_TRIANGLES, draw_count, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
