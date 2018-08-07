@@ -24,17 +24,22 @@ class mesh
 {
 public:
 	mesh(const std::vector<vertex>& vertices, const std::vector<unsigned int>& indices, const std::vector<texture>& textures);
-	~mesh();
-	void draw(const shader& shader);
+	virtual ~mesh();
+	virtual void draw(const shader& shader);
 
 	std::vector<vertex> vertices;
 	std::vector<unsigned int> indices;
 	std::vector<texture> textures;
-private:
+protected:
 	vertex_array vao;
 	buffer vbo;
 	buffer ebo;
-	void setup_mesh();
+	virtual void setup_mesh();
+};
+
+class md5_mesh
+{
+
 };
 
 #endif

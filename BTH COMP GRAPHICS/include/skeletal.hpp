@@ -301,16 +301,13 @@ public:
 	}
 };
 
-class skeletal
+class md5_node: skeletal_node
 {
 public:
-	skeletal();
-	~skeletal();
-	void render_current(const shader& shader,
-		const glm::mat4& world_transform);
+	md5_node();
+	~md5_node();
 
 private:
-	cube_robot* robot;
 
 };
 
