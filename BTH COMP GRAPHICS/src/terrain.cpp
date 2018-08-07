@@ -21,7 +21,7 @@ terrain::terrain(float x, float y, float z)
     , height_offset(y)
 {
 	auto* begin =
-        stbi_load("images/heightmap-test.png", &width, &height, &channels, 1);
+        stbi_load("images/heightmap.jpg", &width, &height, &channels, 1);
     auto* end = begin + width * height;
     heights.resize(end - begin);
     std::copy(begin, end, heights.begin());
