@@ -174,7 +174,8 @@ void load_parent_indices(const aiNode& node,
             auto* parent = &joints[i];
 
             joint.parent = parent;
-            joint.local_transform = ai_to_glm(node.mTransformation);
+            joint.local_transform = conversion_matrix
+                * ai_to_glm(node.mTransformation);
             joint.global_transform = parent->global_transform
                 * joint.local_transform;
             joint.inverse_bind_pose = glm::inverse(joint.global_transform);
