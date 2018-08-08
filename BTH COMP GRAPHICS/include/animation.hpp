@@ -12,6 +12,7 @@
 #include <assimp/postprocess.h>
 #include "shader.hpp"
 #include "buffer.hpp"
+#include "scene_loader.hpp"
 
 
 namespace anim
@@ -97,6 +98,7 @@ public:
     void draw(const shader& shader) const;
 
 private:
+    scene_loader loader;
     std::vector<vertex> vertices;
     std::vector<unsigned int> indices;
 

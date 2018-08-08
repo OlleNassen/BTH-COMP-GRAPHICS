@@ -2664,7 +2664,7 @@
 1533636154 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
 	"mesh.hpp"
 
-1533654127 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh.hpp
+1533720523 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh.hpp
 	<vector>
 	"texture.hpp"
 	"shader.hpp"
@@ -2990,13 +2990,13 @@
 	<ctime>
 	<iostream>
 
-1533664148 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1533725746 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 	<iostream>
 	<algorithm>
 	"game.hpp"
 
-1533654127 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
+1533721797 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
 	<array>
 	<vector>
 	<chrono>
@@ -3008,6 +3008,7 @@
 	<assimp/postprocess.h>
 	"shader.hpp"
 	"buffer.hpp"
+	"scene_loader.hpp"
 
 1532352542 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh_factory.hpp
 	<string>
@@ -3022,7 +3023,7 @@
 	<map>
 	"texture.hpp"
 
-1530284274 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\tinyxml2.cpp
+1533486702 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\tinyxml2.cpp
 	"tinyxml2.h"
 	<new>
 	<stddef.h>
@@ -3030,7 +3031,7 @@
 	<cstddef>
 	<cstdarg>
 
-1530284274 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\tinyxml2.h
+1533486702 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\tinyxml2.h
 	<ctype.h>
 	<limits.h>
 	<stdio.h>
@@ -3117,10 +3118,16 @@
 1532532117 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\race.cpp
 	"race.hpp"
 
-1532426116 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\scene_loader.cpp
+1533724417 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\scene_loader.cpp
 	"scene_loader.hpp"
 
-1532623486 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\scene_loader.hpp
+1533723599 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\scene_loader.hpp
+	<iostream>
+	<array>
+	<vector>
+	<string>
+	<glm/glm.hpp>
+	"tinyxml2.h"
 
 1532890487 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\joint.cpp
 	"joint.hpp"
@@ -3160,7 +3167,7 @@
 	<glm/glm.hpp>
 	"shader.hpp"
 
-1533654127 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skeletal.hpp
+1533720523 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skeletal.hpp
 	<array>
 	"buffer.hpp"
 	"node.hpp"
@@ -3175,6 +3182,7 @@
 	<assimp/Scene.h>
 	<assimp/postprocess.h>
 	<iostream>
+	"md5_import.hpp"
 
 1533638504 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skeletal.cpp
 	"skeletal.hpp"
@@ -3196,7 +3204,11 @@
 	"MD5Mesh.h"
 	"MD5Anim.h"
 
-1533645799 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\md5_import.hpp
+1533720523 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\md5_import.hpp
 	<string>
 	<glm/glm.hpp>
+	<glm/gtc/quaternion.hpp>
+	<map>
+	<vector>
+	"mesh.hpp"
 

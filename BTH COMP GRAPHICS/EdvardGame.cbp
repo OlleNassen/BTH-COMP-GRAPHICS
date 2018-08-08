@@ -69,6 +69,7 @@
 		<Unit filename="include/terrain.hpp" />
 		<Unit filename="include/text.hpp" />
 		<Unit filename="include/texture.hpp" />
+		<Unit filename="include/tinyxml2.h" />
 		<Unit filename="include/window.hpp" />
 		<Unit filename="shaders/anim.fs" />
 		<Unit filename="shaders/anim.vs" />
@@ -111,6 +112,7 @@
 		<Unit filename="src/terrain.cpp" />
 		<Unit filename="src/text.cpp" />
 		<Unit filename="src/texture.cpp" />
+		<Unit filename="src/tinyxml2.cpp" />
 		<Unit filename="src/window.cpp" />
 		<Extensions>
 			<code_completion />
