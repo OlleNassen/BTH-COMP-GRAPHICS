@@ -16,51 +16,6 @@
 #include <iostream>
 #include "md5_import.hpp"
 
-class foo
-{
-public:
-	foo()
-	{
-		Assimp::Importer imp;
-		auto scene = imp.ReadFile(
-			"hellknight.md5mesh",
-			aiProcess_GenSmoothNormals |
-			aiProcess_Triangulate |
-			aiProcess_CalcTangentSpace |
-			aiProcess_FlipUVs |
-			aiProcess_JoinIdenticalVertices);
-	}
-	~foo()
-	{
-
-	}
-	void recursiveProcess(aiNode* node, const aiScene* scene)
-	{
-		//process
-		for (int i = 0; i<node->mNumMeshes; i++)
-		{
-			aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
-			//processMesh(mesh, scene);
-		}
-		//recursion
-		for (int i = 0; i<node->mNumChildren; i++)
-		{
-			recursiveProcess(node->mChildren[i], scene);
-		}
-	}
-
-	void loadasset(const char* path)
-	{
-		scene = importer.ReadFile(path, aiProcess_GenSmoothNormals | aiProcess_Triangulate | aiProcess_CalcTangentSpace | aiProcess_FlipUVs);
-		//recursiveProcess(scene->mRootNode, scene);
-	}
-
-private:
-	const aiScene* scene;
-	Assimp::Importer importer;
-
-};
-
 class skeletal_node
 {
 public:
@@ -305,10 +260,50 @@ public:
 class md5_node: skeletal_node
 {
 public:
-	md5_node();
+	md5_node(const md5::MD5FileData &ofType)
+	{
+
+	}
 	~md5_node();
 
-private:
+	virtual  void    update(float delta_time) override
+	{
+		//AWAKE???
+		/*
+		if (currentAnim  &&  awake)
+		{
+			frameTime -= delta_time;
+			while (frameTime  < 0)
+			{
+				frameTime += 1000.0f / currentAnim->GetFrameRate();
+				currentAnimFrame =
+					currentAnimFrame++ % (currentAnim->GetNumFrames());
+			}
+			currentAnim->TransformSkeleton(
+				currentSkeleton, currentAnimFrame - 1);
+		}
+		*/
+		skeletal_node::update(delta_time);
+	}
+	virtual  void draw(const shader& shade) override
+	{
+		//MD5Mesh*m = (MD5Mesh *)mesh;
+		//m->SkinVertices(currentSkeleton);
+		//Mesh::Draw();
+	}
+
+	void PlayAnim(std::string  name)    //Play a new  anim!
+	{
+
+	}
+
+protected:
+	//const  md5::MD5FileData&    sourceData;
+	md5::MD5Skeleton            currentSkeleton;
+	md5::MD5Anim*                currentAnim;
+
+	float                    frameTime;
+	unsigned  int           currentAnimFrame; // Current  frame of  animation
 
 };
 

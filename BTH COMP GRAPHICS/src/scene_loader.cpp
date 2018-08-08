@@ -12,7 +12,7 @@ std::vector<vertex2> load_vertices(tinyxml2::XMLNode* node)
 
 std::vector<std::string> load_names(tinyxml2::XMLNode* node)
 {
-
+	return std::vector<std::string>();
 }
 
 scene_loader::scene_loader(const std::string& filename)

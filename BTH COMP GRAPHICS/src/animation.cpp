@@ -382,7 +382,7 @@ model::model()
 
 void model::update(milliseconds delta)
 {
-	//current.update(delta, joints);
+	current.update(delta, joints);
 
 	std::transform(joints.begin(), joints.end(), world_joints.begin(),
         [](const joint& j) -> glm::mat4

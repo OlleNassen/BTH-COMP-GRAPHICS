@@ -337,12 +337,12 @@ namespace md5
 				from >> bindPose.joints[loaded].orientation.z;
 				from >> skipChar; //second vec beginning bracket
 
-								  /*
-								  To save a tiny bit of space, the 4th component of the orientation
-								  quaternion is left out of the files. As we're dealing with unit length
-								  quaternions (i.e they have a length of 1), the 4th component will be
-								  sqrt of (1.0 - length of the other 3 components)
-								  */
+				/*
+				To save a tiny bit of space, the 4th component of the orientation
+				quaternion is left out of the files. As we're dealing with unit length
+				quaternions (i.e they have a length of 1), the 4th component will be
+				sqrt of (1.0 - length of the other 3 components)
+				*/
 
 				bindPose.joints[loaded].orientation.GenerateW();
 				bindPose.joints[loaded].orientation.Normalise();
@@ -936,7 +936,7 @@ namespace md5
 
 	//Transforms the passed in skeleton to the correct positions and
 	//orientations for the desired frame
-	void	MD5Anim::TransformSkeleton(MD5Skeleton &skel, unsigned int frameNum) {
+	void MD5Anim::TransformSkeleton(MD5Skeleton &skel, unsigned int frameNum) {
 		/*
 		Here's the most important function of the MD5Anim class. This transforms an input
 		skeleton's joints (generally this will be the 'working' skeleton from an MD5Mesh instance)
@@ -953,8 +953,8 @@ namespace md5
 		//For each joint in the animation
 		for (unsigned int i = 0; i < numJoints; ++i) {
 			//Grab COPIES of the position and orientation of the baseframe joint
-			Vector3		animPos = baseFrame.positions[i];
-			Quaternion  animQuat = baseFrame.orientations[i];
+			glm::vec3		animPos = baseFrame.positions[i];
+			glm::quat  animQuat = baseFrame.orientations[i];
 
 			/*
 			Each frame has a number of 'delta' components, and each joint

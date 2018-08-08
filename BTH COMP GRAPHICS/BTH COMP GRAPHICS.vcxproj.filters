@@ -93,6 +93,12 @@
     <ClCompile Include="external\include\nclgl\MD5FileData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\scene_loader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tinyxml2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\buffer.hpp">
@@ -176,7 +182,10 @@
     <ClInclude Include="external\include\nclgl\MD5FileData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\md5_import.hpp">
+    <ClInclude Include="include\scene_loader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tinyxml2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
