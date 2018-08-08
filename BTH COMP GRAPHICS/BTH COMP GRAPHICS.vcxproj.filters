@@ -176,6 +176,9 @@
     <ClInclude Include="external\include\nclgl\MD5FileData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\md5_import.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\skybox.vs" />

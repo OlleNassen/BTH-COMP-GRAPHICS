@@ -184,6 +184,7 @@
     <ClInclude Include="include\game.hpp" />
     <ClInclude Include="include\icosahedron.hpp" />
     <ClInclude Include="include\input.hpp" />
+    <ClInclude Include="include\md5_import.hpp" />
     <ClInclude Include="include\mesh.hpp" />
     <ClInclude Include="include\node.hpp" />
     <ClInclude Include="include\normal_quad.hpp" />
