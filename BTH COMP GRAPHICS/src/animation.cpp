@@ -131,8 +131,10 @@ void load_parent_indices(const aiNode& node,
         auto& joint = joints[index - 1];
         if(&joint == &joints.front())
         {
+
             joint.parent = nullptr;
-            joint.local_transform = ai_to_glm(node.mTransformation);
+            joint.local_transform = glm::rotate(ai_to_glm(node.mTransformation), 90.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+            std::cout << joint.local_transform;
             joint.global_transform = joint.local_transform;
             joint.inverse_bind_pose = glm::inverse(joint.global_transform);
         }
@@ -348,7 +350,7 @@ model::model()
 
 void model::update(milliseconds delta)
 {
-	current.update(delta, joints);
+	//current.update(delta, joints);
 
 	std::transform(joints.begin(), joints.end(), world_joints.begin(),
         [](const joint& j) -> glm::mat4
