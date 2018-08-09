@@ -51,8 +51,34 @@ private:
 
 };
 
+class frame_buffer
+{
+public:
+	frame_buffer()
+	{
+		glGenFramebuffers(1, &id);
+	}
+	~frame_buffer()
+	{
+		glDeleteFramebuffers(1, &id);
+	}
+	void bind() const
+	{
+		glBindFramebuffer(GL_FRAMEBUFFER, id);
+	}
+	void bind_texture(const texture& texture) const
+	{
+		bind();
+		texture.bind_to_buffer();
+		glDrawBuffer(GL_NONE);
+		glReadBuffer(GL_NONE);
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	}
 
+private:
+	unsigned int id;
 
+};
 
 class vertex_array
 {
