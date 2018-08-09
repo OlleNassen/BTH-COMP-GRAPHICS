@@ -166,7 +166,6 @@ void load_parent_indices(const aiNode& node,
         auto& joint = joints[index];
         if(&joint == &joints.front())
         {
-            joint.parent = 0;
             joint.local_transform = conversion_matrix
                 * ai_to_glm(node.mTransformation);
             joint.global_transform = joint.local_transform;

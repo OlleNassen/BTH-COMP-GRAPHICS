@@ -26,7 +26,7 @@ class joint
 public:
    auto as_matrix() const{return global_transform * inverse_bind_pose;}
 
-    int parent;
+    int parent = 0;
     glm::mat4 local_transform;
     glm::mat4 global_transform;
     glm::mat4 inverse_bind_pose;
