@@ -14,7 +14,7 @@ const glm::mat4 conversion_matrix
      0, 0, 0, 1
 };
 
-glm::vec3 convert(glm::vec3 v3)
+/**glm::vec3 convert(glm::vec3 v3)
 {
     glm::vec4 v4 = conversion_matrix * glm::vec4{v3, 1.0f};
     v3.x = v4.x;
@@ -29,7 +29,7 @@ glm::quat convert(glm::quat q)
     m = conversion_matrix * m;
     q = glm::quat_cast(m);
     return q;
-}
+}*/
 
 constexpr glm::mat4 ai_to_glm(const aiMatrix4x4& mat)
 {
@@ -84,7 +84,6 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices,
 		vertices[i].position.x = mesh->mVertices[i].x;
 		vertices[i].position.y = mesh->mVertices[i].y;
 		vertices[i].position.z = mesh->mVertices[i].z;
-		vertices[i].position = convert(vertices[i].position);
 
 		vertices[i].texture_coordinate.x = mesh->mTextureCoords[0][i].x;
 		vertices[i].texture_coordinate.y = mesh->mTextureCoords[0][i].y;
@@ -116,8 +115,6 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices,
 		for (auto j = 0u; j < bone->mNumWeights; ++j)
 		{
             auto& weight = bone->mWeights[j];
-            //if(j == 0)
-                //std::cout << i+1 << " " << bone->mName.C_Str() << std::endl;
 
             if (vertices[weight.mVertexId].weights.x == 0.0f)
             {
@@ -166,8 +163,7 @@ void load_parent_indices(const aiNode& node,
         auto& joint = joints[index];
         if(&joint == &joints.front())
         {
-            joint.local_transform = conversion_matrix
-                * ai_to_glm(node.mTransformation);
+            joint.local_transform = ai_to_glm(node.mTransformation);
             joint.global_transform = joint.local_transform;
             joint.inverse_bind_pose = glm::inverse(joint.global_transform);
         }
@@ -234,12 +230,7 @@ void load_key_frames(const aiAnimation* anim,
             aiQuaternion q = channel->mRotationKeys[j].mValue;
 
             key_frames[j].poses[i+1].position = glm::vec3{v.x, v.y, v.z};
-            //key_frames[j].poses[i+1].position =
-                //convert(key_frames[j].poses[i+1].position);
-
             key_frames[j].poses[i+1].rotation = glm::quat{q.w, q.x, q.y, q.z};
-            //key_frames[j].poses[i+1].rotation =
-                //convert(key_frames[j].poses[i+1].rotation);
 		}
 	}
 }
