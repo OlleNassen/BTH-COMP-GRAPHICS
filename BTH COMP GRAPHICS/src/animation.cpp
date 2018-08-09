@@ -234,12 +234,12 @@ void load_key_frames(const aiAnimation* anim,
             aiQuaternion q = channel->mRotationKeys[j].mValue;
 
             key_frames[j].poses[i+1].position = glm::vec3{v.x, v.y, v.z};
-            key_frames[j].poses[i+1].position =
-                convert(key_frames[j].poses[i+1].position);
+            //key_frames[j].poses[i+1].position =
+                //convert(key_frames[j].poses[i+1].position);
 
             key_frames[j].poses[i+1].rotation = glm::quat{q.w, q.x, q.y, q.z};
             //key_frames[j].poses[i+1].rotation =
-            //    convert(key_frames[j].poses[i+1].rotation);
+                //convert(key_frames[j].poses[i+1].rotation);
 		}
 	}
 }
@@ -298,15 +298,14 @@ void animation::update_key_frame()
 
 void animation::update_pose(skeleton& joints)
 {
-    auto progression =
-        calculate_progression(prev->timepoint,
-        next->timepoint, time);
+    auto progression = calculate_progression(
+        prev->timepoint, next->timepoint, time);
 
     auto new_transform = [&](int i) -> glm::mat4
     {
         auto p = mix(prev->poses[i], next->poses[i], progression);
-        return glm::translate(glm::mat4{1.0f}, p.position);
-            //* glm::mat4_cast(p.rotation);
+        return glm::translate(glm::mat4{1.0f}, p.position)
+            * glm::mat4_cast(p.rotation);
 
     };
 
