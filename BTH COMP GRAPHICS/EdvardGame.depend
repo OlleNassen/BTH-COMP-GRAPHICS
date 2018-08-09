@@ -2990,13 +2990,13 @@
 	<ctime>
 	<iostream>
 
-1533729977 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1533810658 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 	<iostream>
 	<algorithm>
 	"game.hpp"
 
-1533721797 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
+1533756345 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
 	<array>
 	<vector>
 	<chrono>
@@ -3118,7 +3118,7 @@
 1532532117 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\race.cpp
 	"race.hpp"
 
-1533724417 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\scene_loader.cpp
+1533734550 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\scene_loader.cpp
 	"scene_loader.hpp"
 
 1533723599 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\scene_loader.hpp
@@ -3167,7 +3167,7 @@
 	<glm/glm.hpp>
 	"shader.hpp"
 
-1533720523 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skeletal.hpp
+1533734550 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\skeletal.hpp
 	<array>
 	"buffer.hpp"
 	"node.hpp"
@@ -3184,7 +3184,7 @@
 	<iostream>
 	"md5_import.hpp"
 
-1533638504 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skeletal.cpp
+1533734550 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skeletal.cpp
 	"skeletal.hpp"
 
 1533640103 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\nclgl\md5anim.h

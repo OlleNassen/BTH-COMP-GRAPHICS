@@ -40,6 +40,14 @@ constexpr glm::mat4 ai_to_glm(const aiMatrix4x4& mat)
         mat.a3, mat.b3, mat.c3, mat.d3,
         mat.a4, mat.b4, mat.c4, mat.d4
     };
+
+    /*return
+    {
+        mat.a1, mat.a2, mat.a3, mat.a4,
+        mat.b1, mat.b2, mat.c3, mat.b4,
+        mat.c1, mat.c2, mat.c3, mat.c4,
+        mat.d1, mat.d2, mat.d3, mat.d4
+    };*/
 }
 
 constexpr float calculate_progression(
@@ -108,25 +116,27 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices,
 		for (auto j = 0u; j < bone->mNumWeights; ++j)
 		{
             auto& weight = bone->mWeights[j];
+            //if(j == 0)
+                //std::cout << i+1 << " " << bone->mName.C_Str() << std::endl;
 
             if (vertices[weight.mVertexId].weights.x == 0.0f)
             {
-                vertices[weight.mVertexId].joints.x = i;
+                vertices[weight.mVertexId].joints.x = i+1;
                 vertices[weight.mVertexId].weights.x = weight.mWeight;
             }
             else if (vertices[weight.mVertexId].weights.y == 0.0f)
             {
-                vertices[weight.mVertexId].joints.y = i;
+                vertices[weight.mVertexId].joints.y = i+1;
                 vertices[weight.mVertexId].weights.y = weight.mWeight;
             }
             else if (vertices[weight.mVertexId].weights.z == 0.0f)
             {
-                vertices[weight.mVertexId].joints.z = i;
+                vertices[weight.mVertexId].joints.z = i+1;
                 vertices[weight.mVertexId].weights.z = weight.mWeight;
             }
             else if (vertices[weight.mVertexId].weights.w == 0.0f)
             {
-                vertices[weight.mVertexId].joints.w = i;
+                vertices[weight.mVertexId].joints.w = i+1;
                 vertices[weight.mVertexId].weights.w = weight.mWeight;
             }
 		}
@@ -138,6 +148,7 @@ void load_parent_names(const aiNode& node, std::vector<std::string>& names)
     if (strcmp(node.mName.C_Str(), "Camera"))
     {
         names.emplace_back(node.mName.C_Str());
+        //std::cout << node.mName.C_Str() << std::endl;
     }
 
     for (auto i = 0u; i < node.mNumChildren; ++i)
@@ -152,18 +163,17 @@ void load_parent_indices(const aiNode& node,
 {
     if(strcmp(node.mName.C_Str(), "Camera"))
     {
-        ++index;
-
-        auto& joint = joints[index - 1];
+        auto& joint = joints[index];
         if(&joint == &joints.front())
         {
-
-            joint.parent = nullptr;
+            joint.parent = 0;
             joint.local_transform = conversion_matrix
                 * ai_to_glm(node.mTransformation);
             joint.global_transform = joint.local_transform;
             joint.inverse_bind_pose = glm::inverse(joint.global_transform);
         }
+
+        ++index;
     }
 
     for (auto i = 0u; i < names.size(); ++i)
@@ -173,9 +183,8 @@ void load_parent_indices(const aiNode& node,
             auto& joint = joints[index - 1];
             auto* parent = &joints[i];
 
-            joint.parent = parent;
-            joint.local_transform = conversion_matrix
-                * ai_to_glm(node.mTransformation);
+            joint.parent = i;
+            joint.local_transform = ai_to_glm(node.mTransformation);
             joint.global_transform = parent->global_transform
                 * joint.local_transform;
             joint.inverse_bind_pose = glm::inverse(joint.global_transform);
@@ -213,6 +222,8 @@ void load_key_frames(const aiAnimation* anim,
         auto* channel = anim->mChannels[i];
         for (auto j = 0u; j < channel->mNumPositionKeys; ++j)
 		{
+            if(j == 0u) std::cout << i+1 << " " << channel->mNodeName.C_Str() << std::endl;
+
             if (i == 0u)
             {
                 using namespace std::chrono;
@@ -220,17 +231,16 @@ void load_key_frames(const aiAnimation* anim,
                     duration_cast<milliseconds>(duration<float>
                     (channel->mPositionKeys[j].mTime));
             }
-
             aiVector3D v = channel->mPositionKeys[j].mValue;
             aiQuaternion q = channel->mRotationKeys[j].mValue;
 
-            key_frames[j].poses[i].position = glm::vec3{v.x, v.y, v.z};
-            key_frames[j].poses[i].position =
-                convert(key_frames[j].poses[i].position);
+            key_frames[j].poses[i+1].position = glm::vec3{v.x, v.y, v.z};
+            key_frames[j].poses[i+1].position =
+                convert(key_frames[j].poses[i+1].position);
 
-            key_frames[j].poses[i].rotation = glm::quat{q.w, q.x, q.y, q.z};
-            key_frames[j].poses[i].rotation =
-                convert(key_frames[j].poses[i].rotation);
+            key_frames[j].poses[i+1].rotation = glm::quat{q.w, q.x, q.y, q.z};
+            //key_frames[j].poses[i+1].rotation =
+            //    convert(key_frames[j].poses[i+1].rotation);
 		}
 	}
 }
@@ -243,38 +253,12 @@ void import_model(const std::string& path,
 {
 	Assimp::Importer importer;
 	auto* scene = importer.ReadFile(path.c_str(),
-		aiProcess_GenSmoothNormals |
 		aiProcess_Triangulate |
-        aiProcess_CalcTangentSpace |
-        aiProcess_FlipUVs |
-        aiProcess_JoinIdenticalVertices);
+        aiProcess_FlipUVs);
 
     load_mesh(scene->mMeshes[0], vertices, indices);
 	load_skeleton(scene->mRootNode, joints);
 	load_key_frames(scene->mAnimations[0], key_frames);
-}
-
-
-
-
-joint::joint(const glm::mat4& transform, joint* parent)
-    : parent(parent ? parent : this)
-    , local_transform(transform)
-    , global_transform(
-        (this->parent != this ? parent->global_transform
-        : glm::mat4(1.0f))
-        * local_transform)
-    , inverse_bind_pose(glm::inverse(global_transform))
-{
-
-}
-
-void joint::transform(const glm::mat4& new_transform)
-{
-    local_transform = new_transform;
-    global_transform =
-        parent->global_transform
-        * local_transform;
 }
 
 
@@ -319,28 +303,21 @@ void animation::update_pose(skeleton& joints)
         calculate_progression(prev->timepoint,
         next->timepoint, time);
 
-    for (auto i = 0u; i < joints.size(); ++i)
+    auto new_transform = [&](int i) -> glm::mat4
+    {
+        auto p = mix(prev->poses[i], next->poses[i], progression);
+        return glm::translate(glm::mat4{1.0f}, p.position);
+            //* glm::mat4_cast(p.rotation);
+
+    };
+
+    joints.front().local_transform = new_transform(0);
+    joints.front().global_transform = joints.front().local_transform;
+    for (auto i = 1u; i < joints.size(); ++i)
     {
         auto& j = joints[i];
-        auto p = mix(prev->poses[i], next->poses[i], progression);
-
-        //MVP, TRS
-        glm::mat4 new_transform{
-            glm::translate(glm::mat4{1.0f}, p.position)
-            * glm::mat4_cast(p.rotation)};
-
-        if (i != 0u)
-        {
-            j.local_transform = new_transform;
-            j.global_transform =
-                j.parent->global_transform *
-                j.local_transform;
-        }
-        else
-        {
-            j.local_transform = new_transform;
-            j.global_transform = j.local_transform;
-        }
+        j.local_transform =  new_transform(i);
+        j.global_transform = joints[j.parent].global_transform * j.local_transform;
     }
 }
 
@@ -390,8 +367,6 @@ void model::update(milliseconds delta)
         {
             return j.as_matrix();
         });
-
-
 }
 
 void model::draw(const shader& shader) const
