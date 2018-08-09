@@ -85,6 +85,15 @@ game::game()
 
 	root = new skeletal_node;
 	root->add_child(new cube_robot);
+
+	configure_g_buffer();
+	configure_lights();
+
+	//Configure for deferred
+	deferred_shader.use();
+	deferred_shader.uniform("gPosition", 0);
+	deferred_shader.uniform("gNormal", 1);
+	deferred_shader.uniform("gAlbedoSpec", 2);
 }
 
 void game::run()

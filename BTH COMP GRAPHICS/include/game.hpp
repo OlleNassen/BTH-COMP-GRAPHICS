@@ -93,7 +93,7 @@ private:
 	void render();
 	void update(std::chrono::milliseconds delta_time);
 
-	//Defferred stuff
+	//Deferred stuff
 	void configure_g_buffer();
 	void configure_lights();
 	std::vector<glm::vec3> lightPositions;
