@@ -6,7 +6,7 @@
 namespace anim
 {
 
-const glm::mat4 conversion_matrix
+/**const glm::mat4 conversion_matrix
 {
     -1, 0, 0, 0,
      0, 0, 1, 0,
@@ -14,7 +14,7 @@ const glm::mat4 conversion_matrix
      0, 0, 0, 1
 };
 
-/**glm::vec3 convert(glm::vec3 v3)
+glm::vec3 convert(glm::vec3 v3)
 {
     glm::vec4 v4 = conversion_matrix * glm::vec4{v3, 1.0f};
     v3.x = v4.x;
@@ -40,14 +40,6 @@ constexpr glm::mat4 ai_to_glm(const aiMatrix4x4& mat)
         mat.a3, mat.b3, mat.c3, mat.d3,
         mat.a4, mat.b4, mat.c4, mat.d4
     };
-
-    /*return
-    {
-        mat.a1, mat.a2, mat.a3, mat.a4,
-        mat.b1, mat.b2, mat.c3, mat.b4,
-        mat.c1, mat.c2, mat.c3, mat.c4,
-        mat.d1, mat.d2, mat.d3, mat.d4
-    };*/
 }
 
 constexpr float calculate_progression(
@@ -102,12 +94,6 @@ void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices,
 		}
 	}
 
-	for (auto& vertex : vertices)
-    {
-        vertex.joints = glm::ivec4(0, 0, 0, 0);
-        vertex.weights = glm::vec4(0.0f, 0.0f, 0.0f, 0.0f);
-    }
-
 	for (auto i = 0u; i < mesh->mNumBones; ++i)
 	{
 		auto* bone = mesh->mBones[i];
@@ -145,7 +131,6 @@ void load_parent_names(const aiNode& node, std::vector<std::string>& names)
     if (strcmp(node.mName.C_Str(), "Camera"))
     {
         names.emplace_back(node.mName.C_Str());
-        //std::cout << node.mName.C_Str() << std::endl;
     }
 
     for (auto i = 0u; i < node.mNumChildren; ++i)
@@ -177,7 +162,7 @@ void load_parent_indices(const aiNode& node,
         {
             auto& joint = joints[index - 1];
             auto* parent = &joints[i];
-
+            std::cout << index - 1 << ": " << i << std::endl;
             joint.parent = i;
             joint.local_transform = ai_to_glm(node.mTransformation);
             joint.global_transform = parent->global_transform
@@ -306,7 +291,8 @@ void animation::update_pose(skeleton& joints)
     {
         auto& j = joints[i];
         j.local_transform =  new_transform(i);
-        j.global_transform = joints[j.parent].global_transform * j.local_transform;
+        j.global_transform =
+            joints[j.parent].global_transform * j.local_transform;
     }
 }
 
@@ -314,7 +300,6 @@ void animation::update_pose(skeleton& joints)
 
 
 model::model()
-    : loader{"models/test/model.dae"}
 {
     std::vector<key_frame> key_frames;
 
@@ -351,11 +336,16 @@ void model::update(milliseconds delta)
 {
 	current.update(delta, joints);
 
-	std::transform(joints.begin(), joints.end(), world_joints.begin(),
+	/*std::transform(joints.begin(), joints.end(), world_joints.begin(),
         [](const joint& j) -> glm::mat4
         {
             return j.as_matrix();
-        });
+        });*/
+
+    for (int i = 0; i < joints.size(); ++i)
+    {
+        world_joints[i] = joints[i].as_matrix();
+    }
 }
 
 void model::draw(const shader& shader) const

@@ -73,7 +73,7 @@ private:
 	scene::temp_box environment{10, 2, 0};
 	scene::quad quad{0, 5, -20}; // phong
 	scene::normal_quad normal_quad{50, 5, -20};
-	scene::particle_emitter particles{75, 35,75};
+	scene::particle_emitter particles;
 	scene::terrain terrain{10, 10, 10};
 	scene::quad_tess quad_tess;
 	scene::quad backface{0, 0, -10};

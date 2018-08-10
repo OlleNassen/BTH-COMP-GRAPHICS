@@ -27,6 +27,7 @@ public:
     node(float x, float y, float z);
 
     void attach_child(node* child);
+    void clear();
 
     void sort(glm::vec3& pos);
     void update(milliseconds delta_time);
@@ -36,12 +37,10 @@ public:
 	float distance_to(const glm::vec3& other) const;
 private:
     std::vector<node*> children;
-    glm::mat4 transform{1.0f};
+    glm::mat4 local{1.0f};
+    glm::mat4 world{1.0f};
 
     void update(milliseconds delta_time, glm::mat4& world_transform);
-    void prepare_render(const shader& shader,
-        glm::mat4& world_transform) const;
-    void render(const shader& shader, glm::mat4& world_transform) const;
 
     virtual void update_current(milliseconds delta_time,
         const glm::mat4& world_transform, glm::mat4& transform);

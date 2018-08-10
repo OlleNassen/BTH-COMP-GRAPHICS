@@ -42,5 +42,5 @@ void main()
 
     we = weight;
 
-     gl_Position = projection * view * matrix * vec4(position, 1.0);
+    gl_Position = projection * view * matrix * vec4(position, 1.0);
 }

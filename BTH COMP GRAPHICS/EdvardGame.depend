@@ -2604,15 +2604,12 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1533820137 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1533897368 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
-	<iostream>
-	<chrono>
-	"input.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1533820137 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1533896220 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	<iostream>
 	<chrono>
 	"window.hpp"
@@ -2852,15 +2849,16 @@
 	"vertex_array.hpp"
 	<GL/glew.h>
 
-1532623709 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\window.hpp
+1533894382 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\window.hpp
 	<string>
 	<functional>
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 
-1533658601 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\window.cpp
+1533894449 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\window.cpp
 	"window.hpp"
 	<iostream>
+	<map>
 
 1532794459 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\model.cpp
 	"model.hpp"
@@ -2990,13 +2988,13 @@
 	<ctime>
 	<iostream>
 
-1533823996 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1533895484 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 	<iostream>
 	<algorithm>
 	"game.hpp"
 
-1533820445 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
+1533827559 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
 	<array>
 	<vector>
 	<chrono>
@@ -3008,7 +3006,6 @@
 	<assimp/postprocess.h>
 	"shader.hpp"
 	"buffer.hpp"
-	"scene_loader.hpp"
 
 1532352542 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh_factory.hpp
 	<string>
@@ -3155,13 +3152,13 @@
 	<iostream>
 	<gl/glew.h>
 
-1533482728 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\node.cpp
+1533898897 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\node.cpp
 	"node.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 	<algorithm>
 
-1533656003 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\node.hpp
+1533898916 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\node.hpp
 	<vector>
 	<chrono>
 	<glm/glm.hpp>

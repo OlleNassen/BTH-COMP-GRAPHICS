@@ -1,17 +1,16 @@
 #include "game.hpp"
-#include <iostream>
-#include <chrono>
-#include "input.hpp"
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-std::ostream& operator<<(std::ostream& os, const glm::mat4& value)
+std::ostream& operator<<(std::ostream& os, const glm::mat4& m)
 {
+    using std::endl;
+    constexpr char c = ' ';
     return os
-        << value[0][0] << " " << value[1][0] << " " << value[2][0] << " " << value[3][0] << std::endl
-        << value[0][1] << " " << value[1][1] << " " << value[2][1] << " " << value[3][1] << std::endl
-        << value[0][2] << " " << value[1][2] << " " << value[2][2] << " " << value[3][2] << std::endl
-        << value[0][3] << " " << value[1][3] << " " << value[2][3] << " " << value[3][3] << std::endl;
+        << m[0][0] << c << m[1][0] << c << m[2][0] << c << m[3][0] << endl
+        << m[0][1] << c << m[1][1] << c << m[2][1] << c << m[3][1] << endl
+        << m[0][2] << c << m[1][2] << c << m[2][2] << c << m[3][2] << endl
+        << m[0][3] << c << m[1][3] << c << m[2][3] << c << m[3][3] << endl;
 }
 
 game::game()
@@ -22,43 +21,43 @@ game::game()
         glm::vec3(1.0f, 1.0f, 1.0f))
 {
 	srand(time(NULL));
-	input::assign_window(game_window);
+	assign_window(game_window);
 
-	input::assign_mouse_callback(
+	assign_mouse_callback(
         std::bind(
         &camera::on_mouse_moved,
         &game_camera,
         std::placeholders::_1,
         std::placeholders::_2));
 
-    input::bind_key("up", input::key::W);
-    input::bind_key("down", input::key::S);
-    input::bind_key("left", input::key::A);
-    input::bind_key("right", input::key::D);
-    input::bind_key("shift", input::key::Q);
-    input::bind_key("escape", input::key::ESCAPE);
+    bind_key("up", key::W);
+    bind_key("down", key::S);
+    bind_key("left", key::A);
+    bind_key("right", key::D);
+    bind_key("shift", key::Q);
+    bind_key("escape", key::ESCAPE);
 
-    input::assign_key_callback("escape",
+    assign_key_callback("escape",
         std::bind(&window::on_escape, &game_window),
         nullptr);
 
-    input::assign_key_callback("up",
+    assign_key_callback("up",
         std::bind(&camera::up_pressed, &game_camera),
         std::bind(&camera::up_released, &game_camera));
 
-    input::assign_key_callback("down",
+    assign_key_callback("down",
         std::bind(&camera::down_pressed, &game_camera),
         std::bind(&camera::down_released, &game_camera));
 
-    input::assign_key_callback("left",
+    assign_key_callback("left",
         std::bind(&camera::left_pressed, &game_camera),
         std::bind(&camera::left_released, &game_camera));
 
-    input::assign_key_callback("right",
+    assign_key_callback("right",
         std::bind(&camera::right_pressed, &game_camera),
         std::bind(&camera::right_released, &game_camera));
 
-    input::assign_key_callback("shift",
+    assign_key_callback("shift",
         std::bind(&camera::fast_pressed, &game_camera),
         std::bind(&camera::fast_released, &game_camera));
 
@@ -75,9 +74,9 @@ game::game()
     for(auto& checkpoint : current_race)
     {
 		glm::vec3 v;
-		v.x = 10 + rand() % 256;
-		v.y = 10;
-		v.z = 10 + rand() % 256;
+		v.x = 20 + rand() % 246;
+		v.y = 20;
+		v.z = 20 + rand() % 246;
 
 		checkpoint =
             sphere(terrain.calculate_camera_position(v, 2.5f), 2.5f);
@@ -232,26 +231,27 @@ void game::update(std::chrono::milliseconds delta_time)
 
 	for (auto& ico : icos)
 	{
+		ico->update(delta_time);
 		ico->set_tessellation(ico->distance_to(cam_pos));
 	}
 
     terrain.update(delta_time);
     game_camera.move_on_terrain(terrain);
-
     game_camera.update(delta_time);
 	current_race.update(game_camera.get_pos());
 
-    particles.update(delta_time);
     temp_model.update(delta_time);
 
 	if (race_index == current_race.get_checkpoint())
 	{
-		if(race_index != 0)
-			icos[race_index - 1]->set_color(glm::vec3(0.1f, 1.0f, 0.1f));
-		icos.emplace_back(new scene::icosahedron(
-            current_race[race_index].position.x,
-            current_race[race_index].position.y,
-            current_race[race_index].position.z));
+		if(!icos.empty())
+        {
+            icos.back()->set_color(glm::vec3(0.1f, 1.0f, 0.1f));
+            icos.back()->clear();
+        }
+        auto& p = current_race[race_index].position;
+		icos.emplace_back(new scene::icosahedron(p.x, p.y, p.z));
+        icos.back()->attach_child(&particles);
 		++race_index;
 
 		if(race_index == 10)
@@ -310,7 +310,7 @@ void game::configure_g_buffer()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT2, GL_TEXTURE_2D, gAlbedoSpec, 0);
-	// tell OpenGL which color attachments we'll use (of this framebuffer) for rendering 
+	// tell OpenGL which color attachments we'll use (of this framebuffer) for rendering
 	unsigned int attachments[3] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2 };
 	glDrawBuffers(3, attachments);
 	// create and attach depth buffer (renderbuffer)
