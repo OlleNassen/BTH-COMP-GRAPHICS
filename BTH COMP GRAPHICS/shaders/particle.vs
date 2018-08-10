@@ -14,8 +14,8 @@ void main()
 {
 	float size = 1.0;
 
-	vec4 view_vec = inverse(view) * vec4(vertex_position, 0.0, 1.0) * size;
-	vec4 vertex_world = vec4(position, 1.0) + view_vec * size;
+	vec3 view_vec = inverse(mat3(view)) * vec3(vertex_position, 0.0) * size;
+	vec4 vertex_world = vec4(position, 1.0) + vec4(view_vec, 1.0) * size;
 
     vs_color = vec4(color, 1.0);
 	gl_Position = projection * view * model * vertex_world;

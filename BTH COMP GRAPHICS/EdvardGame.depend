@@ -2604,7 +2604,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1533913883 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1533915375 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
@@ -3154,7 +3154,7 @@
 	<iostream>
 	<gl/glew.h>
 
-1533913769 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\node.cpp
+1533915078 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\node.cpp
 	"node.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>

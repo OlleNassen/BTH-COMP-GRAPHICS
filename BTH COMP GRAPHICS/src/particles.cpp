@@ -72,7 +72,7 @@ void emitter::update_current(milliseconds delta_time,
     {
         auto& p = find_unused_particle();
         p.life = 5.0f; // This particle will live 5 seconds.
-        p.position = glm::vec3(0.0f,0.0f,0.0f);
+        p.position = glm::vec3(0.0f,100.0f,0.0f);
 
         float spread = 1.5f;
         glm::vec3 maindir = glm::vec3(0.0f, 10.0f, 0.0f);
@@ -107,18 +107,21 @@ void emitter::update_current(milliseconds delta_time,
             p.position += p.speed * delta;
 
             positions[ParticlesCount] = p.position;
-            //g_particule_position_size_data[4*ParticlesCount+3] = p.size;
             colors[ParticlesCount] = p.color;
         }
 
         ++ParticlesCount;
     }
 
-    position_buffer.data(sizeof(glm::vec3) * particles.size(), nullptr, GL_STREAM_DRAW);
-    position_buffer.sub_data(0, sizeof(glm::vec3) * positions.size(), positions.data());
+    position_buffer.data(sizeof(glm::vec3) * particles.size(),
+        nullptr, GL_STREAM_DRAW);
+    position_buffer.sub_data(0, sizeof(glm::vec3) * positions.size(),
+        positions.data());
 
-    color_buffer.data(sizeof(glm::vec3) * particles.size(), nullptr, GL_STREAM_DRAW);
-    color_buffer.sub_data(0, sizeof(glm::vec3) * colors.size(), colors.data());
+    color_buffer.data(sizeof(glm::vec3) * particles.size(),
+        nullptr, GL_STREAM_DRAW);
+    color_buffer.sub_data(0, sizeof(glm::vec3) * colors.size(),
+        colors.data());
 }
 
 void emitter::render_current(const shader& shader,

@@ -237,7 +237,6 @@ void game::update(std::chrono::milliseconds delta_time)
 		ico->update(delta_time);
 		ico->set_tessellation(ico->distance_to(cam_pos));
 	}
-    //emitter.update(delta_time);
     terrain.update(delta_time);
     game_camera.move_on_terrain(terrain);
     game_camera.update(delta_time);
