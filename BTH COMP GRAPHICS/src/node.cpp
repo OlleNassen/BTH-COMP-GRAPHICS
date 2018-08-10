@@ -6,6 +6,8 @@
 namespace scene
 {
 
+
+
 node::node(float x, float y, float z)
     : local{glm::translate(glm::mat4{1.0f}, {x, y, z})}
     , world{local}
@@ -31,37 +33,48 @@ void node::sort(glm::vec3& pos)
         return l->distance_to(pos) < r->distance_to(pos);
     });
 
-    sort_children(pos);
+    for(auto* child : children)
+    {
+        child->sort(pos);
+    }
 }
 
-void node::update(const milliseconds delta_time)
+void node::update(const milliseconds delta)
 {
     glm::mat4 world_transform{1.0f};
-    update(delta_time, world_transform);
+    update(delta, world_transform);
 }
 
 void node::prepare_render(const shader& shader) const
 {
     prepare_render_current(shader, world);
-	prepare_render_children(shader);
+	for(const auto* child : children)
+    {
+        child->prepare_render(shader);
+    }
 }
 
 void node::render(const shader& shader) const
 {
     render_current(shader, world);
-	render_children(shader);
+	for(const auto* child : children)
+    {
+        child->render(shader);
+    }
 }
 
-void node::update(const milliseconds delta_time, glm::mat4& world_transform)
+void node::update(const milliseconds delta, const glm::mat4& world_transform)
 {
     world = world_transform * local;
 
-    update_current(delta_time,
-        world, local);
-    update_children(delta_time, world);
+    update_current(delta, world, local);
+    for(auto* child : children)
+    {
+        child->update(delta, world);
+    }
 }
 
-void node::update_current(const std::chrono::milliseconds delta_time,
+void node::update_current(const std::chrono::milliseconds delta,
     const glm::mat4& world_transform, glm::mat4& transform)
 {
 
@@ -78,38 +91,6 @@ void node::render_current(const shader& shader,
     const glm::mat4& world_transform) const
 {
 
-}
-
-void node::sort_children(glm::vec3& pos)
-{
-    for(auto* child : children)
-    {
-        child->sort(pos);
-    }
-}
-
-void node::update_children(milliseconds delta_time, glm::mat4& world_transform)
-{
-    for(auto* child : children)
-    {
-        child->update(delta_time, world_transform);
-    }
-}
-
-void node::prepare_render_children(const shader& shader) const
-{
-    for(const auto* child : children)
-    {
-        child->prepare_render(shader);
-    }
-}
-
-void node::render_children(const shader& shader) const
-{
-    for(const auto* child : children)
-    {
-        child->render(shader);
-    }
 }
 
 float node::distance_to(const glm::vec3& other) const

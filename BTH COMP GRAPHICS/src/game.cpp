@@ -170,10 +170,6 @@ void game::render()
 	game_camera.bind(backface_shader);
 	backface.render(backface_shader);
 
-	p.use();
-    game_camera.bind(p);
-	emitter.render(p);
-
 	terrain_shader.use();
 	game_camera.bind(terrain_shader);
 	terrain.render(terrain_shader);
@@ -211,6 +207,10 @@ void game::render()
 	anim.use();
 	game_camera.bind(anim);
 	temp_model.draw(anim);
+
+	p.use();
+    game_camera.bind(p);
+	emitter.render(p);
 
 	//Text
 	if (current_race.lap() == 1)

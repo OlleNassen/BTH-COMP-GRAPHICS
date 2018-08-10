@@ -2604,7 +2604,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1533910265 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1533913883 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
@@ -2989,7 +2989,7 @@
 	<ctime>
 	<iostream>
 
-1533909928 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1533911859 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 	<iostream>
 	<algorithm>
@@ -3154,13 +3154,13 @@
 	<iostream>
 	<gl/glew.h>
 
-1533911732 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\node.cpp
+1533913769 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\node.cpp
 	"node.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 	<algorithm>
 
-1533911668 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\node.hpp
+1533915060 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\node.hpp
 	<vector>
 	<chrono>
 	<glm/glm.hpp>
@@ -3216,6 +3216,6 @@
 	"node.hpp"
 	"buffer.hpp"
 
-1533908576 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particles.cpp
+1533913698 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particles.cpp
 	"particles.hpp"
 
