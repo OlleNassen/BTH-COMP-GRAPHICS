@@ -33,30 +33,13 @@ emitter::emitter()
 
 particle& emitter::find_unused_particle()
 {
-    for(unsigned i = LastUsedParticle; i < particles.size(); ++i)
-    {
-        if (particles[i].life < 0)
+    if(++last_used == particles.end()) {last_used = particles.begin();}
+    return *std::find_if(last_used, particles.end(),
+        [](particle& p) -> bool
         {
-            LastUsedParticle = i;
-            return particles[i];
-        }
-    }
-
-    for(unsigned i = 0; i<particles.size(); i++)
-    {
-        if (particles[i].life < 0)
-        {
-            LastUsedParticle = i;
-            return particles[i];
-        }
-    }
-
-    return particles.front();
+            return !p.is_alive();
+        });
 }
-
-
-
-
 
 
 void emitter::update_current(milliseconds delta_time,
@@ -65,7 +48,6 @@ void emitter::update_current(milliseconds delta_time,
     using namespace std::chrono;
 	using float_seconds = duration<float>;
 	float delta = duration_cast<float_seconds>(delta_time).count();
-
 
     int new_particles = delta_time.count();
     for (int i = 0; i < new_particles; ++i)
@@ -79,9 +61,9 @@ void emitter::update_current(milliseconds delta_time,
 
         glm::vec3 randomdir
         {
-            (rand()%2000 - 1000.0f)/1000.0f,
-            (rand()%2000 - 1000.0f)/1000.0f,
-            (rand()%2000 - 1000.0f)/1000.0f
+            (rand()%2000 - 1000)/1000.0f,
+            (rand()%2000 - 1000)/1000.0f,
+            (rand()%2000 - 1000)/1000.0f
         };
 
         p.speed = maindir + randomdir * spread;
@@ -93,11 +75,7 @@ void emitter::update_current(milliseconds delta_time,
         p.size = (rand()%1000)/2000.0f + 0.1f;
     }
 
-
-
-
-
-    int ParticlesCount = 0;
+    int p_count = 0;
     for (auto& p : particles)
     {
         p.life -= delta;
@@ -105,12 +83,11 @@ void emitter::update_current(milliseconds delta_time,
         {
             p.speed += glm::vec3{0.0f,-9.81f, 0.0f} * delta * 0.5f;
             p.position += p.speed * delta;
-
-            positions[ParticlesCount] = p.position;
-            colors[ParticlesCount] = p.color;
+            positions[p_count] = p.position;
+            colors[p_count] = p.color;
         }
 
-        ++ParticlesCount;
+        ++p_count;
     }
 
     position_buffer.data(sizeof(glm::vec3) * particles.size(),

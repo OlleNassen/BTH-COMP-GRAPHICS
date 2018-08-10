@@ -2604,7 +2604,7 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1533915375 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1533918140 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
@@ -3211,11 +3211,12 @@
 	<vector>
 	"mesh.hpp"
 
-1533904580 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\particles.hpp
+1533917283 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\particles.hpp
 	<array>
+	<algorithm>
 	"node.hpp"
 	"buffer.hpp"
 
-1533913698 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particles.cpp
+1533917847 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particles.cpp
 	"particles.hpp"
 

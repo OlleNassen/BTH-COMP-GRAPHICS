@@ -2,6 +2,7 @@
 #define PARTICLES_HPP
 
 #include <array>
+#include <algorithm>
 #include "node.hpp"
 #include "buffer.hpp"
 
@@ -41,10 +42,11 @@ private:
     using p_array = std::array<T, 10000>;
 
     p_array<particle> particles;
+    p_array<particle>::iterator last_used = particles.begin();
     p_array<glm::vec3> positions;
     p_array<glm::vec3> colors;
 
-    int LastUsedParticle = 0;
+
     particle& find_unused_particle();
 
 	void update_current(milliseconds delta_time,

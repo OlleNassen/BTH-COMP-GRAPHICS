@@ -257,7 +257,9 @@ void game::update(std::chrono::milliseconds delta_time)
 		++race_index;
 
 		if(race_index == 10)
+        {
             race_index = 0;
+        }
 	}
 
     color_timer += delta_time;
