@@ -170,14 +170,18 @@ void game::render()
 	game_camera.bind(backface_shader);
 	backface.render(backface_shader);
 
+	p.use();
+    game_camera.bind(p);
+	emitter.render(p);
+
 	terrain_shader.use();
 	game_camera.bind(terrain_shader);
 	terrain.render(terrain_shader);
 
 	//Billboard particles
-	billboard_shader.use();
+	/*billboard_shader.use();
 	game_camera.bind(billboard_shader);
-	particles.render(billboard_shader);
+	particles.render(billboard_shader);*/
 
 	//Normal mapping
 	normal_shader.use();
@@ -188,8 +192,7 @@ void game::render()
 	skybox_shader.use();
 	game_camera.bind(skybox_shader);
 	skybox_shader.uniform("view",
-        glm::mat4(
-        glm::mat3(game_camera.get_view())));
+        glm::mat4(glm::mat3(game_camera.get_view())));
 
 	sky.render(skybox_shader);
 
@@ -234,7 +237,7 @@ void game::update(std::chrono::milliseconds delta_time)
 		ico->update(delta_time);
 		ico->set_tessellation(ico->distance_to(cam_pos));
 	}
-
+    //emitter.update(delta_time);
     terrain.update(delta_time);
     game_camera.move_on_terrain(terrain);
     game_camera.update(delta_time);
@@ -251,7 +254,7 @@ void game::update(std::chrono::milliseconds delta_time)
         }
         auto& p = current_race[race_index].position;
 		icos.emplace_back(new scene::icosahedron(p.x, p.y, p.z));
-        icos.back()->attach_child(&particles);
+        icos.back()->attach_child(&emitter);
 		++race_index;
 
 		if(race_index == 10)

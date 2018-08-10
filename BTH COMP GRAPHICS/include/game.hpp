@@ -23,6 +23,7 @@
 #include "race.hpp"
 #include "text.hpp"
 #include "skeletal.hpp"
+#include "particles.hpp"
 
 std::ostream& operator<<(std::ostream& os, const glm::mat4& value);
 using namespace std::literals::chrono_literals;
@@ -56,6 +57,7 @@ private:
         "shaders/backface.geo", "shaders/backface.fs" };
 	shader deferred_shader{ "shaders/deferred.vs", "shaders/deferred.fs" };
 	shader g_buffer_shader{ "shaders/g_buffer.vs", "shaders/g_buffer.fs" };
+	shader p{ "shaders/particle.vs", "shaders/particle.fs" };
 
 
 	camera game_camera;
@@ -77,6 +79,7 @@ private:
 	scene::terrain terrain{10, 10, 10};
 	scene::quad_tess quad_tess;
 	scene::quad backface{0, 0, -10};
+	scene::particles::emitter emitter;
 
 	text temp_text;
 	skeletal_node* root;

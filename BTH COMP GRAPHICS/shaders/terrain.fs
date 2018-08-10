@@ -11,6 +11,10 @@ out vec4 fragment_color;
 
 void main()
 {
+	/* vec4 color1 = vec4(0.0, 0.5, 0.0, 1.0);
+	   vec4 color2 = vec4(0.0, 0.5, 0.5, 1.0);
+	   vec4 color3 = vec4(0.5, 0.5, 0.5, 1.0); */
+
 	vec4 color1 = texture2D(diffuse, texture);
 	vec4 color2 = texture2D(diffuse2, texture);
 	vec4 color3 = texture2D(diffuse3, texture);

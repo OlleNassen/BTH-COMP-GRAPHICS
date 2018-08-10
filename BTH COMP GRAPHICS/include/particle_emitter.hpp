@@ -9,6 +9,19 @@
 namespace scene
 {
 
+struct particle
+{
+    glm::vec3 position;
+    glm::vec3 speed;
+    glm::vec3 color;
+    float size;
+    float angle;
+    float weight;
+    float life;
+
+    bool alive() const {return life > 0;}
+};
+
 class particle_emitter : public node
 {
 public:

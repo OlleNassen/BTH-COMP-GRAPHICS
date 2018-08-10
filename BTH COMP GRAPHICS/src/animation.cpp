@@ -351,6 +351,7 @@ void model::update(milliseconds delta)
 void model::draw(const shader& shader) const
 {
 	shader.uniform("joint_transforms", world_joints);
+    diffuse.uniform(shader, "diffuse", 0);
 	model_array.bind();
 	glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);

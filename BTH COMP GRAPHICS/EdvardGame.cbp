@@ -56,6 +56,7 @@
 		<Unit filename="include/node.hpp" />
 		<Unit filename="include/normal_quad.hpp" />
 		<Unit filename="include/particle_emitter.hpp" />
+		<Unit filename="include/particles.hpp" />
 		<Unit filename="include/point_light.hpp" />
 		<Unit filename="include/quad.hpp" />
 		<Unit filename="include/quad_tess.hpp" />
@@ -79,6 +80,8 @@
 		<Unit filename="shaders/billboard.vs" />
 		<Unit filename="shaders/normal.fs" />
 		<Unit filename="shaders/normal.vs" />
+		<Unit filename="shaders/particle.fs" />
+		<Unit filename="shaders/particle.vs" />
 		<Unit filename="shaders/phong.fs" />
 		<Unit filename="shaders/phong.vs" />
 		<Unit filename="shaders/skybox.fs" />
@@ -96,6 +99,7 @@
 		<Unit filename="src/node.cpp" />
 		<Unit filename="src/normal_quad.cpp" />
 		<Unit filename="src/particle_emitter.cpp" />
+		<Unit filename="src/particles.cpp" />
 		<Unit filename="src/point_light.cpp" />
 		<Unit filename="src/quad.cpp" />
 		<Unit filename="src/quad_tess.cpp" />

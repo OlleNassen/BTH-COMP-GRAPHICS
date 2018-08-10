@@ -2032,7 +2032,7 @@
 1533065950 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\buffer.cpp
 	"buffer.hpp"
 
-1533820137 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\buffer.hpp
+1533904883 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\buffer.hpp
 	<GL/glew.h>
 	"texture.hpp"
 
@@ -2604,12 +2604,12 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1533897368 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1533909089 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1533896220 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1533906011 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	<iostream>
 	<chrono>
 	"window.hpp"
@@ -2631,6 +2631,7 @@
 	"race.hpp"
 	"text.hpp"
 	"skeletal.hpp"
+	"particles.hpp"
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glfw\glfw3.h
 	<stddef.h>
@@ -2933,7 +2934,7 @@
 	"buffer.hpp"
 	"texture.hpp"
 
-1533076788 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad.cpp
+1533900158 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad.cpp
 	"quad.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
@@ -2976,7 +2977,7 @@
 	<glm/glm.hpp>
 	"animation.hpp"
 
-1533654127 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\particle_emitter.hpp
+1533900369 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\particle_emitter.hpp
 	<array>
 	"node.hpp"
 	"buffer.hpp"
@@ -2988,13 +2989,13 @@
 	<ctime>
 	<iostream>
 
-1533895484 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1533909928 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 	<iostream>
 	<algorithm>
 	"game.hpp"
 
-1533827559 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
+1533910059 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
 	<array>
 	<vector>
 	<chrono>
@@ -3006,6 +3007,7 @@
 	<assimp/postprocess.h>
 	"shader.hpp"
 	"buffer.hpp"
+	"texture.hpp"
 
 1532352542 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh_factory.hpp
 	<string>
@@ -3208,4 +3210,12 @@
 	<map>
 	<vector>
 	"mesh.hpp"
+
+1533904580 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\particles.hpp
+	<array>
+	"node.hpp"
+	"buffer.hpp"
+
+1533908576 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particles.cpp
+	"particles.hpp"
 

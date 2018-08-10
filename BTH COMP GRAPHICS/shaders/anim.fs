@@ -1,13 +1,12 @@
 #version 440 core
 
-in vec3 normal_out;
-
-in vec4 we;
-
+in vec2 texture_pos;
 out vec4 fragment_color;
+
+uniform sampler2D diffuse;
 
 void main()
 {
-    fragment_color = vec4(we.xyz,1.0);
+    fragment_color = texture2D(diffuse, texture_pos);
 }
 

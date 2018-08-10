@@ -9,9 +9,7 @@ layout (location = 2) in vec3 normal;
 layout (location = 3) in ivec4 joint;
 layout (location = 4) in vec4 weight;
 
-out vec3 normal_out;
-
-out vec4 we;
+out vec2 texture_pos;
 
 uniform mat4 joint_transforms[MAX_JOINTS];
 uniform mat4 model;
@@ -40,7 +38,7 @@ void main()
     matrix += joint_transforms[joint[2]] * weight[2];
     matrix += joint_transforms[joint[3]] * weight[3];
 
-    we = weight;
+    texture_pos = texture_coordinate;
 
     gl_Position = projection * view * matrix * vec4(position, 1.0);
 }

@@ -45,6 +45,13 @@ public:
             size, data, usage);
     }
 
+    void sub_data(int offset, int size,
+        const void* data) const
+    {
+        glBufferSubData(static_cast<unsigned int>(buffer_target),
+            offset, size, data);
+    }
+
 private:
     target buffer_target = target::ARRAY_BUFFER;
     unsigned int id = 0u;

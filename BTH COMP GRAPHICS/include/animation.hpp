@@ -12,6 +12,7 @@
 #include <assimp/postprocess.h>
 #include "shader.hpp"
 #include "buffer.hpp"
+#include "texture.hpp"
 
 
 namespace anim
@@ -92,6 +93,7 @@ public:
     void draw(const shader& shader) const;
 
 private:
+    texture diffuse{"models/test/diffuse.png"};
     std::vector<vertex> vertices;
     std::vector<unsigned int> indices;
 
