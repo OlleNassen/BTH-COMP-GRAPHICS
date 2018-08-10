@@ -52,10 +52,8 @@ private:
     void sort_children(glm::vec3& pos);
     void update_children(const milliseconds delta_time,
         glm::mat4& world_transform);
-    void prepare_render_children(const shader& shader,
-        glm::mat4& world_transform) const;
-    void render_children(const shader& shader,
-        glm::mat4& world_transform) const;
+    void prepare_render_children(const shader& shader) const;
+    void render_children(const shader& shader) const;
 
 };
 

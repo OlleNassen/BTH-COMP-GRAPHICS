@@ -162,7 +162,7 @@ void load_parent_indices(const aiNode& node,
         {
             auto& joint = joints[index - 1];
             auto* parent = &joints[i];
-            std::cout << index - 1 << ": " << i << std::endl;
+            //std::cout << index - 1 << ": " << i << std::endl;
             joint.parent = i;
             joint.local_transform = ai_to_glm(node.mTransformation);
             joint.global_transform = parent->global_transform
@@ -202,8 +202,6 @@ void load_key_frames(const aiAnimation* anim,
         auto* channel = anim->mChannels[i];
         for (auto j = 0u; j < channel->mNumPositionKeys; ++j)
 		{
-            if(j == 0u) std::cout << i+1 << " " << channel->mNodeName.C_Str() << std::endl;
-
             if (i == 0u)
             {
                 using namespace std::chrono;
@@ -336,16 +334,11 @@ void model::update(milliseconds delta)
 {
 	current.update(delta, joints);
 
-	/*std::transform(joints.begin(), joints.end(), world_joints.begin(),
+	std::transform(joints.begin(), joints.end(), world_joints.begin(),
         [](const joint& j) -> glm::mat4
         {
             return j.as_matrix();
-        });*/
-
-    for (int i = 0; i < joints.size(); ++i)
-    {
-        world_joints[i] = joints[i].as_matrix();
-    }
+        });
 }
 
 void model::draw(const shader& shader) const

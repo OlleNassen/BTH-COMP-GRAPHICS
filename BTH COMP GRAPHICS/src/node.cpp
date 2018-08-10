@@ -42,16 +42,14 @@ void node::update(const milliseconds delta_time)
 
 void node::prepare_render(const shader& shader) const
 {
-    glm::mat4 m = world;
-    prepare_render_current(shader, m);
-	prepare_render_children(shader, m);
+    prepare_render_current(shader, world);
+	prepare_render_children(shader);
 }
 
 void node::render(const shader& shader) const
 {
-    glm::mat4 m = world;
-    render_current(shader, m);
-	render_children(shader, m);
+    render_current(shader, world);
+	render_children(shader);
 }
 
 void node::update(const milliseconds delta_time, glm::mat4& world_transform)
@@ -98,8 +96,7 @@ void node::update_children(milliseconds delta_time, glm::mat4& world_transform)
     }
 }
 
-void node::prepare_render_children(const shader& shader,
-    glm::mat4& world_transform) const
+void node::prepare_render_children(const shader& shader) const
 {
     for(const auto* child : children)
     {
@@ -107,8 +104,7 @@ void node::prepare_render_children(const shader& shader,
     }
 }
 
-void node::render_children(const shader& shader,
-    glm::mat4& world_transform) const
+void node::render_children(const shader& shader) const
 {
     for(const auto* child : children)
     {
