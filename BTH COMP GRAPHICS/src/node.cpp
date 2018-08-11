@@ -28,7 +28,7 @@ void node::clear()
 void node::sort(glm::vec3& pos)
 {
     std::sort(children.begin(), children.end(),
-        [&pos](const node* l, const scene::node* r) -> bool
+        [&pos](const node* l, const node* r) -> bool
     {
         return l->distance_to(pos) < r->distance_to(pos);
     });
