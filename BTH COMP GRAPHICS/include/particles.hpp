@@ -3,6 +3,7 @@
 
 #include <array>
 #include <algorithm>
+#include <functional>
 #include "node.hpp"
 #include "buffer.hpp"
 
@@ -45,9 +46,6 @@ private:
     p_array<particle>::iterator last_used = particles.begin();
     p_array<glm::vec3> positions;
     p_array<glm::vec3> colors;
-
-
-    particle& find_unused_particle();
 
 	void update_current(milliseconds delta_time,
 		const glm::mat4& world_transform, glm::mat4& transform) override;

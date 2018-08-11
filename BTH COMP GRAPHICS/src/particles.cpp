@@ -31,17 +31,6 @@ emitter::emitter()
     v_array.attribute_pointer(2, 3, GL_FLOAT, GL_FALSE, 0, nullptr);
 }
 
-particle& emitter::find_unused_particle()
-{
-    if(++last_used == particles.end()) {last_used = particles.begin();}
-    return *std::find_if(last_used, particles.end(),
-        [](particle& p) -> bool
-        {
-            return !p.is_alive();
-        });
-}
-
-
 void emitter::update_current(milliseconds delta_time,
     const glm::mat4& world_transform, glm::mat4& transform)
 {
@@ -52,12 +41,15 @@ void emitter::update_current(milliseconds delta_time,
     int new_particles = delta_time.count();
     for (int i = 0; i < new_particles; ++i)
     {
-        auto& p = find_unused_particle();
-        p.life = 5.0f; // This particle will live 5 seconds.
+        if(++last_used == particles.end()) last_used = particles.begin();
+        auto& p = *std::find_if_not(last_used, particles.end(),
+            std::mem_fn(&particle::is_alive));
+
+        p.life = 9.8f;
         p.position = glm::vec3(0.0f,100.0f,0.0f);
 
         float spread = 1.5f;
-        glm::vec3 maindir = glm::vec3(0.0f, 10.0f, 0.0f);
+        glm::vec3 maindir = glm::vec3(0.0f, 40.0f, 0.0f);
 
         glm::vec3 randomdir
         {
@@ -81,7 +73,7 @@ void emitter::update_current(milliseconds delta_time,
         p.life -= delta;
         if(p.is_alive())
         {
-            p.speed += glm::vec3{0.0f,-9.81f, 0.0f} * delta * 0.5f;
+            p.speed += glm::vec3{0.0f,-9.81f, 0.0f} * delta;
             p.position += p.speed * delta;
             positions[p_count] = p.position;
             colors[p_count] = p.color;
