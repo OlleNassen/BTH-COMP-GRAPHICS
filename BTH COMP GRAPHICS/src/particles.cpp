@@ -46,10 +46,10 @@ void emitter::update_current(milliseconds delta_time,
             std::mem_fn(&particle::is_alive));
 
         p.life = 9.8f;
-        p.position = glm::vec3(0.0f,100.0f,0.0f);
+        p.position = glm::vec3(0.0f, 0.0f, 0.0f);
 
         float spread = 1.5f;
-        glm::vec3 maindir = glm::vec3(0.0f, 40.0f, 0.0f);
+        glm::vec3 maindir = glm::vec3(0.0f, 10.0f, 0.0f);
 
         glm::vec3 randomdir
         {
@@ -73,7 +73,7 @@ void emitter::update_current(milliseconds delta_time,
         p.life -= delta;
         if(p.is_alive())
         {
-            p.speed += glm::vec3{0.0f,-9.81f, 0.0f} * delta;
+            p.speed += glm::vec3{0.0f, 9.8f, 0.0f} * delta;
             p.position += p.speed * delta;
             positions[p_count] = p.position;
             colors[p_count] = p.color;
