@@ -335,10 +335,7 @@ void model::update(milliseconds delta)
 	current.update(delta, joints);
 
 	std::transform(joints.begin(), joints.end(), world_joints.begin(),
-        [](const joint& j) -> glm::mat4
-        {
-            return j.as_matrix();
-        });
+        std::mem_fn(&joint::as_matrix));
 }
 
 void model::draw(const shader& shader) const
