@@ -103,7 +103,7 @@ private:
     animation current;
 
     buffer model_buffer;
-    buffer element_buffer{target::ELEMENT_ARRAY_BUFFER};
+    buffer element_buffer{GL_ELEMENT_ARRAY_BUFFER};
     vertex_array model_array;
 
 };

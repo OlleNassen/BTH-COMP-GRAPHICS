@@ -2032,7 +2032,9 @@
 1533065950 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\buffer.cpp
 	"buffer.hpp"
 
-1533904883 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\buffer.hpp
+1534038846 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\buffer.hpp
+	<array>
+	<vector>
 	<GL/glew.h>
 	"texture.hpp"
 
@@ -2604,12 +2606,12 @@
 	<GL/glew.h>
 	"shader.hpp"
 
-1533918140 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1534037119 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1533906011 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1534037130 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	<iostream>
 	<chrono>
 	"window.hpp"
@@ -2659,7 +2661,7 @@
 1531389373 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\main.cpp
 	"game.hpp"
 
-1533636154 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
+1534038904 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\mesh.cpp
 	"mesh.hpp"
 
 1533720523 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\mesh.hpp
@@ -2898,9 +2900,10 @@
 	<glm/glm.hpp>
 	"shader.hpp"
 
-1533077004 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
+1534037868 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
 	"box.hpp"
 	<iostream>
+	"objects.hpp"
 
 1533654127 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\box.hpp
 	"node.hpp"
@@ -2915,7 +2918,7 @@
 1533659347 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\skybox.cpp
 	"skybox.hpp"
 
-1533654127 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\terrain.hpp
+1534038875 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\terrain.hpp
 	"node.hpp"
 	"buffer.hpp"
 	"texture.hpp"
@@ -2929,12 +2932,13 @@
 	<glm/glm.hpp>
 	<stb_image.h>
 
-1533654127 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\quad.hpp
+1534035367 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\quad.hpp
 	"node.hpp"
 	"buffer.hpp"
 	"texture.hpp"
+	"objects.hpp"
 
-1533900158 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad.cpp
+1534036997 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\quad.cpp
 	"quad.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
@@ -2958,10 +2962,11 @@
 	"buffer.hpp"
 	"texture.hpp"
 
-1533076986 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\temp_box.cpp
+1534038076 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\temp_box.cpp
 	"temp_box.hpp"
 	<iostream>
 	<glm/gtc/matrix_transform.hpp>
+	"objects.hpp"
 
 1533076490 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\normal_quad.cpp
 	"normal_quad.hpp"
@@ -2989,13 +2994,13 @@
 	<ctime>
 	<iostream>
 
-1534006786 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
+1534033798 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\animation.cpp
 	"animation.hpp"
 	<iostream>
 	<algorithm>
 	"game.hpp"
 
-1533910059 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
+1534038889 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\animation.hpp
 	<array>
 	<vector>
 	<chrono>
@@ -3072,7 +3077,7 @@
 	"tinyxml2.h"
 	"model.hpp"
 
-1533654127 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\quad_tess.hpp
+1534038910 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\quad_tess.hpp
 	"node.hpp"
 	"buffer.hpp"
 	"texture.hpp"
@@ -3082,7 +3087,7 @@
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
-1533657618 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\icosahedron.hpp
+1534038883 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\icosahedron.hpp
 	"node.hpp"
 	"buffer.hpp"
 	"texture.hpp"
@@ -3211,13 +3216,18 @@
 	<vector>
 	"mesh.hpp"
 
-1534006154 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\particles.hpp
+1534034421 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\particles.hpp
 	<array>
 	<algorithm>
 	<functional>
 	"node.hpp"
 	"buffer.hpp"
+	"objects.hpp"
 
-1534007076 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particles.cpp
+1534035037 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particles.cpp
 	"particles.hpp"
+
+1534037021 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\objects.hpp
+	<array>
+	<glm/glm.hpp>
 

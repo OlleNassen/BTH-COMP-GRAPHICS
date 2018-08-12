@@ -1,6 +1,7 @@
 #include "temp_box.hpp"
 #include <iostream>
 #include <glm/gtc/matrix_transform.hpp>
+#include "objects.hpp"
 
 namespace scene
 {
@@ -8,59 +9,12 @@ namespace scene
 temp_box::temp_box(float x, float y, float z)
 	: node(x, y, z)
 {
-    constexpr float vertices[] =
-	{
-		//pos, uv, normal
-		-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-		-0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-		0.5f,  0.5f, -0.5f, 0.0f,  0.0f, -1.0f,
-		0.5f,  0.5f, -0.5f, 0.0f,  0.0f, -1.0f,
-		0.5f, -0.5f, -0.5f, 0.0f,  0.0f, -1.0f,
-		-0.5f, -0.5f, -0.5f, 0.0f,  0.0f, -1.0f,
-
-
-		-0.5f, -0.5f,  0.5f, 0.0f,  0.0f, 1.0f,
-		0.5f, -0.5f,  0.5f, 0.0f,  0.0f, 1.0f,
-		0.5f,  0.5f,  0.5f, 0.0f,  0.0f, 1.0f,
-		0.5f,  0.5f,  0.5f, 0.0f,  0.0f, 1.0f,
-		-0.5f,  0.5f,  0.5f, 0.0f,  0.0f, 1.0f,
-		-0.5f, -0.5f,  0.5f, 0.0f,  0.0f, 1.0f,
-
-        -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
-        -0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
-        -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
-        -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
-        -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
-        -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
-
-        0.5f,  0.5f,  0.5f, 1.0f,  0.0f,  0.0f,
-        0.5f, -0.5f,  0.5f, 1.0f,  0.0f,  0.0f,
-        0.5f, -0.5f, -0.5f, 1.0f,  0.0f,  0.0f,
-        0.5f, -0.5f, -0.5f, 1.0f,  0.0f,  0.0f,
-        0.5f,  0.5f, -0.5f, 1.0f,  0.0f,  0.0f,
-		0.5f,  0.5f,  0.5f, 1.0f,  0.0f,  0.0f,
-
-		-0.5f, -0.5f, -0.5f, 0.0f, -1.0f,  0.0f,
-		0.5f, -0.5f, -0.5f, 0.0f, -1.0f,  0.0f,
-		0.5f, -0.5f,  0.5f, 0.0f, -1.0f,  0.0f,
-		0.5f, -0.5f,  0.5f, 0.0f, -1.0f,  0.0f,
-		-0.5f, -0.5f,  0.5f, 0.0f, -1.0f,  0.0f,
-		-0.5f, -0.5f, -0.5f, 0.0f, -1.0f,  0.0f,
-
-		-0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
-		-0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
-		0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
-		0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
-		0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
-		-0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
-	};
-
 	box_array.bind();
-	box_vbo.data(sizeof(vertices), &vertices[0], GL_STATIC_DRAW);
+	box_vbo.data(object::box, GL_STATIC_DRAW);
 	box_array.attribute_pointer(0, 3, GL_FLOAT,
-        GL_FALSE, 6 * sizeof(float), nullptr);
+        GL_FALSE, 8 * sizeof(float), nullptr);
 	box_array.attribute_pointer(1, 3, GL_FLOAT,
-        GL_FALSE, 6 * sizeof(float), buffer_offset<float>(3u));
+        GL_FALSE, 8 * sizeof(float), buffer_offset<float>(5u));
 
 	color = glm::vec3(1.0f, 0.5f, 0.31f);
 }

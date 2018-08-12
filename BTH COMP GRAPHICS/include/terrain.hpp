@@ -25,7 +25,7 @@ private:
 
 	vertex_array terrain_array;
 	buffer terrain_vbo;
-	buffer terrain_ebo{target::ELEMENT_ARRAY_BUFFER};
+	buffer terrain_ebo{GL_ELEMENT_ARRAY_BUFFER};
 	texture grass{"images/grass.png",
         wrap::REPEAT, filter::LINEAR, format::RGBA};
 	texture slope{"images/slope.png",

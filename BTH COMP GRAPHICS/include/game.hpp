@@ -66,8 +66,8 @@ private:
 	anim::model temp_model;
 
 	scene::point_light pl;
-	scene::box s_box{20, 30, 40};
-	scene::quad s_quad{20, 20, 20};
+	scene::box s_box{20, 38, 40};
+	scene::quad s_quad{20, 38, 20};
 
 	scene::node scene;
 	scene::skybox sky;

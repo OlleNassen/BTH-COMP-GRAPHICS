@@ -9,21 +9,9 @@ quad::quad(float x, float y, float z)
 	: node(x, y, z)
     , quad_texture(new texture("images/edvard.png"))
 {
-	constexpr float vertices[] =
-	{
-		// positions     // uv
-		1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
-		1.0f, 1.0f, 0.0f, 1.0f, 1.0f,
-		0.0f, 1.0f, 0.0f, 0.0f, 1.0f,
-
-		0.0f, 0.0f, 0.f, 0.0f, 0.0f,
-		1.0f, 0.0f, 0.f, 1.0f, 0.0f,
-		0.0f, 1.0f, 0.f, 0.0f, 1.0f
-	};
-
 	quad_array.bind();
-	quad_vbo.data(sizeof(vertices), &vertices[0], GL_STATIC_DRAW);
-	quad_array.attribute_pointer(0, 3, GL_FLOAT,
+	quad_vbo.data(object::quad_uv, GL_STATIC_DRAW);
+	quad_array.attribute_pointer(0, 2, GL_FLOAT,
         GL_FALSE, 5 * sizeof(float), nullptr);
 	quad_array.attribute_pointer(1, 2, GL_FLOAT,
         GL_FALSE, 5 * sizeof(float), buffer_offset<float>(3u));

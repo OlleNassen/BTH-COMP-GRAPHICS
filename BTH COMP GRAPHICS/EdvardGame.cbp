@@ -55,6 +55,7 @@
 		<Unit filename="include/mesh.hpp" />
 		<Unit filename="include/node.hpp" />
 		<Unit filename="include/normal_quad.hpp" />
+		<Unit filename="include/objects.hpp" />
 		<Unit filename="include/particle_emitter.hpp" />
 		<Unit filename="include/particles.hpp" />
 		<Unit filename="include/point_light.hpp" />

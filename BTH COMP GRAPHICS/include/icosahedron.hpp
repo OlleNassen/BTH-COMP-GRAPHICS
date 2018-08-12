@@ -20,7 +20,7 @@ public:
 private:
 	vertex_array v_array;
 	buffer vbo;
-	buffer ebo{target::ELEMENT_ARRAY_BUFFER};
+	buffer ebo{GL_ELEMENT_ARRAY_BUFFER};
 
 	float tessellation_level{2};
 

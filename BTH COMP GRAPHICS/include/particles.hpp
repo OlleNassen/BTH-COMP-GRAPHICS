@@ -6,6 +6,7 @@
 #include <functional>
 #include "node.hpp"
 #include "buffer.hpp"
+#include "objects.hpp"
 
 namespace scene
 {

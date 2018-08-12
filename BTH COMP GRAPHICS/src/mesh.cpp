@@ -1,8 +1,8 @@
 #include "mesh.hpp"
 
 mesh::mesh(const std::vector<vertex>& vertices, const std::vector<unsigned int>& indices, const std::vector<texture>& textures)
-:vbo(target::ARRAY_BUFFER),
-ebo(target::ELEMENT_ARRAY_BUFFER)
+:vbo(GL_ARRAY_BUFFER),
+ebo(GL_ELEMENT_ARRAY_BUFFER)
 {
 	this->vertices = vertices;
 	this->indices = indices;

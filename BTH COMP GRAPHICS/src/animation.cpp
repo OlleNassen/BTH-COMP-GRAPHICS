@@ -310,10 +310,9 @@ model::model()
 	auto stride = 12 * sizeof(float) + 4 * sizeof(unsigned int);
 
 	model_array.bind();
-	model_buffer.data(sizeof(vertex) * vertices.size(),
-        &vertices.front(), GL_STATIC_DRAW);
-	element_buffer.data(sizeof(unsigned int) *
-        indices.size(), &indices.front(), GL_STATIC_DRAW);
+	model_buffer.data(vertices, GL_STATIC_DRAW);
+	element_buffer.data(indices, GL_STATIC_DRAW);
+
 	model_array.attribute_pointer(0, 3,
         GL_FLOAT, GL_FALSE, stride, (void*)0);
 	model_array.attribute_pointer(1, 2,

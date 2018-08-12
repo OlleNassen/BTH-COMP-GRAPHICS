@@ -1,59 +1,53 @@
 #ifndef BUFFER_HPP
 #define BUFFER_HPP
 
+#include <array>
+#include <vector>
 #include <GL/glew.h>
 #include "texture.hpp"
-
-enum class target
-{
-    ARRAY_BUFFER = GL_ARRAY_BUFFER,
-    ATOMIC_COUNTER_BUFFER = GL_ATOMIC_COUNTER_BUFFER,
-    COPY_READ_BUFFER = GL_COPY_READ_BUFFER,
-    COPY_WRITE_BUFFER = GL_COPY_WRITE_BUFFER,
-    DISPATCH_INDIRECT_BUFFER = GL_DISPATCH_INDIRECT_BUFFER,
-    DRAW_INDIRECT_BUFFER = GL_DRAW_INDIRECT_BUFFER,
-    ELEMENT_ARRAY_BUFFER = GL_ELEMENT_ARRAY_BUFFER,
-    PIXEL_PACK_BUFFER = GL_PIXEL_PACK_BUFFER,
-    PIXEL_UNPACK_BUFFER = GL_PIXEL_UNPACK_BUFFER,
-    QUERY_BUFFER = GL_QUERY_BUFFER,
-    SHADER_STORAGE_BUFFER = GL_SHADER_STORAGE_BUFFER,
-    TEXTURE_BUFFER = GL_TEXTURE_BUFFER,
-    TRANSFORM_FEEDBACK_BUFFER = GL_TRANSFORM_FEEDBACK_BUFFER,
-    UNIFORM_BUFFER = GL_UNIFORM_BUFFER
-};
 
 class buffer
 {
 public:
-    buffer(target buffer_target)
+    buffer(unsigned int buffer_target)
         : buffer()
     {
         this->buffer_target = buffer_target;
     }
     buffer(){glGenBuffers(1, &id);}
     ~buffer(){glDeleteBuffers(1, &id);}
-
-    void bind() const
-    {
-        glBindBuffer(static_cast<unsigned int>(buffer_target), id);
-    }
+    void bind() const{glBindBuffer(buffer_target, id);}
 
     void data(int size, const void* data, unsigned int usage) const
     {
         bind();
-        glBufferData(static_cast<unsigned int>(buffer_target),
-            size, data, usage);
+        glBufferData(buffer_target, size, data, usage);
     }
 
     void sub_data(int offset, int size,
         const void* data) const
     {
-        glBufferSubData(static_cast<unsigned int>(buffer_target),
-            offset, size, data);
+        glBufferSubData(buffer_target, offset, size, data);
+    }
+
+    template<typename T, unsigned int N>
+    void data(const std::array<T, N>& data, unsigned int usage) const
+    {
+        bind();
+        glBufferData(buffer_target,
+            sizeof(T) * data.size(), data.data(), usage);
+    }
+
+    template<typename T>
+    void data(const std::vector<T>& data, unsigned int usage) const
+    {
+        bind();
+        glBufferData(buffer_target,
+            sizeof(T) * data.size(), data.data(), usage);
     }
 
 private:
-    target buffer_target = target::ARRAY_BUFFER;
+    unsigned int buffer_target = GL_ARRAY_BUFFER;
     unsigned int id = 0u;
 
 };

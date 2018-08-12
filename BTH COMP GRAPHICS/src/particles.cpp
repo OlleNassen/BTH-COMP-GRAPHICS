@@ -7,19 +7,7 @@ namespace particles
 
 emitter::emitter()
 {
-    constexpr float quad_a[] =
-	{
-		// positions
-		-0.5f, -0.5f,
-		-0.5f,  0.5f,
-		 0.5f, -0.5f,
-
-		 0.5f, -0.5f,
-		-0.5f,  0.5f,
-		 0.5f,  0.5f
-	};
-
-    vertex_buffer.data(sizeof(quad_a), quad_a, GL_STATIC_DRAW);
+    vertex_buffer.data(object::quad, GL_STATIC_DRAW);
     v_array.attribute_pointer(0, 2, GL_FLOAT, GL_FALSE, 0, nullptr);
 
     position_buffer.data(sizeof(glm::vec3) * particles.size(),

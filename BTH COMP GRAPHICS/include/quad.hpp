@@ -3,8 +3,8 @@
 
 #include "node.hpp"
 #include "buffer.hpp"
-
 #include "texture.hpp"
+#include "objects.hpp"
 
 namespace scene
 {

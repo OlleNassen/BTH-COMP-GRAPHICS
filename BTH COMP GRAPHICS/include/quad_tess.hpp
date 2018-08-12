@@ -16,7 +16,7 @@ public:
 private:
 	vertex_array quad_array;
 	buffer quad_vbo;
-	buffer quad_ebo{target::ELEMENT_ARRAY_BUFFER};
+	buffer quad_ebo{GL_ELEMENT_ARRAY_BUFFER};
 	texture tess_texture;
 	texture displacement_map;
 
