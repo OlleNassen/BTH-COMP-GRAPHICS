@@ -55,8 +55,6 @@ private:
         "shaders/tess.es", "shaders/tess.geo", "shaders/tess.fs"};
 	shader backface_shader{ "shaders/backface.vs",
         "shaders/backface.geo", "shaders/backface.fs" };
-	shader deferred_shader{ "shaders/deferred.vs", "shaders/deferred.fs" };
-	shader g_buffer_shader{ "shaders/g_buffer.vs", "shaders/g_buffer.fs" };
 	shader p{ "shaders/particle.vs", "shaders/particle.fs" };
 
 
@@ -96,12 +94,6 @@ private:
 
 	void render();
 	void update(std::chrono::milliseconds delta_time);
-
-	//Deferred stuff
-	void configure_g_buffer();
-	void configure_lights();
-	std::vector<glm::vec3> lightPositions;
-	std::vector<glm::vec3> lightColors;
 };
 
 #endif
