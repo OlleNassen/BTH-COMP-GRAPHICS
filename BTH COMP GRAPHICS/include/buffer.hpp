@@ -3,7 +3,9 @@
 
 #include <array>
 #include <vector>
+#include <tuple>
 #include <GL/glew.h>
+#include <glm/glm.hpp>
 #include "texture.hpp"
 
 class buffer
@@ -81,6 +83,26 @@ private:
 
 };
 
+template<typename T, unsigned int N>
+class attrib
+{
+public:
+    int size = sizeof(T);
+    unsigned int type = N;
+};
+
+constexpr attrib<float, GL_FLOAT> attrib_f;
+constexpr attrib<int, GL_INT> attrib_i;
+constexpr attrib<unsigned int, GL_UNSIGNED_INT> attrib_ui;
+
+constexpr attrib<glm::vec2, GL_FLOAT> attrib_v2;
+constexpr attrib<glm::vec3, GL_FLOAT> attrib_v3;
+constexpr attrib<glm::vec4, GL_FLOAT> attrib_v4;
+
+constexpr attrib<glm::ivec2, GL_INT> attrib_iv2;
+constexpr attrib<glm::ivec3, GL_INT> attrib_iv3;
+constexpr attrib<glm::ivec4, GL_INT> attrib_iv4;
+
 class vertex_array
 {
 public:
@@ -110,6 +132,49 @@ public:
     {
         bind();
         glVertexAttribDivisor(index, divisor);
+    }
+
+
+    template <typename Head, typename... Tail>
+    void calculate_stride(int& stride, const Head& head, const Tail&... tail)
+    {
+        if(sizeof...(tail))
+        {
+            stride += head.size;
+            calculate_stride(stride, tail...);
+        }
+    }
+
+    template <typename Head, typename... Tail>
+    void for_each_argument(int i, int stride, int offset,
+        const Head& head, const Tail&... tail)
+    {
+        if(sizeof...(tail))
+        {
+            glEnableVertexAttribArray(i);
+            if(head.type == GL_INT || head.type == GL_UNSIGNED_INT)
+            {
+                glVertexAttribIPointer(i, head.size, head.type,
+                    stride, &offset);
+            }
+            else
+            {
+                glVertexAttribPointer(i, head.size, head.type,
+                    GL_FALSE, stride, &offset);
+            }
+
+            for_each_argument(++i, stride, head.size + offset, tail...);
+        }
+    }
+
+
+    template<typename... Args>
+    void attributes(Args... args)
+    {
+        bind();
+        int stride = 0;
+        calculate_stride(stride, args...);
+        for_each_argument(0,stride,0, args...);
     }
 
 private:

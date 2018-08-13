@@ -321,7 +321,7 @@ model::model()
         GL_FLOAT, GL_FALSE, stride, (void*)(5 * sizeof(float)));
 
 	model_array.attribute_pointer(3, 4,
-        GL_INT, stride, (void*)(8 * sizeof(float)));
+        GL_UNSIGNED_INT, stride, (void*)(8 * sizeof(float)));
 	model_array.attribute_pointer(4, 4,
         GL_FLOAT, GL_FALSE, stride,
         (void*)(8 * sizeof(float) + 4 * sizeof(unsigned int)));

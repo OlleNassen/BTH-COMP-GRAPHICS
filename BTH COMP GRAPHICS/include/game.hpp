@@ -92,6 +92,7 @@ private:
 	glm::vec3 phong_pos;
 	std::chrono::duration<float> seconds{0s};
 	std::chrono::milliseconds color_timer{0ms};
+	std::string ui_text;
 
 	void render();
 	void update(std::chrono::milliseconds delta_time);

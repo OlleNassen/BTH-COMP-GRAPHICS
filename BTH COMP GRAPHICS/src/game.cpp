@@ -213,14 +213,11 @@ void game::render()
 	emitter.render(p);
 
 	//Text
-	if (current_race.lap() == 1)
-	{
-		text_shader.use();
-		glm::mat4 projection = glm::ortho(0.0f, 1280.f, 0.0f, 720.f);
-		text_shader.uniform("projection", projection);
-		text_shader.uniform("textColor", glm::vec3(1.0f, 0.3f, 0.3f));
-        temp_text.render_text("FINISHED", 100, 400, 1);
-	}
+    text_shader.use();
+    glm::mat4 projection = glm::ortho(0.0f, 1280.f, 0.0f, 720.f);
+    text_shader.uniform("projection", projection);
+    text_shader.uniform("textColor", glm::vec3(1.0f, 0.3f, 0.3f));
+    temp_text.render_text(ui_text.c_str(), 10, 10, 1);
 
 	game_window.swap_buffers();
 }
@@ -255,10 +252,12 @@ void game::update(std::chrono::milliseconds delta_time)
 		icos.emplace_back(new scene::icosahedron(p.x, p.y, p.z));
         icos.back()->attach_child(&emitter);
 		++race_index;
+		ui_text = std::to_string(race_index) + " / 10";
 
 		if(race_index == 10)
         {
             race_index = 0;
+            ui_text = "victory!";
         }
 	}
 
