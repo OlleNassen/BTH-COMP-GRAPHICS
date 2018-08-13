@@ -311,6 +311,7 @@ void model::update(milliseconds delta)
 
 void model::draw(const shader& shader) const
 {
+	shader.uniform("model", model_mat);
 	shader.uniform("joint_transforms", world_joints);
     diffuse.uniform(shader, "diffuse", 0);
 	model_array.bind();

@@ -100,6 +100,8 @@ private:
     skeleton joints;
     skeleton_array<glm::mat4> world_joints;
 
+    glm::mat4 model_mat{-1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,1};
+
     animation current;
 
     buffer model_buffer;
