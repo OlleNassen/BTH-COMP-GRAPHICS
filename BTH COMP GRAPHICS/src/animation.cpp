@@ -273,7 +273,7 @@ model::model()
 {
     std::vector<key_frame> key_frames;
 
-	import_model("models/test/model.dae",
+	import_model("models/model.dae",
         vertices, indices, joints,
         key_frames);
 
