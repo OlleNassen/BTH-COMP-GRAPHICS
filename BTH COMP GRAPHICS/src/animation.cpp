@@ -6,31 +6,6 @@
 namespace anim
 {
 
-/**const glm::mat4 conversion_matrix
-{
-    -1, 0, 0, 0,
-     0, 0, 1, 0,
-     0, 1, 0, 0,
-     0, 0, 0, 1
-};
-
-glm::vec3 convert(glm::vec3 v3)
-{
-    glm::vec4 v4 = conversion_matrix * glm::vec4{v3, 1.0f};
-    v3.x = v4.x;
-    v3.y = v4.y;
-    v3.z = v4.z;
-    return v3;
-}
-
-glm::quat convert(glm::quat q)
-{
-    glm::mat4 m = glm::mat4_cast(q);
-    m = conversion_matrix * m;
-    q = glm::quat_cast(m);
-    return q;
-}*/
-
 constexpr glm::mat4 ai_to_glm(const aiMatrix4x4& mat)
 {
     return
@@ -58,7 +33,7 @@ pose mix(const pose& x, const pose& y, float a)
     return
     {
         glm::mix(x.position, y.position, a),
-        glm::mix(x.rotation, y.rotation, a)
+        glm::slerp(x.rotation, y.rotation, a)
     };
 }
 
@@ -205,6 +180,9 @@ void load_key_frames(const aiAnimation* anim,
                     duration_cast<milliseconds>(duration<float>
                     (channel->mPositionKeys[j].mTime));
             }
+            if(j == 0u)
+                std::cout << i+1 << ": "<< channel->mNodeName.C_Str() << std::endl;
+
             aiVector3D v = channel->mPositionKeys[j].mValue;
             aiQuaternion q = channel->mRotationKeys[j].mValue;
 
