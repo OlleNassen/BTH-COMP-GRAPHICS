@@ -180,8 +180,6 @@ void load_key_frames(const aiAnimation* anim,
                     duration_cast<milliseconds>(duration<float>
                     (channel->mPositionKeys[j].mTime));
             }
-            if(j == 0u)
-                std::cout << i+1 << ": "<< channel->mNodeName.C_Str() << std::endl;
 
             aiVector3D v = channel->mPositionKeys[j].mValue;
             aiQuaternion q = channel->mRotationKeys[j].mValue;
