@@ -151,10 +151,10 @@
     <ClCompile Include="src\box.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\icosahedron.cpp" />
-    <ClCompile Include="src\input.cpp" />
     <ClCompile Include="src\mesh.cpp" />
     <ClCompile Include="src\node.cpp" />
     <ClCompile Include="src\normal_quad.cpp" />
+    <ClCompile Include="src\particles.cpp" />
     <ClCompile Include="src\particle_emitter.cpp" />
     <ClCompile Include="src\point_light.cpp" />
     <ClCompile Include="src\quad.cpp" />
@@ -163,7 +163,6 @@
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\directional_light.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\scene_loader.cpp" />
     <ClCompile Include="src\shader.cpp" />
     <ClCompile Include="src\skeletal.cpp" />
     <ClCompile Include="src\skybox.cpp" />
@@ -171,7 +170,6 @@
     <ClCompile Include="src\terrain.cpp" />
     <ClCompile Include="src\text.cpp" />
     <ClCompile Include="src\texture.cpp" />
-    <ClCompile Include="src\tinyxml2.cpp" />
     <ClCompile Include="src\window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -185,16 +183,16 @@
     <ClInclude Include="include\directional_light.hpp" />
     <ClInclude Include="include\game.hpp" />
     <ClInclude Include="include\icosahedron.hpp" />
-    <ClInclude Include="include\input.hpp" />
     <ClInclude Include="include\mesh.hpp" />
     <ClInclude Include="include\node.hpp" />
     <ClInclude Include="include\normal_quad.hpp" />
+    <ClInclude Include="include\objects.hpp" />
+    <ClInclude Include="include\particles.hpp" />
     <ClInclude Include="include\particle_emitter.hpp" />
     <ClInclude Include="include\point_light.hpp" />
     <ClInclude Include="include\quad.hpp" />
     <ClInclude Include="include\quad_tess.hpp" />
     <ClInclude Include="include\race.hpp" />
-    <ClInclude Include="include\scene_loader.hpp" />
     <ClInclude Include="include\shader.hpp" />
     <ClInclude Include="include\skeletal.hpp" />
     <ClInclude Include="include\skybox.hpp" />
@@ -202,7 +200,6 @@
     <ClInclude Include="include\terrain.hpp" />
     <ClInclude Include="include\text.hpp" />
     <ClInclude Include="include\texture.hpp" />
-    <ClInclude Include="include\tinyxml2.h" />
     <ClInclude Include="include\window.hpp" />
   </ItemGroup>
   <ItemGroup>

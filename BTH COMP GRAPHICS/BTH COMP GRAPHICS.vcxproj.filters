@@ -36,9 +36,6 @@
     <ClCompile Include="src\game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\input.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\box.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -93,10 +90,7 @@
     <ClCompile Include="external\include\nclgl\MD5FileData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\scene_loader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\tinyxml2.cpp">
+    <ClCompile Include="src\particles.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -120,9 +114,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\game.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\input.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\box.hpp">
@@ -182,10 +173,10 @@
     <ClInclude Include="external\include\nclgl\MD5FileData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\scene_loader.hpp">
+    <ClInclude Include="include\objects.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\tinyxml2.h">
+    <ClInclude Include="include\particles.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
