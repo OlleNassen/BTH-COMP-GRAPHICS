@@ -208,12 +208,8 @@
     <None Include="shaders\backface.vs" />
     <None Include="shaders\billboard.fs" />
     <None Include="shaders\billboard.vs" />
-    <None Include="shaders\deferred.fs" />
-    <None Include="shaders\deferred.vs" />
     <None Include="shaders\environment_mapping.fs" />
     <None Include="shaders\environment_mapping.vs" />
-    <None Include="shaders\g_buffer.fs" />
-    <None Include="shaders\g_buffer.vs" />
     <None Include="shaders\normal.fs" />
     <None Include="shaders\normal.vs" />
     <None Include="shaders\phong.fs" />

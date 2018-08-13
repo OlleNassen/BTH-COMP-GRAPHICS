@@ -203,9 +203,5 @@
     <None Include="shaders\backface.geo" />
     <None Include="shaders\backface.vs" />
     <None Include="shaders\backface.fs" />
-    <None Include="shaders\deferred.fs" />
-    <None Include="shaders\deferred.vs" />
-    <None Include="shaders\g_buffer.vs" />
-    <None Include="shaders\g_buffer.fs" />
   </ItemGroup>
 </Project>
