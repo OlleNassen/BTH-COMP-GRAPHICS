@@ -208,15 +208,18 @@ void game::render()
 	game_camera.bind(anim);
 	temp_model.draw(anim);
 
-	p.use();
-    game_camera.bind(p);
-	emitter.render(p);
+    if(current_race.lap() < 1)
+    {
+        p.use();
+        game_camera.bind(p);
+        emitter.render(p);
+    }
 
 	//Text
     text_shader.use();
     glm::mat4 projection = glm::ortho(0.0f, 1280.f, 0.0f, 720.f);
     text_shader.uniform("projection", projection);
-    text_shader.uniform("textColor", glm::vec3(1.0f, 0.3f, 0.3f));
+    text_shader.uniform("textColor", glm::vec3(0.8f, 0.8f, 0.8f));
     temp_text.render_text(ui_text.c_str(), 10, 10, 1);
 
 	game_window.swap_buffers();
@@ -251,23 +254,22 @@ void game::update(std::chrono::milliseconds delta_time)
         auto& p = current_race[race_index].position;
 		icos.emplace_back(new scene::icosahedron(p.x, p.y, p.z));
         icos.back()->attach_child(&emitter);
-		++race_index;
 		ui_text = std::to_string(race_index) + " / 10";
+		++race_index;
 
 		if(race_index == 10)
         {
             race_index = 0;
-            ui_text = "victory!";
         }
 	}
 
-    color_timer += delta_time;
-    if (color_timer > 500ms)
-	{
-        color_timer = 0ms;
-
-		if(current_race.lap() > 0)
+    if(current_race.lap() > 0)
+    {
+        ui_text = "victory!";
+        color_timer += delta_time;
+        if (color_timer > 500ms)
         {
+            color_timer = 0ms;
             for (auto& obj : icos)
             {
                  obj->set_color(glm::vec3(

@@ -146,6 +146,17 @@ void load_parent_indices(const aiNode& node,
     if(strcmp(node.mName.C_Str(), "Camera"))
     {
         auto& joint = joints[index];
+        for (auto i = 0u; i < names.size(); ++i)
+        {
+            if(names[i].compare(node.mParent->mName.C_Str()) == 0)
+            {
+                joint.parent = i;
+                joint.local_transform = ai_to_glm(node.mTransformation);
+                joint.global_transform = joints[i].global_transform
+                    * joint.local_transform;
+                joint.inverse_bind_pose = glm::inverse(joint.global_transform);
+            }
+        }
         if(&joint == &joints.front())
         {
             joint.local_transform = ai_to_glm(node.mTransformation);
@@ -154,21 +165,6 @@ void load_parent_indices(const aiNode& node,
         }
 
         ++index;
-    }
-
-    for (auto i = 0u; i < names.size(); ++i)
-    {
-        if(names[i].compare(node.mParent->mName.C_Str()) == 0)
-        {
-            auto& joint = joints[index - 1];
-            auto* parent = &joints[i];
-            //std::cout << index - 1 << ": " << i << std::endl;
-            joint.parent = i;
-            joint.local_transform = ai_to_glm(node.mTransformation);
-            joint.global_transform = parent->global_transform
-                * joint.local_transform;
-            joint.inverse_bind_pose = glm::inverse(joint.global_transform);
-        }
     }
 
     for (auto i = 0u; i < node.mNumChildren; ++i)
