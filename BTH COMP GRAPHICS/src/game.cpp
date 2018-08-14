@@ -81,7 +81,7 @@ game::game()
 		checkpoint =
             sphere(terrain.calculate_camera_position(v, 2.5f), 2.5f);
     }
-    icos.reserve(sizeof(scene::icosahedron));
+    icos.reserve(10 * sizeof(scene::icosahedron));
 }
 
 game::~game()
