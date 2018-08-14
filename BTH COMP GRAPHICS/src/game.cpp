@@ -189,6 +189,10 @@ void game::render()
 		ics->render(tess_shader);
 	}
 
+	billboard_shader.use();
+	game_camera.bind(billboard_shader);
+	particles.render(billboard_shader);
+
 	//Animated model
 	anim.use();
 	game_camera.bind(anim);
@@ -229,6 +233,8 @@ void game::update(std::chrono::milliseconds delta_time)
 	current_race.update(game_camera.get_pos());
 
     temp_model.update(delta_time);
+
+	particles.update(delta_time);
 
 	if (race_index == current_race.get_checkpoint() && race_index < 10)
 	{
