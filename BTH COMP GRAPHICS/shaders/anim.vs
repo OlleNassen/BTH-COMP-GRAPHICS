@@ -1,4 +1,4 @@
-#version 440 core
+#version 430
 
 #define MAX_JOINTS 50
 #define MAX_WEIGHTS 4

@@ -1,4 +1,4 @@
-#version 440 core
+#version 430
 
 in vec3 fragment_pos;
 in vec3 norm;

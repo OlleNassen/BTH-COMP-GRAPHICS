@@ -1,15 +1,16 @@
 #version 430
-out vec4 FragColor;
 
-in vec3 Normal;
-in vec3 Position;
+in vec3 position;
+in vec3 normal;
+
+out vec4 frag_color;
 
 uniform vec3 view_position; // World cordinates
 uniform samplerCube skybox;
 
 void main()
 {             
-    vec3 I = normalize(Position - view_position);
-    vec3 R = reflect(I, normalize(Normal));
-    FragColor = vec4(texture(skybox, R).rgb, 1.0);
+    vec3 view_dir = normalize(position - view_position);
+    vec3 reflection = reflect(view_dir, normalize(normal));
+    frag_color = vec4(texture(skybox, reflection).rgb, 1.0);
 }

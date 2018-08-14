@@ -1,4 +1,4 @@
-#version 440 core
+#version 430
 
 in vec2 texture_pos;
 out vec4 fragment_color;
