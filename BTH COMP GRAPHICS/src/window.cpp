@@ -15,7 +15,8 @@ window::window(
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    glfw_window = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
+    glfw_window = glfwCreateWindow(width, height,
+        title.c_str(), nullptr, nullptr);
 
     if (!glfw_window)
     {
@@ -86,7 +87,8 @@ void bind_key(const std::string& name, key keybind)
     keybinds.insert(std::pair<key, std::string>(keybind, name));
 }
 
-void key_callback(GLFWwindow* window, int key_id, int scancode, int action, int mods)
+void key_callback(GLFWwindow* window, int key_id, int scancode,
+    int action, int mods)
 {
     auto name = keybinds[static_cast<key>(key_id)];
 

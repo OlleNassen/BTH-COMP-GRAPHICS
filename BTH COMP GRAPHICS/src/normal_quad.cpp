@@ -66,19 +66,36 @@ normal_quad::normal_quad(float x, float y, float z)
 
 
 	float quad_vertices[] = {
-		// positions            // normal         // texcoords  // tangent                          // bitangent
-		pos1.x, pos1.y, pos1.z, nm.x, nm.y, nm.z, uv1.x, uv1.y, tangent1.x, tangent1.y, tangent1.z, bitangent1.x, bitangent1.y, bitangent1.z,
-		pos2.x, pos2.y, pos2.z, nm.x, nm.y, nm.z, uv2.x, uv2.y, tangent1.x, tangent1.y, tangent1.z, bitangent1.x, bitangent1.y, bitangent1.z,
-		pos3.x, pos3.y, pos3.z, nm.x, nm.y, nm.z, uv3.x, uv3.y, tangent1.x, tangent1.y, tangent1.z, bitangent1.x, bitangent1.y, bitangent1.z,
+		// positions  // normal // texcoords  // tangent // bitangent
+		pos1.x, pos1.y, pos1.z, nm.x, nm.y, nm.z, uv1.x, uv1.y,
+		tangent1.x, tangent1.y, tangent1.z,
+		bitangent1.x, bitangent1.y, bitangent1.z,
 
-		pos1.x, pos1.y, pos1.z, nm.x, nm.y, nm.z, uv1.x, uv1.y, tangent2.x, tangent2.y, tangent2.z, bitangent2.x, bitangent2.y, bitangent2.z,
-		pos3.x, pos3.y, pos3.z, nm.x, nm.y, nm.z, uv3.x, uv3.y, tangent2.x, tangent2.y, tangent2.z, bitangent2.x, bitangent2.y, bitangent2.z,
-		pos4.x, pos4.y, pos4.z, nm.x, nm.y, nm.z, uv4.x, uv4.y, tangent2.x, tangent2.y, tangent2.z, bitangent2.x, bitangent2.y, bitangent2.z
+		pos2.x, pos2.y, pos2.z, nm.x, nm.y, nm.z, uv2.x, uv2.y,
+		tangent1.x, tangent1.y, tangent1.z,
+		bitangent1.x, bitangent1.y, bitangent1.z,
+
+		pos3.x, pos3.y, pos3.z, nm.x, nm.y, nm.z, uv3.x, uv3.y,
+		tangent1.x, tangent1.y, tangent1.z,
+		bitangent1.x, bitangent1.y, bitangent1.z,
+
+		pos1.x, pos1.y, pos1.z, nm.x, nm.y, nm.z, uv1.x, uv1.y,
+		tangent2.x, tangent2.y, tangent2.z,
+		bitangent2.x, bitangent2.y, bitangent2.z,
+
+		pos3.x, pos3.y, pos3.z, nm.x, nm.y, nm.z, uv3.x, uv3.y,
+		tangent2.x, tangent2.y, tangent2.z,
+		bitangent2.x, bitangent2.y, bitangent2.z,
+
+		pos4.x, pos4.y, pos4.z, nm.x, nm.y, nm.z, uv4.x, uv4.y,
+		tangent2.x, tangent2.y, tangent2.z,
+		bitangent2.x, bitangent2.y, bitangent2.z
 	};
 
 	quad_array.bind();
 	quad_vbo.data(sizeof(quad_vertices), &quad_vertices[0], GL_STATIC_DRAW);
-	quad_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 14 * sizeof(float), nullptr);
+	quad_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE,
+        14 * sizeof(float), nullptr);
 	auto offset = 3u;
 	quad_array.attribute_pointer(1, 3, GL_FLOAT, GL_FALSE, 14 * sizeof(float),
         buffer_offset<float>(offset));

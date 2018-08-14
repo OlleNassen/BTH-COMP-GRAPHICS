@@ -19,7 +19,7 @@ text::text()
 	if (FT_Load_Char(face, 'X', FT_LOAD_RENDER))
 		std::cout << "ERROR::FREETYTPE: Failed to load Glyph" << std::endl;
 
-	glPixelStorei(GL_UNPACK_ALIGNMENT, 1); // Disable byte-alignment restriction
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);// Disable byte-alignment restriction
 
 	for (auto c = 0ul; c < 128; ++c)
 	{
@@ -68,7 +68,8 @@ text::text()
 	glGenBuffers(1, &VBO);
 	glBindVertexArray(VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6 * 4,
+        NULL, GL_DYNAMIC_DRAW);
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -112,7 +113,8 @@ void text::render_text(const std::string& text,
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glDrawArrays(GL_TRIANGLES, 0, 6);
 
-		x += (ch.advance >> 6) * scale; // Bitshift by 6 to get value in pixels (2^6 = 64)
+        // Bitshift by 6 to get value in pixels (2^6 = 64)
+		x += (ch.advance >> 6) * scale;
 	}
 	glBindVertexArray(0);
 }

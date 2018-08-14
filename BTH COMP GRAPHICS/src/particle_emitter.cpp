@@ -22,7 +22,8 @@ particle_emitter::particle_emitter(float x, float y, float z)
         up = true;
     }
 
-	instance_vbo.data(sizeof(glm::vec3) * offsets.size(), offsets.data(), GL_STATIC_DRAW);
+	instance_vbo.data(sizeof(glm::vec3) * offsets.size(), offsets.data(),
+        GL_STATIC_DRAW);
 	constexpr auto size = 0.3f;
 	constexpr float vertices[] =
 	{
@@ -38,20 +39,26 @@ particle_emitter::particle_emitter(float x, float y, float z)
 
 	quad_array.bind();
 	quad_vbo.data(sizeof(vertices), &vertices[0], GL_STATIC_DRAW);
-	quad_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), nullptr);
+	quad_array.attribute_pointer(0, 3, GL_FLOAT, GL_FALSE,
+        8 * sizeof(float), nullptr);
 	auto offset = 3u;
-	quad_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), buffer_offset<float>(offset));
+	quad_array.attribute_pointer(1, 2, GL_FLOAT, GL_FALSE,
+        8 * sizeof(float), buffer_offset<float>(offset));
 	offset += 2u;
-	quad_array.attribute_pointer(2, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), buffer_offset<float>(offset));
+	quad_array.attribute_pointer(2, 3, GL_FLOAT, GL_FALSE,
+        8 * sizeof(float), buffer_offset<float>(offset));
 
 	instance_vbo.bind();
-	quad_array.attribute_pointer(3, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
+	quad_array.attribute_pointer(3, 3, GL_FLOAT, GL_FALSE,
+        3 * sizeof(float), nullptr);
 	quad_array.attribute_divisor(3, 1);
 }
 
-void particle_emitter::update_current(milliseconds delta_time, const glm::mat4& world_transform, glm::mat4& transform)
+void particle_emitter::update_current(milliseconds delta_time,
+    const glm::mat4& world_transform, glm::mat4& transform)
 {
-	instance_vbo.data(sizeof(glm::vec3) * offsets.size(), offsets.data(), GL_STATIC_DRAW);
+	instance_vbo.data(sizeof(glm::vec3) * offsets.size(),
+        offsets.data(), GL_STATIC_DRAW);
 
 	for (auto i = 0u; i < offsets.size(); ++i)
 	{
@@ -91,7 +98,8 @@ void particle_emitter::update_current(milliseconds delta_time, const glm::mat4& 
 	}
 }
 
-void particle_emitter::render_current(const shader& shader, const glm::mat4& world_transform) const
+void particle_emitter::render_current(const shader& shader,
+    const glm::mat4& world_transform) const
 {
 	shader.uniform("model", world_transform);
 	quad_texture->uniform(shader, "diffuseMap", 0);

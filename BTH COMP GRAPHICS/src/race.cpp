@@ -9,7 +9,6 @@ sphere::sphere(const glm::vec3& position, float radius)
 
 bool sphere::contains(const glm::vec3& other) const
 {
-	//std::cout << glm::length(other - position) << '\n';
     return glm::length(other - position) < radius;
 }
 
@@ -31,7 +30,8 @@ race::sphere_array::const_iterator race::end() const
     return checkpoints.end();
 }
 
-race::sphere_array::const_reference race::operator[](sphere_array::size_type pos) const
+race::sphere_array::const_reference race::operator[](
+    sphere_array::size_type pos) const
 {
     return checkpoints[pos];
 }

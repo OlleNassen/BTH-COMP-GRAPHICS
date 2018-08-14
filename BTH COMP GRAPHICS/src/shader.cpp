@@ -26,7 +26,8 @@ shader::shader(const std::string& vertex_path, const std::string& fragment_path)
     if(!success)
     {
         glGetProgramInfoLog(id, 512, NULL, infoLog);
-        std::cout << "Error linking failed: " << infoLog  << " in " << vertex_path
+        std::cout << "Error linking failed: "
+            << infoLog  << " in " << vertex_path
 			<< " or " << fragment_path << std::endl;
     }
 
@@ -58,8 +59,8 @@ shader::shader(const std::string& vertex_path,
 	if (!success)
 	{
 		glGetProgramInfoLog(id, 512, NULL, infoLog);
-		std::cout << "Error linking failed: " << infoLog << " in " << vertex_path
-			<< " or " << fragment_path << std::endl;
+		std::cout << "Error linking failed: " << infoLog << " in "
+            << vertex_path << " or " << fragment_path << std::endl;
 	}
 
 	glDeleteShader(vertex_shader);
@@ -67,7 +68,11 @@ shader::shader(const std::string& vertex_path,
 	glDeleteShader(fragment_shader);
 }
 
-shader::shader(const std::string & vertex_path, const std::string & tess_control, const std::string & tess_eval, const std::string & geo_path, const std::string & fragment_path)
+shader::shader(const std::string & vertex_path,
+    const std::string & tess_control,
+    const std::string & tess_eval,
+    const std::string & geo_path,
+    const std::string & fragment_path)
 {
 	std::string vertex_code(load(vertex_path));
 	std::string control_code(load(tess_control));
@@ -96,7 +101,8 @@ shader::shader(const std::string & vertex_path, const std::string & tess_control
 	if (!success)
 	{
 		glGetProgramInfoLog(id, 512, NULL, infoLog);
-		std::cout << "Error linking failed: " << infoLog << " in " << vertex_path
+		std::cout << "Error linking failed: " << infoLog
+            << " in " << vertex_path
 			<< " or " << fragment_path << std::endl;
 	}
 
@@ -147,7 +153,8 @@ void shader::uniform(const std::string& name, const glm::vec4& value) const
         1, glm::value_ptr(value));
 }
 
-void shader::uniform(const std::string& name, const glm::vec<4, int, glm::highp>& value) const
+void shader::uniform(const std::string& name,
+    const glm::vec<4, int, glm::highp>& value) const
 {
     glUniform4iv(glGetUniformLocation(id, name.c_str()),
         1, glm::value_ptr(value));
@@ -159,7 +166,8 @@ void shader::uniform(const std::string& name, const glm::mat4& value) const
         1, GL_FALSE, glm::value_ptr(value));
 }
 
-void shader::uniform(const std::string& name, const std::vector<int>& value) const
+void shader::uniform(const std::string& name,
+    const std::vector<int>& value) const
 {
     if(value.size() > 0)
     {
@@ -168,7 +176,8 @@ void shader::uniform(const std::string& name, const std::vector<int>& value) con
     }
 }
 
-void shader::uniform(const std::string& name, const std::vector<float>& value) const
+void shader::uniform(const std::string& name,
+    const std::vector<float>& value) const
 {
     if(value.size() > 0)
     {
@@ -177,7 +186,8 @@ void shader::uniform(const std::string& name, const std::vector<float>& value) c
     }
 }
 
-void shader::uniform(const std::string& name, const std::vector<glm::vec2>& value) const
+void shader::uniform(const std::string& name,
+    const std::vector<glm::vec2>& value) const
 {
     if(value.size() > 0)
     {
@@ -186,7 +196,8 @@ void shader::uniform(const std::string& name, const std::vector<glm::vec2>& valu
     }
 }
 
-void shader::uniform(const std::string& name, const std::vector<glm::vec3>& value) const
+void shader::uniform(const std::string& name,
+    const std::vector<glm::vec3>& value) const
 {
     if(value.size() > 0)
     {
@@ -195,7 +206,8 @@ void shader::uniform(const std::string& name, const std::vector<glm::vec3>& valu
     }
 }
 
-void shader::uniform(const std::string& name, const std::vector<glm::vec4>& value) const
+void shader::uniform(const std::string& name,
+    const std::vector<glm::vec4>& value) const
 {
     if(value.size() > 0)
     {
@@ -204,7 +216,8 @@ void shader::uniform(const std::string& name, const std::vector<glm::vec4>& valu
     }
 }
 
-void shader::uniform(const std::string& name, const std::vector<glm::mat4>& value) const
+void shader::uniform(const std::string& name,
+    const std::vector<glm::mat4>& value) const
 {
     if(value.size() > 0)
     {
@@ -213,7 +226,8 @@ void shader::uniform(const std::string& name, const std::vector<glm::mat4>& valu
     }
 }
 
-void shader::uniform(const std::string& name, const std::array<glm::mat4, 50>& value) const
+void shader::uniform(const std::string& name,
+    const std::array<glm::mat4, 50>& value) const
 {
     if(value.size() > 0)
     {
@@ -236,7 +250,8 @@ std::string shader::load(const std::string& path) const
     return code;
 }
 
-unsigned int shader::create(unsigned int shader_type, const char* shader_code) const
+unsigned int shader::create(unsigned int shader_type,
+    const char* shader_code) const
 {
     auto shader_id = 0;
     auto success = 0;
