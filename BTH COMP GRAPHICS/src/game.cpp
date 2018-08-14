@@ -205,7 +205,7 @@ void game::render()
     text_shader.use();
     glm::mat4 projection = glm::ortho(0.0f, 1280.f, 0.0f, 720.f);
     text_shader.uniform("projection", projection);
-    text_shader.uniform("textColor", glm::vec3(0.8f, 0.8f, 0.8f));
+    text_shader.uniform("text_color", glm::vec3(0.8f, 0.8f, 0.8f));
     temp_text.render_text(ui_text.c_str(), 10, 10, 1);
 
 	game_window.swap_buffers();
