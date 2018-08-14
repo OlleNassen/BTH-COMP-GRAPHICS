@@ -39,9 +39,6 @@ template <class T>
 using skeleton_array = std::array<T, 50>;
 using skeleton = skeleton_array<joint>;
 
-
-
-
 struct pose
 {
     glm::vec3 position{0.0f, 0.0f, 0.0f};
@@ -70,9 +67,6 @@ private:
     void update_key_frame();
     void update_pose(skeleton& joints);
 };
-
-
-
 
 struct vertex
 {
