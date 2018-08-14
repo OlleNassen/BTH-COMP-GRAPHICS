@@ -54,55 +54,6 @@ private:
 
 };
 
-class frame_buffer
-{
-public:
-	frame_buffer()
-	{
-		glGenFramebuffers(1, &id);
-	}
-	~frame_buffer()
-	{
-		glDeleteFramebuffers(1, &id);
-	}
-	void bind() const
-	{
-		glBindFramebuffer(GL_FRAMEBUFFER, id);
-	}
-	void bind_texture(const texture& texture) const
-	{
-		bind();
-		texture.bind_to_buffer();
-		glDrawBuffer(GL_NONE);
-		glReadBuffer(GL_NONE);
-		glBindFramebuffer(GL_FRAMEBUFFER, 0);
-	}
-
-private:
-	unsigned int id;
-
-};
-
-template<typename T, unsigned int N>
-class attrib
-{
-public:
-    int size = sizeof(T);
-    unsigned int type = N;
-};
-
-constexpr attrib<float, GL_FLOAT> attrib_f;
-constexpr attrib<int, GL_INT> attrib_i;
-constexpr attrib<unsigned int, GL_UNSIGNED_INT> attrib_ui;
-
-constexpr attrib<glm::vec2, GL_FLOAT> attrib_v2;
-constexpr attrib<glm::vec3, GL_FLOAT> attrib_v3;
-constexpr attrib<glm::vec4, GL_FLOAT> attrib_v4;
-
-constexpr attrib<glm::ivec2, GL_INT> attrib_iv2;
-constexpr attrib<glm::ivec3, GL_INT> attrib_iv3;
-constexpr attrib<glm::ivec4, GL_INT> attrib_iv4;
-
 class vertex_array
 {
 public:

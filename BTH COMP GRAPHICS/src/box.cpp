@@ -12,7 +12,6 @@ box::box(float x, float y, float z)
 {
     box_array.bind();
 	box_vbo.data(object::box, GL_STATIC_DRAW);
-	//box_array.attributes(attrib_v3, attrib_v2, attrib_v3);
 
     box_array.attribute_pointer(0, 3, GL_FLOAT,
         GL_FALSE, 8 * sizeof(float), nullptr);
