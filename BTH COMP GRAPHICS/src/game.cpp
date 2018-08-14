@@ -230,7 +230,7 @@ void game::update(std::chrono::milliseconds delta_time)
 
     temp_model.update(delta_time);
 
-	if (race_index == current_race.get_checkpoint())
+	if (race_index == current_race.get_checkpoint() && race_index < 10)
 	{
 		if(!icos.empty())
         {
@@ -242,11 +242,6 @@ void game::update(std::chrono::milliseconds delta_time)
         icos.back()->attach_child(&emitter);
 		ui_text = std::to_string(race_index) + " / 10";
 		++race_index;
-
-		if(race_index == 10)
-        {
-            race_index = 0;
-        }
 	}
 
     if(current_race.lap() > 0)
