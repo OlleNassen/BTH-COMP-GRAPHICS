@@ -84,6 +84,10 @@ game::game()
 
 }
 
+game::~game()
+{
+}
+
 void game::run()
 {
 	using clock = std::chrono::steady_clock;
@@ -154,7 +158,7 @@ void game::render()
 	game_camera.bind(tess_shader);
 	for (auto& ics : icos)
 	{
-		ics->render(tess_shader);
+		ics.render(tess_shader);
 	}
 
 	billboard_shader.use();
@@ -190,8 +194,8 @@ void game::update(std::chrono::milliseconds delta_time)
 
 	for (auto& ico : icos)
 	{
-		ico->update(delta_time);
-		ico->set_tessellation(ico->distance_to(cam_pos));
+		ico.update(delta_time);
+		ico.set_tessellation(ico.distance_to(cam_pos));
 	}
     terrain.update(delta_time);
     game_camera.move_on_terrain(terrain);
@@ -206,12 +210,12 @@ void game::update(std::chrono::milliseconds delta_time)
 	{
 		if(!icos.empty())
         {
-            icos.back()->set_color(glm::vec3(0.1f, 1.0f, 0.1f));
-            icos.back()->clear();
+            icos.back().set_color(glm::vec3(0.1f, 1.0f, 0.1f));
+            icos.back().clear();
         }
         auto& p = current_race[race_index].position;
-		icos.emplace_back(new scene::icosahedron(p.x, p.y, p.z));
-        icos.back()->attach_child(&emitter);
+		icos.emplace_back(p.x, p.y, p.z);
+        icos.back().attach_child(&emitter);
 		ui_text = std::to_string(race_index) + " / 10";
 		++race_index;
 	}
@@ -225,7 +229,7 @@ void game::update(std::chrono::milliseconds delta_time)
             color_timer = 0ms;
             for (auto& obj : icos)
             {
-                 obj->set_color(glm::vec3(
+                 obj.set_color(glm::vec3(
                     (rand() % 255) / 255.f,
                     (rand() % 255) / 255.f,
                     (rand() % 255) / 255.f));

@@ -35,6 +35,7 @@ class game
 {
 public:
 	game();
+	~game();
 
 	void run();
 
@@ -82,7 +83,7 @@ private:
 
 	int race_index{0};
     race current_race;
-	std::vector<scene::icosahedron*> icos;
+	std::vector<scene::icosahedron> icos;
 
 	glm::vec3 light_pos;
 	glm::vec3 phong_pos;
