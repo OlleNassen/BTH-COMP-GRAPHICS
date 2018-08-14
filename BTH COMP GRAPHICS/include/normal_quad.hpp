@@ -13,6 +13,7 @@ class normal_quad : public node
 {
 public:
 	normal_quad(float x = 0.0f, float y = 0.0f, float z = 0.0f);
+	~normal_quad();
 
 	void set_texture(const std::string& path);
 private:
