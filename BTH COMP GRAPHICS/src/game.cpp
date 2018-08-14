@@ -117,7 +117,7 @@ void game::render()
 	phong_shader.use();
 	game_camera.bind(phong_shader);
 	phong_shader.uniform("light_color", glm::vec3(1.f, 1.f, 1.f));
-	phong_shader.uniform("lightPos", phong_pos);
+	phong_shader.uniform("light_pos", phong_pos);
 	temp.render(phong_shader);
 
 	basic_shader.use();

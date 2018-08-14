@@ -1,10 +1,10 @@
 #version 430
 
-layout(location = 0) in vec3 aPos;
-layout(location = 1) in vec3 aNormal;
+layout(location = 0) in vec3 vertex_position;
+layout(location = 1) in vec3 vertex_normal;
 
+out vec3 fragment_pos;
 out vec3 normal;
-out vec3 fragPos;
 
 uniform mat4 model;
 uniform mat4 view;
@@ -12,9 +12,9 @@ uniform mat4 projection;
 
 void main()
 {
-	gl_Position = projection * view * model * vec4(aPos, 1);
+	gl_Position = projection * view * model * vec4(vertex_position, 1);
 
 	normal = mat3(transpose(inverse(model)))
-        * aNormal; // Normal matrix * normal (worldspace fix)
-	fragPos = vec3(model * vec4(aPos, 1));
+        * vertex_normal; // Normal matrix * normal (worldspace fix)
+	fragment_pos = vec3(model * vec4(vertex_position, 1));
 }
