@@ -168,7 +168,7 @@ void game::render()
 	//Normal mapping
 	normal_shader.use();
 	game_camera.bind(normal_shader);
-	normal_shader.uniform("lightPos", light_pos);
+	normal_shader.uniform("light_pos", light_pos);
 	normal_quad.render(normal_shader);
 
 	skybox_shader.use();
