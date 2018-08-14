@@ -12,18 +12,18 @@ out vec3 geo_tri_distance;
 
 uniform mat4 model;
 uniform mat4 view;
-//uniform mat3 NormalMatrix;
+//uniform mat3 normal_matrix;
 
 void main()
 {
-	mat4 modelView = view * model;
-	mat3 NormalMatrix = mat3(modelView[0][0], modelView[1][0], modelView[2][0],
-							modelView[0][1], modelView[1][1], modelView[2][1],
-							modelView[0][2], modelView[1][2], modelView[2][2]);
+	mat4 model_view = view * model;
+	mat3 normal_matrix = mat3(model_view[0][0], model_view[1][0], model_view[2][0],
+							model_view[0][1], model_view[1][1], model_view[2][1],
+							model_view[0][2], model_view[1][2], model_view[2][2]);
 
     vec3 A = es_position[2] - es_position[0];
     vec3 B = es_position[1] - es_position[0];
-    geo_face_normal = NormalMatrix * normalize(cross(A, B));
+    geo_face_normal = normal_matrix * normalize(cross(A, B));
     
     geo_patch_distance = patch_distance[0];
     geo_tri_distance = vec3(1, 0, 0);
