@@ -1,41 +1,43 @@
 #version 430
-out vec4 FragColor;
 
-in VS_OUT {
-    vec3 FragPos;
-    vec2 TexCoords;
-    vec3 TangentLightPos;
-    vec3 TangentViewPos;
-    vec3 TangentFragPos;
+in VS_OUT
+{
+
+	vec3 fragment_pos;
+    vec2 texcoord;
+    vec3 tangent_light_pos;
+    vec3 tangent_view_pos;
+    vec3 tangent_fragment_pos;
+
 } fs_in;
 
-uniform sampler2D diffuseMap;
-uniform sampler2D normalMap;
+out vec4 frag_color;
 
-uniform vec3 lightPos;
+uniform sampler2D diffuse_map;
+uniform sampler2D normal_map;
+
+uniform vec3 light_pos;
 uniform vec3 view_position;
 
 void main()
-{           
-     // obtain normal from normal map in range [0,1]
-    vec3 normal = texture(normalMap, fs_in.TexCoords).rgb;
+{
+    vec3 normal = texture(normal_map, fs_in.texcoord).rgb;
     // transform normal vector to range [-1,1]
     normal = normalize(normal * 2.0 - 1.0);  // this normal is in tangent space
    
-    // get diffuse color
-    vec3 color = texture(diffuseMap, fs_in.TexCoords).rgb;
-    // ambient
+    vec3 color = texture(diffuse_map, fs_in.texcoord).rgb;
+
     vec3 ambient = 0.1 * color;
-    // diffuse
-    vec3 lightDir = normalize(fs_in.TangentLightPos - fs_in.TangentFragPos);
-    float diff = max(dot(lightDir, normal), 0.0);
-    vec3 diffuse = diff * color;
-    // specular
-    vec3 viewDir = normalize(fs_in.TangentViewPos - fs_in.TangentFragPos);
-    vec3 reflectDir = reflect(-lightDir, normal);
-    vec3 halfwayDir = normalize(lightDir + viewDir);  
-    float spec = pow(max(dot(normal, halfwayDir), 0.0), 32.0);
+
+    vec3 light_direction = normalize(fs_in.tangent_light_pos - fs_in.tangent_fragment_pos);
+    float diff_value = max(dot(light_direction, normal), 0.0);
+    vec3 diffuse = diff_value * color;
+
+    vec3 view_direction = normalize(fs_in.tangent_view_pos - fs_in.tangent_fragment_pos);
+    vec3 halfway_direction = normalize(light_direction + view_direction);  
+    float spec = pow(max(dot(normal, halfway_direction), 0.0), 32.0);
 
     vec3 specular = vec3(0.2) * spec;
-    FragColor = vec4(ambient + diffuse + specular, 1.0);
+
+    frag_color = vec4(ambient + diffuse + specular, 1.0);
 }

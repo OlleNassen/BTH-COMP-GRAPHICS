@@ -5,12 +5,13 @@ layout (location = 2) in vec2 vertex_texcoord;
 layout (location = 3) in vec3 vertex_tangent;
 layout (location = 4) in vec3 vertex_bi_tangent;
 
-out VS_OUT {
-    vec3 FragPos;
-    vec2 TexCoords;
-    vec3 TangentLightPos;
-    vec3 TangentViewPos;
-    vec3 TangentFragPos;
+out VS_OUT
+{
+    vec3 fragment_pos;
+    vec2 texcoord;
+    vec3 tangent_light_pos;
+    vec3 tangent_view_pos;
+    vec3 tangent_fragment_pos;
 } vs_out;
 
 uniform mat4 projection;
@@ -22,19 +23,19 @@ uniform vec3 view_position;
 
 void main()
 {
-    vs_out.FragPos = vec3(model * vec4(vertex_position, 1.0));   
-    vs_out.TexCoords = vertex_texcoord;
+    vs_out.fragment_pos = vec3(model * vec4(vertex_position, 1.0));   
+    vs_out.texcoord = vertex_texcoord;
     
-    mat3 normalMatrix = transpose(inverse(mat3(model)));
-    vec3 T = normalize(normalMatrix * vertex_tangent);
-    vec3 N = normalize(normalMatrix * vertex_normal);
-    T = normalize(T - dot(T, N) * N);
-    vec3 B = cross(N, T);
+    mat3 normal_matrix = transpose(inverse(mat3(model)));
+    vec3 tangent = normalize(normal_matrix * vertex_tangent);
+    vec3 normal = normalize(normal_matrix * vertex_normal);
+    tangent = normalize(tangent - dot(tangent, normal) * normal);
+    vec3 B = cross(normal, tangent);
     
-    mat3 TBN = transpose(mat3(T, B, N));    
-    vs_out.TangentLightPos = TBN * light_pos;
-    vs_out.TangentViewPos  = TBN * view_position;
-    vs_out.TangentFragPos  = TBN * vs_out.FragPos;
+    mat3 tbn_matrix = transpose(mat3(tangent, B, normal));    
+    vs_out.tangent_light_pos = tbn_matrix * light_pos;
+    vs_out.tangent_view_pos  = tbn_matrix * view_position;
+    vs_out.tangent_fragment_pos  = tbn_matrix * vs_out.fragment_pos;
         
     gl_Position = projection * view * model * vec4(vertex_position, 1.0);
 }

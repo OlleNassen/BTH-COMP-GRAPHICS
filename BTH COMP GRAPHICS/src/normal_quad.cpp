@@ -106,8 +106,8 @@ void normal_quad::render_current(const shader& shader,
     const glm::mat4& world_transform) const
 {
 	shader.uniform("model", world_transform);
-	quad_texture->uniform(shader, "diffuseMap", 0);
-	quad_normal->uniform(shader, "normalMap", 1);
+	quad_texture->uniform(shader, "diffuse_map", 0);
+	quad_normal->uniform(shader, "normal_map", 1);
 	quad_array.bind();
 	glDrawArrays(GL_TRIANGLES, 0, 6);
 	glBindVertexArray(0);
