@@ -82,8 +82,6 @@ game::game()
             sphere(terrain.calculate_camera_position(v, 2.5f), 2.5f);
     }
 
-	root = new skeletal_node;
-	root->add_child(new cube_robot);
 }
 
 void game::run()
@@ -126,34 +124,7 @@ void game::render()
 	scene.render(basic_shader);
 	quad.render(basic_shader);
 
-	for (auto i = root->get_child_iterator_start(); i < root->get_child_iterator_end(); ++i)
-	{
-		//Should be nothing on this level
-		//(*i)->draw(basic_shader);
-		for (auto k = (*i)->get_child_iterator_start(); k < (*i)->get_child_iterator_end(); ++k)
-		{
-			glm::mat4 scale = glm::mat4(1.f);
-			scale[0][0] = (*k)->get_model_scale().x;
-			scale[1][1] = (*k)->get_model_scale().y;
-			scale[2][2] = (*k)->get_model_scale().z;
-			glm::mat4 model_matrix = (*k)->get_world_transform() * scale;
 
-			basic_shader.uniform("model", model_matrix);
-			(*k)->draw(basic_shader);
-
-			for (auto lol = (*k)->get_child_iterator_start(); lol < (*k)->get_child_iterator_end(); ++lol)
-			{
-				glm::mat4 scale = glm::mat4(1.f);
-				scale[0][0] = (*lol)->get_model_scale().x;
-				scale[1][1] = (*lol)->get_model_scale().y;
-				scale[2][2] = (*lol)->get_model_scale().z;
-				glm::mat4 model_matrix = (*lol)->get_world_transform() * scale;
-
-				basic_shader.uniform("model", model_matrix);
-				(*lol)->draw(basic_shader);
-			}
-		}
-	}
 
 
 	//Backface culling
@@ -219,8 +190,6 @@ void game::update(std::chrono::milliseconds delta_time)
 {
 	glm::vec3 cam_pos = game_camera.get_pos();
 	scene.sort(cam_pos);
-
-	root->update(0.016f);
 
 	for (auto& ico : icos)
 	{

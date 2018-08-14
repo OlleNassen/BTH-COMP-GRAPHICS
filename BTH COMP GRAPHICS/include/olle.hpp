@@ -1,5 +1,5 @@
-#ifndef SKELETAL_HPP
-#define SKELETAL_HPP
+#ifndef OLLE_HPP
+#define OLLE_HPP
 #include <array>
 #include "buffer.hpp"
 #include "node.hpp"
@@ -10,16 +10,48 @@
 #include "box.hpp"
 #include "shader.hpp"
 #include "mesh.hpp"
-#include <assimp/Importer.hpp>
-#include <assimp/Scene.h>
-#include <assimp/postprocess.h>
 #include <iostream>
-#include "md5_import.hpp"
 
-class skeletal_node
+/*
+//TEMP RENDER:
+for (auto i = root->get_child_iterator_start(); i < root->get_child_iterator_end(); ++i)
+{
+//Should be nothing on this level
+//(*i)->draw(basic_shader);
+for (auto k = (*i)->get_child_iterator_start(); k < (*i)->get_child_iterator_end(); ++k)
+{
+glm::mat4 scale = glm::mat4(1.f);
+scale[0][0] = (*k)->get_model_scale().x;
+scale[1][1] = (*k)->get_model_scale().y;
+scale[2][2] = (*k)->get_model_scale().z;
+glm::mat4 model_matrix = (*k)->get_world_transform() * scale;
+
+basic_shader.uniform("model", model_matrix);
+(*k)->draw(basic_shader);
+
+for (auto lol = (*k)->get_child_iterator_start(); lol < (*k)->get_child_iterator_end(); ++lol)
+{
+glm::mat4 scale = glm::mat4(1.f);
+scale[0][0] = (*lol)->get_model_scale().x;
+scale[1][1] = (*lol)->get_model_scale().y;
+scale[2][2] = (*lol)->get_model_scale().z;
+glm::mat4 model_matrix = (*lol)->get_world_transform() * scale;
+
+basic_shader.uniform("model", model_matrix);
+(*lol)->draw(basic_shader);
+}
+}
+}
+
+//TEMP UPDATE:
+root->update(0.016f);
+
+*/
+
+class Node
 {
 public:
-	skeletal_node(mesh* mesh_ptr = nullptr, glm::vec4 color = glm::vec4(1,1,0,1))
+	Node(mesh* mesh_ptr = nullptr, glm::vec4 color = glm::vec4(1,1,0,1))
 	{
 		this->mesh_ptr = mesh_ptr;
 		parent = nullptr;
@@ -29,7 +61,7 @@ public:
 		model_scale = glm::vec4(1.f);
 		color = glm::vec4(1.f);
 	}
-	virtual ~skeletal_node()
+	virtual ~Node()
 	{
 		for (auto i = 0u; i < children.size(); i++)
 			delete children[i];
@@ -49,7 +81,7 @@ public:
 	void set_mesh(mesh* ptr){mesh_ptr = ptr;}
 	mesh* get_mesh()const{return mesh_ptr;}
 
-	void add_child(skeletal_node* child)
+	void add_child(Node* child)
 	{
 		child->parent = this;
 		children.emplace_back(child);
@@ -80,40 +112,40 @@ public:
 		}
 	}
 
-	std::vector <skeletal_node*>::const_iterator  get_child_iterator_start()
+	std::vector <Node*>::const_iterator  get_child_iterator_start()
 	{
 		return  children.begin();
 	}
-	std::vector <skeletal_node*>::const_iterator  get_child_iterator_end()
+	std::vector <Node*>::const_iterator  get_child_iterator_end()
 	{
 		return  children.end();
 	}
 
 protected:
-	skeletal_node* parent;
+	Node* parent;
 	mesh* mesh_ptr;
 	glm::mat4 world_transform;
 	glm::mat4 transform;
 	glm::vec3 model_scale;
 	glm::vec4 color;
-	std::vector<skeletal_node*> children;
+	std::vector<Node*> children;
 };
 
-class cube_robot : public skeletal_node
+class cube_robot : public Node
 {
 protected:
 	mesh* cube;
-	skeletal_node* body;
-	skeletal_node* head;
-	skeletal_node* left_arm;
-	skeletal_node* right_arm;
+	Node* body;
+	Node* head;
+	Node* left_arm;
+	Node* right_arm;
 public:
 	cube_robot()
 	{
 		create_cube();
 		set_mesh(cube);
 		//BODY
-		body = new skeletal_node(cube, glm::vec4(1, 0, 0, 1));    //Red!
+		body = new Node(cube, glm::vec4(1, 0, 0, 1));    //Red!
 		body->set_model_scale(glm::vec3(10, 15, 5));
 		glm::mat4 tran(1.f);
 		//Transform
@@ -125,7 +157,7 @@ public:
 		add_child(body);
 
 		//HEAD
-		head = new skeletal_node(cube, glm::vec4(0, 1, 0, 1));    //Green!
+		head = new Node(cube, glm::vec4(0, 1, 0, 1));    //Green!
 		head->set_model_scale(glm::vec3(5, 5, 5));
 		glm::mat4 tran1(1.f);
 		tran1[3][0] = 0.f;
@@ -136,7 +168,7 @@ public:
 		body->add_child(head);
 
 		//LEFT ARM
-		left_arm = new skeletal_node(cube, glm::vec4(0, 0, 1, 1));    //Blue!
+		left_arm = new Node(cube, glm::vec4(0, 0, 1, 1));    //Blue!
 		left_arm->set_model_scale(glm::vec3(3, -18, 3));
 		glm::mat4 tran2(1.f);
 		tran2[3][0] = -12.f;
@@ -147,7 +179,7 @@ public:
 		body->add_child(left_arm);
 
 		//RIGHT ARM
-		right_arm = new skeletal_node(cube, glm::vec4(0, 0, 1, 1));    //Blue!
+		right_arm = new Node(cube, glm::vec4(0, 0, 1, 1));    //Blue!
 		right_arm->set_model_scale(glm::vec3(3, -18, 3));
 		glm::mat4 tran3(1.f);
 		tran3[3][0] = 12.f;
@@ -158,7 +190,7 @@ public:
 		body->add_child(right_arm);
 
 		//LEFT LEG
-		skeletal_node* left_leg = new skeletal_node(cube, glm::vec4(0, 1, 1, 1));    //Red!
+		Node* left_leg = new Node(cube, glm::vec4(0, 1, 1, 1));    //Red!
 		left_leg->set_model_scale(glm::vec3(3, 17.5, 3));
 		glm::mat4 tran4(1.f);
 		tran4[3][0] = -8.f;
@@ -169,7 +201,7 @@ public:
 		body->add_child(left_leg);
 
 		//RIGHT LEG
-		skeletal_node* right_leg = new skeletal_node(cube, glm::vec4(0, 1, 1, 1));    //Red!
+		Node* right_leg = new Node(cube, glm::vec4(0, 1, 1, 1));    //Red!
 		right_leg->set_model_scale(glm::vec3(3, 17.5, 3));
 		glm::mat4 tran5(1.f);
 		tran5[3][0] = 8.f;
@@ -253,58 +285,8 @@ public:
 			glm::rotate(right_arm->get_transform(), delta_time / 10.0f,
 				glm::vec3(1.f, 0.f, 0.f)));
 
-		skeletal_node::update(delta_time);
+		Node::update(delta_time);
 	}
-};
-
-class md5_node: skeletal_node
-{
-public:
-	md5_node(const md5::MD5FileData &ofType)
-	{
-
-	}
-	~md5_node();
-
-	virtual  void    update(float delta_time) override
-	{
-		//AWAKE???
-		/*
-		if (currentAnim  &&  awake)
-		{
-			frameTime -= delta_time;
-			while (frameTime  < 0)
-			{
-				frameTime += 1000.0f / currentAnim->GetFrameRate();
-				currentAnimFrame =
-					currentAnimFrame++ % (currentAnim->GetNumFrames());
-			}
-			currentAnim->TransformSkeleton(
-				currentSkeleton, currentAnimFrame - 1);
-		}
-		*/
-		skeletal_node::update(delta_time);
-	}
-	virtual  void draw(const shader& shade) override
-	{
-		//MD5Mesh*m = (MD5Mesh *)mesh;
-		//m->SkinVertices(currentSkeleton);
-		//Mesh::Draw();
-	}
-
-	void PlayAnim(std::string  name)    //Play a new  anim!
-	{
-
-	}
-
-protected:
-	//const  md5::MD5FileData&    sourceData;
-	md5::MD5Skeleton            currentSkeleton;
-	md5::MD5Anim*                currentAnim;
-
-	float                    frameTime;
-	unsigned  int           currentAnimFrame; // Current  frame of  animation
-
 };
 
 #endif

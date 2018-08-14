@@ -22,7 +22,6 @@
 #include "icosahedron.hpp"
 #include "race.hpp"
 #include "text.hpp"
-#include "skeletal.hpp"
 #include "particles.hpp"
 
 std::ostream& operator<<(std::ostream& os, const glm::mat4& value);
@@ -80,7 +79,6 @@ private:
 	scene::particles::emitter emitter;
 
 	text temp_text;
-	skeletal_node* root;
 
 	int race_index{0};
     race current_race;
