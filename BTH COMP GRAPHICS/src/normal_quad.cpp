@@ -113,6 +113,14 @@ normal_quad::normal_quad(float x, float y, float z)
         wrap::REPEAT, filter::LINEAR, format::RGB);
 }
 
+normal_quad::~normal_quad()
+{
+	if (quad_texture)
+		delete quad_texture;
+	if (quad_normal)
+		delete quad_normal;
+}
+
 void normal_quad::update_current(milliseconds delta_time,
     const glm::mat4& world_transform, glm::mat4& transform)
 {
