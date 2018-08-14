@@ -35,7 +35,6 @@ class game
 {
 public:
 	game();
-	~game();
 
 	void run();
 

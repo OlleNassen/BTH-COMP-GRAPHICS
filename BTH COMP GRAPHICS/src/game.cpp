@@ -84,10 +84,6 @@ game::game()
     icos.reserve(10 * sizeof(scene::icosahedron));
 }
 
-game::~game()
-{
-}
-
 void game::run()
 {
 	using clock = std::chrono::steady_clock;
