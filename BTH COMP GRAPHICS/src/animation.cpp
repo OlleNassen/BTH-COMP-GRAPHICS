@@ -37,10 +37,6 @@ pose mix(const pose& x, const pose& y, float a)
     };
 }
 
-
-
-
-
 void load_mesh(const aiMesh* mesh, std::vector<vertex>& vertices,
     std::vector<unsigned int>& indices)
 {
@@ -265,9 +261,6 @@ void animation::update_pose(skeleton& joints)
             joints[j.parent].global_transform * j.local_transform;
     }
 }
-
-
-
 
 model::model()
 {

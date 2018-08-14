@@ -134,49 +134,6 @@ public:
         glVertexAttribDivisor(index, divisor);
     }
 
-
-    template <typename Head, typename... Tail>
-    void calculate_stride(int& stride, const Head& head, const Tail&... tail)
-    {
-        if(sizeof...(tail))
-        {
-            stride += head.size;
-            calculate_stride(stride, tail...);
-        }
-    }
-
-    template <typename Head, typename... Tail>
-    void for_each_argument(int i, int stride, int offset,
-        const Head& head, const Tail&... tail)
-    {
-        if(sizeof...(tail))
-        {
-            glEnableVertexAttribArray(i);
-            if(head.type == GL_INT || head.type == GL_UNSIGNED_INT)
-            {
-                glVertexAttribIPointer(i, head.size, head.type,
-                    stride, &offset);
-            }
-            else
-            {
-                glVertexAttribPointer(i, head.size, head.type,
-                    GL_FALSE, stride, &offset);
-            }
-
-            for_each_argument(++i, stride, head.size + offset, tail...);
-        }
-    }
-
-
-    template<typename... Args>
-    void attributes(Args... args)
-    {
-        bind();
-        int stride = 0;
-        calculate_stride(stride, args...);
-        for_each_argument(0,stride,0, args...);
-    }
-
 private:
 	unsigned int id;
 };

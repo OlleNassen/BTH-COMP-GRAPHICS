@@ -79,6 +79,8 @@
 		<Unit filename="shaders/basic.vs" />
 		<Unit filename="shaders/billboard.fs" />
 		<Unit filename="shaders/billboard.vs" />
+		<Unit filename="shaders/environment_mapping.fs" />
+		<Unit filename="shaders/environment_mapping.vs" />
 		<Unit filename="shaders/normal.fs" />
 		<Unit filename="shaders/normal.vs" />
 		<Unit filename="shaders/particle.fs" />
@@ -89,6 +91,13 @@
 		<Unit filename="shaders/skybox.vs" />
 		<Unit filename="shaders/terrain.fs" />
 		<Unit filename="shaders/terrain.vs" />
+		<Unit filename="shaders/tess.cs" />
+		<Unit filename="shaders/tess.es" />
+		<Unit filename="shaders/tess.fs" />
+		<Unit filename="shaders/tess.geo" />
+		<Unit filename="shaders/tess.vs" />
+		<Unit filename="shaders/text.fs" />
+		<Unit filename="shaders/text.vs" />
 		<Unit filename="src/animation.cpp" />
 		<Unit filename="src/box.cpp" />
 		<Unit filename="src/camera.cpp" />
