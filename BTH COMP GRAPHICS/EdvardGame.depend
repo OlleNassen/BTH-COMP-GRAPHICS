@@ -2505,7 +2505,7 @@
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glm\simd\integer.h
 
-1533038091 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\shader.hpp
+1534245943 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\shader.hpp
 	<string>
 	<vector>
 	<array>
@@ -2602,18 +2602,18 @@
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\frame_buffer.hpp
 	"texture.hpp"
 
-1532832126 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\texture.hpp
+1534245899 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\texture.hpp
 	<string>
 	<vector>
 	<GL/glew.h>
 	"shader.hpp"
 
-1534243990 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
+1534247001 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\game.cpp
 	"game.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1534172340 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1534247223 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	<iostream>
 	<chrono>
 	"window.hpp"
@@ -2634,7 +2634,6 @@
 	"icosahedron.hpp"
 	"race.hpp"
 	"text.hpp"
-	"skeletal.hpp"
 	"particles.hpp"
 
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\glfw\glfw3.h
@@ -2820,7 +2819,7 @@
 1530555665 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\assimp\postprocess.h
 	"types.h"
 
-1533038091 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\shader.cpp
+1534245668 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\shader.cpp
 	"shader.hpp"
 	<iostream>
 	<fstream>
@@ -2829,7 +2828,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1532623819 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\texture.cpp
+1534245768 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\texture.cpp
 	"texture.hpp"
 	<iostream>
 	<stb_image.h>
@@ -2860,7 +2859,7 @@
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 
-1533894449 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\window.cpp
+1534245782 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\window.cpp
 	"window.hpp"
 	<iostream>
 	<map>
@@ -2902,7 +2901,7 @@
 	<glm/glm.hpp>
 	"shader.hpp"
 
-1534090889 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
+1534244770 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\box.cpp
 	"box.hpp"
 	<iostream>
 	"objects.hpp"
@@ -2970,7 +2969,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	"objects.hpp"
 
-1533076490 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\normal_quad.cpp
+1534245507 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\normal_quad.cpp
 	"normal_quad.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
@@ -2990,7 +2989,7 @@
 	"buffer.hpp"
 	"texture.hpp"
 
-1533076503 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particle_emitter.cpp
+1534245576 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\particle_emitter.cpp
 	"particle_emitter.hpp"
 	<glm/gtc/matrix_transform.hpp>
 	<ctime>
@@ -3121,7 +3120,7 @@
 	<array>
 	<glm/glm.hpp>
 
-1532532117 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\race.cpp
+1534245601 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\race.cpp
 	"race.hpp"
 
 1533734550 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\scene_loader.cpp
@@ -3156,7 +3155,7 @@
 
 1532513745 c:\users\deadvard\bth-comp-graphics\bth comp graphics\external\include\freetype\config\ftheader.h
 
-1533077135 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\text.cpp
+1534245730 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\text.cpp
 	"text.hpp"
 	<iostream>
 	<gl/glew.h>
