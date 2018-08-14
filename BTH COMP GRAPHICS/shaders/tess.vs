@@ -1,9 +1,10 @@
 #version 430
 
-in vec4 Position;
-out vec3 vPosition;
+in vec4 vertex_position;
+
+out vec3 position;
 
 void main()
 {
-    vPosition = Position.xyz;
+    position = vertex_position.xyz;
 }

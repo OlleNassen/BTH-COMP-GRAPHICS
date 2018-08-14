@@ -1,10 +1,11 @@
 #version 430
 
-out vec4 FragColor;
-in vec3 gFacetNormal;
-in vec3 gTriDistance;
-in vec3 gPatchDistance;
-in float gPrimitive;
+in vec3 geo_face_normal;
+in vec3 geo_patch_distance;
+in vec3 geo_tri_distance;
+
+out vec4 frag_color;
+
 uniform vec3 LightPosition;
 uniform vec3 DiffuseMaterial;
 uniform vec3 AmbientMaterial;
@@ -22,14 +23,14 @@ float amplify(float d, float scale, float offset)
 void main()
 {
 	/*
-    vec3 N = normalize(gFacetNormal);
+    vec3 N = normalize(geo_face_normal);
     vec3 L = LightPosition;
     float df = abs(dot(N, L));
     vec3 color = AmbientMaterial + df * DiffuseMaterial;
 
-    float d1 = min(min(gTriDistance.x, gTriDistance.y), gTriDistance.z);
-    float d2 = min(min(gPatchDistance.x, gPatchDistance.y), gPatchDistance.z);
+    float d1 = min(min(geo_tri_distance.x, geo_tri_distance.y), geo_tri_distance.z);
+    float d2 = min(min(geo_patch_distance.x, geo_patch_distance.y), geo_patch_distance.z);
     color = amplify(d1, 40, -0.5) * amplify(d2, 60, -0.5) * color;
 	*/
-    FragColor = vec4(color, 1.0);
+    frag_color = vec4(color, 1.0);
 }
