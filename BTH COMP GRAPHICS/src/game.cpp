@@ -124,9 +124,6 @@ void game::render()
 	scene.render(basic_shader);
 	quad.render(basic_shader);
 
-
-
-
 	//Backface culling
 	backface_shader.use();
 	game_camera.bind(backface_shader);
