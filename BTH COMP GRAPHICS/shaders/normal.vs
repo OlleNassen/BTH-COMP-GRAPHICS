@@ -30,8 +30,9 @@ void main()
     vec3 tangent = normalize(normal_matrix * vertex_tangent);
     vec3 normal = normalize(normal_matrix * vertex_normal);
     tangent = normalize(tangent - dot(tangent, normal) * normal);
+    vec3 B = cross(normal, tangent);
     
-    mat3 tbn_matrix = transpose(mat3(tangent, vertex_bi_tangent, normal));    
+    mat3 tbn_matrix = transpose(mat3(tangent, B, normal));    
     vs_out.tangent_light_pos = tbn_matrix * light_pos;
     vs_out.tangent_view_pos  = tbn_matrix * view_position;
     vs_out.tangent_fragment_pos  = tbn_matrix * vs_out.fragment_pos;
