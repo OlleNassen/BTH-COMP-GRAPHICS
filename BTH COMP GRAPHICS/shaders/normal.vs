@@ -3,7 +3,6 @@ layout (location = 0) in vec3 vertex_position;
 layout (location = 1) in vec3 vertex_normal;
 layout (location = 2) in vec2 vertex_texcoord;
 layout (location = 3) in vec3 vertex_tangent;
-layout (location = 4) in vec3 vertex_bi_tangent;
 
 out VS_OUT
 {
@@ -29,11 +28,10 @@ void main()
     mat3 normal_matrix = transpose(inverse(mat3(model)));
     vec3 tangent = normalize(normal_matrix * vertex_tangent);
     vec3 normal = normalize(normal_matrix * vertex_normal);
-
     tangent = normalize(tangent - dot(tangent, normal) * normal);
-	vec3 B = cross(normal, tangent);
+	vec3 bitangent = cross(normal, tangent);
 
-    mat3 tbn_matrix = transpose(mat3(tangent, B, normal));
+    mat3 tbn_matrix = transpose(mat3(tangent, bitangent, normal));
     vs_out.tangent_light_pos = tbn_matrix * light_pos;
     vs_out.tangent_view_pos  = tbn_matrix * view_position;
     vs_out.tangent_fragment_pos  = tbn_matrix * vs_out.fragment_pos;
