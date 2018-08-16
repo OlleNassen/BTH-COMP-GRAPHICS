@@ -2613,7 +2613,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1534247223 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
+1534425427 c:\users\deadvard\bth-comp-graphics\bth comp graphics\include\game.hpp
 	<iostream>
 	<chrono>
 	"window.hpp"
@@ -2969,7 +2969,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	"objects.hpp"
 
-1534245507 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\normal_quad.cpp
+1534247733 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\normal_quad.cpp
 	"normal_quad.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>

@@ -51,9 +51,9 @@ private:
         "shaders/environment_mapping.fs"};
 	shader text_shader{"shaders/text.vs", "shaders/text.fs"};
 	shader tess_shader{"shaders/tess.vs", "shaders/tess.cs",
-        "shaders/tess.es", "shaders/tess.geo", "shaders/tess.fs"};
+        "shaders/tess.es", "shaders/tess.gs", "shaders/tess.fs"};
 	shader backface_shader{ "shaders/backface.vs",
-        "shaders/backface.geo", "shaders/backface.fs" };
+        "shaders/backface.gs", "shaders/backface.fs" };
 	shader p{ "shaders/particle.vs", "shaders/particle.fs" };
 
 
