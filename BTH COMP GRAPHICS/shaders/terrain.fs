@@ -21,13 +21,13 @@ void main()
 
     if (slope < 0.2)
     {
-        blend = slope / 0.2f;
+        blend = slope / 0.2;
         fragment_color = mix(color1, color2, blend);
     }
 
-    if (slope < 0.7 && slope >= 0.2f)
+    if (slope < 0.7 && slope >= 0.2)
     {
-        blend = (slope - 0.2f) * (1.0f / (0.7f - 0.2f));
+        blend = (slope - 0.2f) * (1.0 / (0.7 - 0.2));
         fragment_color = mix(color2, color3, blend);
     }
 
