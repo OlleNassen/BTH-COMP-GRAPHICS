@@ -23,8 +23,8 @@ normal_quad::normal_quad(float x, float y, float z)
 	glm::vec3 nm(0.0f, 0.0f, 1.0f);
 
 	// calculate tangent/bitangent vectors of both triangles
-	glm::vec3 tangent1, bitangent1;
-	glm::vec3 tangent2, bitangent2;
+	glm::vec3 tangent1;
+	glm::vec3 tangent2;
 	// triangle 1
 	// ----------
 	auto edge1 = pos2 - pos1;
@@ -39,11 +39,6 @@ normal_quad::normal_quad(float x, float y, float z)
 	tangent1.z = f * (deltaUV2.y * edge1.z - deltaUV1.y * edge2.z);
 	tangent1 = glm::normalize(tangent1);
 
-	bitangent1.x = f * (-deltaUV2.x * edge1.x + deltaUV1.x * edge2.x);
-	bitangent1.y = f * (-deltaUV2.x * edge1.y + deltaUV1.x * edge2.y);
-	bitangent1.z = f * (-deltaUV2.x * edge1.z + deltaUV1.x * edge2.z);
-	bitangent1 = glm::normalize(bitangent1);
-
 	// triangle 2
 	// ----------
 	edge1 = pos3 - pos1;
@@ -57,13 +52,6 @@ normal_quad::normal_quad(float x, float y, float z)
 	tangent2.y = f * (deltaUV2.y * edge1.y - deltaUV1.y * edge2.y);
 	tangent2.z = f * (deltaUV2.y * edge1.z - deltaUV1.y * edge2.z);
 	tangent2 = glm::normalize(tangent2);
-
-
-	bitangent2.x = f * (-deltaUV2.x * edge1.x + deltaUV1.x * edge2.x);
-	bitangent2.y = f * (-deltaUV2.x * edge1.y + deltaUV1.x * edge2.y);
-	bitangent2.z = f * (-deltaUV2.x * edge1.z + deltaUV1.x * edge2.z);
-	bitangent2 = glm::normalize(bitangent2);
-
 
 	float quad_vertices[] = {
 		// positions  // normal // texcoords  // tangent
