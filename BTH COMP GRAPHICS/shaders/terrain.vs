@@ -13,7 +13,7 @@ uniform mat4 projection;
 
 void main()
 {
-    normal = inverse(mat3(model)) * vertex_normal;
+    normal = transpose(inverse(mat3(model))) * vertex_normal;
     texture = vertex_texture;
 	gl_Position = projection * view * model * vec4(vertex_position, 1.0);
 }
