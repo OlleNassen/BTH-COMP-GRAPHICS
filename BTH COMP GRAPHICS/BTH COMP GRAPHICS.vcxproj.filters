@@ -191,10 +191,8 @@
     <None Include="shaders\tess.vs" />
     <None Include="shaders\tess.es" />
     <None Include="shaders\tess.fs" />
-    <None Include="shaders\tess.geo" />
     <None Include="shaders\text.vs" />
     <None Include="shaders\text.fs" />
-    <None Include="shaders\backface.geo" />
     <None Include="shaders\backface.vs" />
     <None Include="shaders\backface.fs" />
   </ItemGroup>

@@ -202,7 +202,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\backface.fs" />
-    <None Include="shaders\backface.geo" />
     <None Include="shaders\backface.vs" />
     <None Include="shaders\billboard.fs" />
     <None Include="shaders\billboard.vs" />
@@ -219,7 +218,6 @@
     <None Include="shaders\tess.cs" />
     <None Include="shaders\tess.es" />
     <None Include="shaders\tess.fs" />
-    <None Include="shaders\tess.geo" />
     <None Include="shaders\tess.vs" />
     <None Include="shaders\text.fs" />
     <None Include="shaders\text.vs" />
