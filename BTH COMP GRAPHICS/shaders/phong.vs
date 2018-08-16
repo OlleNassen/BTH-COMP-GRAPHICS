@@ -14,7 +14,7 @@ void main()
 {
 	gl_Position = projection * view * model * vec4(vertex_position, 1);
 
-	normal = mat3(transpose(inverse(model)))
+	normal = transpose(inverse(mat3(model)))
         * vertex_normal; // Normal matrix * normal (worldspace fix)
 	fragment_pos = vec3(model * vec4(vertex_position, 1));
 }
