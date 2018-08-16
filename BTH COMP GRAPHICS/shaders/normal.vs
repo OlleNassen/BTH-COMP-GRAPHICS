@@ -23,19 +23,20 @@ uniform vec3 view_position;
 
 void main()
 {
-    vs_out.fragment_pos = vec3(model * vec4(vertex_position, 1.0));   
+    vs_out.fragment_pos = vec3(model * vec4(vertex_position, 1.0));
     vs_out.texcoord = vertex_texcoord;
-    
+
     mat3 normal_matrix = transpose(inverse(mat3(model)));
+    vec3 bitangent = normalize(normal_matrix * vertex_bi_tangent);
     vec3 tangent = normalize(normal_matrix * vertex_tangent);
     vec3 normal = normalize(normal_matrix * vertex_normal);
+
     tangent = normalize(tangent - dot(tangent, normal) * normal);
-    vec3 B = cross(normal, tangent);
-    
-    mat3 tbn_matrix = transpose(mat3(tangent, B, normal));    
+
+    mat3 tbn_matrix = transpose(mat3(tangent, bitangent, normal));
     vs_out.tangent_light_pos = tbn_matrix * light_pos;
     vs_out.tangent_view_pos  = tbn_matrix * view_position;
     vs_out.tangent_fragment_pos  = tbn_matrix * vs_out.fragment_pos;
-        
+
     gl_Position = projection * view * model * vec4(vertex_position, 1.0);
 }

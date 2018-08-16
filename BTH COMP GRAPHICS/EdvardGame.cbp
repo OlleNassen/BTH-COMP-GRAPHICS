@@ -72,7 +72,7 @@
 		<Unit filename="shaders/anim.fs" />
 		<Unit filename="shaders/anim.vs" />
 		<Unit filename="shaders/backface.fs" />
-		<Unit filename="shaders/backface.geo" />
+		<Unit filename="shaders/backface.gs" />
 		<Unit filename="shaders/backface.vs" />
 		<Unit filename="shaders/basic.fs" />
 		<Unit filename="shaders/basic.vs" />
@@ -93,7 +93,7 @@
 		<Unit filename="shaders/tess.cs" />
 		<Unit filename="shaders/tess.es" />
 		<Unit filename="shaders/tess.fs" />
-		<Unit filename="shaders/tess.geo" />
+		<Unit filename="shaders/tess.gs" />
 		<Unit filename="shaders/tess.vs" />
 		<Unit filename="shaders/text.fs" />
 		<Unit filename="shaders/text.vs" />
