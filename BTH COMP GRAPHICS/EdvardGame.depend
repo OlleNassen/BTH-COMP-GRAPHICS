@@ -2969,7 +2969,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	"objects.hpp"
 
-1534247733 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\normal_quad.cpp
+1534431227 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\normal_quad.cpp
 	"normal_quad.hpp"
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
@@ -3093,7 +3093,7 @@
 	"buffer.hpp"
 	"texture.hpp"
 
-1533656003 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\icosahedron.cpp
+1534514932 source:c:\users\deadvard\bth-comp-graphics\bth comp graphics\src\icosahedron.cpp
 	"icosahedron.hpp"
 	<iostream>
 
