@@ -66,13 +66,11 @@ void icosahedron::set_tessellation(float distance)
 	if (distance < 5)
 	{
 		tessellation_level = 4;
-		std::cout << "level 4" << '\n';
 	}
 
 	else if (distance < 10)
 	{
 		tessellation_level = 2;
-		std::cout << "level 2" << '\n';
 	}
 }
 
