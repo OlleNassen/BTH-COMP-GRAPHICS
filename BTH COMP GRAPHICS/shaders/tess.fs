@@ -1,6 +1,5 @@
 #version 430
 
-in vec3 geo_face_normal;
 in vec3 geo_patch_distance;
 in vec3 geo_tri_distance;
 
@@ -20,7 +19,7 @@ void main()
 {
     float d1 = min(min(geo_tri_distance.x, geo_tri_distance.y), geo_tri_distance.z);
     float d2 = min(min(geo_patch_distance.x, geo_patch_distance.y), geo_patch_distance.z);
-    vec3 new_color = amplify(d1, 40, -0.5) * amplify(d2, 60, -0.5) * color;
+    //vec3 new_color = amplify(d1, 40, -0.5) * amplify(d2, 60, -0.5) * color;
 	
-    frag_color = vec4(new_color, 1.0);
+    frag_color = vec4(d1,d1,d1, 1.0);
 }
