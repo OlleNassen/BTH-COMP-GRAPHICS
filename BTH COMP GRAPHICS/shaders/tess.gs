@@ -3,25 +3,16 @@
 layout(triangles) in;
 layout(triangle_strip, max_vertices = 3) out;
 
-in vec3 es_position[3];
 in vec3 patch_distance[3];
 
-out vec3 geo_face_normal;
 out vec3 geo_patch_distance;
 out vec3 geo_tri_distance;
 
 uniform mat4 model;
 uniform mat4 view;
-//uniform mat3 normal_matrix;
 
 void main()
-{
-	mat3 normal_matrix = transpose(inverse(mat3(model)));
-
-    vec3 A = es_position[2] - es_position[0];
-    vec3 B = es_position[1] - es_position[0];
-    geo_face_normal = normal_matrix * normalize(cross(A, B));
-    
+{    
     geo_patch_distance = patch_distance[0];
     geo_tri_distance = vec3(1, 0, 0);
     gl_Position = gl_in[0].gl_Position;
