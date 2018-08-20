@@ -16,10 +16,7 @@ uniform mat4 view;
 
 void main()
 {
-	mat4 model_view = view * model;
-	mat3 normal_matrix = mat3(model_view[0][0], model_view[1][0], model_view[2][0],
-							model_view[0][1], model_view[1][1], model_view[2][1],
-							model_view[0][2], model_view[1][2], model_view[2][2]);
+	mat3 normal_matrix = transpose(inverse(mat3(model)));
 
     vec3 A = es_position[2] - es_position[0];
     vec3 B = es_position[1] - es_position[0];
