@@ -84,7 +84,8 @@ void icosahedron::render_current(const shader& shader,
 {
 	shader.uniform("model", world_transform);
 	shader.uniform("color", temp_color);
-	shader.uniform("tessellation", tessellation_level);
+	shader.uniform("inner_level", tessellation_level);
+	shader.uniform("outer_level", tessellation_level * 2);
 	v_array.bind();
 	glDrawElements(GL_PATCHES, index_count, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
