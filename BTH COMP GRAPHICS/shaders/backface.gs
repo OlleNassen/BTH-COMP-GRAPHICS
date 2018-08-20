@@ -8,12 +8,6 @@ uniform mat4 view;
 uniform mat4 projection;
 
 in vec4 position[];
-in vec3 normal[];
-in vec2 texture_coordinate[];
-
-out vec3 fragment_pos;
-out vec3 norm;
-out vec2 texture_coord;
 
 void main()
 {
@@ -26,9 +20,6 @@ void main()
 	{
 		for(int i = 0;i < 3;i++)
 	    {
-			texture_coord = texture_coordinate[i];
-			norm = normal[i];
-			fragment_pos = position[i].xyz;
 			gl_Position = projection * position[i];
 			EmitVertex();
 	    }
