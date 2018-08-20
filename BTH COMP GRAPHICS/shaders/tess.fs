@@ -6,10 +6,6 @@ in vec3 geo_tri_distance;
 
 out vec4 frag_color;
 
-uniform vec3 LightPosition;
-uniform vec3 DiffuseMaterial;
-uniform vec3 AmbientMaterial;
-
 uniform vec3 color;
 
 float amplify(float d, float scale, float offset)
