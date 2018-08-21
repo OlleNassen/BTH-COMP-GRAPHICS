@@ -71,19 +71,16 @@ shader::shader(const std::string& vertex_path,
 shader::shader(const std::string & vertex_path,
     const std::string & tess_control,
     const std::string & tess_eval,
-    const std::string & geo_path,
     const std::string & fragment_path)
 {
 	std::string vertex_code(load(vertex_path));
 	std::string control_code(load(tess_control));
 	std::string eval_code(load(tess_eval));
-	std::string geo_code(load(geo_path));
 	std::string fragment_code(load(fragment_path));
 
 	auto vertex_shader = create(GL_VERTEX_SHADER, vertex_code.c_str());
 	auto control_shader = create(GL_TESS_CONTROL_SHADER, control_code.c_str());
 	auto eval_shader = create(GL_TESS_EVALUATION_SHADER, eval_code.c_str());
-	auto geo_shader = create(GL_GEOMETRY_SHADER, geo_code.c_str());
 	auto fragment_shader = create(GL_FRAGMENT_SHADER, fragment_code.c_str());
 
 	auto success = 0;
@@ -93,7 +90,6 @@ shader::shader(const std::string & vertex_path,
 	glAttachShader(id, vertex_shader);
 	glAttachShader(id, control_shader);
 	glAttachShader(id, eval_shader);
-	glAttachShader(id, geo_shader);
 	glAttachShader(id, fragment_shader);
 	glLinkProgram(id);
 	// print linking errors if any
@@ -109,7 +105,6 @@ shader::shader(const std::string & vertex_path,
 	glDeleteShader(vertex_shader);
 	glDeleteShader(control_shader);
 	glDeleteShader(eval_shader);
-	glDeleteShader(geo_shader);
 	glDeleteShader(fragment_shader);
 }
 
